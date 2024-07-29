@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private CursorIndicator indicator;
     [SerializeField] private LayerMask layerMove;
     [SerializeField] private LayerMask layerUseLook;
     [SerializeField] private LayerMask layerInsideHouse;
@@ -58,7 +57,6 @@ public class PlayerController : MonoBehaviour
         camera = FindFirstObjectByType<Camera>();
         animationPlayer = GetComponentInChildren<AnimationPlayer>();
         HUDController.instance.SetStateButtons(actionState);
-        indicator.SetVibility(true);
         layer = layerMove;
         currentPath = new NavMeshPath();
     }
@@ -66,17 +64,6 @@ public class PlayerController : MonoBehaviour
     private void SetMousePosition(InputAction.CallbackContext ctx)
     {
         mousePosition = ctx.ReadValue<Vector2>();
-        Ray ray = camera.ScreenPointToRay(mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 1000f, layer))
-        {
-            indicator.SetPosition(RoundPosition(hit.point));
-            NavMeshHit navMeshHit;
-            if (NavMesh.SamplePosition(indicator.transform.position, out navMeshHit, 0.5f, NavMesh.AllAreas))
-                indicator.SetReachableMaterial();
-            else 
-                indicator.SetUnreachableMaterial();
-        }
     }
 
     private void PlayerAction(InputAction.CallbackContext ctx)
@@ -102,23 +89,30 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public PlayerActionState GetState()
+    {
+        return actionState;
+    }
+
     public void SetState(PlayerActionState newState)
     {
         actionState = newState;
-        indicator.SetVibility(false);
         layer = layerUseLook;
         if(actionState == PlayerActionState.Move)
         {
-            indicator.SetVibility(true);
             layer = layerMove;
         }
+    }
+
+    public Vector2 GetMousePosition()
+    {
+        return mousePosition;
     }
 
     private void ChangeActionState(InputAction.CallbackContext ctx)
     {
         if (mousePosition.x < 0 || mousePosition.x > Screen.width || mousePosition.y < 0 || mousePosition.y > Screen.height)
             return;
-        indicator.SetVibility(false);
         layer = layerUseLook;
         switch(actionState)
         {
@@ -130,29 +124,26 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerActionState.Look:
                 actionState = PlayerActionState.Move;
-                indicator.SetVibility(true);
                 layer = layerMove;
                 break;
         }
         HUDController.instance.SetStateButtons(actionState);
     }
 
-    private Vector3 RoundPosition(Vector3 position)
+    public Vector3 RoundPosition(Vector3 position)
     {
         return new Vector3(Mathf.Round(position.x), position.y, Mathf.Round(position.z));
     }
 
     private void MovePlayer(Vector3 point)
     {
-        indicator.SetPosition(RoundPosition(point));
-
         NavMeshHit navMeshHit;
-        if (!NavMesh.SamplePosition(indicator.transform.position, out navMeshHit, 0.5f, NavMesh.AllAreas))
+        if (!NavMesh.SamplePosition(RoundPosition(point), out navMeshHit, 0.5f, NavMesh.AllAreas))
             return;
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         agent.isStopped = false;
-        moveTarget = indicator.transform.position;
+        moveTarget = RoundPosition(point);
         currentCoroutine = StartCoroutine(MoveTask());
     }
 

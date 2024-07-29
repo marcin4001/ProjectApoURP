@@ -1977,6 +1977,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690402641}
   m_CullTransparentMesh: 1
+--- !u!1 &811773398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811773400}
+  - component: {fileID: 811773399}
+  m_Layer: 0
+  m_Name: CursorController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &811773399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811773398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6455eb635cbbd8449afa058aeeb2e053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reachableCursor: {fileID: 2800000, guid: cad3c394cfe04ce4384556d1311ccf8a, type: 3}
+  unreachableCursor: {fileID: 2800000, guid: 7db9f7269f5af0141adc1a90b2226278, type: 3}
+  useCursor: {fileID: 2800000, guid: a77cc177df1dd9248a52cd56234c3e09, type: 3}
+  lookCursor: {fileID: 2800000, guid: 73b3705dd17461e4fa8959d345faa012, type: 3}
+  layer:
+    serializedVersion: 2
+    m_Bits: 1
+  hotspot: {x: 1, y: 1}
+--- !u!4 &811773400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811773398}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.7021055, y: 41.646023, z: 15.95211}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &843152227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,7 +3122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1115793409
 Transform:
   m_ObjectHideFlags: 0
@@ -3275,7 +3327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7496b76b733a524bb894b5f65a27dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indicator: {fileID: 1115793410}
   layerMove:
     serializedVersion: 2
     m_Bits: 1
@@ -8830,3 +8881,4 @@ SceneRoots:
   - {fileID: 1999128139}
   - {fileID: 1155336899}
   - {fileID: 394385334}
+  - {fileID: 811773400}
