@@ -137,13 +137,16 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer(Vector3 point)
     {
+        float distanceToPlayer = Vector3.Distance(transform.position, point);
+        if (distanceToPlayer < 0.5f)
+            return;
         NavMeshHit navMeshHit;
-        if (!NavMesh.SamplePosition(RoundPosition(point), out navMeshHit, 0.5f, NavMesh.AllAreas))
+        if (!NavMesh.SamplePosition(point, out navMeshHit, 0.5f, NavMesh.AllAreas))
             return;
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         agent.isStopped = false;
-        moveTarget = RoundPosition(point);
+        moveTarget = point;
         currentCoroutine = StartCoroutine(MoveTask());
     }
 

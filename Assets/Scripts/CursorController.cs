@@ -2,16 +2,21 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CursorController : MonoBehaviour
 {
+    [SerializeField] private Texture2D defaultCursor;
     [SerializeField] private Texture2D reachableCursor;
     [SerializeField] private Texture2D unreachableCursor;
     [SerializeField] private Texture2D useCursor;
     [SerializeField] private Texture2D lookCursor;
     [SerializeField] private LayerMask layer;
-    [SerializeField] private Vector2 hotspot;
+    [SerializeField] private RectTransform canvas;
+    [SerializeField] private RawImage cursorImage;
+    [SerializeField] private float scaleFactorSmallRes = 0.75f;
+    private RectTransform cursorRect;
     private PlayerController player;
     private Camera cam;
     private MainInputSystem mainInputSystem;
@@ -30,6 +35,8 @@ public class CursorController : MonoBehaviour
     {
         player = FindFirstObjectByType<PlayerController>();
         cam = FindFirstObjectByType<Camera>();
+        cursorRect = cursorImage.GetComponent<RectTransform>();
+        Cursor.visible = false;
     }
 
     private void OnEnable()
@@ -50,27 +57,49 @@ public class CursorController : MonoBehaviour
 
     public void UpdateCursor(InputAction.CallbackContext ctx)
     {
+        mousePosition = player.GetMousePosition();
+        MoveCursor();
+        SetScaleCursor();
         StartCoroutine(UpdateCursor());
     }
 
     private IEnumerator UpdateCursor()
     {
         yield return new WaitForEndOfFrame();
-        mousePosition = player.GetMousePosition();
 
-        PlayerActionState state = player.GetState();
-        switch (state)
+        if (HUDController.instance.PointerOnHUD())
         {
-            case PlayerActionState.Move:
-                SetMoveCursor();
-                break;
-            case PlayerActionState.Use:
-                SetUseCursor();
-                break;
-            case PlayerActionState.Look:
-                SetLookCursor();
-                break;
+            cursorImage.texture = defaultCursor;
         }
+        else
+        {
+            PlayerActionState state = player.GetState();
+            switch (state)
+            {
+                case PlayerActionState.Move:
+                    SetMoveCursor();
+                    break;
+                case PlayerActionState.Use:
+                    SetUseCursor();
+                    break;
+                case PlayerActionState.Look:
+                    SetLookCursor();
+                    break;
+            }
+        }
+    }
+
+    private void MoveCursor()
+    {
+        cursorRect.position = mousePosition;
+    }
+
+    private void SetScaleCursor()
+    {
+        if(Screen.width > 1280)
+            cursorRect.localScale = Vector3.one;
+        else
+            cursorRect.localScale = Vector3.one * scaleFactorSmallRes;
     }
 
     public void SetMoveCursor()
@@ -79,23 +108,23 @@ public class CursorController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 1000f, layer))
         {
-            Vector3 position = player.RoundPosition(hit.point);
+            Vector3 position = hit.point;
             NavMeshHit navMeshHit;
             if (NavMesh.SamplePosition(position, out navMeshHit, 0.5f, NavMesh.AllAreas))
-                Cursor.SetCursor(reachableCursor, hotspot, CursorMode.Auto);
+                cursorImage.texture = reachableCursor;
             else
-                Cursor.SetCursor(unreachableCursor, hotspot, CursorMode.Auto);
+                cursorImage.texture = unreachableCursor;
                 
         }
     }
 
     public void SetUseCursor()
     {
-        Cursor.SetCursor(useCursor, hotspot, CursorMode.Auto);
+        cursorImage.texture = useCursor;
     }
 
     public void SetLookCursor()
     {
-        Cursor.SetCursor(lookCursor, hotspot, CursorMode.Auto);
+        cursorImage.texture = lookCursor;
     }
 }
