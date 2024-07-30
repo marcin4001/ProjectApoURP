@@ -23,7 +23,7 @@ public class StateButton : MonoBehaviour
         selectFrame.enabled = false;
     }
 
-    public void ShoeSelectFrame()
+    public void ShowSelectFrame()
     {
         selectFrame.enabled = true;
     }
