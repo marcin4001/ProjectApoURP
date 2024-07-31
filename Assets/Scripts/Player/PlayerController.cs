@@ -113,6 +113,8 @@ public class PlayerController : MonoBehaviour
     {
         if (mousePosition.x < 0 || mousePosition.x > Screen.width || mousePosition.y < 0 || mousePosition.y > Screen.height)
             return;
+        if (HUDController.instance.PointerOnHUD())
+            return;
         layer = layerUseLook;
         switch(actionState)
         {
