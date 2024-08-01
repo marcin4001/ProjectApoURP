@@ -15,12 +15,22 @@ public class HUDController : MonoBehaviour
     [Header("Bars")]
     [SerializeField] private Image hpBar;
     [SerializeField] private Image radBar;
-    [Header("Hide/Show HUD Buttons")]
+    [Header("HUD Buttons")]
     [SerializeField] private Button hideButton;
     [SerializeField] private Button showButton;
+    [SerializeField] private Button slotButton;
+    [SerializeField] private ButtonRightClick slotChangeStateButton;
+    [SerializeField] private Button leftButton;
+    [SerializeField] private Button rightButton;
     [Header("Console")]
     [SerializeField] private TextMeshProUGUI consoleText;
     [SerializeField] private List<string> consoleLogs = new List<string>();
+    [Header("Slot Panel")]
+    [SerializeField] private SlotState slotState = SlotState.Use;
+    [SerializeField] private TextMeshProUGUI slotStateText;
+    [SerializeField] private Image slotItemImage;
+    [SerializeField] private List<Item> slots = new List<Item>();
+    [SerializeField] private int currentSlotIndex = 0;
     private PlayerController player;
 
     private void Awake()
@@ -32,8 +42,14 @@ public class HUDController : MonoBehaviour
         player = FindFirstObjectByType<PlayerController>();
         showButton.onClick.AddListener(Show);
         hideButton.onClick.AddListener(Hide);
+        slotButton.onClick.AddListener(OnClickSlot);
+        leftButton.onClick.AddListener(OnClickLeftButton);
+        rightButton.onClick.AddListener(OnClickRigtButton);
+        slotChangeStateButton.OnClickRight.AddListener(ChangeStateSlot);
         consoleText.text = string.Empty;
+        slotStateText.text = slotState.ToString();
         Show();
+        SetItemSlot();
     }
 
     public void Show()
@@ -46,6 +62,61 @@ public class HUDController : MonoBehaviour
     {
         background.gameObject.SetActive(false);
         showButton.gameObject.SetActive(true);
+    }
+
+    public void OnClickSlot()
+    {
+        switch(slotState)
+        {
+            case SlotState.Use:
+                player.StartUsingItem();
+                break;
+            case SlotState.Reload:
+                player.ReloadGun();
+                break;
+        }
+    }
+
+    public void ChangeStateSlot()
+    {
+        Item item = GetCurrentItem();
+        if (item is WeaponItem)
+        {
+            WeaponItem weaponItem = (WeaponItem)item;
+            if (weaponItem.type == WeaponType.Melee)
+                return;
+            switch (slotState)
+            {
+                case SlotState.Use:
+                    slotState = SlotState.Reload;
+                    break;
+                case SlotState.Reload:
+                    slotState = SlotState.Use;
+                    break;
+            }
+        slotStateText.text = slotState.ToString();
+        }
+    }
+
+    public void OnClickRigtButton()
+    {
+        currentSlotIndex++;
+        if(currentSlotIndex == slots.Count)
+            currentSlotIndex = 0;
+        SetItemSlot();
+    }
+    
+    public void OnClickLeftButton()
+    {
+        currentSlotIndex--;
+        if(currentSlotIndex < 0)
+            currentSlotIndex = slots.Count - 1;
+        SetItemSlot();
+    }
+
+    public Item GetCurrentItem()
+    {
+        return slots[currentSlotIndex];
     }
 
     public bool PointerOnHUD()
@@ -65,6 +136,8 @@ public class HUDController : MonoBehaviour
         SetStateButtons(state);
     }
 
+    
+
     public void SetStateButtons(PlayerActionState state)
     {
         UnselectAllStateButton();
@@ -80,6 +153,25 @@ public class HUDController : MonoBehaviour
                 lookStateButton.ShowSelectFrame();
                 break;
         }
+    }
+
+    public void SetItemSlot()
+    {
+        Item item = slots[currentSlotIndex];
+        if(item == null)
+        {
+            slotState = SlotState.None;
+            slotItemImage.enabled = false;
+            player.ShowWeapon(null);
+        }
+        else
+        {
+            slotState = SlotState.Use;
+            slotItemImage.enabled = true;
+            slotItemImage.overrideSprite = item.uiSprite;
+            player.ShowWeapon(item);
+        }
+        slotStateText.text = slotState.ToString();
     }
 
     private void UnselectAllStateButton()
@@ -123,4 +215,9 @@ public class HUDController : MonoBehaviour
             consoleText.text += $"{newLog}\n";
         }
     }
+}
+
+public enum SlotState
+{
+    Use, Reload, None
 }

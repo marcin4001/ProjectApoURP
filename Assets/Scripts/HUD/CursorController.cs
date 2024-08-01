@@ -28,6 +28,7 @@ public class CursorController : MonoBehaviour
         mainInputSystem.Player.MousePos.performed += UpdateCursor;
         mainInputSystem.Player.ChangeStateAction.performed += UpdateCursor;
         mainInputSystem.Player.CameraMove.performed += UpdateCursor;
+        mainInputSystem.Player.PlayerAction.performed += UpdateCursor;
         mainInputSystem.Enable();
     }
 
@@ -44,6 +45,7 @@ public class CursorController : MonoBehaviour
         mainInputSystem.Player.ChangeStateAction.performed += UpdateCursor;
         mainInputSystem.Player.MousePos.performed += UpdateCursor;
         mainInputSystem.Player.CameraMove.performed += UpdateCursor;
+        mainInputSystem.Player.PlayerAction.performed += UpdateCursor;
         mainInputSystem.Enable();
     }
 
@@ -52,6 +54,7 @@ public class CursorController : MonoBehaviour
         mainInputSystem.Player.ChangeStateAction.performed -= UpdateCursor;
         mainInputSystem.Player.MousePos.performed -= UpdateCursor;
         mainInputSystem.Player.CameraMove.performed -= UpdateCursor;
+        mainInputSystem.Player.PlayerAction.performed -= UpdateCursor;
         mainInputSystem.Disable();
     }
 
@@ -67,7 +70,7 @@ public class CursorController : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        if (HUDController.instance.PointerOnHUD())
+        if (HUDController.instance.PointerOnHUD() || player.IsUsingItem())
         {
             cursorImage.texture = defaultCursor;
         }

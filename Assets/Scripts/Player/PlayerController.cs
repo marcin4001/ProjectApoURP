@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask layerUseLook;
     [SerializeField] private LayerMask layerInsideHouse;
     [SerializeField] private PlayerActionState actionState = PlayerActionState.Move;
+    [SerializeField] private bool isUsingItem = false;
+    [SerializeField] private bool isMoving = false;
     [SerializeField] private Transform center;
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float maxDistance = 2f;
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private MainInputSystem inputSystem;
     private Camera camera;
     private AnimationPlayer animationPlayer;
+    private WeaponController weaponController;
 
     private Coroutine currentCoroutine;
     private IUsableObj currentSelectObj;
@@ -33,6 +36,8 @@ public class PlayerController : MonoBehaviour
         inputSystem.Player.MousePos.performed += SetMousePosition;
         inputSystem.Player.PlayerAction.performed += PlayerAction;
         inputSystem.Player.ChangeStateAction.performed += ChangeActionState;
+        weaponController = GetComponent<WeaponController>();
+        animationPlayer = GetComponentInChildren<AnimationPlayer>();
     }
 
     void OnEnable()
@@ -55,7 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         camera = FindFirstObjectByType<Camera>();
-        animationPlayer = GetComponentInChildren<AnimationPlayer>();
+        
         HUDController.instance.SetStateButtons(actionState);
         layer = layerMove;
         currentPath = new NavMeshPath();
@@ -74,6 +79,12 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit, 1000f, layer))
         {
+            if(isUsingItem)
+            {
+                UseItem(hit.point);
+                isUsingItem = false;
+                return;
+            }
             switch(actionState)
             {
                 case PlayerActionState.Move:
@@ -89,9 +100,75 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void StartUsingItem()
+    {
+        if (isMoving)
+            return;
+        isUsingItem = true;
+    }
+
+    public void ShowWeapon(Item weapon)
+    {
+        if(weapon == null)
+        {
+            weaponController.SetEmptyCurrentWeapon();
+            animationPlayer.ActiveBaseLayer();
+            return;
+        }
+        weaponController.ShowWeapon(weapon.id);
+        weaponController.SetCurrentWeapon(weapon);
+        WeaponItem weaponItem = (WeaponItem) weapon;
+        switch(weaponItem.type)
+        {
+            case WeaponType.Rifle:
+                animationPlayer.ActiveRifleLayer();
+                break;
+            case WeaponType.HandGun: 
+                animationPlayer.ActiveHandGunLayer();
+                break;
+            case WeaponType.Melee:
+                animationPlayer.ActiveBaseLayer();
+                break;
+            default:
+                animationPlayer.ActiveBaseLayer();
+                break;
+        }
+    }
+
+    public void UseItem(Vector3 point)
+    {
+        Item item = HUDController.instance.GetCurrentItem();
+        if (item == null)
+            return;
+        if (item is WeaponItem)
+        {
+            WeaponItem weaponItem = (WeaponItem) item;
+            transform.rotation = Quaternion.LookRotation(point - transform.position);
+            if (weaponItem.type == WeaponType.Melee)
+                animationPlayer.Attack();
+            else
+                animationPlayer.Shot();
+            WeaponObject weapon = weaponController.GetCurrentWeapon();
+            if (weapon != null)
+                weapon.StartPlayMuzzle();
+        }
+    }
+
+    public void ReloadGun()
+    {
+        if (isMoving)
+            return;
+        animationPlayer.Reload();
+    }
+
     public PlayerActionState GetState()
     {
         return actionState;
+    }
+
+    public bool IsUsingItem()
+    {
+        return isUsingItem;
     }
 
     public void SetState(PlayerActionState newState)
@@ -113,6 +190,11 @@ public class PlayerController : MonoBehaviour
     {
         if (mousePosition.x < 0 || mousePosition.x > Screen.width || mousePosition.y < 0 || mousePosition.y > Screen.height)
             return;
+        if(isUsingItem)
+        {
+            isUsingItem = false;
+            return;
+        }
         if (HUDController.instance.PointerOnHUD())
             return;
         layer = layerUseLook;
@@ -206,6 +288,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator MoveTask()
     {
+        isMoving = true;
         agent.SetDestination(moveTarget);
         while(agent.pathPending)
             yield return new WaitForEndOfFrame();
@@ -225,6 +308,7 @@ public class PlayerController : MonoBehaviour
         }
         agent.isStopped = true;
         animationPlayer.SetSpeedLocomotion(0f);
+        isMoving = false;
         if(currentSelectObj != null)
         {
             StartCoroutine(InteractAction(currentSelectObj));
