@@ -29,7 +29,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private SlotState slotState = SlotState.Use;
     [SerializeField] private TextMeshProUGUI slotStateText;
     [SerializeField] private Image slotItemImage;
-    [SerializeField] private List<Item> slots = new List<Item>();
+    [SerializeField] private Item[] slots;
     [SerializeField] private int currentSlotIndex = 0;
     private PlayerController player;
 
@@ -101,7 +101,7 @@ public class HUDController : MonoBehaviour
     public void OnClickRigtButton()
     {
         currentSlotIndex++;
-        if(currentSlotIndex == slots.Count)
+        if(currentSlotIndex == slots.Length)
             currentSlotIndex = 0;
         SetItemSlot();
     }
@@ -110,13 +110,32 @@ public class HUDController : MonoBehaviour
     {
         currentSlotIndex--;
         if(currentSlotIndex < 0)
-            currentSlotIndex = slots.Count - 1;
+            currentSlotIndex = slots.Length - 1;
         SetItemSlot();
     }
 
     public Item GetCurrentItem()
     {
         return slots[currentSlotIndex];
+    }
+
+    public bool AddItemToSlot(Item item)
+    {
+        int freeIndex = 0;
+        foreach (Item slot in slots)
+        {
+            if(slot == null)
+            {
+                break;
+            }
+            freeIndex++;
+        }
+        if (freeIndex == slots.Length)
+            return false;
+        slots[freeIndex] = item;
+        if(freeIndex == currentSlotIndex)
+            SetItemSlot();
+        return true;
     }
 
     public bool PointerOnHUD()

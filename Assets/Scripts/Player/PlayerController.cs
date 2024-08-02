@@ -253,6 +253,25 @@ public class PlayerController : MonoBehaviour
         IUsableObj usable = obj.GetComponent<IUsableObj>();
 
         if (usable == null)
+        {
+            if(obj.layer == 10)
+            {
+                Ray ray = camera.ScreenPointToRay(mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, 1000f, layerInsideHouse))
+                {
+                    Vector3 playerScreenPosition = camera.WorldToScreenPoint(GetCenterPosition());
+                    float distance = Vector3.Distance(playerScreenPosition, mousePosition);
+                    IUsableObj usableTemp = hit.collider.GetComponent<IUsableObj>();
+                    if (usableTemp != null && distance < radiusPlayerCutWall)
+                    {
+                        usable = usableTemp;
+                        obj = hit.collider.gameObject;
+                    }
+                }
+            }
+        }
+        if (usable == null)
             return;
         float distnceToObject = Vector3.Distance(transform.position, obj.transform.position);
         if(distnceToObject > maxDistance)
@@ -265,6 +284,11 @@ public class PlayerController : MonoBehaviour
             {
                 Door door = (Door)currentSelectObj;
                 moveTarget = door.GetNearSlot();
+            }
+            if(currentSelectObj is PickupItem)
+            {
+                PickupItem pickupItem = (PickupItem)currentSelectObj;
+                moveTarget = pickupItem.GetNearPoint();
             }
             else
             {
@@ -325,7 +349,9 @@ public class PlayerController : MonoBehaviour
         isMoving = false;
         if(currentSelectObj != null)
         {
-            StartCoroutine(InteractAction(currentSelectObj));
+            float distnceToObject = Vector3.Distance(transform.position, moveTarget);
+            if(distnceToObject < maxDistance)
+                StartCoroutine(InteractAction(currentSelectObj));
             currentSelectObj = null;
         }
     }
@@ -339,6 +365,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator InteractAction(IUsableObj usable)
     {
+        weaponController.ShowCurrentWeapon(false);
         if(usable is Door)
         {
             Door door = (Door)usable;
@@ -348,6 +375,14 @@ public class PlayerController : MonoBehaviour
             animationPlayer.DoorInteract();
             yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
         }
+        if(usable is PickupItem)
+        {
+            PickupItem pickupItem = (PickupItem) usable;
+            transform.rotation = Quaternion.LookRotation(pickupItem.transform.position - transform.position);
+            animationPlayer.DoorInteract();
+            yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
+        }
+        weaponController.ShowCurrentWeapon(true);
         usable.Use();
     }
 

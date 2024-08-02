@@ -43,6 +43,14 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    public void ShowCurrentWeapon(bool value)
+    {
+        if (currentWeapon != null)
+        {
+            currentWeapon.gameObject.SetActive(value);
+        }
+    }
+
     public void SetEmptyCurrentWeapon()
     {
         currentWeapon = null;
