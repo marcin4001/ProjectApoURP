@@ -37,6 +37,10 @@ public class WeaponController : MonoBehaviour
     public void SetCurrentWeapon(Item item)
     {
         currentWeapon = GetWeapon(item.id);
+        if (currentWeapon != null && !currentWeapon.IsMelee())
+        {
+            currentWeapon.ShowAmmoInConsole();
+        }
     }
 
     public void SetEmptyCurrentWeapon()

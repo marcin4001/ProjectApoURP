@@ -254,8 +254,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 41.6385}
-  m_SizeDelta: {x: 212.1722, y: 25.9871}
+  m_AnchoredPosition: {x: 0.00001812, y: 41.7}
+  m_SizeDelta: {x: 203.1914, y: 25.9871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &51282503
 MonoBehaviour:
@@ -279,15 +279,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fb5d3eb18497039458e15c0812bd3bac, type: 2}
+  m_sharedMaterial: {fileID: 8866059224065861703, guid: fb5d3eb18497039458e15c0812bd3bac, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278235845
-  m_fontColor: {r: 0.7735849, g: 0.6961289, b: 0, a: 1}
+    rgba: 4278236611
+  m_fontColor: {r: 0.764151, g: 0.7100999, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -304,13 +304,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 17
+  m_fontStyle: 64
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 8192
   m_textAlignment: 65535
@@ -4410,7 +4410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105827efdb2142f47a4d1619e70645bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idItem: 0
+  weapon: {fileID: 11400000, guid: 2aab4625236ec7d42adeaa8c17bc5b5f, type: 2}
   muzzle: {fileID: 1195817990}
   startPlayMuzzle: 0.25
 --- !u!1 &1450169246
@@ -4516,9 +4516,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105827efdb2142f47a4d1619e70645bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idItem: 2
+  weapon: {fileID: 11400000, guid: ed82f88eb1e5d034eb01fd07d1213472, type: 2}
   muzzle: {fileID: 0}
-  startPlayMuzzle: 0.25
+  startPlayMuzzle: 0
 --- !u!1 &1583380526
 GameObject:
   m_ObjectHideFlags: 0
@@ -5468,7 +5468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 105827efdb2142f47a4d1619e70645bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idItem: 1
+  weapon: {fileID: 11400000, guid: 0f0626cc181f25b4c8815c1db2f833ec, type: 2}
   muzzle: {fileID: 117102499}
   startPlayMuzzle: 0.25
 --- !u!1 &2097433738

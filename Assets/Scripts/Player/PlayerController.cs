@@ -142,13 +142,21 @@ public class PlayerController : MonoBehaviour
             return;
         if (item is WeaponItem)
         {
-            WeaponItem weaponItem = (WeaponItem) item;
-            transform.rotation = Quaternion.LookRotation(point - transform.position);
-            if (weaponItem.type == WeaponType.Melee)
-                animationPlayer.Attack();
-            else
-                animationPlayer.Shot();
             WeaponObject weapon = weaponController.GetCurrentWeapon();
+            if (weapon == null)
+                return;
+            if (weapon.IsMelee())
+            {
+                animationPlayer.Attack();
+            }
+            else
+            {
+                if (weapon.OutOfAmmo())
+                    return;
+                animationPlayer.Shot();
+                weapon.RemoveAmmo(1);
+            }
+            transform.rotation = Quaternion.LookRotation(point - transform.position);
             if (weapon != null)
                 weapon.StartPlayMuzzle();
         }
@@ -158,7 +166,13 @@ public class PlayerController : MonoBehaviour
     {
         if (isMoving)
             return;
+        WeaponObject weapon = weaponController.GetCurrentWeapon();
+        if (weapon == null)
+            return;
+        if (weapon.IsFull())
+            return;
         animationPlayer.Reload();
+        weapon.Reload();
     }
 
     public PlayerActionState GetState()
