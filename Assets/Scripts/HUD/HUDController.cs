@@ -18,6 +18,7 @@ public class HUDController : MonoBehaviour
     [Header("HUD Buttons")]
     [SerializeField] private Button hideButton;
     [SerializeField] private Button showButton;
+    [SerializeField] private Button inventoryButton;
     [SerializeField] private Button slotButton;
     [SerializeField] private ButtonRightClick slotChangeStateButton;
     [SerializeField] private Button leftButton;
@@ -46,6 +47,7 @@ public class HUDController : MonoBehaviour
         leftButton.onClick.AddListener(OnClickLeftButton);
         rightButton.onClick.AddListener(OnClickRigtButton);
         slotChangeStateButton.OnClickRight.AddListener(ChangeStateSlot);
+        inventoryButton.onClick.AddListener(OpenInventory);
         consoleText.text = string.Empty;
         slotStateText.text = slotState.ToString();
         Show();
@@ -125,6 +127,11 @@ public class HUDController : MonoBehaviour
         if(currentSlotIndex < 0)
             currentSlotIndex = slots.Length - 1;
         SetItemSlot();
+    }
+
+    public void OpenInventory()
+    {
+        InventoryUI.instance.Show();
     }
 
     public Item GetCurrentItem()

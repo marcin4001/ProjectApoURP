@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerActionState actionState = PlayerActionState.Move;
     [SerializeField] private bool isUsingItem = false;
     [SerializeField] private bool isMoving = false;
+    [SerializeField] private bool inMenu = false;
     [SerializeField] private Transform center;
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float maxDistance = 2f;
@@ -77,6 +78,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerAction(InputAction.CallbackContext ctx)
     {
+        if (inMenu)
+            return;
         if (HUDController.instance.PointerOnHUD())
             return;
         Ray ray = camera.ScreenPointToRay(mousePosition);
@@ -219,6 +222,11 @@ public class PlayerController : MonoBehaviour
         return isUsingItem;
     }
 
+    public bool InMenu()
+    {
+        return inMenu;
+    }
+
     public void SetState(PlayerActionState newState)
     {
         actionState = newState;
@@ -227,6 +235,11 @@ public class PlayerController : MonoBehaviour
         {
             layer = layerMove;
         }
+    }
+
+    public void SetInMenu(bool value)
+    {
+        inMenu = value;
     }
 
     public Vector2 GetMousePosition()

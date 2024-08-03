@@ -70,7 +70,7 @@ public class CursorController : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        if (HUDController.instance.PointerOnHUD() || player.IsUsingItem())
+        if (HUDController.instance.PointerOnHUD() || player.IsUsingItem() || player.InMenu())
         {
             cursorImage.texture = defaultCursor;
         }
