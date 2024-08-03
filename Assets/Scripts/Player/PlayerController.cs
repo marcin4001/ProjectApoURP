@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float maxDistance = 2f;
     [SerializeField] private float radiusPlayerCutWall = 3.5f;
+    [SerializeField] private Transform handSocket;
+    [SerializeField] private GameObject itemInHand;
     private int indexCorner = 1;
     private LayerMask layer;
     private Vector2 mousePosition;
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private Camera camera;
     private AnimationPlayer animationPlayer;
     private WeaponController weaponController;
+    private PlayerStats playerStats;
 
     private Coroutine currentCoroutine;
     private IUsableObj currentSelectObj;
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour
         inputSystem.Player.ChangeStateAction.performed += ChangeActionState;
         weaponController = GetComponent<WeaponController>();
         animationPlayer = GetComponentInChildren<AnimationPlayer>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     void OnEnable()
@@ -107,6 +111,21 @@ public class PlayerController : MonoBehaviour
         isUsingItem = true;
     }
 
+    public void Eat(Item item)
+    {
+        StartCoroutine(Eating(item));
+    }
+
+    private IEnumerator Eating(Item item)
+    {
+        animationPlayer.Eating();
+        float time = animationPlayer.GetEatingTime();
+        yield return new WaitForSeconds(time);
+        FoodItem food = (FoodItem) item;
+        playerStats.AddHealthPoint(food.healPoint);
+        HUDController.instance.RemoveCurrentItem();    
+    }
+
     public void ShowWeapon(Item weapon)
     {
         if(weapon == null)
@@ -133,6 +152,21 @@ public class PlayerController : MonoBehaviour
                 animationPlayer.ActiveBaseLayer();
                 break;
         }
+    }
+
+    public void SpawnItemInHand(Item item)
+    {
+        if(item is FoodItem)
+        {
+            FoodItem foodItem = (FoodItem) item;
+            itemInHand = Instantiate(foodItem.spawnObj, handSocket);
+        }
+    }
+
+    public void RemoveItemInHand()
+    {
+        if(itemInHand != null)
+            Destroy(itemInHand);
     }
 
     public void UseItem(Vector3 point)

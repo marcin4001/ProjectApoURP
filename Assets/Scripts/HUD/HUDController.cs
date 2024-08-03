@@ -66,14 +66,27 @@ public class HUDController : MonoBehaviour
 
     public void OnClickSlot()
     {
-        switch(slotState)
+        Item item = GetCurrentItem();
+        if (item is WeaponItem)
         {
-            case SlotState.Use:
-                player.StartUsingItem();
-                break;
-            case SlotState.Reload:
-                player.ReloadGun();
-                break;
+            switch (slotState)
+            {
+                case SlotState.Use:
+                    player.StartUsingItem();
+                    break;
+                case SlotState.Reload:
+                    player.ReloadGun();
+                    break;
+            }
+        }
+        if(item is FoodItem)
+        {
+            switch (slotState)
+            {
+                case SlotState.Use:
+                    player.Eat(item);
+                    break;
+            }
         }
     }
 
@@ -117,6 +130,12 @@ public class HUDController : MonoBehaviour
     public Item GetCurrentItem()
     {
         return slots[currentSlotIndex];
+    }
+
+    public void RemoveCurrentItem()
+    {
+        slots[currentSlotIndex] = null;
+        SetItemSlot();
     }
 
     public bool AddItemToSlot(Item item)
@@ -177,6 +196,7 @@ public class HUDController : MonoBehaviour
     public void SetItemSlot()
     {
         Item item = slots[currentSlotIndex];
+        player.RemoveItemInHand();
         if(item == null)
         {
             slotState = SlotState.None;
@@ -188,7 +208,16 @@ public class HUDController : MonoBehaviour
             slotState = SlotState.Use;
             slotItemImage.enabled = true;
             slotItemImage.overrideSprite = item.uiSprite;
-            player.ShowWeapon(item);
+            if (item is WeaponItem)
+            {
+                player.ShowWeapon(item);
+            }
+            else if (item is FoodItem)
+            {
+                player.ShowWeapon(null);
+                player.SpawnItemInHand(item);
+            }
+
         }
         slotStateText.text = slotState.ToString();
     }
