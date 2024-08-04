@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private EventTrigger downEventTrigger;
     [SerializeField] private Button closeButton;
     [SerializeField] private ScrollRect listItems;
+    [SerializeField] private TextMeshProUGUI consoleText;
     [SerializeField] private Transform content;
     [SerializeField] private GameObject slotPrefab;
     [SerializeField] private SlotDropUI[] slotsDrop;
@@ -53,6 +55,7 @@ public class InventoryUI : MonoBehaviour
         player.SetInMenu(true);
         CreateListItem();
         listItems.normalizedPosition = new Vector2 (0, 1f);
+        consoleText.text = string.Empty;
     }
 
     public void Hide()
@@ -123,5 +126,11 @@ public class InventoryUI : MonoBehaviour
             listItems.normalizedPosition = pos;
             yield return null;
         }
+    }
+
+    public void ShowDescription(SlotItem slot)
+    {
+        Item item = slot.GetItem();
+        consoleText.text = $"{item.nameItem}\n--------------------------\n{item.description}";
     }
 }
