@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +11,9 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private EventTrigger downEventTrigger;
     [SerializeField] private Button closeButton;
     [SerializeField] private ScrollRect listItems;
+    [SerializeField] private Transform content;
+    [SerializeField] private GameObject slotPrefab;
+    [SerializeField] private SlotDropUI[] slotsDrop;
     [SerializeField] private bool clickUp = false;
     [SerializeField] private bool clickDown = false;
     private Canvas canvas;
@@ -47,6 +51,7 @@ public class InventoryUI : MonoBehaviour
     {
         canvas.enabled = true;
         player.SetInMenu(true);
+        CreateListItem();
         listItems.normalizedPosition = new Vector2 (0, 1f);
     }
 
@@ -55,6 +60,31 @@ public class InventoryUI : MonoBehaviour
         canvas.enabled = false;
         player.SetInMenu(false);
     }
+
+    public Canvas GetCanvas()
+    {
+        return canvas;
+    }
+
+    public void CreateListItem()
+    {
+        foreach(Transform slot in content.transform)
+        {
+            Destroy(slot.gameObject);
+        }
+        List<SlotItem> slotItems = Inventory.instance.GetItems();
+        foreach(SlotItem item in slotItems)
+        {
+            SlotItemUI slot = Instantiate(slotPrefab, content).GetComponent<SlotItemUI>();
+            slot.SetSlot(item);
+        }
+    }
+
+    public void RemoveItemFromSlotDrop(int _index)
+    {
+        slotsDrop[_index].DestroySlotItemUI();
+    }
+
 
     public void OnClickDown()
     {

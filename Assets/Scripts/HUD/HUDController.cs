@@ -143,6 +143,7 @@ public class HUDController : MonoBehaviour
     {
         slots[currentSlotIndex] = null;
         SetItemSlot();
+        InventoryUI.instance.RemoveItemFromSlotDrop(currentSlotIndex);
     }
 
     public bool AddItemToSlot(Item item)
@@ -162,6 +163,13 @@ public class HUDController : MonoBehaviour
         if(freeIndex == currentSlotIndex)
             SetItemSlot();
         return true;
+    }
+
+    public void AddItemToSlot(Item item, int _index)
+    {
+        slots[_index] = item;
+        if (_index == currentSlotIndex)
+            SetItemSlot();
     }
 
     public bool PointerOnHUD()

@@ -6,9 +6,9 @@ public class PickupItem : MonoBehaviour, IUsableObj
     [SerializeField] private Transform nearPoint;
     public void Use()
     {
-        bool added = HUDController.instance.AddItemToSlot(item);
-        if (added)
-            Destroy(gameObject);
+        //HUDController.instance.AddItemToSlot(item);
+        Inventory.instance.AddItem(item);
+        Destroy(gameObject);
     }
 
     public Vector3 GetNearPoint()
