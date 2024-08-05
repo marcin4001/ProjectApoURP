@@ -29,8 +29,9 @@ public class HUDController : MonoBehaviour
     [Header("Slot Panel")]
     [SerializeField] private SlotState slotState = SlotState.Use;
     [SerializeField] private TextMeshProUGUI slotStateText;
+    [SerializeField] private TextMeshProUGUI slotAmountText;
     [SerializeField] private Image slotItemImage;
-    [SerializeField] private Item[] slots;
+    [SerializeField] private SlotItem[] slots;
     [SerializeField] private int currentSlotIndex = 0;
     private PlayerController player;
 
@@ -68,7 +69,8 @@ public class HUDController : MonoBehaviour
 
     public void OnClickSlot()
     {
-        Item item = GetCurrentItem();
+        SlotItem slotItem = GetCurrentItem();
+        Item item = slotItem.GetItem();
         if (item is WeaponItem)
         {
             switch (slotState)
@@ -94,7 +96,8 @@ public class HUDController : MonoBehaviour
 
     public void ChangeStateSlot()
     {
-        Item item = GetCurrentItem();
+        SlotItem slotItem = GetCurrentItem();
+        Item item = slotItem.GetItem();
         if (item is WeaponItem)
         {
             WeaponItem weaponItem = (WeaponItem)item;
@@ -134,14 +137,23 @@ public class HUDController : MonoBehaviour
         InventoryUI.instance.Show();
     }
 
-    public Item GetCurrentItem()
+    public SlotItem GetCurrentItem()
     {
         return slots[currentSlotIndex];
     }
 
     public void RemoveCurrentItem()
     {
-        slots[currentSlotIndex] = null;
+        SlotItem slotItem = GetCurrentItem();
+        if (slotItem.GetAmount() > 1)
+        {
+            int newAmount = slotItem.GetAmount() - 1;
+            slotItem.SetAmount(newAmount);
+            InventoryUI.instance.UpdateAmountTextSlotDrop(currentSlotIndex);
+            SetItemSlot();
+            return;
+        }
+        slots[currentSlotIndex] = new SlotItem(null, 0);
         SetItemSlot();
         InventoryUI.instance.RemoveItemFromSlotDrop(currentSlotIndex);
     }
@@ -149,9 +161,9 @@ public class HUDController : MonoBehaviour
     public bool AddItemToSlot(Item item)
     {
         int freeIndex = 0;
-        foreach (Item slot in slots)
+        foreach (SlotItem slot in slots)
         {
-            if(slot == null)
+            if(slot.IsEmpty())
             {
                 break;
             }
@@ -159,17 +171,35 @@ public class HUDController : MonoBehaviour
         }
         if (freeIndex == slots.Length)
             return false;
-        slots[freeIndex] = item;
+        slots[freeIndex] = new SlotItem(item, 1);
         if(freeIndex == currentSlotIndex)
             SetItemSlot();
         return true;
     }
 
-    public void AddItemToSlot(Item item, int _index)
+    public void AddItemToSlot(SlotItem item, int _index)
     {
         slots[_index] = item;
         if (_index == currentSlotIndex)
             SetItemSlot();
+    }
+
+    public bool AddItemToHUDSlot(Item item)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].IsEmpty())
+                continue;
+            if (slots[i].GetItem() == item)
+            {
+                int newAmount = slots[i].GetAmount() + 1;
+                slots[i].SetAmount(newAmount);
+                SetItemSlot();
+                InventoryUI.instance.UpdateAmountTextSlotDrop(i);
+                return true;
+            }
+        }
+        return false;
     }
 
     public bool PointerOnHUD()
@@ -210,13 +240,15 @@ public class HUDController : MonoBehaviour
 
     public void SetItemSlot()
     {
-        Item item = slots[currentSlotIndex];
+        SlotItem slotItem = GetCurrentItem();
+        Item item = slotItem.GetItem();
         player.RemoveItemInHand();
         if(item == null)
         {
             slotState = SlotState.None;
             slotItemImage.enabled = false;
             player.ShowWeapon(null);
+            slotAmountText.text = string.Empty;
         }
         else
         {
@@ -232,7 +264,11 @@ public class HUDController : MonoBehaviour
                 player.ShowWeapon(null);
                 player.SpawnItemInHand(item);
             }
-
+            int amountItemSlot = slotItem.GetAmount();
+            if (amountItemSlot > 1)
+                slotAmountText.text = $"x{amountItemSlot}";
+            else
+                slotAmountText.text = string.Empty;
         }
         slotStateText.text = slotState.ToString();
     }

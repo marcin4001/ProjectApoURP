@@ -22,7 +22,7 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
                 slotItemUI.SetSlotDrop(this);
                 SlotItem slot = slotItemUI.GetSlot();
                 Inventory.instance.RemoveItem(slot);
-                HUDController.instance.AddItemToSlot(slot.GetItem(), slotIndex);
+                HUDController.instance.AddItemToSlot(slot, slotIndex);
             }
         }
     }
@@ -35,7 +35,7 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
     public void SetEmpty()
     {
         slotItemUI = null;
-        HUDController.instance.AddItemToSlot(null, slotIndex);
+        HUDController.instance.AddItemToSlot(new SlotItem(null, 0), slotIndex);
     }
 
     public void DestroySlotItemUI()
@@ -43,6 +43,14 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
         if(slotItemUI != null)
         {
             Destroy(slotItemUI.gameObject);
+        }
+    }
+
+    public void UpdateAmountText()
+    {
+        if (slotItemUI != null)
+        {
+            slotItemUI.UpdateAmountText();
         }
     }
 }

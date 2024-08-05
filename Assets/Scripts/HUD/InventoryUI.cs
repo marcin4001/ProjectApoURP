@@ -88,6 +88,10 @@ public class InventoryUI : MonoBehaviour
         slotsDrop[_index].DestroySlotItemUI();
     }
 
+    public void UpdateAmountTextSlotDrop(int _index)
+    {
+        slotsDrop[_index].UpdateAmountText();
+    }
 
     public void OnClickDown()
     {

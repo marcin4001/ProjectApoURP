@@ -174,7 +174,8 @@ public class PlayerController : MonoBehaviour
 
     public void UseItem(Vector3 point)
     {
-        Item item = HUDController.instance.GetCurrentItem();
+        SlotItem slotItem = HUDController.instance.GetCurrentItem();
+        Item item = slotItem.GetItem();
         if (item == null)
             return;
         if (item is WeaponItem)

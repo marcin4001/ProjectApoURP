@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     [SerializeField] private SlotItem slot;
     [SerializeField] private Vector2 sizeOnList;
     [SerializeField] private Vector2 sizeOnSlot;
+    [SerializeField] private float sizeFontOnList = 20;
+    [SerializeField] private float sizeFontOnSlot = 30;
     [SerializeField] private SlotDropUI slotDrop;
     private Image image;
     private Transform parent;
@@ -14,6 +17,7 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     private CanvasGroup canvasGroup;
     private Canvas canvas;
     private Button button;
+    private TextMeshProUGUI amountText;
 
     private void Start()
     {
@@ -22,6 +26,7 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         canvasGroup = GetComponent<CanvasGroup>();
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
+        amountText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void OnClick()
@@ -42,7 +47,21 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         slot = _slot;
         if (image == null)
             image = GetComponent<Image>();
+        if(amountText == null)
+            amountText = GetComponentInChildren<TextMeshProUGUI>();
         image.overrideSprite = slot.GetItem().uiSprite;
+        if (slot.GetAmount() > 1)
+            amountText.text = $"x{slot.GetAmount()}";
+        else
+            amountText.text = string.Empty;
+    }
+
+    public void UpdateAmountText()
+    {
+        if (slot.GetAmount() > 1)
+            amountText.text = $"x{slot.GetAmount()}";
+        else
+            amountText.text = string.Empty;
     }
 
 
@@ -65,11 +84,16 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(slotDrop ==  null)
+        if (slot != null)
+        {
+            InventoryUI.instance.ShowDescription(slot);
+        }
+        if (slotDrop ==  null)
             parent = rectTransform.parent;
         rectTransform.SetParent(canvas.transform);
         rectTransform.sizeDelta = sizeOnSlot;
         canvasGroup.blocksRaycasts = false;
+        amountText.text = string.Empty;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -79,18 +103,22 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(slotDrop != null)
+        if (slot.GetAmount() > 1)
+            amountText.text = $"x{slot.GetAmount()}";
+        if (slotDrop != null)
         {
             RectTransform slotDropTransform  = slotDrop.GetComponent<RectTransform>();
             rectTransform.SetParent(slotDropTransform);
             rectTransform.sizeDelta = sizeOnSlot;
+            amountText.fontSize = sizeFontOnSlot;
             rectTransform.anchoredPosition = slotDrop.GetPositionItem();
             canvasGroup.blocksRaycasts = true;
             return;
         }
         rectTransform.SetParent(parent);
         rectTransform.sizeDelta = sizeOnList;
-        canvasGroup.blocksRaycasts = true;
+        amountText.fontSize = sizeFontOnList;
+        canvasGroup.blocksRaycasts = true;    
     }
 
 }

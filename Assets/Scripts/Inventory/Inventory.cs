@@ -17,8 +17,21 @@ public class Inventory : MonoBehaviour
         
     }
 
+    public void AddNonStackableItem(Item item)
+    {
+        SlotItem newSlot = new SlotItem(item, 1);
+        items.Add(newSlot);
+    }
+
     public void AddItem(Item item)
     {
+        SlotItem foundSlot = items.Find(slot => slot.GetItem() == item);
+        if (foundSlot != null)
+        {
+            int newAmount = foundSlot.GetAmount() + 1;
+            foundSlot.SetAmount(newAmount);
+            return;
+        }
         SlotItem newSlot = new SlotItem(item, 1);
         items.Add(newSlot);
     }

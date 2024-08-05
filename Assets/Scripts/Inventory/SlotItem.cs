@@ -31,4 +31,10 @@ public class SlotItem
     {
         amount = _amount;
     }
+
+    public bool IsEmpty()
+    {
+        if(amount == 0 || item == null) return true;
+        return false;
+    }
 }

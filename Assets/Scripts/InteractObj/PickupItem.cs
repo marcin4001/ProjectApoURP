@@ -6,8 +6,15 @@ public class PickupItem : MonoBehaviour, IUsableObj
     [SerializeField] private Transform nearPoint;
     public void Use()
     {
-        //HUDController.instance.AddItemToSlot(item);
-        Inventory.instance.AddItem(item);
+        if(item is WeaponItem)
+        {
+            Inventory.instance.AddNonStackableItem(item);
+            Destroy(gameObject);
+            return;
+        }
+        bool added = HUDController.instance.AddItemToHUDSlot(item);
+        if (!added)
+            Inventory.instance.AddItem(item);
         Destroy(gameObject);
     }
 
