@@ -23,16 +23,16 @@ public class Inventory : MonoBehaviour
         items.Add(newSlot);
     }
 
-    public void AddItem(Item item)
+    public void AddItem(Item item, int amount = 1)
     {
         SlotItem foundSlot = items.Find(slot => slot.GetItem() == item);
         if (foundSlot != null)
         {
-            int newAmount = foundSlot.GetAmount() + 1;
+            int newAmount = foundSlot.GetAmount() + amount;
             foundSlot.SetAmount(newAmount);
             return;
         }
-        SlotItem newSlot = new SlotItem(item, 1);
+        SlotItem newSlot = new SlotItem(item, amount);
         items.Add(newSlot);
     }
 

@@ -3,6 +3,7 @@ using UnityEngine;
 public class PickupItem : MonoBehaviour, IUsableObj
 {
     [SerializeField] private Item item;
+    [SerializeField] private int amount = 1;
     [SerializeField] private Transform nearPoint;
     public void Use()
     {
@@ -12,9 +13,9 @@ public class PickupItem : MonoBehaviour, IUsableObj
             Destroy(gameObject);
             return;
         }
-        bool added = HUDController.instance.AddItemToHUDSlot(item);
+        bool added = HUDController.instance.AddItemToHUDSlot(item, amount);
         if (!added)
-            Inventory.instance.AddItem(item);
+            Inventory.instance.AddItem(item, amount);
         Destroy(gameObject);
     }
 

@@ -28,6 +28,8 @@ public class WallCutout : MonoBehaviour
         {
             foreach (MeshRenderer renderer in renderers)
             {
+                if(renderer == null)
+                    continue;
                 renderer.material.SetFloat(cutoutSizeProp, 0f);
                 renderer.gameObject.layer = 7;
             }

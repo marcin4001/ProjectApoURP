@@ -184,7 +184,7 @@ public class HUDController : MonoBehaviour
             SetItemSlot();
     }
 
-    public bool AddItemToHUDSlot(Item item)
+    public bool AddItemToHUDSlot(Item item, int amount = 1)
     {
         for (int i = 0; i < slots.Length; i++)
         {
@@ -192,7 +192,7 @@ public class HUDController : MonoBehaviour
                 continue;
             if (slots[i].GetItem() == item)
             {
-                int newAmount = slots[i].GetAmount() + 1;
+                int newAmount = slots[i].GetAmount() + amount;
                 slots[i].SetAmount(newAmount);
                 SetItemSlot();
                 InventoryUI.instance.UpdateAmountTextSlotDrop(i);
