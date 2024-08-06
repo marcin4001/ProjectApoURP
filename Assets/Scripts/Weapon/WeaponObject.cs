@@ -22,6 +22,8 @@ public class WeaponObject : MonoBehaviour
         if (ammoSlot != null && !ammoSlot.IsEmpty())
             return;
         ammoSlot = Inventory.instance.GetSlot(weapon.idAmmo);
+        if(ammoSlot == null || ammoSlot.IsEmpty())
+            ammoSlot = HUDController.instance.GetSlotById(weapon.idAmmo);
         if (ammoSlot.GetAmount() <= weapon.ammoMax)
         {
             currentAmmoInGun = ammoSlot.GetAmount();

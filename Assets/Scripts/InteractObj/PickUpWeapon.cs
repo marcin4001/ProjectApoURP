@@ -10,7 +10,7 @@ public class PickUpWeapon : MonoBehaviour, IUsableObj
         Inventory.instance.AddNonStackableItem(item);
         if (ammoSlot != null && !ammoSlot.IsEmpty())
         {
-            Inventory.instance.AddItem(ammoSlot);
+            Inventory.instance.AddItem(ammoSlot.GetItem(), ammoSlot.GetAmount());
         }
         Destroy(gameObject);
         return;

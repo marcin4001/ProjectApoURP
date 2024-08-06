@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using System;
 
 public class HUDController : MonoBehaviour
 {
@@ -132,6 +134,8 @@ public class HUDController : MonoBehaviour
         SetItemSlot();
     }
 
+
+
     public void OpenInventory()
     {
         InventoryUI.instance.Show();
@@ -234,6 +238,14 @@ public class HUDController : MonoBehaviour
                 lookStateButton.ShowSelectFrame();
                 break;
         }
+    }
+
+    public SlotItem GetSlotById(int _id)
+    {
+        SlotItem slot = Array.Find(slots, x => x.GetItem().id == _id);
+        if(slot != null)
+            return slot;
+        return new SlotItem(null, 0);
     }
 
     public void SetItemSlot()

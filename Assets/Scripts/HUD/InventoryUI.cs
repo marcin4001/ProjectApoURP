@@ -134,5 +134,7 @@ public class InventoryUI : MonoBehaviour
     {
         Item item = slot.GetItem();
         consoleText.text = $"{item.nameItem}\n--------------------------\n{item.description}";
+        if (slot.GetAmount() > 1)
+            consoleText.text += $"\nAmount: {slot.GetAmount()}";
     }
 }
