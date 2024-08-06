@@ -43,10 +43,10 @@ GameObject:
   - component: {fileID: 1507950565271270887}
   - component: {fileID: 7172283649598834669}
   - component: {fileID: 7256706949814135097}
-  - component: {fileID: 5001937719192176053}
+  - component: {fileID: 9036836563366364517}
   m_Layer: 7
   m_Name: AKMPickUpItem
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.19, y: 0.78, z: 0.5934404}
   m_Center: {x: 0.011858075, y: -0.0693215, z: 0.038554832}
---- !u!114 &5001937719192176053
+--- !u!114 &9036836563366364517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,11 +154,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1036371103820375371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edbb9150075132428d889bbb8453c2b, type: 3}
+  m_Script: {fileID: 11500000, guid: bada7383807c13847ad656449ec7e53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 2aab4625236ec7d42adeaa8c17bc5b5f, type: 2}
-  amount: 1
+  ammoSlot:
+    item: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
+    amount: 30
   nearPoint: {fileID: 5269935362123208500}
 --- !u!1 &1289156812588346429
 GameObject:

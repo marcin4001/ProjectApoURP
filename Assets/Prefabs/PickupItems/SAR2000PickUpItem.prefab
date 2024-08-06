@@ -129,10 +129,10 @@ GameObject:
   - component: {fileID: 4885830320278510814}
   - component: {fileID: 6624321075271033126}
   - component: {fileID: 1544234931545553250}
-  - component: {fileID: 4162973750361566302}
+  - component: {fileID: 7803011588867750772}
   m_Layer: 7
   m_Name: SAR2000PickUpItem
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +234,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.31, y: 0.6429081, z: 0.48592472}
   m_Center: {x: 0, y: -0.047566414, z: 0.008196354}
---- !u!114 &4162973750361566302
+--- !u!114 &7803011588867750772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,10 +243,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5058827119761418074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edbb9150075132428d889bbb8453c2b, type: 3}
+  m_Script: {fileID: 11500000, guid: bada7383807c13847ad656449ec7e53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 0f0626cc181f25b4c8815c1db2f833ec, type: 2}
+  ammoSlot:
+    item: {fileID: 11400000, guid: 1c8852a74ca30a84ba5811b7dff375e7, type: 2}
+    amount: 30
   nearPoint: {fileID: 981536238000653867}
 --- !u!1 &5342350745678598653
 GameObject:

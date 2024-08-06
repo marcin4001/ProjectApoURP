@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerActionState actionState = PlayerActionState.Move;
     [SerializeField] private bool isUsingItem = false;
     [SerializeField] private bool isMoving = false;
+    [SerializeField] private bool isUsingObj = false;
     [SerializeField] private bool inMenu = false;
     [SerializeField] private Transform center;
     [SerializeField] private float rotationSpeed = 5f;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float radiusPlayerCutWall = 3.5f;
     [SerializeField] private Transform handSocket;
     [SerializeField] private GameObject itemInHand;
+    [SerializeField] private Transform debugObject;
     private int indexCorner = 1;
     private LayerMask layer;
     private Vector2 mousePosition;
@@ -282,6 +284,8 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer(Vector3 point)
     {
+        if (isUsingObj)
+            return;
         float distanceToPlayer = Vector3.Distance(transform.position, point);
         if (distanceToPlayer < 0.5f)
             return;
@@ -297,6 +301,8 @@ public class PlayerController : MonoBehaviour
 
     private void Use(GameObject obj)
     {
+        if (isUsingObj)
+            return;
         IUsableObj usable = obj.GetComponent<IUsableObj>();
 
         if (usable == null)
@@ -307,6 +313,8 @@ public class PlayerController : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, 1000f, layerInsideHouse))
                 {
+                    if(debugObject != null)
+                        debugObject.position = hit.point;
                     Vector3 playerScreenPosition = camera.WorldToScreenPoint(GetCenterPosition());
                     float distance = Vector3.Distance(playerScreenPosition, mousePosition);
                     IUsableObj usableTemp = hit.collider.GetComponent<IUsableObj>();
@@ -320,22 +328,27 @@ public class PlayerController : MonoBehaviour
         }
         if (usable == null)
             return;
+        if (currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
         float distnceToObject = Vector3.Distance(transform.position, obj.transform.position);
         if(distnceToObject > maxDistance)
         {
             currentSelectObj = usable;
-            if (currentCoroutine != null)
-                StopCoroutine(currentCoroutine);
             agent.isStopped = false;
             if(currentSelectObj is Door)
             {
                 Door door = (Door)currentSelectObj;
                 moveTarget = door.GetNearSlot();
             }
-            if(currentSelectObj is PickupItem)
+            else if(currentSelectObj is PickupItem)
             {
                 PickupItem pickupItem = (PickupItem)currentSelectObj;
                 moveTarget = pickupItem.GetNearPoint();
+            }
+            else if(currentSelectObj is PickUpWeapon)
+            {
+                PickUpWeapon pickUpWeapon = (PickUpWeapon)currentSelectObj;
+                moveTarget = pickUpWeapon.GetNearPoint();
             }
             else
             {
@@ -344,6 +357,8 @@ public class PlayerController : MonoBehaviour
             currentCoroutine = StartCoroutine(MoveTask());
             return;
         }
+        agent.isStopped = true;
+        animationPlayer.SetSpeedLocomotion(0f);
         StartCoroutine(InteractAction(usable));
     }
 
@@ -412,6 +427,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator InteractAction(IUsableObj usable)
     {
+        isUsingObj = true;
         weaponController.ShowCurrentWeapon(false);
         if(usable is Door)
         {
@@ -429,8 +445,16 @@ public class PlayerController : MonoBehaviour
             animationPlayer.DoorInteract();
             yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
         }
+        if(usable is PickUpWeapon)
+        {
+            PickUpWeapon pickupWeapon = (PickUpWeapon)usable;
+            transform.rotation = Quaternion.LookRotation(pickupWeapon.transform.position - transform.position);
+            animationPlayer.DoorInteract();
+            yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
+        }
         weaponController.ShowCurrentWeapon(true);
         usable.Use();
+        isUsingObj = false;
     }
 
     public Vector3 GetCenterPosition()

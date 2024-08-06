@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class WeaponObject : MonoBehaviour
@@ -8,12 +8,40 @@ public class WeaponObject : MonoBehaviour
     [SerializeField] private float startPlayMuzzle = 0.25f;
     [SerializeField] private int currentAmmoInGun = 0;
     [SerializeField] private int ammoOutGun = 0;
+    [SerializeField] private SlotItem ammoSlot;
 
     private void Start()
     {
-        //Test 
-        currentAmmoInGun = weapon.ammoMax;
-        ammoOutGun = weapon.ammoMax;
+
+    }
+
+    public void InitAmmo()
+    {
+        if (weapon.type == WeaponType.Melee)
+            return;
+        if (ammoSlot != null && !ammoSlot.IsEmpty())
+            return;
+        ammoSlot = Inventory.instance.GetSlot(weapon.idAmmo);
+        if (ammoSlot.GetAmount() <= weapon.ammoMax)
+        {
+            currentAmmoInGun = ammoSlot.GetAmount();
+        }
+        else
+        {
+            currentAmmoInGun = weapon.ammoMax;
+            ammoOutGun = ammoSlot.GetAmount() - currentAmmoInGun;
+        }
+    }
+
+    public void UpdateAmmoOutGun()
+    {
+        if (ammoSlot == null && ammoSlot.IsEmpty())
+            return;
+        if (currentAmmoInGun == 0 && ammoOutGun == 0)
+            return;
+        Debug.Log("Doszło");
+        ammoOutGun = ammoSlot.GetAmount() - currentAmmoInGun;
+
     }
 
     public int GetIdItem()
@@ -21,6 +49,13 @@ public class WeaponObject : MonoBehaviour
         if(weapon == null)
             return -1;
         return weapon.id;
+    }
+
+    public int GetIdAmmo()
+    {
+        if (weapon == null)
+            return -1;
+        return weapon.idAmmo;
     }
 
     public bool IsMelee()
@@ -57,11 +92,25 @@ public class WeaponObject : MonoBehaviour
     public void RemoveAmmo(int ammo)
     {
         currentAmmoInGun -= ammo;
+        int ammoAmount = ammoSlot.GetAmount() - ammo;
+        if (ammoAmount <= 0)
+        {
+            Inventory.instance.RemoveItem(ammoSlot);
+            ammoSlot = new SlotItem(null, 0);
+            ShowAmmoInConsole();
+            return;
+        }
+        ammoSlot.SetAmount(ammoAmount);
         ShowAmmoInConsole();
     }
 
     public void Reload()
     {
+        if(ammoSlot == null || ammoSlot.IsEmpty())
+        {
+            ammoSlot = Inventory.instance.GetSlot(weapon.idAmmo);
+            ammoOutGun = ammoSlot.GetAmount();
+        }
         int neededAmmo = weapon.ammoMax - currentAmmoInGun;
         if(neededAmmo <= ammoOutGun)
         {

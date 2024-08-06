@@ -7,15 +7,26 @@ public class PickupItem : MonoBehaviour, IUsableObj
     [SerializeField] private Transform nearPoint;
     public void Use()
     {
-        if(item is WeaponItem)
-        {
-            Inventory.instance.AddNonStackableItem(item);
-            Destroy(gameObject);
-            return;
-        }
         bool added = HUDController.instance.AddItemToHUDSlot(item, amount);
         if (!added)
             Inventory.instance.AddItem(item, amount);
+        if (item is MiscItem)
+        {
+            MiscItem miscItem = (MiscItem)item;
+            if (miscItem.isAmmo)
+            {
+                WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(item.id);
+                if (weapon != null)
+                {
+                    Debug.Log("YES");
+                    weapon.UpdateAmmoOutGun();
+                }
+                else
+                {
+                    Debug.Log("NO");
+                }
+            }
+        }
         Destroy(gameObject);
     }
 

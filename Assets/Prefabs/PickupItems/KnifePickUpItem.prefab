@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 5451193348180871761}
   - component: {fileID: 4558051969877594873}
   - component: {fileID: 842294330587735198}
-  - component: {fileID: 1717170528691896422}
+  - component: {fileID: 3698405657591281801}
   m_Layer: 0
   m_Name: KnifePickUpItem
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.17, y: 0.29740894, z: 0.36}
   m_Center: {x: -1.2750129e-18, y: -0.00057026744, z: 0.09980268}
---- !u!114 &1717170528691896422
+--- !u!114 &3698405657591281801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,10 +119,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 329694195205984896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edbb9150075132428d889bbb8453c2b, type: 3}
+  m_Script: {fileID: 11500000, guid: bada7383807c13847ad656449ec7e53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: ed82f88eb1e5d034eb01fd07d1213472, type: 2}
+  ammoSlot:
+    item: {fileID: 0}
+    amount: 0
   nearPoint: {fileID: 7079473157767187205}
 --- !u!1 &9059616570295388024
 GameObject:

@@ -149,13 +149,12 @@ public class HUDController : MonoBehaviour
         {
             int newAmount = slotItem.GetAmount() - 1;
             slotItem.SetAmount(newAmount);
-            InventoryUI.instance.UpdateAmountTextSlotDrop(currentSlotIndex);
             SetItemSlot();
             return;
         }
+        slots[currentSlotIndex].SetAmount(0);
         slots[currentSlotIndex] = new SlotItem(null, 0);
         SetItemSlot();
-        InventoryUI.instance.RemoveItemFromSlotDrop(currentSlotIndex);
     }
 
     public bool AddItemToSlot(Item item)
@@ -195,7 +194,6 @@ public class HUDController : MonoBehaviour
                 int newAmount = slots[i].GetAmount() + amount;
                 slots[i].SetAmount(newAmount);
                 SetItemSlot();
-                InventoryUI.instance.UpdateAmountTextSlotDrop(i);
                 return true;
             }
         }

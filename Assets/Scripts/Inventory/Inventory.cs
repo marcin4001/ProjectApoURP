@@ -53,4 +53,12 @@ public class Inventory : MonoBehaviour
     { 
         return items; 
     }
+
+    public SlotItem GetSlot(int _id) 
+    {
+        SlotItem slot = items.Find(x => x.GetItem().id == _id);
+        if(slot == null)
+            return new SlotItem(null, 0);
+        return slot;
+    }
 }

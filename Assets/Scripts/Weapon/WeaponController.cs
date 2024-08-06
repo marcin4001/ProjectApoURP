@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public static WeaponController instance;
     [SerializeField] WeaponObject currentWeapon;
     [SerializeField] private List<WeaponObject> weaponItems = new List<WeaponObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        instance = this;
         HideAllWeapons();
     }
 
@@ -34,9 +36,23 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    public WeaponObject GetWeaponByAmmo(int idAmmo)
+    {
+        WeaponObject weapon = weaponItems.Find(x => x.GetIdAmmo() == idAmmo);
+        if (weapon != null)
+        {
+            return weapon;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public void SetCurrentWeapon(Item item)
     {
         currentWeapon = GetWeapon(item.id);
+        currentWeapon.InitAmmo();
         if (currentWeapon != null && !currentWeapon.IsMelee())
         {
             currentWeapon.ShowAmmoInConsole();

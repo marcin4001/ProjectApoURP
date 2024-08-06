@@ -38,7 +38,7 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
         HUDController.instance.AddItemToSlot(new SlotItem(null, 0), slotIndex);
     }
 
-    public void DestroySlotItemUI()
+    private void DestroySlotItemUI()
     {
         if(slotItemUI != null)
         {
@@ -50,6 +50,11 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
     {
         if (slotItemUI != null)
         {
+            if(slotItemUI.isEmpty())
+            {
+                DestroySlotItemUI();
+                return;
+            }
             slotItemUI.UpdateAmountText();
         }
     }

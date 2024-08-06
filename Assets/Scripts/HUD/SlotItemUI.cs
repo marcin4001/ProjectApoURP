@@ -64,6 +64,19 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
             amountText.text = string.Empty;
     }
 
+    public bool isEmpty()
+    {
+        if (slot != null)
+        {
+            if(slot.GetAmount() <= 0)
+                return true;
+        }
+        else
+        {
+            return true;
+        }
+        return false;
+    }
 
     public void SetParent(Transform newParent)
     {

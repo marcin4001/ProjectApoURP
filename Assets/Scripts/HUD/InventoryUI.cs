@@ -54,6 +54,7 @@ public class InventoryUI : MonoBehaviour
         canvas.enabled = true;
         player.SetInMenu(true);
         CreateListItem();
+        UpdateAmountTextSlotsDrop();
         listItems.normalizedPosition = new Vector2 (0, 1f);
         consoleText.text = string.Empty;
     }
@@ -83,14 +84,11 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void RemoveItemFromSlotDrop(int _index)
-    {
-        slotsDrop[_index].DestroySlotItemUI();
-    }
 
-    public void UpdateAmountTextSlotDrop(int _index)
+    public void UpdateAmountTextSlotsDrop()
     {
-        slotsDrop[_index].UpdateAmountText();
+        for(int i = 0; i < slotsDrop.Length; i++)
+            slotsDrop[i].UpdateAmountText();
     }
 
     public void OnClickDown()
