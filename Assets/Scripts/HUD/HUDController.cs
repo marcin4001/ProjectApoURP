@@ -20,6 +20,7 @@ public class HUDController : MonoBehaviour
     [Header("HUD Buttons")]
     [SerializeField] private Button hideButton;
     [SerializeField] private Button showButton;
+    [SerializeField] private Button pauseMenuButton;
     [SerializeField] private Button inventoryButton;
     [SerializeField] private Button slotButton;
     [SerializeField] private ButtonRightClick slotChangeStateButton;
@@ -36,6 +37,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private SlotItem[] slots;
     [SerializeField] private int currentSlotIndex = 0;
     private PlayerController player;
+    private Canvas canvas;
 
     private void Awake()
     {
@@ -44,12 +46,14 @@ public class HUDController : MonoBehaviour
     void Start()
     {
         player = FindFirstObjectByType<PlayerController>();
+        canvas = GetComponent<Canvas>();
         showButton.onClick.AddListener(Show);
         hideButton.onClick.AddListener(Hide);
         slotButton.onClick.AddListener(OnClickSlot);
         leftButton.onClick.AddListener(OnClickLeftButton);
         rightButton.onClick.AddListener(OnClickRigtButton);
         slotChangeStateButton.OnClickRight.AddListener(ChangeStateSlot);
+        pauseMenuButton.onClick.AddListener(OpenPauseMenu);
         inventoryButton.onClick.AddListener(OpenInventory);
         consoleText.text = string.Empty;
         slotStateText.text = slotState.ToString();
@@ -139,6 +143,16 @@ public class HUDController : MonoBehaviour
     public void OpenInventory()
     {
         InventoryUI.instance.Show();
+    }
+
+    public void OpenPauseMenu()
+    {
+        PauseMenuDemo.instance.Show();
+    }
+
+    public void SetActiveCanvas(bool value)
+    {
+        canvas.enabled = value;
     }
 
     public SlotItem GetCurrentItem()
