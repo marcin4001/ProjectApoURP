@@ -72,6 +72,15 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""acf34252-7396-41db-9f0c-91b5734cd80e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -228,6 +237,17 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""CenterPlayer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c099bed4-d231-4dac-9f04-29eb184d2a30"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -241,6 +261,7 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         m_Player_MousePos = m_Player.FindAction("MousePos", throwIfNotFound: true);
         m_Player_CameraMove = m_Player.FindAction("CameraMove", throwIfNotFound: true);
         m_Player_CenterPlayer = m_Player.FindAction("CenterPlayer", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@MainInputSystem()
@@ -312,6 +333,7 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MousePos;
     private readonly InputAction m_Player_CameraMove;
     private readonly InputAction m_Player_CenterPlayer;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @MainInputSystem m_Wrapper;
@@ -321,6 +343,7 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         public InputAction @MousePos => m_Wrapper.m_Player_MousePos;
         public InputAction @CameraMove => m_Wrapper.m_Player_CameraMove;
         public InputAction @CenterPlayer => m_Wrapper.m_Player_CenterPlayer;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -345,6 +368,9 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
             @CenterPlayer.started += instance.OnCenterPlayer;
             @CenterPlayer.performed += instance.OnCenterPlayer;
             @CenterPlayer.canceled += instance.OnCenterPlayer;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -364,6 +390,9 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
             @CenterPlayer.started -= instance.OnCenterPlayer;
             @CenterPlayer.performed -= instance.OnCenterPlayer;
             @CenterPlayer.canceled -= instance.OnCenterPlayer;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -388,5 +417,6 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         void OnMousePos(InputAction.CallbackContext context);
         void OnCameraMove(InputAction.CallbackContext context);
         void OnCenterPlayer(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -6,6 +6,7 @@ public class PauseMenuDemo : MonoBehaviour
     public static PauseMenuDemo instance;
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private bool active = false;
     private Canvas canvas;
     private PlayerController player;
 
@@ -18,8 +19,13 @@ public class PauseMenuDemo : MonoBehaviour
         player = FindFirstObjectByType<PlayerController>();
         canvas = GetComponent<Canvas>();
         canvas.enabled = false;
-        resumeButton.onClick.AddListener(OnClickResume);
+        resumeButton.onClick.AddListener(Hide);
         quitButton.onClick.AddListener(OnClickQuit);
+    }
+
+    public bool GetActive()
+    {
+        return active;
     }
 
     public void Show()
@@ -28,14 +34,16 @@ public class PauseMenuDemo : MonoBehaviour
         Time.timeScale = 0;
         HUDController.instance.SetActiveCanvas(false);
         player.SetInMenu(true);
+        active = true;
     }
 
-    private void OnClickResume()
+    public void Hide()
     {
         canvas.enabled = false;
         Time.timeScale = 1;
         HUDController.instance.SetActiveCanvas(true);
         player.SetInMenu(false);
+        active = false;
     }
 
     private void OnClickQuit()

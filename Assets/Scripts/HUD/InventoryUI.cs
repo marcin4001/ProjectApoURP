@@ -18,6 +18,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private SlotDropUI[] slotsDrop;
     [SerializeField] private bool clickUp = false;
     [SerializeField] private bool clickDown = false;
+    [SerializeField] private bool active = false;
     private Canvas canvas;
     private PlayerController player;
     private Coroutine currentCoroutine;
@@ -49,6 +50,11 @@ public class InventoryUI : MonoBehaviour
         canvas.enabled = false;
     }
 
+    public bool GetActive()
+    {
+        return active;
+    }
+
     public void Show()
     {
         canvas.enabled = true;
@@ -57,12 +63,14 @@ public class InventoryUI : MonoBehaviour
         UpdateAmountTextSlotsDrop();
         listItems.normalizedPosition = new Vector2 (0, 1f);
         consoleText.text = string.Empty;
+        active = true;
     }
 
     public void Hide()
     {
         canvas.enabled = false;
         player.SetInMenu(false);
+        active = false;
     }
 
     public Canvas GetCanvas()
