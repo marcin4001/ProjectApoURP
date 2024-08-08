@@ -7,6 +7,10 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private float borderThickness = 10f;
     [SerializeField] private float speedMovingCamera = 10f;
+    [SerializeField] private Transform limitPointA;
+    [SerializeField] private Transform limitPointB;
+    [SerializeField] private Vector3 minLimitVector = Vector3.zero;
+    [SerializeField] private Vector3 maxLimitVector = Vector3.zero;
     private MainInputSystem inputSystem;
     private PlayerController playerController;
     private Vector2 mousePosition;
@@ -43,6 +47,14 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         playerController = FindFirstObjectByType<PlayerController>();
+
+        if(limitPointA != null && limitPointB != null)
+        {
+            minLimitVector.x = Mathf.Min(limitPointA.position.x, limitPointB.position.x);
+            minLimitVector.z = Mathf.Min(limitPointA.position.z, limitPointB.position.z);
+            maxLimitVector.x = Mathf.Max(limitPointA.position.x, limitPointB.position.x);
+            maxLimitVector.z = Mathf.Max(limitPointA.position.z, limitPointB.position.z);
+        }
     }
 
     private void SetMousePosition(InputAction.CallbackContext ctx)
@@ -70,6 +82,7 @@ public class CameraMovement : MonoBehaviour
         if(inputMove == Vector2.zero)
             MoveCameraBorder();
         MoveCameraInput();
+        ClampPosCamera();
     }
 
     private void MoveCameraBorder()
@@ -96,5 +109,16 @@ public class CameraMovement : MonoBehaviour
         cameraPos.z += inputMove.y * speedMovingCamera * Time.deltaTime;
 
         transform.position = cameraPos;
+    }
+
+    private void ClampPosCamera()
+    {
+        if (limitPointA != null && limitPointB != null)
+        {
+            Vector3 camPosition = transform.position;
+            camPosition.x = Mathf.Clamp(camPosition.x, minLimitVector.x, maxLimitVector.x);
+            camPosition.z = Mathf.Clamp(camPosition.z, minLimitVector.z, maxLimitVector.z);
+            transform.position = camPosition;
+        }
     }
 }
