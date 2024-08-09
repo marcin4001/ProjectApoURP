@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Cabinet : MonoBehaviour, IUsableObj
@@ -5,6 +6,7 @@ public class Cabinet : MonoBehaviour, IUsableObj
     [SerializeField] private string isOpenParam = "isOpen";
     [SerializeField] private bool isOpen = false;
     [SerializeField] private Transform nearPoint;
+    [SerializeField] private string cabinetName = "cabinet";
     private Animator animator;
     void Start()
     {
@@ -13,7 +15,20 @@ public class Cabinet : MonoBehaviour, IUsableObj
 
     public void Use()
     {
-        isOpen = !isOpen;
+        StartCoroutine(Open());
+    }
+
+    public IEnumerator Open()
+    {
+        isOpen = true;
+        animator.SetBool(isOpenParam, isOpen);
+        yield return new WaitForSeconds(0.5f);
+        CabinetUI.instance.Show(this);
+    }
+
+    public void Close()
+    {
+        isOpen = false;
         animator.SetBool(isOpenParam, isOpen);
     }
 
@@ -27,5 +42,10 @@ public class Cabinet : MonoBehaviour, IUsableObj
     public GameObject GetMainGameObject()
     {
         return gameObject;
+    }
+
+    public string GetCabinetName()
+    {
+        return cabinetName;
     }
 }

@@ -31,7 +31,14 @@ public class EscController : MonoBehaviour
             return;
         }
 
-        if(PauseMenuDemo.instance.GetActive()) 
+        if(CabinetUI.instance.GetActive())
+        {
+            Debug.Log("Weszlo");
+            CabinetUI.instance.Hide();
+            return;
+        }
+
+        if (PauseMenuDemo.instance.GetActive()) 
         {
             PauseMenuDemo.instance.Hide();
         }
