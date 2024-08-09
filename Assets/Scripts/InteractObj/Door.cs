@@ -38,17 +38,6 @@ public class Door : MonoBehaviour, IUsableObj
         return root.position;
     }
 
-    public Vector3 GetNearSlot()
-    {
-        float distanceToSlot1 = Vector3.Distance(player.transform.position, slot1.transform.position);
-        float distanceToSlot2 = Vector3.Distance(player.transform.position, slot2.transform.position);
-
-        if(distanceToSlot1 < distanceToSlot2)
-            return slot1.position;
-        else
-            return slot2.position;
-    }
-
     private IEnumerator OpenTask()
     {
         obstacle.enabled = false;
@@ -76,4 +65,19 @@ public class Door : MonoBehaviour, IUsableObj
         obstacle.enabled = true;
     }
 
+    public Vector3 GetNearPoint()
+    {
+        float distanceToSlot1 = Vector3.Distance(player.transform.position, slot1.transform.position);
+        float distanceToSlot2 = Vector3.Distance(player.transform.position, slot2.transform.position);
+
+        if (distanceToSlot1 < distanceToSlot2)
+            return slot1.position;
+        else
+            return slot2.position;
+    }
+
+    public GameObject GetMainGameObject()
+    {
+        return gameObject;
+    }
 }

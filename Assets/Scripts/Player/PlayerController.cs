@@ -335,25 +335,7 @@ public class PlayerController : MonoBehaviour
         {
             currentSelectObj = usable;
             agent.isStopped = false;
-            if(currentSelectObj is Door)
-            {
-                Door door = (Door)currentSelectObj;
-                moveTarget = door.GetNearSlot();
-            }
-            else if(currentSelectObj is PickupItem)
-            {
-                PickupItem pickupItem = (PickupItem)currentSelectObj;
-                moveTarget = pickupItem.GetNearPoint();
-            }
-            else if(currentSelectObj is PickUpWeapon)
-            {
-                PickUpWeapon pickUpWeapon = (PickUpWeapon)currentSelectObj;
-                moveTarget = pickUpWeapon.GetNearPoint();
-            }
-            else
-            {
-                moveTarget = obj.transform.position;
-            }
+            moveTarget = currentSelectObj.GetNearPoint();
             currentCoroutine = StartCoroutine(MoveTask());
             return;
         }
@@ -432,26 +414,17 @@ public class PlayerController : MonoBehaviour
         if(usable is Door)
         {
             Door door = (Door)usable;
-            Vector3 slot = door.GetNearSlot();
+            Vector3 slot = door.GetNearPoint();
             agent.Warp(slot);
             transform.rotation = Quaternion.LookRotation(door.GetRootPosition() - transform.position);
-            animationPlayer.DoorInteract();
-            yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
         }
-        if(usable is PickupItem)
+        else
         {
-            PickupItem pickupItem = (PickupItem) usable;
-            transform.rotation = Quaternion.LookRotation(pickupItem.transform.position - transform.position);
-            animationPlayer.DoorInteract();
-            yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
+            GameObject usableObj = usable.GetMainGameObject();
+            transform.rotation = Quaternion.LookRotation(usableObj.transform.position - transform.position);
         }
-        if(usable is PickUpWeapon)
-        {
-            PickUpWeapon pickupWeapon = (PickUpWeapon)usable;
-            transform.rotation = Quaternion.LookRotation(pickupWeapon.transform.position - transform.position);
-            animationPlayer.DoorInteract();
-            yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
-        }
+        animationPlayer.DoorInteract();
+        yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
         weaponController.ShowCurrentWeapon(true);
         usable.Use();
         isUsingObj = false;

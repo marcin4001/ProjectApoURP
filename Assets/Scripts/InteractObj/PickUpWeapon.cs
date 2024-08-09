@@ -22,4 +22,9 @@ public class PickUpWeapon : MonoBehaviour, IUsableObj
             return transform.position;
         return nearPoint.position;
     }
+
+    public GameObject GetMainGameObject()
+    {
+        return gameObject;
+    }
 }

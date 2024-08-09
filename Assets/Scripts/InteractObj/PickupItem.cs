@@ -18,12 +18,7 @@ public class PickupItem : MonoBehaviour, IUsableObj
                 WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(item.id);
                 if (weapon != null)
                 {
-                    Debug.Log("YES");
                     weapon.UpdateAmmoOutGun();
-                }
-                else
-                {
-                    Debug.Log("NO");
                 }
             }
         }
@@ -35,5 +30,10 @@ public class PickupItem : MonoBehaviour, IUsableObj
         if(nearPoint == null)
             return transform.position;
         return nearPoint.position;
+    }
+
+    public GameObject GetMainGameObject()
+    {
+        return gameObject;
     }
 }
