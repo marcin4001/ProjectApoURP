@@ -38,6 +38,19 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(SlotItem item)
     {
+        if(item.GetItem() is WeaponItem)
+        {
+            items.Add(item);
+            return;
+        }
+        bool itemExist = items.Exists(x => x.GetItem().id == item.GetItem().id);
+        if (itemExist)
+        {
+            SlotItem foundItem = items.Find(x => x.GetItem().id == item.GetItem().id);
+            int newAmount = foundItem.GetAmount() + item.GetAmount();
+            foundItem.SetAmount(newAmount);
+            return;
+        }
         items.Add(item);
     }
 

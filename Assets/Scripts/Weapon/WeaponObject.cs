@@ -17,13 +17,18 @@ public class WeaponObject : MonoBehaviour
 
     public void InitAmmo()
     {
+        
         if (weapon.type == WeaponType.Melee)
             return;
         if (ammoSlot != null && !ammoSlot.IsEmpty())
+        {
+            if(ammoSlot.GetAmount() < currentAmmoInGun)
+                currentAmmoInGun = ammoSlot.GetAmount();
             return;
+        }
         ammoSlot = Inventory.instance.GetSlot(weapon.idAmmo);
-        if(ammoSlot == null || ammoSlot.IsEmpty())
-            ammoSlot = HUDController.instance.GetSlotById(weapon.idAmmo);
+        //if(ammoSlot == null || ammoSlot.IsEmpty())
+        //    ammoSlot = HUDController.instance.GetSlotById(weapon.idAmmo);
         if (ammoSlot.GetAmount() <= weapon.ammoMax)
         {
             currentAmmoInGun = ammoSlot.GetAmount();
@@ -41,9 +46,14 @@ public class WeaponObject : MonoBehaviour
             return;
         if (currentAmmoInGun == 0 && ammoOutGun == 0)
             return;
-        Debug.Log("Doszło");
         ammoOutGun = ammoSlot.GetAmount() - currentAmmoInGun;
+    }
 
+    public void SetEmptyAmmo()
+    {
+        ammoSlot = new SlotItem(null, 0);
+        currentAmmoInGun = 0;
+        ammoOutGun = 0;
     }
 
     public int GetIdItem()

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Cabinet : MonoBehaviour, IUsableObj
@@ -7,6 +8,7 @@ public class Cabinet : MonoBehaviour, IUsableObj
     [SerializeField] private bool isOpen = false;
     [SerializeField] private Transform nearPoint;
     [SerializeField] private string cabinetName = "cabinet";
+    [SerializeField] private List<SlotItem> items = new List<SlotItem>();
     private Animator animator;
     void Start()
     {
@@ -47,5 +49,50 @@ public class Cabinet : MonoBehaviour, IUsableObj
     public string GetCabinetName()
     {
         return cabinetName;
+    }
+
+    public List<SlotItem> GetItems()
+    {
+        return items;
+    }
+
+    public void AddItem(SlotItem item)
+    {
+        if (item.GetItem() is WeaponItem)
+        {
+            items.Add(item);
+            return;
+        }
+        bool itemExist = items.Exists(x => x.GetItem().id == item.GetItem().id);
+        if(itemExist)
+        {
+            SlotItem foundItem = items.Find(x => x.GetItem().id == item.GetItem().id);
+            int newAmount = foundItem.GetAmount() + item.GetAmount();
+            foundItem.SetAmount(newAmount);
+            return;
+        }
+        items.Add(item);
+    }
+
+    public void AddNonStackableItem(Item item)
+    {
+        SlotItem newSlot = new SlotItem(item, 1);
+        items.Add(newSlot);
+    }
+
+    public void RemoveItem(SlotItem item)
+    {
+        bool itemExist = items.Exists(x => x.GetItem().id == item.GetItem().id);
+        if(itemExist)
+        {
+            SlotItem foundItem = items.Find(x => x.GetItem().id == item.GetItem().id);
+            int newAmount = foundItem.GetAmount() - item.GetAmount();
+            if(newAmount > 0)
+            {
+                foundItem.SetAmount(newAmount);
+                return;
+            }
+            items.Remove(foundItem);
+        }
     }
 }

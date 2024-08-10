@@ -11,6 +11,8 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     [SerializeField] private float sizeFontOnList = 20;
     [SerializeField] private float sizeFontOnSlot = 30;
     [SerializeField] private SlotDropUI slotDrop;
+    [SerializeField] private SlotUIType slotType = SlotUIType.inventory;
+    [SerializeField] private bool playerItem = false;
     private Image image;
     private Transform parent;
     private RectTransform rectTransform;
@@ -22,7 +24,10 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        canvas = InventoryUI.instance.GetCanvas();
+        if (slotType == SlotUIType.inventory)
+            canvas = InventoryUI.instance.GetCanvas();
+        else if (slotType == SlotUIType.cabinet)
+            canvas = CabinetUI.instance.GetCanvas();
         canvasGroup = GetComponent<CanvasGroup>();
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
@@ -33,8 +38,25 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
     {
         if(slot != null)
         {
-            InventoryUI.instance.ShowDescription(slot);
+            if (slotType == SlotUIType.inventory)
+                InventoryUI.instance.ShowDescription(slot);
+            else if (slotType == SlotUIType.cabinet)
+                CabinetUI.instance.ShowDescription(slot);
         }
+    }
+
+    public SlotUIType GetTypeSlot()
+    {
+        return slotType;
+    }
+
+    public void SetTypeSlot(SlotUIType _slotType)
+    {
+        slotType = _slotType;
+        if (slotType == SlotUIType.inventory)
+            canvas = InventoryUI.instance.GetCanvas();
+        else if (slotType == SlotUIType.cabinet)
+            canvas = CabinetUI.instance.GetCanvas();
     }
 
     public SlotItem GetSlot()
@@ -54,6 +76,16 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
             amountText.text = $"x{slot.GetAmount()}";
         else
             amountText.text = string.Empty;
+    }
+
+    public bool IsPlayerItem()
+    {
+        return playerItem;
+    }
+
+    public void SetPlayerItem(bool _playerItem)
+    {
+        playerItem = _playerItem;
     }
 
     public void UpdateAmountText()
@@ -97,10 +129,7 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (slot != null)
-        {
-            InventoryUI.instance.ShowDescription(slot);
-        }
+        OnClick();
         if (slotDrop ==  null)
             parent = rectTransform.parent;
         rectTransform.SetParent(canvas.transform);
@@ -134,4 +163,9 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         canvasGroup.blocksRaycasts = true;    
     }
 
+}
+
+public enum SlotUIType
+{
+    inventory, cabinet, trade
 }

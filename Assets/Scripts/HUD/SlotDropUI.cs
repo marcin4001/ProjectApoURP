@@ -19,8 +19,17 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
             slotItemUI = eventData.pointerDrag.GetComponent<SlotItemUI>();
             if(slotItemUI != null)
             {
-                slotItemUI.SetSlotDrop(this);
                 SlotItem slot = slotItemUI.GetSlot();
+                if (slot.GetItem() is MiscItem)
+                {
+                    MiscItem miscItem = (MiscItem)slot.GetItem();
+                    if (miscItem.isAmmo)
+                    {
+                        slotItemUI = null;
+                        return;
+                    }
+                }
+                slotItemUI.SetSlotDrop(this);
                 Inventory.instance.RemoveItem(slot);
                 HUDController.instance.AddItemToSlot(slot, slotIndex);
             }

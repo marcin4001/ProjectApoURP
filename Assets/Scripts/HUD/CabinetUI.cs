@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,16 +39,61 @@ public class CabinetUI : MonoBehaviour
 
     public void Show(Cabinet _cabinet)
     {
+        cabinet = _cabinet;
         canvas.enabled = true;
         player.SetInMenu(true);
+        CreateListCabinet();
+        CreateListPlayer();
         if(scrollListItemsCabinet != null)
             scrollListItemsCabinet.ResetPositionList();
         if(scrollListItemsPlayer != null)
             scrollListItemsPlayer.ResetPositionList();
         consoleText.text = string.Empty;
         active = true;
-        cabinet = _cabinet;
         cabinetNameText.text = cabinet.GetCabinetName();
+    }
+
+    public void CreateListCabinet()
+    {
+        foreach(Transform slot in contentCabinet)
+        {
+            Destroy(slot.gameObject);
+        }
+        List<SlotItem> listItem = cabinet.GetItems();
+        foreach(SlotItem item in listItem)
+        {
+            SlotItemUI slot = Instantiate(slotPrefab, contentCabinet).GetComponent<SlotItemUI>();
+            slot.SetSlot(item);
+            slot.SetTypeSlot(SlotUIType.cabinet);
+        }
+    }
+
+    public void CreateListPlayer()
+    {
+        foreach (Transform slot in contentPlayer)
+        {
+            Destroy(slot.gameObject);
+        }
+        List<SlotItem> listItem = Inventory.instance.GetItems();
+        foreach (SlotItem item in listItem)
+        {
+            SlotItemUI slot = Instantiate(slotPrefab, contentPlayer).GetComponent<SlotItemUI>();
+            slot.SetSlot(item);
+            slot.SetTypeSlot(SlotUIType.cabinet);
+            slot.SetPlayerItem(true);
+        }
+    }
+
+    public void ReCreateList()
+    {
+        StartCoroutine(CreateListAfterTime());
+    }
+
+    private IEnumerator CreateListAfterTime()
+    {
+        yield return new WaitForEndOfFrame();
+        CreateListCabinet();
+        CreateListPlayer();
     }
 
     public void Hide()
@@ -56,5 +103,23 @@ public class CabinetUI : MonoBehaviour
         active = false;
         cabinet.Close();
         cabinet = null;
+    }
+
+    public Canvas GetCanvas()
+    {
+        return canvas;
+    }
+
+    public Cabinet GetCabinet()
+    {
+        return cabinet;
+    }
+
+    public void ShowDescription(SlotItem slot)
+    {
+        Item item = slot.GetItem();
+        consoleText.text = $"{item.nameItem}\n--------------------------\n{item.description}";
+        if (slot.GetAmount() > 1)
+            consoleText.text += $"\nAmount: {slot.GetAmount()}";
     }
 }
