@@ -56,6 +56,26 @@ public class WeaponObject : MonoBehaviour
         ammoOutGun = 0;
     }
 
+    public void UpdateAmmoSlot()
+    {
+        ammoSlot = Inventory.instance.GetSlot(weapon.idAmmo);
+        if(ammoSlot == null ||  ammoSlot.IsEmpty())
+        {
+            SetEmptyAmmo();
+            return;
+        }
+        int fullAmmo = ammoSlot.GetAmount();
+        if(fullAmmo > currentAmmoInGun)
+        {
+            ammoOutGun = fullAmmo - currentAmmoInGun;
+        }
+        else
+        {
+            currentAmmoInGun = fullAmmo;
+            ammoOutGun = 0;
+        }
+    }
+
     public int GetIdItem()
     {
         if(weapon == null)

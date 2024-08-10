@@ -3,9 +3,12 @@ using UnityEngine.InputSystem;
 
 public class EscController : MonoBehaviour
 {
+    public static EscController instance;
+    private bool block = false;
     private MainInputSystem inputActions;
     private void Awake()
     {
+        instance = this;
         inputActions = new MainInputSystem();
         inputActions.Player.Pause.performed += OnEscClick;
         inputActions.Enable();
@@ -25,6 +28,9 @@ public class EscController : MonoBehaviour
 
     public void OnEscClick(InputAction.CallbackContext ctx)
     {
+        if (block)
+            return;
+
         if(InventoryUI.instance.GetActive())
         {
             InventoryUI.instance.Hide();
@@ -46,5 +52,15 @@ public class EscController : MonoBehaviour
         {
             PauseMenuDemo.instance.Show();
         }
+    }
+
+    public bool IsBlock()
+    {
+        return block;
+    }
+
+    public void SetBlock(bool _block)
+    {
+        block = _block;
     }
 }

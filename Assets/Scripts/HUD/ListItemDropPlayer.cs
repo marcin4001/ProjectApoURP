@@ -1,13 +1,12 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEditor.Progress;
 
 public class ListItemDropPlayer : MonoBehaviour, IDropHandler
 {
-    void Start()
-    {
-        
-    }
+    [SerializeField] private SlotItem slot;
+
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
@@ -20,28 +19,65 @@ public class ListItemDropPlayer : MonoBehaviour, IDropHandler
             SlotItem slotItem = slotItemUI.GetSlot();
             if (slotItem == null || slotItem.IsEmpty())
                 return;
-            Cabinet cabinet = CabinetUI.instance.GetCabinet();
-            if (cabinet != null)
+            if (slotItem.GetAmount() == 1)
             {
-                cabinet.RemoveItem(slotItem);
-                Inventory.instance.AddItem(slotItem);
-            }
-            Item item = slotItem.GetItem();
-            if (item is MiscItem)
-            {
-                MiscItem miscItem = (MiscItem)item;
-                if (miscItem.isAmmo)
+                Cabinet cabinet = CabinetUI.instance.GetCabinet();
+                if (cabinet != null)
                 {
-                    WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(item.id);
-                    if (weapon != null)
+                    cabinet.RemoveItem(slotItem);
+                    Inventory.instance.AddItem(slotItem);
+                }
+                Item item = slotItem.GetItem();
+                if (item is MiscItem)
+                {
+                    MiscItem miscItem = (MiscItem)item;
+                    if (miscItem.isAmmo)
                     {
-                        weapon.UpdateAmmoOutGun();
+                        WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(item.id);
+                        if (weapon != null)
+                        {
+                            weapon.UpdateAmmoOutGun();
+                        }
                     }
                 }
-            }
 
-            Destroy(slotItemUI.gameObject);
-            CabinetUI.instance.ReCreateList();
+                Destroy(slotItemUI.gameObject);
+                CabinetUI.instance.ReCreateList();
+            }
+            else
+            {
+                slot = slotItem;
+                CounterUI.instance.Show(slotItem.GetAmount());
+                StartCoroutine(UseCounter());
+            }
         }
+    }
+
+    private IEnumerator UseCounter()
+    {
+        while(!CounterUI.instance.IsApply())
+        {
+            yield return null;
+        }
+
+        Cabinet cabinet = CabinetUI.instance.GetCabinet();
+        int newAmount = CounterUI.instance.GetNumber();
+        SlotItem newItem = new SlotItem(slot.GetItem(), newAmount);
+        Inventory.instance.AddItem(newItem);
+        cabinet.RemoveItem(newItem);
+        Item item = slot.GetItem();
+        if (item is MiscItem)
+        {
+            MiscItem miscItem = (MiscItem)item;
+            if (miscItem.isAmmo)
+            {
+                WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(item.id);
+                if (weapon != null)
+                {
+                    weapon.UpdateAmmoOutGun();
+                }
+            }
+        }
+        CabinetUI.instance.ReCreateList();
     }
 }

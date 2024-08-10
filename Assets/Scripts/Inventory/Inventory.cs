@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
@@ -55,10 +56,18 @@ public class Inventory : MonoBehaviour
     }
 
     public void RemoveItem(SlotItem slot) 
-    { 
-        if (items.Contains(slot))
+    {
+        bool itemExist = items.Exists(x => x.GetItem().id == slot.GetItem().id);
+        if (itemExist)
         {
-            items.Remove(slot);
+            SlotItem foundItem = items.Find(x => x.GetItem().id == slot.GetItem().id);
+            int newAmount = foundItem.GetAmount() - slot.GetAmount();
+            if (newAmount > 0)
+            {
+                foundItem.SetAmount(newAmount);
+                return;
+            }
+            items.Remove(foundItem);
         }
     }
 
