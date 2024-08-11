@@ -20,6 +20,8 @@ public class ListItemDrop : MonoBehaviour, IDropHandler
                 slotItem.SetSlotDrop(null);
                 SlotItem slot = slotItem.GetSlot();
                 Inventory.instance.AddItem(slot);
+                Destroy(slotItem.gameObject);
+                InventoryUI.instance.CreateListItem();
             }
         }
     }

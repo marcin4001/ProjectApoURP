@@ -7,9 +7,9 @@ public class PickupItem : MonoBehaviour, IUsableObj
     [SerializeField] private Transform nearPoint;
     public void Use()
     {
-        bool added = HUDController.instance.AddItemToHUDSlot(item, amount);
-        if (!added)
-            Inventory.instance.AddItem(item, amount);
+        //bool added = HUDController.instance.AddItemToHUDSlot(item, amount);
+        //if (!added)
+        Inventory.instance.AddItem(item, amount);
         if (item is MiscItem)
         {
             MiscItem miscItem = (MiscItem)item;
