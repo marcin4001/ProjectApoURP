@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System;
+using System.Collections;
 
 public class HUDController : MonoBehaviour
 {
@@ -36,8 +37,11 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Image slotItemImage;
     [SerializeField] private SlotItem[] slots;
     [SerializeField] private int currentSlotIndex = 0;
+    [Header("Timer")]
+    [SerializeField] private TextMeshProUGUI timerText;
     private PlayerController player;
     private Canvas canvas;
+    private TimeGame gameTime;
 
     private void Awake()
     {
@@ -46,6 +50,7 @@ public class HUDController : MonoBehaviour
     void Start()
     {
         player = FindFirstObjectByType<PlayerController>();
+        gameTime = FindFirstObjectByType<TimeGame>();
         canvas = GetComponent<Canvas>();
         showButton.onClick.AddListener(Show);
         hideButton.onClick.AddListener(Hide);
@@ -59,6 +64,7 @@ public class HUDController : MonoBehaviour
         slotStateText.text = slotState.ToString();
         Show();
         SetItemSlot();
+        StartCoroutine(UpdateTimer());
     }
 
     public void Show()
@@ -336,6 +342,16 @@ public class HUDController : MonoBehaviour
         foreach(string newLog in displayedLogs)
         {
             consoleText.text += $"{newLog}\n";
+        }
+    }
+
+    private IEnumerator UpdateTimer()
+    {
+        while (true)
+        {
+            string time = gameTime.GetCurrentTimeString();
+            timerText.text = time;
+            yield return new WaitForEndOfFrame();
         }
     }
 }
