@@ -1,9 +1,11 @@
 using System.Collections;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Door : MonoBehaviour, IUsableObj
 {
+    [SerializeField] private HouseRoof roof;
     [SerializeField] private Transform root;
     [SerializeField] private Transform slot1;
     [SerializeField] private Transform slot2;
@@ -31,6 +33,13 @@ public class Door : MonoBehaviour, IUsableObj
             currentCoroutine = StartCoroutine(OpenTask());
         else
             currentCoroutine = StartCoroutine(CloseTask());
+        if(roof != null)
+        {
+            if(isOpen)
+                roof.Hide();
+            else
+                roof.Show();
+        }
     }
 
     public Vector3 GetRootPosition()
@@ -79,5 +88,10 @@ public class Door : MonoBehaviour, IUsableObj
     public GameObject GetMainGameObject()
     {
         return gameObject;
+    }
+
+    public bool IsOpen()
+    {
+        return isOpen;
     }
 }
