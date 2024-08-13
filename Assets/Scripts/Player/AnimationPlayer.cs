@@ -8,10 +8,12 @@ public class AnimationPlayer : MonoBehaviour
     [SerializeField] private string reloadParam = "Reload";
     [SerializeField] private string attackParam = "Attack";
     [SerializeField] private string eatingParam = "Eating";
+    [SerializeField] private string drinkingParam = "Drinking";
     [SerializeField] private string handGunLayer = "HandGun";
     [SerializeField] private string rifleLayer = "Rifle";
     [SerializeField] private float doorInteractTime = 2.5f;
     [SerializeField] private float eatingTime = 2.16f;
+    [SerializeField] private float drinkingTime = 2;
     private Animator animator;
     void Awake()
     {
@@ -48,6 +50,11 @@ public class AnimationPlayer : MonoBehaviour
         animator.SetTrigger(eatingParam);
     }
 
+    public void Drink()
+    {
+        animator.SetTrigger(drinkingParam);
+    }
+
     public void ActiveBaseLayer()
     {
         int handGunIndex = animator.GetLayerIndex(handGunLayer);
@@ -80,6 +87,11 @@ public class AnimationPlayer : MonoBehaviour
     public float GetEatingTime()
     {
         return eatingTime;
+    }
+
+    public float GetDrinkingTime()
+    {
+        return drinkingTime;
     }
 
     private void Update()

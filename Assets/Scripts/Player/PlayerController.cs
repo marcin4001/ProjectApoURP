@@ -117,7 +117,11 @@ public class PlayerController : MonoBehaviour
 
     public void Eat(Item item)
     {
-        StartCoroutine(Eating(item));
+        FoodItem foodItem = item as FoodItem;
+        if(foodItem.isDrink)
+            StartCoroutine(Drinking(item));
+        else
+            StartCoroutine(Eating(item));
     }
 
     private IEnumerator Eating(Item item)
@@ -128,6 +132,17 @@ public class PlayerController : MonoBehaviour
         FoodItem food = (FoodItem) item;
         playerStats.AddHealthPoint(food.healPoint);
         HUDController.instance.RemoveCurrentItem();    
+    }
+
+
+    private IEnumerator Drinking(Item item)
+    {
+        animationPlayer.Drink();
+        float time = animationPlayer.GetDrinkingTime();
+        yield return new WaitForSeconds(time);
+        FoodItem food = (FoodItem)item;
+        playerStats.AddHealthPoint(food.healPoint);
+        HUDController.instance.RemoveCurrentItem();
     }
 
     public void ShowWeapon(Item weapon)

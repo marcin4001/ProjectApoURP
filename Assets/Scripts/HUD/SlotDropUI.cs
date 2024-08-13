@@ -12,10 +12,30 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
     }
     public void OnDrop(PointerEventData eventData)
     {
-        if (slotItemUI != null)
-            return;
+        
         if(eventData.pointerDrag != null)
         {
+            if (slotItemUI != null)
+            {
+                SlotItem slot = slotItemUI.GetSlot();
+                if (slot.GetItem() is WeaponItem)
+                    return;
+                SlotItemUI slotItemUITemp = eventData.pointerDrag.GetComponent<SlotItemUI>();
+                if(slotItemUITemp != null)
+                {
+                    SlotItem slot2 = slotItemUITemp.GetSlot();
+                    if(slot.GetItem() == slot2.GetItem())
+                    {
+                        int newAmount = slot.GetAmount() + slot2.GetAmount();
+                        slot.SetAmount(newAmount);
+                        slotItemUI.UpdateAmountText();
+                        Inventory.instance.RemoveItem(slot2);
+                        HUDController.instance.UpdateCurrentSlotAmountText();
+                        Destroy(slotItemUITemp.gameObject);
+                    }
+                }
+                return;
+            }
             slotItemUI = eventData.pointerDrag.GetComponent<SlotItemUI>();
             if(slotItemUI != null)
             {

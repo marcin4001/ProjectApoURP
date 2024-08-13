@@ -11,6 +11,10 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Transform limitPointB;
     [SerializeField] private Vector3 minLimitVector = Vector3.zero;
     [SerializeField] private Vector3 maxLimitVector = Vector3.zero;
+    [SerializeField] private Camera m_Camera;
+    [SerializeField] private float maxZoom = 5f;
+    [SerializeField] private float minZoom = 3f;
+    [SerializeField] private float speedZoom = 20f;
     private MainInputSystem inputSystem;
     private PlayerController playerController;
     private Vector2 mousePosition;
@@ -23,6 +27,7 @@ public class CameraMovement : MonoBehaviour
         inputSystem.Player.CameraMove.performed += SetInputMove;
         inputSystem.Player.CameraMove.canceled += SetInputMove;
         inputSystem.Player.CenterPlayer.performed += CenterCameraToPlayer;
+        inputSystem.Player.Zoom.performed += Zoom;
         inputSystem.Enable();
     }
 
@@ -32,6 +37,7 @@ public class CameraMovement : MonoBehaviour
         inputSystem.Player.CameraMove.performed += SetInputMove;
         inputSystem.Player.CameraMove.canceled += SetInputMove;
         inputSystem.Player.CenterPlayer.performed += CenterCameraToPlayer;
+        inputSystem.Player.Zoom.performed += Zoom;
         inputSystem.Enable();
     }
 
@@ -41,13 +47,14 @@ public class CameraMovement : MonoBehaviour
         inputSystem.Player.CameraMove.performed -= SetInputMove;
         inputSystem.Player.CameraMove.canceled -= SetInputMove;
         inputSystem.Player.CenterPlayer.performed -= CenterCameraToPlayer;
+        inputSystem.Player.Zoom.performed -= Zoom;
         inputSystem.Disable();
     }
 
     void Start()
     {
         playerController = FindFirstObjectByType<PlayerController>();
-
+        m_Camera.orthographicSize = maxZoom;
         if(limitPointA != null && limitPointB != null)
         {
             minLimitVector.x = Mathf.Min(limitPointA.position.x, limitPointB.position.x);
@@ -73,6 +80,14 @@ public class CameraMovement : MonoBehaviour
         cameraPosition = playerController.transform.position;
         cameraPosition.y = 0f;
         transform.position = cameraPosition;
+    }
+
+    private void Zoom(InputAction.CallbackContext ctx)
+    {
+        float value = ctx.ReadValue<float>();
+        float currentZoom = m_Camera.orthographicSize + value * -Time.deltaTime * speedZoom;
+        currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
+        m_Camera.orthographicSize = currentZoom;
     }
 
     private void Update()     

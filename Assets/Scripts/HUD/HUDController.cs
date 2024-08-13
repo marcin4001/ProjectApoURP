@@ -303,6 +303,17 @@ public class HUDController : MonoBehaviour
         slotStateText.text = slotState.ToString();
     }
 
+    public void UpdateCurrentSlotAmountText()
+    {
+        SlotItem slotItem = GetCurrentItem();
+        if (slotItem == null || slotItem.IsEmpty())
+            return;
+        if(slotItem.GetAmount() > 1)
+            slotAmountText.text = $"x{slotItem.GetAmount()}";
+        else
+            slotAmountText.text = string.Empty;
+    }
+
     private void UnselectAllStateButton()
     {
         moveStateButton.HideSelectFrame();
