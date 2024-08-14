@@ -131,6 +131,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(time);
         FoodItem food = (FoodItem) item;
         playerStats.AddHealthPoint(food.healPoint);
+        if (food.radioactive)
+            playerStats.AddOneRadLevel();
         HUDController.instance.RemoveCurrentItem();    
     }
 
@@ -142,6 +144,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(time);
         FoodItem food = (FoodItem)item;
         playerStats.AddHealthPoint(food.healPoint);
+        if (food.radioactive)
+            playerStats.AddOneRadLevel();
         HUDController.instance.RemoveCurrentItem();
     }
 
