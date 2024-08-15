@@ -13,11 +13,6 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
-    void Start()
-    {
-        
-    }
-
     public void AddNonStackableItem(Item item)
     {
         SlotItem newSlot = new SlotItem(item, 1);
@@ -82,5 +77,11 @@ public class Inventory : MonoBehaviour
         if(slot != null)
             return slot;
         return new SlotItem(null, 0);
+    }
+
+    public bool PlayerHaveItem(int _id)
+    {
+        bool exist = items.Exists(x => x.GetItem().id == _id);
+        return exist;
     }
 }

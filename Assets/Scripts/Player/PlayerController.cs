@@ -133,6 +133,8 @@ public class PlayerController : MonoBehaviour
         playerStats.AddHealthPoint(food.healPoint);
         if (food.radioactive)
             playerStats.AddOneRadLevel();
+        if(food.healRadioactive) 
+            playerStats.RemoveOneRadLevel();
         HUDController.instance.RemoveCurrentItem();    
     }
 
@@ -146,6 +148,8 @@ public class PlayerController : MonoBehaviour
         playerStats.AddHealthPoint(food.healPoint);
         if (food.radioactive)
             playerStats.AddOneRadLevel();
+        if (food.healRadioactive)
+            playerStats.RemoveOneRadLevel();
         HUDController.instance.RemoveCurrentItem();
     }
 
@@ -347,6 +351,10 @@ public class PlayerController : MonoBehaviour
         }
         if (usable == null)
             return;
+        if(!usable.CanUse())
+        {
+            return;
+        }
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         float distnceToObject = Vector3.Distance(transform.position, obj.transform.position);

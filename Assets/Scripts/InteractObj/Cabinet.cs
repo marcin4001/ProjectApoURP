@@ -46,6 +46,11 @@ public class Cabinet : MonoBehaviour, IUsableObj
         return gameObject;
     }
 
+    public bool CanUse()
+    {
+        return true;
+    }
+
     public string GetCabinetName()
     {
         return cabinetName;

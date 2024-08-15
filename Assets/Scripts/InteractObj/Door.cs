@@ -90,6 +90,11 @@ public class Door : MonoBehaviour, IUsableObj
         return gameObject;
     }
 
+    public bool CanUse()
+    {
+        return true;
+    }
+
     public bool IsOpen()
     {
         return isOpen;

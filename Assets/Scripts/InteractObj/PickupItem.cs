@@ -32,6 +32,11 @@ public class PickupItem : MonoBehaviour, IUsableObj
         return nearPoint.position;
     }
 
+    public bool CanUse()
+    {
+        return true;
+    }
+
     public GameObject GetMainGameObject()
     {
         return gameObject;

@@ -27,4 +27,9 @@ public class PickUpWeapon : MonoBehaviour, IUsableObj
     {
         return gameObject;
     }
+
+    public bool CanUse()
+    {
+        return true;
+    }
 }
