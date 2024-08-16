@@ -450,9 +450,17 @@ public class PlayerController : MonoBehaviour
             GameObject usableObj = usable.GetMainGameObject();
             transform.rotation = Quaternion.LookRotation(usableObj.transform.position - transform.position);
         }
-        animationPlayer.DoorInteract();
-        yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
-        weaponController.ShowCurrentWeapon(true);
+        if (usable is BackgroundNPC)
+        {
+            weaponController.ShowCurrentWeapon(true);
+            yield return null;
+        }
+        else
+        {
+            animationPlayer.DoorInteract();
+            yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
+            weaponController.ShowCurrentWeapon(true);
+        }
         usable.Use();
         isUsingObj = false;
     }
