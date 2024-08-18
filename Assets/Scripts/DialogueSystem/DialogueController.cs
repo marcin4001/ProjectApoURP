@@ -11,8 +11,20 @@ public class DialogueController : MonoBehaviour
         instance = this;
     }
 
+    public void SetProfile(DialogueProfile _profile)
+    {
+        profile = _profile;
+    }
+
+    public void SetIndexNode(int _indexNode)
+    {
+        indexNode = _indexNode;
+    }
+
     public void ShowFirstDialogue()
     {
+        if (profile == null)
+            return;
         DialogueUI.instance.Show();
         DialogueUI.instance.SetReply(profile.firstReply);
         CreateListOption();
@@ -37,17 +49,15 @@ public class DialogueController : MonoBehaviour
         List<DialogueOption> listOptions = new List<DialogueOption>();
         foreach (DialogueOption option in options)
         {
-            listOptions.Add(option);
+            if (option.condition == null)
+            {
+                listOptions.Add(option);
+                continue;
+            }
+            if(option.condition.IsMet())
+                listOptions.Add(option);
         }
         DialogueUI.instance.CreateListOptions(listOptions);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            ShowFirstDialogue();
-        }
-    }
 }

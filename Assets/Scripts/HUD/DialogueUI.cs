@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,15 +11,19 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject optionButtonPrefab;
     [SerializeField] private TextMeshProUGUI replyText;
     [SerializeField] private Transform parentOptions;
+    [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private bool active;
     private Canvas canvas;
     private PlayerController player;
+    private TimeGame gameTime;
+    private Coroutine coroutineTime;
 
     private void Awake()
     {
         instance = this;
         canvas = GetComponent<Canvas>();
         player = FindFirstObjectByType<PlayerController>();
+        gameTime = FindAnyObjectByType<TimeGame>();
         canvas.enabled = false;
     }
 
@@ -32,6 +37,7 @@ public class DialogueUI : MonoBehaviour
         canvas.enabled = true;
         active = true;
         player.SetInMenu(true);
+        coroutineTime = StartCoroutine(UpdateTimer());
     }
 
     public void Hide()
@@ -39,6 +45,8 @@ public class DialogueUI : MonoBehaviour
         canvas.enabled = false;
         active = false;
         player.SetInMenu(false);
+        if(coroutineTime != null)
+            StopCoroutine(coroutineTime);
     }
 
     public void SetReply(string reply)
@@ -62,6 +70,16 @@ public class DialogueUI : MonoBehaviour
     public bool GetActive()
     {
         return active;
+    }
+
+    private IEnumerator UpdateTimer()
+    {
+        while (true)
+        {
+            string time = gameTime.GetCurrentTimeString();
+            timerText.text = time;
+            yield return new WaitForEndOfFrame();
+        }
     }
 
 }

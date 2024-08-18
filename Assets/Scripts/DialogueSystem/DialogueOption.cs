@@ -8,4 +8,6 @@ public class DialogueOption
     public string replyText;
     public int nextNode = 0;
     public bool exitOption = false;
+    public ConditionDialogue condition;
+    public ActionDialogue[] actions;
 }

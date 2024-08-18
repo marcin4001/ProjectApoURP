@@ -19,6 +19,10 @@ public class DialogueOptionButton : MonoBehaviour
 
     private void OnClick()
     {
+        foreach(ActionDialogue action in option.actions)
+        {
+            action.Execute();
+        }
         DialogueController.instance.ShowNextDialogue(option);
     }
 }

@@ -414,6 +414,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
             animationPlayer.SetSpeedLocomotion(agent.velocity.magnitude);
             yield return new WaitForEndOfFrame();
+            if ((currentSelectObj is BackgroundNPC || currentSelectObj is DialogueNPC) && agent.remainingDistance < 0.5f)
+                break;
         }
         agent.isStopped = true;
         animationPlayer.SetSpeedLocomotion(0f);
@@ -450,7 +452,7 @@ public class PlayerController : MonoBehaviour
             GameObject usableObj = usable.GetMainGameObject();
             transform.rotation = Quaternion.LookRotation(usableObj.transform.position - transform.position);
         }
-        if (usable is BackgroundNPC)
+        if (usable is BackgroundNPC || usable is DialogueNPC)
         {
             weaponController.ShowCurrentWeapon(true);
             yield return null;
