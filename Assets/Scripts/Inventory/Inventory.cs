@@ -36,7 +36,8 @@ public class Inventory : MonoBehaviour
     {
         if(item.GetItem() is WeaponItem)
         {
-            items.Add(item);
+            SlotItem newItem = new SlotItem(item.GetItem(), 1);
+            items.Add(newItem);
             return;
         }
         bool itemExist = items.Exists(x => x.GetItem().id == item.GetItem().id);
@@ -47,7 +48,8 @@ public class Inventory : MonoBehaviour
             foundItem.SetAmount(newAmount);
             return;
         }
-        items.Add(item);
+        SlotItem newItem2 = new SlotItem(item.GetItem(), item.GetAmount());
+        items.Add(newItem2);
     }
 
     public void RemoveItem(SlotItem slot) 
@@ -83,5 +85,13 @@ public class Inventory : MonoBehaviour
     {
         bool exist = items.Exists(x => x.GetItem().id == _id);
         return exist;
+    }
+
+    public bool PlayerHaveItem(SlotItem item)
+    {
+        SlotItem foundSlot = items.Find(x => x.GetItem().id == item.GetItem().id);
+        if (foundSlot != null && foundSlot.GetAmount() >= item.GetAmount())
+            return true;
+        return false;
     }
 }

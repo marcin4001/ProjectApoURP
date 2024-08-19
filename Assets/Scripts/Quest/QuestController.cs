@@ -17,8 +17,31 @@ public class QuestController : MonoBehaviour
         return result;
     }
 
+    public bool Complete(int id)
+    {
+        Quest quest = quests.Find(x => x.id == id);
+        if(quest != null)
+        {
+            return quest.complete;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void SetComplete(int id)
+    {
+        Quest quest = quests.Find(x => x.id == id);
+        if (quest != null)
+        {
+            quest.complete = true;
+        }
+    }
+
     public void AddQuest(Quest quest)
     { 
-        quests.Add(quest);
+        Quest newQuest = new Quest(quest.id, quest.questTitle);
+        quests.Add(newQuest);
     }
 }

@@ -26,6 +26,7 @@ public class DialogueController : MonoBehaviour
         if (profile == null)
             return;
         DialogueUI.instance.Show();
+        DialogueUI.instance.SetNPCLabel(profile.npcName, profile.job, profile.location);
         DialogueUI.instance.SetReply(profile.firstReply);
         CreateListOption();
     }

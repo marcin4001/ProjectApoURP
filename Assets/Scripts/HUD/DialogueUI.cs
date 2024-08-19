@@ -11,6 +11,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject optionButtonPrefab;
     [SerializeField] private TextMeshProUGUI replyText;
     [SerializeField] private Transform parentOptions;
+    [SerializeField] private TextMeshProUGUI npcLabelText;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private bool active;
     private Canvas canvas;
@@ -52,6 +53,11 @@ public class DialogueUI : MonoBehaviour
     public void SetReply(string reply)
     {
         replyText.text = reply;
+    }
+
+    public void SetNPCLabel(string nameNPC, string job, string location)
+    {
+        npcLabelText.text = $"Name: {nameNPC}\nJob:  {job}\nLoc.: {location}";
     }
 
     public void CreateListOptions(List<DialogueOption> options)
