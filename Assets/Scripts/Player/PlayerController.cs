@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform handSocket;
     [SerializeField] private GameObject itemInHand;
     [SerializeField] private Transform debugObject;
+    [SerializeField] private bool block;
     private int indexCorner = 1;
     private LayerMask layer;
     private Vector2 mousePosition;
@@ -70,6 +71,7 @@ public class PlayerController : MonoBehaviour
         HUDController.instance.SetStateButtons(actionState);
         layer = layerMove;
         currentPath = new NavMeshPath();
+
     }
 
     private void SetMousePosition(InputAction.CallbackContext ctx)
@@ -79,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerAction(InputAction.CallbackContext ctx)
     {
-        if (inMenu)
+        if (block || inMenu)
             return;
         if (HUDController.instance.PointerOnHUD())
             return;
@@ -110,13 +112,15 @@ public class PlayerController : MonoBehaviour
 
     public void StartUsingItem()
     {
-        if (isMoving)
+        if (block || isMoving)
             return;
         isUsingItem = true;
     }
 
     public void Eat(Item item)
     {
+        if (block)
+            return;
         FoodItem foodItem = item as FoodItem;
         if(foodItem.isDrink)
             StartCoroutine(Drinking(item));
@@ -226,7 +230,7 @@ public class PlayerController : MonoBehaviour
 
     public void ReloadGun()
     {
-        if (isMoving)
+        if (block || isMoving)
             return;
         WeaponObject weapon = weaponController.GetCurrentWeapon();
         if (weapon == null)
@@ -267,6 +271,16 @@ public class PlayerController : MonoBehaviour
         inMenu = value;
     }
 
+    public bool IsBlock()
+    {
+        return block;
+    }
+
+    public void SetBlock(bool value)
+    {
+        block = value;
+    }
+
     public Vector2 GetMousePosition()
     {
         return mousePosition;
@@ -274,6 +288,8 @@ public class PlayerController : MonoBehaviour
 
     private void ChangeActionState(InputAction.CallbackContext ctx)
     {
+        if (block || inMenu)
+            return;
         if (mousePosition.x < 0 || mousePosition.x > Screen.width || mousePosition.y < 0 || mousePosition.y > Screen.height)
             return;
         if(isUsingItem)

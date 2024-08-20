@@ -2,19 +2,30 @@ using UnityEngine;
 
 public class TimeGame : MonoBehaviour
 {
+    public static TimeGame instance;
     [SerializeField] private float startTime = 6f;
     [SerializeField] private float currentTime = 0f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         currentTime = startTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentTime += (Time.deltaTime / 60);
+        if (currentTime >= 24f)
+            currentTime -= 24f;
+    }
+
+    public void AddHours(float hours)
+    {
+        currentTime += hours;
         if (currentTime >= 24f)
             currentTime -= 24f;
     }

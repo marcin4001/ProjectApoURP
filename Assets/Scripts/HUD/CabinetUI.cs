@@ -51,6 +51,7 @@ public class CabinetUI : MonoBehaviour
         consoleText.text = string.Empty;
         active = true;
         cabinetNameText.text = cabinet.GetCabinetName();
+        CameraMovement.instance.SetBlock(true);
     }
 
     public void CreateListCabinet()
@@ -103,6 +104,7 @@ public class CabinetUI : MonoBehaviour
         active = false;
         cabinet.Close();
         cabinet = null;
+        CameraMovement.instance.SetBlock(false);
     }
 
     public Canvas GetCanvas()

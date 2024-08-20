@@ -16,7 +16,6 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private bool active;
     private Canvas canvas;
     private PlayerController player;
-    private TimeGame gameTime;
     private Coroutine coroutineTime;
 
     private void Awake()
@@ -24,7 +23,6 @@ public class DialogueUI : MonoBehaviour
         instance = this;
         canvas = GetComponent<Canvas>();
         player = FindFirstObjectByType<PlayerController>();
-        gameTime = FindAnyObjectByType<TimeGame>();
         canvas.enabled = false;
     }
 
@@ -38,6 +36,8 @@ public class DialogueUI : MonoBehaviour
         canvas.enabled = true;
         active = true;
         player.SetInMenu(true);
+        CameraMovement.instance.CenterCameraToPlayer();
+        CameraMovement.instance.SetBlock(true);
         coroutineTime = StartCoroutine(UpdateTimer());
     }
 
@@ -48,6 +48,7 @@ public class DialogueUI : MonoBehaviour
         player.SetInMenu(false);
         if(coroutineTime != null)
             StopCoroutine(coroutineTime);
+        CameraMovement.instance.SetBlock(false);
     }
 
     public void SetReply(string reply)
@@ -82,7 +83,7 @@ public class DialogueUI : MonoBehaviour
     {
         while (true)
         {
-            string time = gameTime.GetCurrentTimeString();
+            string time = TimeGame.instance.GetCurrentTimeString();
             timerText.text = time;
             yield return new WaitForEndOfFrame();
         }

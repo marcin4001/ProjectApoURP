@@ -5,6 +5,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class CameraMovement : MonoBehaviour
 {
+    public static CameraMovement instance;
     [SerializeField] private float borderThickness = 10f;
     [SerializeField] private float speedMovingCamera = 10f;
     [SerializeField] private Transform limitPointA;
@@ -15,6 +16,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float maxZoom = 5f;
     [SerializeField] private float minZoom = 3f;
     [SerializeField] private float speedZoom = 20f;
+    [SerializeField] private bool block = false;
     private MainInputSystem inputSystem;
     private PlayerController playerController;
     private Vector2 mousePosition;
@@ -22,6 +24,7 @@ public class CameraMovement : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
         inputSystem = new MainInputSystem();
         inputSystem.Player.MousePos.performed += SetMousePosition;
         inputSystem.Player.CameraMove.performed += SetInputMove;
@@ -76,6 +79,11 @@ public class CameraMovement : MonoBehaviour
 
     private void CenterCameraToPlayer(InputAction.CallbackContext ctx)
     {
+        CenterCameraToPlayer();
+    }
+
+    public void CenterCameraToPlayer()
+    {
         Vector3 cameraPosition = transform.position;
         cameraPosition = playerController.transform.position;
         cameraPosition.y = 0f;
@@ -84,6 +92,8 @@ public class CameraMovement : MonoBehaviour
 
     private void Zoom(InputAction.CallbackContext ctx)
     {
+        if (block)
+            return;
         float value = ctx.ReadValue<float>();
         float currentZoom = m_Camera.orthographicSize + value * -Time.deltaTime * speedZoom;
         currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
@@ -92,6 +102,8 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()     
     {
+        if (block)
+            return;
         if (mousePosition.x < 0 || mousePosition.x > Screen.width || mousePosition.y < 0 || mousePosition.y > Screen.height)
             return;
         if(inputMove == Vector2.zero)
@@ -135,5 +147,15 @@ public class CameraMovement : MonoBehaviour
             camPosition.z = Mathf.Clamp(camPosition.z, minLimitVector.z, maxLimitVector.z);
             transform.position = camPosition;
         }
+    }
+
+    public bool IsBlock()
+    {
+        return block;
+    }
+
+    public void SetBlock(bool value)
+    {
+        block = value;
     }
 }

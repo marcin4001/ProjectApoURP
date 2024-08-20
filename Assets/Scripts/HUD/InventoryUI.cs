@@ -44,6 +44,7 @@ public class InventoryUI : MonoBehaviour
             scrollListItems.ResetPositionList();
         consoleText.text = string.Empty;
         active = true;
+        CameraMovement.instance.SetBlock(true);
     }
 
     public void Hide()
@@ -51,6 +52,7 @@ public class InventoryUI : MonoBehaviour
         canvas.enabled = false;
         player.SetInMenu(false);
         active = false;
+        CameraMovement.instance.SetBlock(false);
     }
 
     public Canvas GetCanvas()

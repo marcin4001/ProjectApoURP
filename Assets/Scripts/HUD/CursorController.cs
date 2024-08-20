@@ -11,6 +11,8 @@ public class CursorController : MonoBehaviour
     [SerializeField] private Texture2D unreachableCursor;
     [SerializeField] private Texture2D useCursor;
     [SerializeField] private Texture2D lookCursor;
+    [SerializeField] private Texture2D upCursor;
+    [SerializeField] private Texture2D downCursor;
     [SerializeField] private LayerMask layer;
     [SerializeField] private RectTransform canvas;
     [SerializeField] private RawImage cursorImage;
@@ -71,7 +73,12 @@ public class CursorController : MonoBehaviour
 
         if (HUDController.instance.PointerOnHUD() || player.IsUsingItem() || player.InMenu())
         {
-            cursorImage.texture = defaultCursor;
+            if (HUDController.instance.PointerOnUpButtonConsole())
+                cursorImage.texture = upCursor;
+            else if(HUDController.instance.PointerOnDownButtonConsole())
+                cursorImage.texture = downCursor;
+            else
+                cursorImage.texture = defaultCursor;
         }
         else
         {

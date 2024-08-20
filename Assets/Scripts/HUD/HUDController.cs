@@ -30,6 +30,10 @@ public class HUDController : MonoBehaviour
     [Header("Console")]
     [SerializeField] private TextMeshProUGUI consoleText;
     [SerializeField] private List<string> consoleLogs = new List<string>();
+    [SerializeField] private RectTransform upButtonConsoleTransform;
+    [SerializeField] private RectTransform downButtonConsoleTransform;
+    [SerializeField] private Button upConsoleButton;
+    [SerializeField] private Button downConsoleButton;
     [Header("Slot Panel")]
     [SerializeField] private SlotState slotState = SlotState.Use;
     [SerializeField] private TextMeshProUGUI slotStateText;
@@ -37,11 +41,11 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Image slotItemImage;
     [SerializeField] private SlotItem[] slots;
     [SerializeField] private int currentSlotIndex = 0;
+    [SerializeField] private int indexConsoleLog = 0;
     [Header("Timer")]
     [SerializeField] private TextMeshProUGUI timerText;
     private PlayerController player;
     private Canvas canvas;
-    private TimeGame gameTime;
 
     private void Awake()
     {
@@ -50,7 +54,6 @@ public class HUDController : MonoBehaviour
     void Start()
     {
         player = FindFirstObjectByType<PlayerController>();
-        gameTime = FindFirstObjectByType<TimeGame>();
         canvas = GetComponent<Canvas>();
         showButton.onClick.AddListener(Show);
         hideButton.onClick.AddListener(Hide);
@@ -60,6 +63,8 @@ public class HUDController : MonoBehaviour
         slotChangeStateButton.OnClickRight.AddListener(ChangeStateSlot);
         pauseMenuButton.onClick.AddListener(OpenPauseMenu);
         inventoryButton.onClick.AddListener(OpenInventory);
+        upConsoleButton.onClick.AddListener(OnClickButtonUpConsole);
+        downConsoleButton.onClick.AddListener(OnClickButtonDownConsole);
         consoleText.text = string.Empty;
         slotStateText.text = slotState.ToString();
         Show();
@@ -235,6 +240,16 @@ public class HUDController : MonoBehaviour
         return RectTransformUtility.RectangleContainsScreenPoint(showButton.GetComponent<RectTransform>(), Input.mousePosition);
     }
 
+    public bool PointerOnUpButtonConsole()
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(upButtonConsoleTransform, Input.mousePosition);
+    }
+
+    public bool PointerOnDownButtonConsole()
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(downButtonConsoleTransform, Input.mousePosition);
+    }
+
     public void SetStatePlayer(PlayerActionState state)
     {
         player.SetState(state);
@@ -346,11 +361,46 @@ public class HUDController : MonoBehaviour
         consoleLogs.Add(log);
         List<string> displayedLogs;
         if (consoleLogs.Count > 7)
+        {
             displayedLogs = consoleLogs.GetRange(consoleLogs.Count - 7, 7);
+            indexConsoleLog = consoleLogs.Count - 7;
+        }
         else
+        {
             displayedLogs = new List<string>(consoleLogs);
+        }
         consoleText.text = string.Empty;
         foreach(string newLog in displayedLogs)
+        {
+            consoleText.text += $"{newLog}\n";
+        }
+    }
+
+    public void OnClickButtonUpConsole()
+    {
+        if (consoleLogs.Count <= 7)
+            return;
+        indexConsoleLog -= 1;
+        if (indexConsoleLog < 0)
+            indexConsoleLog = 0;
+        List<string> displayedLogs = consoleLogs.GetRange(indexConsoleLog, 7);
+        consoleText.text = string.Empty;
+        foreach (string newLog in displayedLogs)
+        {
+            consoleText.text += $"{newLog}\n";
+        }
+    }
+
+    public void OnClickButtonDownConsole()
+    {
+        if (consoleLogs.Count <= 7)
+            return;
+        indexConsoleLog += 1;
+        if(indexConsoleLog > consoleLogs.Count - 7)
+            indexConsoleLog = consoleLogs.Count - 7;
+        List<string> displayedLogs = consoleLogs.GetRange(indexConsoleLog, 7);
+        consoleText.text = string.Empty;
+        foreach (string newLog in displayedLogs)
         {
             consoleText.text += $"{newLog}\n";
         }
@@ -360,7 +410,7 @@ public class HUDController : MonoBehaviour
     {
         while (true)
         {
-            string time = gameTime.GetCurrentTimeString();
+            string time = TimeGame.instance.GetCurrentTimeString();
             timerText.text = time;
             yield return new WaitForEndOfFrame();
         }
