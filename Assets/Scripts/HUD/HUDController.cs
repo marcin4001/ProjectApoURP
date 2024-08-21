@@ -23,6 +23,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Button showButton;
     [SerializeField] private Button pauseMenuButton;
     [SerializeField] private Button inventoryButton;
+    [SerializeField] private Button questPanelButton;
     [SerializeField] private Button slotButton;
     [SerializeField] private ButtonRightClick slotChangeStateButton;
     [SerializeField] private Button leftButton;
@@ -63,6 +64,7 @@ public class HUDController : MonoBehaviour
         slotChangeStateButton.OnClickRight.AddListener(ChangeStateSlot);
         pauseMenuButton.onClick.AddListener(OpenPauseMenu);
         inventoryButton.onClick.AddListener(OpenInventory);
+        questPanelButton.onClick.AddListener(OpenQuestList);
         upConsoleButton.onClick.AddListener(OnClickButtonUpConsole);
         downConsoleButton.onClick.AddListener(OnClickButtonDownConsole);
         consoleText.text = string.Empty;
@@ -159,6 +161,11 @@ public class HUDController : MonoBehaviour
     public void OpenPauseMenu()
     {
         PauseMenuDemo.instance.Show();
+    }
+
+    public void OpenQuestList()
+    {
+        QuestListUI.instance.Show();
     }
 
     public void SetActiveCanvas(bool value)

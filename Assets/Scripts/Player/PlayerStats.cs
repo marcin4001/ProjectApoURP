@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    public static PlayerStats instance;
     [SerializeField] private int healthPoint = 100;
     [SerializeField] private int healthPointMax = 100;
     [SerializeField] private int radLevel = 0;
     [SerializeField] private int radLevelMax = 5;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         HUDController.instance.UpdateHPBar(healthPoint, healthPointMax);
@@ -61,5 +68,10 @@ public class PlayerStats : MonoBehaviour
     {
         radLevel = 0;
         HUDController.instance.UpdateRadBar(radLevel, radLevelMax);
+    }
+
+    public string GetStatsText()
+    {
+        return $"Name: Revo\nHealth: {healthPoint}/{healthPointMax}\nRadiation level: {radLevel}/{radLevelMax}";
     }
 }
