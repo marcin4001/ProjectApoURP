@@ -41,7 +41,12 @@ public class QuestController : MonoBehaviour
 
     public void AddQuest(Quest quest)
     { 
-        Quest newQuest = new Quest(quest.id, quest.questTitle);
+        Quest newQuest = new Quest(quest.id, quest.questTitle, quest.owner, quest.location);
         quests.Add(newQuest);
+    }
+
+    public List<Quest> GetQuests()
+    {
+        return quests;
     }
 }
