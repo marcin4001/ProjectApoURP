@@ -13,6 +13,7 @@ public class CabinetUI : MonoBehaviour
     [SerializeField] private Transform contentCabinet;
     [SerializeField] private Transform contentPlayer;
     [SerializeField] private GameObject slotPrefab;
+    [SerializeField] private string separator = "-------------------------------";
     [SerializeField] private bool active = false;
     [SerializeField] private ScrollListController scrollListItemsCabinet;
     [SerializeField] private ScrollListController scrollListItemsPlayer;
@@ -120,7 +121,7 @@ public class CabinetUI : MonoBehaviour
     public void ShowDescription(SlotItem slot)
     {
         Item item = slot.GetItem();
-        consoleText.text = $"{item.nameItem}\n--------------------------\n{item.description}";
+        consoleText.text = $"{item.nameItem}\n{separator}\n{item.description}";
         if (slot.GetAmount() > 1)
             consoleText.text += $"\nAmount: {slot.GetAmount()}";
     }

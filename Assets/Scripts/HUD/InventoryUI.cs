@@ -14,6 +14,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject slotPrefab;
     [SerializeField] private SlotDropUI[] slotsDrop;
     [SerializeField] private bool active = false;
+    [SerializeField] private string separator = "-------------------------------";
     [SerializeField] private ScrollListController scrollListItems;
     private Canvas canvas;
     private PlayerController player;
@@ -85,7 +86,7 @@ public class InventoryUI : MonoBehaviour
     public void ShowDescription(SlotItem slot)
     {
         Item item = slot.GetItem();
-        consoleText.text = $"{item.nameItem}\n--------------------------\n{item.description}";
+        consoleText.text = $"{item.nameItem}\n{separator}\n{item.description}";
         if (slot.GetAmount() > 1)
             consoleText.text += $"\nAmount: {slot.GetAmount()}";
     }
