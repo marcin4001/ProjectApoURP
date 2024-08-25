@@ -279,6 +279,7 @@ public class PlayerController : MonoBehaviour
     public void SetBlock(bool value)
     {
         block = value;
+        CursorController.instance.SetIsWait(value);
     }
 
     public Vector2 GetMousePosition()
