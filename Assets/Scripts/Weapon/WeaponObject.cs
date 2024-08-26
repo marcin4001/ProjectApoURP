@@ -96,6 +96,13 @@ public class WeaponObject : MonoBehaviour
         return weapon.type == WeaponType.Melee;
     }
 
+    public float GetRange()
+    {
+        if(weapon == null)
+            return 0f;
+        return weapon.range;
+    }
+
     public bool OutOfAmmo()
     {
         if(currentAmmoInGun <= 0)

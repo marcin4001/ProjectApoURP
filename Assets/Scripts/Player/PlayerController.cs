@@ -211,6 +211,25 @@ public class PlayerController : MonoBehaviour
             WeaponObject weapon = weaponController.GetCurrentWeapon();
             if (weapon == null)
                 return;
+            float distanceToPoint = Vector3.Distance(center.position, point);
+            if(distanceToPoint > weapon.GetRange())
+            {
+                HUDController.instance.AddConsolelog("The target is too far");
+                HUDController.instance.AddConsolelog("away.");
+                return;
+            }
+            Vector3 direction = point - center.position;
+            RaycastHit[] hits = Physics.RaycastAll(center.position, direction, distanceToPoint);
+            foreach (RaycastHit hit in hits)
+            {
+                if(hit.collider.tag == "Wall" || hit.collider.tag == "Door")
+                {
+                    HUDController.instance.AddConsolelog("The target is too far");
+                    HUDController.instance.AddConsolelog("away.");
+                    return;
+                }
+            }
+
             if (weapon.IsMelee())
             {
                 animationPlayer.Attack();
