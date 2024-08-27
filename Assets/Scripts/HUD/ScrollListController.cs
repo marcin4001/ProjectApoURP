@@ -12,6 +12,7 @@ public class ScrollListController : MonoBehaviour
     [SerializeField] private bool clickDown = false;
     private ScrollRect listItems;
     private Coroutine currentCoroutine;
+    private float scrollSpeed = 700f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,20 +62,21 @@ public class ScrollListController : MonoBehaviour
 
     private IEnumerator Scroll()
     {
+        float speedFactor = 1f / listItems.content.sizeDelta.y;
         while (clickDown)
         {
             Vector2 pos = listItems.normalizedPosition;
-            pos.y -= Time.deltaTime;
+            pos.y -= scrollSpeed * Time.deltaTime / listItems.content.sizeDelta.y;
             listItems.normalizedPosition = pos;
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
 
         while (clickUp)
         {
             Vector2 pos = listItems.normalizedPosition;
-            pos.y += Time.deltaTime;
+            pos.y += scrollSpeed * Time.deltaTime / listItems.content.sizeDelta.y;
             listItems.normalizedPosition = pos;
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
     }
 }
