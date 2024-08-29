@@ -6,13 +6,17 @@ public class WeaponObject : MonoBehaviour
     [SerializeField] private WeaponItem weapon;
     [SerializeField] private ParticleSystem muzzle;
     [SerializeField] private float startPlayMuzzle = 0.25f;
+    [SerializeField] private float startPlayAudio;
     [SerializeField] private int currentAmmoInGun = 0;
     [SerializeField] private int ammoOutGun = 0;
     [SerializeField] private SlotItem ammoSlot;
+    [SerializeField] private AudioClip attackClip;
+    [SerializeField] private AudioClip reloadSound;
+    private AudioSource source;
 
     private void Start()
     {
-
+        source = GetComponent<AudioSource>();
     }
 
     public void InitAmmo()
@@ -126,6 +130,24 @@ public class WeaponObject : MonoBehaviour
         yield return new WaitForSeconds(startPlayMuzzle);
         if(muzzle != null)
             muzzle.Play();
+    }
+
+    public void StartPlayAttack()
+    {
+        StartCoroutine(PlayAttackSound());
+    }
+
+    private IEnumerator PlayAttackSound()
+    {
+        yield return new WaitForSeconds(startPlayAudio);
+        if (source != null)
+            source.PlayOneShot(attackClip);
+    }
+
+    public void PlayReloadSound()
+    {
+        if (source != null)
+            source.PlayOneShot(reloadSound);
     }
 
     public void RemoveAmmo(int ammo)

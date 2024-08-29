@@ -243,7 +243,10 @@ public class PlayerController : MonoBehaviour
             }
             transform.rotation = Quaternion.LookRotation(point - transform.position);
             if (weapon != null)
+            {
                 weapon.StartPlayMuzzle();
+                weapon.StartPlayAttack();
+            }
         }
     }
 
@@ -258,6 +261,7 @@ public class PlayerController : MonoBehaviour
             return;
         animationPlayer.Reload();
         weapon.Reload();
+        weapon.PlayReloadSound();
     }
 
     public PlayerActionState GetState()
