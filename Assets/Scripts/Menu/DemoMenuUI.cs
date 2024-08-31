@@ -11,6 +11,8 @@ public class DemoMenuUI : MonoBehaviour
     {
         playButton.onClick.AddListener(OnClickPlay);
         quitButton.onClick.AddListener(OnClickQuit);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void OnClickPlay()
