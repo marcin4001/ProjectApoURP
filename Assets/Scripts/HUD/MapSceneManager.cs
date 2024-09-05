@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MapSceneManager : MonoBehaviour
 {
@@ -15,10 +17,14 @@ public class MapSceneManager : MonoBehaviour
     [SerializeField] private RectTransform target;
     [SerializeField] private Transform pathParent;
     [SerializeField] private GameObject pathSegment;
+    [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private float segmentLen = 10f;
     [SerializeField] private float gapSegment = 5f;
+    [SerializeField] private float moveSpeed = 35f;
     private List<RectTransform> pathList = new List<RectTransform>();
     private Camera cam;
+    private Coroutine currentCoroutine;
+    private float gameTime = 0f;
 
     private void Awake()
     {
@@ -31,6 +37,7 @@ public class MapSceneManager : MonoBehaviour
         gridButton.onClick.AddListener(ShowGrid);
         enterButton.onClick.AddListener(OnClickEnter);
         target.gameObject.SetActive(false);
+        timeText.text = GetCurrentTimeString();
     }
 
     private void ShowGrid()
@@ -58,6 +65,36 @@ public class MapSceneManager : MonoBehaviour
         target.gameObject.SetActive(true);
         target.anchoredPosition = newPoint;
         DrawPath();
+        if(currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+        currentCoroutine = StartCoroutine(MoveToTarget());
+    }
+
+    private IEnumerator MoveToTarget()
+    {
+        Vector2 playerPos = playerSign.anchoredPosition;
+        Vector2 targetPos = target.anchoredPosition;
+        float distance = Vector2.Distance(playerPos, targetPos);
+        float distanceTraveled = 0;
+        while (distance > 0.5f)
+        {
+            playerPos = playerSign.anchoredPosition;
+            playerSign.anchoredPosition = Vector2.MoveTowards(playerPos, targetPos, Time.deltaTime * moveSpeed);
+            distanceTraveled += Time.deltaTime * moveSpeed;
+            if(distanceTraveled >= 18f)
+            {
+                distanceTraveled = 0f;
+                gameTime += 1f;
+                if(gameTime >= 24f)
+                    gameTime = 0f;
+                timeText.text = GetCurrentTimeString();
+            }
+            DrawPath();
+            yield return new WaitForEndOfFrame();
+            distance = Vector2.Distance(playerPos, targetPos);
+        }
+        playerSign.anchoredPosition = targetPos;
+        target.gameObject.SetActive(false);
     }
 
     private void DrawPath()
@@ -83,5 +120,24 @@ public class MapSceneManager : MonoBehaviour
             float angleSegment = Mathf.Atan2(directionPath.y, directionPath.x) * Mathf.Rad2Deg;
             newSegment.rotation = Quaternion.Euler(0f, 0f, angleSegment);
         }
+    }
+
+    private string GetCurrentTimeString()
+    {
+        int hour = Mathf.FloorToInt(gameTime);
+        float fractionalHour = gameTime - hour;
+        int minutes = Mathf.FloorToInt(fractionalHour * 60);
+
+        string period = "AM";
+        if (hour >= 12)
+        {
+            period = "PM";
+            if (hour >= 13)
+                hour -= 12;
+        }
+        if (hour == 0)
+            hour = 12;
+
+        return $"{hour.ToString("D2")}:{minutes.ToString("D2")} {period}";
     }
 }
