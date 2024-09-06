@@ -3,7 +3,6 @@ using UnityEngine;
 public class TimeGame : MonoBehaviour
 {
     public static TimeGame instance;
-    [SerializeField] private float startTime = 6f;
     [SerializeField] private float currentTime = 0f;
 
     private void Awake()
@@ -13,7 +12,8 @@ public class TimeGame : MonoBehaviour
 
     void Start()
     {
-        currentTime = startTime;
+        if(GameParam.instance != null)
+            currentTime = GameParam.instance.currentTime;
     }
 
     void Update()

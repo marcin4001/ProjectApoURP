@@ -21,10 +21,12 @@ public class MapSceneManager : MonoBehaviour
     [SerializeField] private float segmentLen = 10f;
     [SerializeField] private float gapSegment = 5f;
     [SerializeField] private float moveSpeed = 35f;
+    private Image buttonEnterImage;
     private List<RectTransform> pathList = new List<RectTransform>();
     private Camera cam;
     private Coroutine currentCoroutine;
     private float gameTime = 0f;
+    private bool blockEnterButton = false;
 
     private void Awake()
     {
@@ -37,6 +39,14 @@ public class MapSceneManager : MonoBehaviour
         gridButton.onClick.AddListener(ShowGrid);
         enterButton.onClick.AddListener(OnClickEnter);
         target.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        buttonEnterImage = enterButton.GetComponent<Image>();
+        if(GameParam.instance != null)
+        {
+            gameTime = GameParam.instance.currentTime;
+            playerSign.anchoredPosition = GameParam.instance.mapPosition;
+        }
         timeText.text = GetCurrentTimeString();
     }
 
@@ -54,7 +64,10 @@ public class MapSceneManager : MonoBehaviour
 
     private void OnClickEnter()
     {
+        if(!blockEnterButton)
+        {
 
+        }
     }
 
 
@@ -76,6 +89,8 @@ public class MapSceneManager : MonoBehaviour
         Vector2 targetPos = target.anchoredPosition;
         float distance = Vector2.Distance(playerPos, targetPos);
         float distanceTraveled = 0;
+        buttonEnterImage.overrideSprite = enterBtnInactiveSprite;
+        blockEnterButton = true;
         while (distance > 0.5f)
         {
             playerPos = playerSign.anchoredPosition;
@@ -95,6 +110,8 @@ public class MapSceneManager : MonoBehaviour
         }
         playerSign.anchoredPosition = targetPos;
         target.gameObject.SetActive(false);
+        blockEnterButton = false;
+        buttonEnterImage.overrideSprite = enterBtnActiveSprite;
     }
 
     private void DrawPath()

@@ -15,6 +15,13 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        if(GameParam.instance != null)
+        {
+            healthPoint = GameParam.instance.healthPoint;
+            healthPointMax = GameParam.instance.healthPointMax;
+            radLevel = GameParam.instance.radLevel;
+            radLevelMax = GameParam.instance.radLevelMax;
+        }
         HUDController.instance.UpdateHPBar(healthPoint, healthPointMax);
         HUDController.instance.UpdateRadBar(radLevel, radLevelMax);
     }
@@ -73,5 +80,25 @@ public class PlayerStats : MonoBehaviour
     public string GetStatsText()
     {
         return $"Name: Revo\nHealth: {healthPoint}/{healthPointMax}\nRadiation level: {radLevel}/{radLevelMax}";
+    }
+
+    public int GetHP()
+    {
+        return healthPoint;
+    }
+
+    public int GetMaxHP()
+    {
+        return healthPointMax;
+    }
+
+    public int GetRadLevel()
+    {
+        return radLevel;
+    }
+
+    public int GetMaxRadLevel()
+    {
+        return radLevelMax;
     }
 }
