@@ -40,7 +40,6 @@ public class HUDController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI slotStateText;
     [SerializeField] private TextMeshProUGUI slotAmountText;
     [SerializeField] private Image slotItemImage;
-    [SerializeField] private SlotItem[] slots;
     [SerializeField] private int currentSlotIndex = 0;
     [SerializeField] private int indexConsoleLog = 0;
     [Header("Timer")]
@@ -138,7 +137,7 @@ public class HUDController : MonoBehaviour
     public void OnClickRigtButton()
     {
         currentSlotIndex++;
-        if(currentSlotIndex == slots.Length)
+        if(currentSlotIndex == Inventory.instance.GetLengthSlotItem())
             currentSlotIndex = 0;
         SetItemSlot();
     }
@@ -147,7 +146,7 @@ public class HUDController : MonoBehaviour
     {
         currentSlotIndex--;
         if(currentSlotIndex < 0)
-            currentSlotIndex = slots.Length - 1;
+            currentSlotIndex = Inventory.instance.GetLengthSlotItem() - 1;
         SetItemSlot();
     }
 
@@ -175,7 +174,7 @@ public class HUDController : MonoBehaviour
 
     public SlotItem GetCurrentItem()
     {
-        return slots[currentSlotIndex];
+        return Inventory.instance.GetSlotItem(currentSlotIndex);
     }
 
     public void RemoveCurrentItem()
@@ -183,20 +182,19 @@ public class HUDController : MonoBehaviour
         SlotItem slotItem = GetCurrentItem();
         if (slotItem.GetAmount() > 1)
         {
-            int newAmount = slotItem.GetAmount() - 1;
-            slotItem.SetAmount(newAmount);
+            Inventory.instance.AddAmountToSlot(currentSlotIndex, -1);
             SetItemSlot();
             return;
         }
-        slots[currentSlotIndex].SetAmount(0);
-        slots[currentSlotIndex] = new SlotItem(null, 0);
+        Inventory.instance.SetAmountSlot(currentSlotIndex, 0);
+        Inventory.instance.SetNullSlot(currentSlotIndex);
         SetItemSlot();
     }
 
     public bool AddItemToSlot(Item item)
     {
         int freeIndex = 0;
-        foreach (SlotItem slot in slots)
+        foreach (SlotItem slot in Inventory.instance.GetSlots())
         {
             if(slot.IsEmpty())
             {
@@ -204,9 +202,9 @@ public class HUDController : MonoBehaviour
             }
             freeIndex++;
         }
-        if (freeIndex == slots.Length)
+        if (freeIndex == Inventory.instance.GetLengthSlotItem())
             return false;
-        slots[freeIndex] = new SlotItem(item, 1);
+        Inventory.instance.SetSlot(currentSlotIndex, new SlotItem(item, 1));
         if(freeIndex == currentSlotIndex)
             SetItemSlot();
         return true;
@@ -214,21 +212,22 @@ public class HUDController : MonoBehaviour
 
     public void AddItemToSlot(SlotItem item, int _index)
     {
-        slots[_index] = item;
+        Inventory.instance.SetSlot(_index, item);
         if (_index == currentSlotIndex)
             SetItemSlot();
     }
 
     public bool AddItemToHUDSlot(Item item, int amount = 1)
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < Inventory.instance.GetLengthSlotItem(); i++)
         {
-            if (slots[i].IsEmpty())
+            if (Inventory.instance.GetSlotItem(i) == null)
                 continue;
-            if (slots[i].GetItem() == item)
+            if (Inventory.instance.GetSlotItem(i).IsEmpty())
+                continue;
+            if (Inventory.instance.GetSlotItem(i).GetItem() == item)
             {
-                int newAmount = slots[i].GetAmount() + amount;
-                slots[i].SetAmount(newAmount);
+                Inventory.instance.AddAmountToSlot(i, amount);
                 SetItemSlot();
                 return true;
             }
@@ -280,14 +279,6 @@ public class HUDController : MonoBehaviour
                 lookStateButton.ShowSelectFrame();
                 break;
         }
-    }
-
-    public SlotItem GetSlotById(int _id)
-    {
-        SlotItem slot = Array.Find(slots, x => x.GetItem().id == _id);
-        if(slot != null)
-            return slot;
-        return new SlotItem(null, 0);
     }
 
     public void SetItemSlot()

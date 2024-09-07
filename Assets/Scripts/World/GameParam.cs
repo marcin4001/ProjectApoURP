@@ -9,6 +9,7 @@ public class GameParam : MonoBehaviour
     public int radLevel = 0;
     public int radLevelMax = 5;
     public Vector2 mapPosition = Vector2.zero;
+    public string prevScene = "";
     private void Awake()
     {
         if(instance != null && instance != this)

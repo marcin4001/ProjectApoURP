@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
@@ -7,10 +8,17 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     [SerializeField] private List<SlotItem> items = new List<SlotItem>();
+    [SerializeField] private SlotItem[] slots = new SlotItem[3];
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void AddNonStackableItem(Item item)
@@ -71,6 +79,58 @@ public class Inventory : MonoBehaviour
     public List<SlotItem> GetItems()
     { 
         return items; 
+    }
+
+    public SlotItem GetSlotItem(int index)
+    {
+        if(index < 0 || index >= slots.Length)
+            return null;
+        return slots[index];
+    }
+
+    public int GetLengthSlotItem()
+    {
+        return slots.Length;
+    }
+
+    public void SetAmountSlot(int index, int amount)
+    {
+        if(index >= 0 && index < slots.Length)
+            slots[index].SetAmount(amount);
+    }
+
+    public void SetNullSlot(int index)
+    {
+        if (index >= 0 && index < slots.Length)
+            slots[index] = new SlotItem(null, 0);
+    }
+
+    public void SetSlot(int index, SlotItem item)
+    {
+        if (index >= 0 && index < slots.Length)
+            slots[index] = item;
+    }
+
+    public SlotItem GetSlotById(int _id)
+    {
+        SlotItem slot = Array.Find(slots, x => x.GetItem().id == _id);
+        if (slot != null)
+            return slot;
+        return new SlotItem(null, 0);
+    }
+
+    public SlotItem[] GetSlots()
+    {
+        return slots;
+    }
+
+    public void AddAmountToSlot(int index, int amount)
+    {
+        if (index >= 0 && index < slots.Length)
+        {
+            int newAmount = slots[index].GetAmount() + amount;
+            slots[index].SetAmount(newAmount);
+        }
     }
 
     public SlotItem GetSlot(int _id) 

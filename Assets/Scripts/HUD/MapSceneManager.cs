@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MapSceneManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class MapSceneManager : MonoBehaviour
     [SerializeField] private float segmentLen = 10f;
     [SerializeField] private float gapSegment = 5f;
     [SerializeField] private float moveSpeed = 35f;
+    [SerializeField] private string nextScene;
     private Image buttonEnterImage;
     private List<RectTransform> pathList = new List<RectTransform>();
     private Camera cam;
@@ -46,6 +48,7 @@ public class MapSceneManager : MonoBehaviour
         {
             gameTime = GameParam.instance.currentTime;
             playerSign.anchoredPosition = GameParam.instance.mapPosition;
+            nextScene = GameParam.instance.prevScene;
         }
         timeText.text = GetCurrentTimeString();
     }
@@ -66,7 +69,9 @@ public class MapSceneManager : MonoBehaviour
     {
         if(!blockEnterButton)
         {
-
+            GameParam.instance.currentTime = gameTime;
+            GameParam.instance.mapPosition = playerSign.anchoredPosition;
+            SceneManager.LoadScene(nextScene);
         }
     }
 
@@ -81,6 +86,11 @@ public class MapSceneManager : MonoBehaviour
         if(currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         currentCoroutine = StartCoroutine(MoveToTarget());
+    }
+
+    public void SetNextScene(string _scene)
+    {
+        nextScene = _scene;
     }
 
     private IEnumerator MoveToTarget()

@@ -23,8 +23,11 @@ public class ExitMapTrigger : MonoBehaviour
     private IEnumerator LoadScene()
     {
         yield return new WaitForSeconds(2);
-        if(GameParam.instance != null)
+        if (GameParam.instance != null)
+        {
             GameParam.instance.UpdateParam();
+            GameParam.instance.prevScene = SceneManager.GetActiveScene().name;
+        }
         SceneManager.LoadScene(sceneName);
     }
 }
