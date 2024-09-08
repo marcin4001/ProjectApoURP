@@ -8,11 +8,13 @@ public class Cabinet : MonoBehaviour, IUsableObj
     [SerializeField] private bool isOpen = false;
     [SerializeField] private Transform nearPoint;
     [SerializeField] private string cabinetName = "cabinet";
+    [SerializeField] private int idCabinet = 0;
     [SerializeField] private List<SlotItem> items = new List<SlotItem>();
     private Animator animator;
     void Start()
     {
         animator = GetComponent<Animator>();
+        items = ListCabinet.instance.GetListItem(idCabinet);
     }
 
     public void Use()
@@ -99,5 +101,10 @@ public class Cabinet : MonoBehaviour, IUsableObj
             }
             items.Remove(foundItem);
         }
+    }
+
+    public void SaveItems()
+    {
+        ListCabinet.instance.SetListItem(idCabinet, items);
     }
 }

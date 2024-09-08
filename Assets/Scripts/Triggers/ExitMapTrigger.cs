@@ -28,6 +28,8 @@ public class ExitMapTrigger : MonoBehaviour
             GameParam.instance.UpdateParam();
             GameParam.instance.prevScene = SceneManager.GetActiveScene().name;
         }
+        if(ListCabinet.instance != null)
+            ListCabinet.instance.SaveCabinets();
         SceneManager.LoadScene(sceneName);
     }
 }
