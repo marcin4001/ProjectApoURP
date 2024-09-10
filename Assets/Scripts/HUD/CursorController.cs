@@ -22,18 +22,19 @@ public class CursorController : MonoBehaviour
     [SerializeField] private RectTransform canvas;
     [SerializeField] private RawImage cursorImage;
     [SerializeField] private float scaleFactorSmallRes = 0.75f;
+    [SerializeField] private bool inMenu = false;
     private RectTransform cursorRect;
     private PlayerController player;
     private Camera cam;
     private MainInputSystem mainInputSystem;
-    private Vector2 mousePosition;
+    [SerializeField] private Vector2 mousePosition;
     private Coroutine waitCoroutine;
 
     private void Awake()
     {
         instance = this;
         mainInputSystem = new MainInputSystem();
-        mainInputSystem.Player.MousePos.performed += UpdateCursor;
+        mainInputSystem.Player.MousePos.performed += UpdateMousePos;
         mainInputSystem.Player.ChangeStateAction.performed += UpdateCursor;
         mainInputSystem.Player.CameraMove.performed += UpdateCursor;
         mainInputSystem.Player.PlayerAction.performed += UpdateCursor;
@@ -46,12 +47,14 @@ public class CursorController : MonoBehaviour
         cam = FindFirstObjectByType<Camera>();
         cursorRect = cursorImage.GetComponent<RectTransform>();
         Cursor.visible = false;
+        if(inMenu)
+            cursorImage.texture = defaultCursor;
     }
 
     private void OnEnable()
     {
         mainInputSystem.Player.ChangeStateAction.performed += UpdateCursor;
-        mainInputSystem.Player.MousePos.performed += UpdateCursor;
+        mainInputSystem.Player.MousePos.performed += UpdateMousePos;
         mainInputSystem.Player.CameraMove.performed += UpdateCursor;
         mainInputSystem.Player.PlayerAction.performed += UpdateCursor;
         mainInputSystem.Enable();
@@ -60,7 +63,7 @@ public class CursorController : MonoBehaviour
     private void OnDisable()
     {
         mainInputSystem.Player.ChangeStateAction.performed -= UpdateCursor;
-        mainInputSystem.Player.MousePos.performed -= UpdateCursor;
+        mainInputSystem.Player.MousePos.performed -= UpdateMousePos;
         mainInputSystem.Player.CameraMove.performed -= UpdateCursor;
         mainInputSystem.Player.PlayerAction.performed -= UpdateCursor;
         mainInputSystem.Disable();
@@ -68,11 +71,21 @@ public class CursorController : MonoBehaviour
 
     public void UpdateCursor(InputAction.CallbackContext ctx)
     {
-        mousePosition = player.GetMousePosition();
         MoveCursor();
         SetScaleCursor();
+        if(!isWait && inMenu)
+        {
+            cursorImage.texture = defaultCursor;
+            return;
+        }
         if(!isWait)
             StartCoroutine(UpdateCursor());
+    }
+
+    public void UpdateMousePos(InputAction.CallbackContext ctx)
+    {
+        mousePosition = ctx.ReadValue<Vector2>();
+        UpdateCursor(ctx);
     }
 
     private IEnumerator UpdateCursor()
@@ -120,6 +133,11 @@ public class CursorController : MonoBehaviour
             {
                 StopCoroutine(waitCoroutine);
                 waitCoroutine = null;
+                if(inMenu)
+                {
+                    cursorImage.texture = defaultCursor;
+                    return;
+                }
                 StartCoroutine(UpdateCursor());
             }
         }

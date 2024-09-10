@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2878261696327265353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2435164449676711589}
+  - component: {fileID: 1361923037128204984}
+  m_Layer: 0
+  m_Name: CursorController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2435164449676711589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2878261696327265353}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1361923037128204984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2878261696327265353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6455eb635cbbd8449afa058aeeb2e053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCursor: {fileID: 2800000, guid: 2603ce9332e26a049b4cbe678586075b, type: 3}
+  reachableCursor: {fileID: 2800000, guid: cad3c394cfe04ce4384556d1311ccf8a, type: 3}
+  unreachableCursor: {fileID: 2800000, guid: 7db9f7269f5af0141adc1a90b2226278, type: 3}
+  useCursor: {fileID: 2800000, guid: a77cc177df1dd9248a52cd56234c3e09, type: 3}
+  lookCursor: {fileID: 2800000, guid: 73b3705dd17461e4fa8959d345faa012, type: 3}
+  upCursor: {fileID: 2800000, guid: 1021933b488b38f46909601b12a077b0, type: 3}
+  downCursor: {fileID: 2800000, guid: 65f844fa9a45b0446bfe3adc677850fe, type: 3}
+  waitCursor:
+  - {fileID: 2800000, guid: eef93989d7b0c0846aad081e85ae2824, type: 3}
+  - {fileID: 2800000, guid: c92ce7217fb7191469175a90f4a4a7ac, type: 3}
+  - {fileID: 2800000, guid: 7b96ee8470e4c4343982b3975374a8ef, type: 3}
+  - {fileID: 2800000, guid: 1ac69365c63de9e4e8c1a94c17c57b3c, type: 3}
+  - {fileID: 2800000, guid: 3f72eb242df0cf84db5edfa4c31fcd3f, type: 3}
+  - {fileID: 2800000, guid: a761fdca2f4d5bd4b9f3c1aaf802a14c, type: 3}
+  - {fileID: 2800000, guid: a8188701756010f4694085ef33470e22, type: 3}
+  - {fileID: 2800000, guid: 94f7f3cef5196134cbcf8b90836985a5, type: 3}
+  isWait: 0
+  waitCursorIndex: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 1
+  canvas: {fileID: 0}
+  cursorImage: {fileID: 0}
+  scaleFactorSmallRes: 0.75

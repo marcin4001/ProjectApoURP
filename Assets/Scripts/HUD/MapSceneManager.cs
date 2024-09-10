@@ -29,6 +29,7 @@ public class MapSceneManager : MonoBehaviour
     private Coroutine currentCoroutine;
     private float gameTime = 0f;
     private bool blockEnterButton = false;
+    private bool blockSetTarget = false;
 
     private void Awake()
     {
@@ -41,8 +42,6 @@ public class MapSceneManager : MonoBehaviour
         gridButton.onClick.AddListener(ShowGrid);
         enterButton.onClick.AddListener(OnClickEnter);
         target.gameObject.SetActive(false);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         buttonEnterImage = enterButton.GetComponent<Image>();
         if(GameParam.instance != null)
         {
@@ -78,6 +77,8 @@ public class MapSceneManager : MonoBehaviour
 
     public void SetTargetPos()
     {
+        if (blockSetTarget)
+            return;
         Vector2 newPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(map, Input.mousePosition, cam, out newPoint);
         target.gameObject.SetActive(true);
@@ -90,17 +91,21 @@ public class MapSceneManager : MonoBehaviour
 
     public void SetNextScene(string _scene)
     {
+        if (blockSetTarget)
+            return;
         nextScene = _scene;
     }
 
     private IEnumerator MoveToTarget()
     {
+        blockSetTarget = true;
         Vector2 playerPos = playerSign.anchoredPosition;
         Vector2 targetPos = target.anchoredPosition;
         float distance = Vector2.Distance(playerPos, targetPos);
         float distanceTraveled = 0;
         buttonEnterImage.overrideSprite = enterBtnInactiveSprite;
         blockEnterButton = true;
+        CursorController.instance.SetIsWait(true);
         while (distance > 0.5f)
         {
             playerPos = playerSign.anchoredPosition;
@@ -121,6 +126,8 @@ public class MapSceneManager : MonoBehaviour
         playerSign.anchoredPosition = targetPos;
         target.gameObject.SetActive(false);
         blockEnterButton = false;
+        blockSetTarget = false;
+        CursorController.instance.SetIsWait(false);
         buttonEnterImage.overrideSprite = enterBtnActiveSprite;
     }
 
