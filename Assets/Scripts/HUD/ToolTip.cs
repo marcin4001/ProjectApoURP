@@ -14,23 +14,37 @@ public class ToolTip : MonoBehaviour
     {
         instance = this;
         background.gameObject.SetActive(false);
-        text.gameObject.SetActive(false);
     }
 
     public void SetText(string tooltipText)
     {
-        text.text = tooltipText;
+        text.text = $" {tooltipText}";
         background.gameObject.SetActive(true);
-        text.gameObject.SetActive(true);
+        StartCoroutine(Resize());
         if(coroutine != null)
             StopCoroutine(coroutine);
         coroutine = StartCoroutine(Hide());
+    }
+
+    private IEnumerator Resize()
+    {
+        yield return new WaitForEndOfFrame();
+        Vector2 newSize = textTransform.sizeDelta;
+        newSize.x += 10f;
+        background.sizeDelta = newSize;
     }
 
     private IEnumerator Hide()
     {
         yield return new WaitForSeconds(2);
         background.gameObject.SetActive(false);
-        text.gameObject.SetActive(false);
+    }
+
+    public void ExitHide()
+    {
+        background.gameObject.SetActive(false);
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+        coroutine = null;
     }
 }
