@@ -5,6 +5,12 @@ public class PickupItem : MonoBehaviour, IUsableObj
     [SerializeField] private Item item;
     [SerializeField] private int amount = 1;
     [SerializeField] private Transform nearPoint;
+    private void Start()
+    {
+        bool result = PickUpObjList.instance.ExistOnList(gameObject.name);
+        if (!result)
+            Destroy(gameObject);
+    }
     public void Use()
     {
         //bool added = HUDController.instance.AddItemToHUDSlot(item, amount);
@@ -22,6 +28,7 @@ public class PickupItem : MonoBehaviour, IUsableObj
                 }
             }
         }
+        PickUpObjList.instance.DestroyOnList(gameObject.name);
         Destroy(gameObject);
     }
 

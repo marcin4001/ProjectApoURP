@@ -5,6 +5,13 @@ public class PickUpWeapon : MonoBehaviour, IUsableObj
     [SerializeField] private Item item;
     [SerializeField] private SlotItem ammoSlot;
     [SerializeField] private Transform nearPoint;
+
+    private void Start()
+    {
+        bool result = PickUpObjList.instance.ExistOnList(gameObject.name);
+        if (!result)
+            Destroy(gameObject);
+    }
     public void Use()
     {
         Inventory.instance.AddNonStackableItem(item);
@@ -12,6 +19,7 @@ public class PickUpWeapon : MonoBehaviour, IUsableObj
         {
             Inventory.instance.AddItem(ammoSlot.GetItem(), ammoSlot.GetAmount());
         }
+        PickUpObjList.instance.DestroyOnList(gameObject.name);
         Destroy(gameObject);
         return;
     }
