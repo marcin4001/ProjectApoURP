@@ -23,7 +23,6 @@ public class PickUpObjList : MonoBehaviour
 
     public void DestroyOnList(string item)
     {
-        Debug.Log(objects.Contains(item));
         if (objects.Contains(item))
         {
             objects.Remove(item);
