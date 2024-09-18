@@ -19,15 +19,18 @@ public class CursorController : MonoBehaviour
     [SerializeField] private bool isWait = false;
     [SerializeField] private int waitCursorIndex = 0;
     [SerializeField] private LayerMask layer;
+    [SerializeField] private LayerMask layerUse;
+    [SerializeField] private LayerMask layerInsideHouse;
+    [SerializeField] private float radiusPlayerCutWall;
     [SerializeField] private RectTransform canvas;
     [SerializeField] private RawImage cursorImage;
     [SerializeField] private float scaleFactorSmallRes = 0.75f;
     [SerializeField] private bool inMenu = false;
+    [SerializeField] private Vector2 mousePosition;
     private RectTransform cursorRect;
     private PlayerController player;
     private Camera cam;
     private MainInputSystem mainInputSystem;
-    [SerializeField] private Vector2 mousePosition;
     private Coroutine waitCoroutine;
 
     private void Awake()
@@ -183,11 +186,44 @@ public class CursorController : MonoBehaviour
                 cursorImage.texture = unreachableCursor;
                 
         }
+        else
+        {
+            cursorImage.texture = unreachableCursor;
+        }
     }
 
     public void SetUseCursor()
     {
-        cursorImage.texture = useCursor;
+        cursorImage.texture = defaultCursor;
+        Ray ray = cam.ScreenPointToRay(mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 1000f, layerUse))
+        {
+            IUsableObj usableObj =  hit.collider.GetComponent<IUsableObj>();
+            if (usableObj != null)
+            {
+                cursorImage.texture = useCursor;
+            }
+            else
+            {
+                if (hit.collider.gameObject.layer == 10)
+                {
+                    Ray ray2 = cam.ScreenPointToRay(mousePosition);
+                    RaycastHit hit2;
+                    if (Physics.Raycast(ray, out hit2, 1000f, layerInsideHouse))
+                    {
+                        Vector3 playerScreenPosition = cam.WorldToScreenPoint(player.GetCenterPosition());
+                        float distance = Vector3.Distance(playerScreenPosition, mousePosition);
+                        usableObj = hit2.collider.GetComponent<IUsableObj>();
+                        if (usableObj != null && distance < radiusPlayerCutWall)
+                        {
+                            cursorImage.texture = useCursor;
+                        }
+                    }
+
+                }
+            }
+        }
     }
 
     public void SetLookCursor()
