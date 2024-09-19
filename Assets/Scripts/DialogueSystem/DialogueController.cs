@@ -50,13 +50,10 @@ public class DialogueController : MonoBehaviour
         List<DialogueOption> listOptions = new List<DialogueOption>();
         foreach (DialogueOption option in options)
         {
-            if (option.condition == null)
+            if (option.IsMet())
             {
                 listOptions.Add(option);
-                continue;
             }
-            if(option.condition.IsMet())
-                listOptions.Add(option);
         }
         DialogueUI.instance.CreateListOptions(listOptions);
     }

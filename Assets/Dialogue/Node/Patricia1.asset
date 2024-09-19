@@ -19,19 +19,28 @@ MonoBehaviour:
       the meat back?
     nextNode: 1
     exitOption: 0
-    condition: {fileID: 11400000, guid: a0425f95c5a4a6e4fb070e14e950fab3, type: 2}
+    conditionType: 1
+    questID: 0
+    objectID: 0
+    amountObject: 0
     actions: []
   - optionText: Where exactly are those rats?
     replyText: They usually gather near the old well behind the house.
     nextNode: 0
     exitOption: 0
-    condition: {fileID: 11400000, guid: d83771f783219274d8bc297b38e89717, type: 2}
+    conditionType: 3
+    questID: 0
+    objectID: 100
+    amountObject: 1
     actions: []
   - optionText: I managed to hunt the rats and brought the meat.
     replyText: Great job, Revo! Now I can make those pork chops.
     nextNode: 0
     exitOption: 0
-    condition: {fileID: 11400000, guid: 1979c1fc5360cfc4e8bd35ea5a2722bb, type: 2}
+    conditionType: 4
+    questID: 0
+    objectID: 100
+    amountObject: 1
     actions:
     - {fileID: 11400000, guid: 4f2d5d18e3f05be45ba14d7b8d8566f7, type: 2}
     - {fileID: 11400000, guid: 6bd1b0227584eec4a994b5c2dd2f6c74, type: 2}
@@ -40,5 +49,8 @@ MonoBehaviour:
     replyText: 
     nextNode: 0
     exitOption: 1
-    condition: {fileID: 0}
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
     actions: []
