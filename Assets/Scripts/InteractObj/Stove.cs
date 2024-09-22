@@ -9,9 +9,11 @@ public class Stove : MonoBehaviour, IUsableObj
     [SerializeField] private GameObject pan;
     [SerializeField] private float cookingTime = 2f;
     private PlayerController player;
+    private AudioSource source;
     void Start()
     {
         player = FindFirstObjectByType<PlayerController>();
+        source = GetComponent<AudioSource>();
         pan.SetActive(false);
     }
 
@@ -45,11 +47,15 @@ public class Stove : MonoBehaviour, IUsableObj
         player.SetBlock(true);
         SlotItem rawMeatSlot = new SlotItem(rawMeatItem, 1);
         Inventory.instance.RemoveItem(rawMeatSlot);
+        if(source != null)
+            source.Play();
         yield return new WaitForSeconds(cookingTime);
         pan.SetActive(false);
         SlotItem porkChopSlot = new SlotItem(porkChop, 1);
         Inventory.instance.AddItem(porkChopSlot);
         CameraMovement.instance.SetBlock(false);
         player.SetBlock(false);
+        if(source != null)
+            source.Stop();
     }
 }

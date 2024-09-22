@@ -1,9 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TimeGame : MonoBehaviour
 {
     public static TimeGame instance;
     [SerializeField] private float currentTime = 0f;
+    [SerializeField] private float sunriseTime = 4f;
+    [SerializeField] private float sunsetTime = 20f;
+    [SerializeField] private UnityEvent OnSunrise;
+    [SerializeField] private UnityEvent OnSunset;
+    private bool isSunRise = false;
+    private bool isSunset = false;
 
     private void Awake()
     {
@@ -20,7 +27,25 @@ public class TimeGame : MonoBehaviour
     {
         currentTime += (Time.deltaTime / 60);
         if (currentTime >= 24f)
+        {
             currentTime -= 24f;
+            isSunRise = false;
+            isSunset = false;
+        }
+
+        if(currentTime >= (sunriseTime + 0.5f) && !isSunRise) 
+        {
+            Debug.Log("OnSunRise");
+            OnSunrise.Invoke();
+            isSunRise = true;
+        }
+
+        if(currentTime >= (sunsetTime - 0.5f) && !isSunset)
+        {
+            Debug.Log("OnSunSet");
+            OnSunset.Invoke();
+            isSunset = true;
+        }
     }
 
     public void AddHours(float hours)

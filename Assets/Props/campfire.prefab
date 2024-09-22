@@ -19253,8 +19253,10 @@ GameObject:
   - component: {fileID: 497428173909170655}
   - component: {fileID: 23476456536166864}
   - component: {fileID: 4897114169489988772}
+  - component: {fileID: 5493064475792468431}
+  - component: {fileID: 4018358324921691108}
   m_Layer: 7
-  m_Name: fireplace
+  m_Name: campfire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19461,7 +19463,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameObject: fireplace
+  nameObject: campfire
+--- !u!114 &5493064475792468431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305697685825053080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471691f537de245479e460bd1c9a610f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireFx: {fileID: 4291404715745482154}
+  source: {fileID: 497428173909170655}
+--- !u!208 &4018358324921691108
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305697685825053080}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.018000001, y: 0.019000001, z: 0.006}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: -0.002, z: 0.0050000004}
+  m_TimeToStationary: 0.5
 --- !u!1 &8966041869597680453
 GameObject:
   m_ObjectHideFlags: 0

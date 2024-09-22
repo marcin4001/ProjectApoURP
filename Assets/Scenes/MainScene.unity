@@ -2545,6 +2545,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178489335}
   m_CullTransparentMesh: 1
+--- !u!1 &183854581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 183854583}
+  - component: {fileID: 183854582}
+  m_Layer: 0
+  m_Name: CampFireManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &183854582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183854581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17aa41c6c16ab05418c0b180dc1fad7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  campfires:
+  - {fileID: 6440335718033596471}
+  - {fileID: 981973755}
+--- !u!4 &183854583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183854581}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187222921
 GameObject:
   m_ObjectHideFlags: 0
@@ -5549,6 +5596,7 @@ Transform:
   - {fileID: 1509308898}
   - {fileID: 114047253}
   - {fileID: 6440335718033596465}
+  - {fileID: 981973754}
   - {fileID: 1846111284}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11501,6 +11549,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: currentTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8406120896648320716, guid: c687b121b8de238478ea541a8369157b, type: 3}
       propertyPath: m_Name
       value: GameParam
@@ -14060,6 +14112,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1516838077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &981973753
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 331498970}
+    m_Modifications:
+    - target: {fileID: 7305697685825053080, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_Name
+      value: campfire (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+--- !u!4 &981973754 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+  m_PrefabInstance: {fileID: 981973753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &981973755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5493064475792468431, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+  m_PrefabInstance: {fileID: 981973753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471691f537de245479e460bd1c9a610f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &992776305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22316,6 +22441,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 0
+  sunriseTime: 4
+  sunsetTime: 20
+  OnSunrise:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 183854582}
+        m_TargetAssemblyTypeName: CampfireManager, Assembly-CSharp
+        m_MethodName: SwitchOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnSunset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 183854582}
+        m_TargetAssemblyTypeName: CampfireManager, Assembly-CSharp
+        m_MethodName: SwitchOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1608138448
 Transform:
   m_ObjectHideFlags: 0
@@ -33291,7 +33448,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7305697685825053080, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
       propertyPath: m_Name
-      value: fireplace
+      value: campfire
       objectReference: {fileID: 0}
     - target: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33784,6 +33941,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8229583741537392545, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
   m_PrefabInstance: {fileID: 5681147158834367885}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6440335718033596471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5493064475792468431, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
+  m_PrefabInstance: {fileID: 5681147158834367885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471691f537de245479e460bd1c9a610f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6452705233644419366
 Transform:
   m_ObjectHideFlags: 0
@@ -35630,3 +35798,4 @@ SceneRoots:
   - {fileID: 8433050401033336991}
   - {fileID: 5460766435919225131}
   - {fileID: 6677347292928450062}
+  - {fileID: 183854583}
