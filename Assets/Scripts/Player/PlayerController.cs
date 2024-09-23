@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
         inputSystem.Player.MousePos.performed += SetMousePosition;
         inputSystem.Player.PlayerAction.performed += PlayerAction;
         inputSystem.Player.ChangeStateAction.performed += ChangeActionState;
+        inputSystem.Player.Test.performed += TestClick;
         weaponController = GetComponent<WeaponController>();
         animationPlayer = GetComponentInChildren<AnimationPlayer>();
         playerStats = GetComponent<PlayerStats>();
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         inputSystem.Player.MousePos.performed += SetMousePosition;
         inputSystem.Player.PlayerAction.performed += PlayerAction;
         inputSystem.Player.ChangeStateAction.performed += ChangeActionState;
+        inputSystem.Player.Test.performed += TestClick;
     }
 
     void OnDisable()
@@ -60,6 +62,7 @@ public class PlayerController : MonoBehaviour
         inputSystem.Player.PlayerAction.performed -= PlayerAction;
         inputSystem.Player.MousePos.performed -= SetMousePosition;
         inputSystem.Player.ChangeStateAction.performed -= ChangeActionState;
+        inputSystem.Player.Test.performed -= TestClick;
         inputSystem.Disable();
     }
 
@@ -130,6 +133,8 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Eating(Item item)
     {
+        HUDController.instance.SetActiveInventoryBtn(false);
+        CursorController.instance.SetIsWait(true);
         animationPlayer.Eating();
         float time = animationPlayer.GetEatingTime();
         yield return new WaitForSeconds(time);
@@ -139,12 +144,16 @@ public class PlayerController : MonoBehaviour
             playerStats.AddOneRadLevel();
         if(food.healRadioactive) 
             playerStats.RemoveOneRadLevel();
-        HUDController.instance.RemoveCurrentItem();    
+        HUDController.instance.RemoveCurrentItem();
+        HUDController.instance.SetActiveInventoryBtn(true);
+        CursorController.instance.SetIsWait(false);
     }
 
 
     private IEnumerator Drinking(Item item)
     {
+        HUDController.instance.SetActiveInventoryBtn(false);
+        CursorController.instance.SetIsWait(true);
         animationPlayer.Drink();
         float time = animationPlayer.GetDrinkingTime();
         yield return new WaitForSeconds(time);
@@ -155,6 +164,8 @@ public class PlayerController : MonoBehaviour
         if (food.healRadioactive)
             playerStats.RemoveOneRadLevel();
         HUDController.instance.RemoveCurrentItem();
+        HUDController.instance.SetActiveInventoryBtn(true);
+        CursorController.instance.SetIsWait(false);
     }
 
     public void ShowWeapon(Item weapon)
@@ -340,6 +351,11 @@ public class PlayerController : MonoBehaviour
         HUDController.instance.SetStateButtons(actionState);
     }
 
+    public void TestClick(InputAction.CallbackContext ctx)
+    {
+        StopMove();
+    }
+
     public Vector3 RoundPosition(Vector3 position)
     {
         return new Vector3(Mathf.Round(position.x), position.y, Mathf.Round(position.z));
@@ -469,6 +485,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void StopMove()
+    {
+        if(isMoving)
+        {
+            if(currentCoroutine != null)
+            {
+                StopCoroutine(currentCoroutine);
+                currentCoroutine = null;
+            }
+            isMoving = false;
+            agent.isStopped = true;
+            animationPlayer.SetSpeedLocomotion(0f);
+            currentSelectObj = null;
+        }
+    }
+
     public bool IsNearPlayer(Vector3 position, float maxDistance)
     {
         float distance = Vector3.Distance(position, transform.position);
@@ -478,6 +510,8 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator InteractAction(IUsableObj usable)
     {
+        HUDController.instance.SetActiveInventoryBtn(false);
+        CursorController.instance.SetIsWait(true);
         isUsingObj = true;
         weaponController.ShowCurrentWeapon(false);
         if(usable is Door)
@@ -505,6 +539,9 @@ public class PlayerController : MonoBehaviour
         }
         usable.Use();
         isUsingObj = false;
+        HUDController.instance.SetActiveInventoryBtn(true);
+        if(!(usable is Bed))
+            CursorController.instance.SetIsWait(false);
     }
 
     public Vector3 GetCenterPosition()

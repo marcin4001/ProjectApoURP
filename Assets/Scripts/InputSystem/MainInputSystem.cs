@@ -90,6 +90,15 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Test"",
+                    ""type"": ""Button"",
+                    ""id"": ""5c1a1faa-1982-42c4-ab4c-c6dcb56fddf6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -290,6 +299,17 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6e9de0e-b51d-4a9f-92e5-13e3071b1a97"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Test"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -305,6 +325,7 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         m_Player_CenterPlayer = m_Player.FindAction("CenterPlayer", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
+        m_Player_Test = m_Player.FindAction("Test", throwIfNotFound: true);
     }
 
     ~@MainInputSystem()
@@ -378,6 +399,7 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_CenterPlayer;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Zoom;
+    private readonly InputAction m_Player_Test;
     public struct PlayerActions
     {
         private @MainInputSystem m_Wrapper;
@@ -389,6 +411,7 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         public InputAction @CenterPlayer => m_Wrapper.m_Player_CenterPlayer;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
+        public InputAction @Test => m_Wrapper.m_Player_Test;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -419,6 +442,9 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
             @Zoom.started += instance.OnZoom;
             @Zoom.performed += instance.OnZoom;
             @Zoom.canceled += instance.OnZoom;
+            @Test.started += instance.OnTest;
+            @Test.performed += instance.OnTest;
+            @Test.canceled += instance.OnTest;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -444,6 +470,9 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
             @Zoom.started -= instance.OnZoom;
             @Zoom.performed -= instance.OnZoom;
             @Zoom.canceled -= instance.OnZoom;
+            @Test.started -= instance.OnTest;
+            @Test.performed -= instance.OnTest;
+            @Test.canceled -= instance.OnTest;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -470,5 +499,6 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         void OnCenterPlayer(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
+        void OnTest(InputAction.CallbackContext context);
     }
 }

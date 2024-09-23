@@ -155,6 +155,7 @@ public class HUDController : MonoBehaviour
     public void OpenInventory()
     {
         InventoryUI.instance.Show();
+        player.StopMove();
     }
 
     public void OpenPauseMenu()
@@ -165,6 +166,11 @@ public class HUDController : MonoBehaviour
     public void OpenQuestList()
     {
         QuestListUI.instance.Show();
+    }
+
+    public void SetActiveInventoryBtn(bool _active)
+    {
+        inventoryButton.enabled = _active;
     }
 
     public void SetActiveCanvas(bool value)
