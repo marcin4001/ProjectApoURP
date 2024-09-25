@@ -10,6 +10,7 @@ public class GameParam : MonoBehaviour
     public int radLevelMax = 5;
     public Vector2 mapPosition = Vector2.zero;
     public string prevScene = "";
+    public MapSign[] mapSigns;
     private void Awake()
     {
         if(instance != null && instance != this)
@@ -31,6 +32,25 @@ public class GameParam : MonoBehaviour
             healthPointMax = PlayerStats.instance.GetMaxHP();
             radLevel = PlayerStats.instance.GetRadLevel();
             radLevelMax = PlayerStats.instance.GetMaxRadLevel();
+        }
+    }
+
+    public MapSignState GetMapSignState(string _name)
+    {
+        foreach(MapSign sign in mapSigns) 
+        {
+            if (sign.name == _name)
+                return sign.state;
+        }
+        return MapSignState.Hidden;
+    }
+
+    public void SetMapSignState(string _name, MapSignState state)
+    {
+        foreach (MapSign sign in mapSigns)
+        {
+            if(sign.name == _name)
+                sign.state = state;
         }
     }
 }

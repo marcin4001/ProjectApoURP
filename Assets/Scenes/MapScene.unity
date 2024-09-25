@@ -266,6 +266,8 @@ GameObject:
   - component: {fileID: 9849978}
   - component: {fileID: 9849977}
   - component: {fileID: 9849976}
+  - component: {fileID: 9849983}
+  - component: {fileID: 9849982}
   m_Layer: 5
   m_Name: Oakridge
   m_TagString: Untagged
@@ -328,7 +330,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
@@ -401,6 +403,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9849974}
   m_CullTransparentMesh: 1
+--- !u!225 &9849982
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9849974}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &9849983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9849974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05df1ef57233717429b45704521bec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationName: Oakridge
+  state: 0
+  ExploredSign: {fileID: 21300000, guid: 41b9694a28fcf384690ef8b0c136a11c, type: 3}
+  UnexploredSign: {fileID: 21300000, guid: 100e15ef8ab48a14291444d8ac8e63f9, type: 3}
 --- !u!1 &14990320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1131,8 @@ GameObject:
   - component: {fileID: 108124272}
   - component: {fileID: 108124271}
   - component: {fileID: 108124270}
+  - component: {fileID: 108124274}
+  - component: {fileID: 108124273}
   m_Layer: 5
   m_Name: Little Rock
   m_TagString: Untagged
@@ -1201,7 +1233,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1236,6 +1268,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltipText: Little Rock
+--- !u!225 &108124273
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108124265}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &108124274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108124265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05df1ef57233717429b45704521bec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationName: Little Rock
+  state: 0
+  ExploredSign: {fileID: 21300000, guid: 56342e9b9ae2be840930709918ab4ab5, type: 3}
+  UnexploredSign: {fileID: 21300000, guid: a05b52d983b23af41bec96687c40bd81, type: 3}
 --- !u!1 &135525792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,6 +1970,8 @@ GameObject:
   - component: {fileID: 291784785}
   - component: {fileID: 291784784}
   - component: {fileID: 291784783}
+  - component: {fileID: 291784790}
+  - component: {fileID: 291784789}
   m_Layer: 5
   m_Name: Silverton
   m_TagString: Untagged
@@ -1972,7 +2034,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2045,6 +2107,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291784781}
   m_CullTransparentMesh: 1
+--- !u!225 &291784789
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291784781}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &291784790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291784781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05df1ef57233717429b45704521bec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationName: Silverton
+  state: 0
+  ExploredSign: {fileID: 21300000, guid: 56342e9b9ae2be840930709918ab4ab5, type: 3}
+  UnexploredSign: {fileID: 21300000, guid: a05b52d983b23af41bec96687c40bd81, type: 3}
 --- !u!1 &343709717
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,6 +3841,8 @@ GameObject:
   - component: {fileID: 665445807}
   - component: {fileID: 665445806}
   - component: {fileID: 665445805}
+  - component: {fileID: 665445812}
+  - component: {fileID: 665445811}
   m_Layer: 5
   m_Name: Pinehill
   m_TagString: Untagged
@@ -3813,7 +3905,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3886,6 +3978,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665445803}
   m_CullTransparentMesh: 1
+--- !u!225 &665445811
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665445803}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &665445812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665445803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05df1ef57233717429b45704521bec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationName: Pinehill
+  state: 0
+  ExploredSign: {fileID: 21300000, guid: 41b9694a28fcf384690ef8b0c136a11c, type: 3}
+  UnexploredSign: {fileID: 21300000, guid: 100e15ef8ab48a14291444d8ac8e63f9, type: 3}
 --- !u!1 &683776260
 GameObject:
   m_ObjectHideFlags: 0
@@ -7614,6 +7734,8 @@ GameObject:
   - component: {fileID: 1257548396}
   - component: {fileID: 1257548398}
   - component: {fileID: 1257548397}
+  - component: {fileID: 1257548400}
+  - component: {fileID: 1257548399}
   m_Layer: 5
   m_Name: HomeLocation
   m_TagString: Untagged
@@ -7727,7 +7849,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
@@ -7749,6 +7871,34 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &1257548399
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257548391}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1257548400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257548391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05df1ef57233717429b45704521bec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationName: Home
+  state: 2
+  ExploredSign: {fileID: 21300000, guid: 41b9694a28fcf384690ef8b0c136a11c, type: 3}
+  UnexploredSign: {fileID: 21300000, guid: 100e15ef8ab48a14291444d8ac8e63f9, type: 3}
 --- !u!1 &1276378713
 GameObject:
   m_ObjectHideFlags: 0
@@ -9705,6 +9855,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468673834}
   m_CullTransparentMesh: 1
+--- !u!1 &1487153743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1487153745}
+  - component: {fileID: 1487153744}
+  m_Layer: 0
+  m_Name: MapSignController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1487153744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487153743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c00ad333b319a34f8a69e0154ea8442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSign: {fileID: 692127217}
+  minDistanceToPlayer: 70
+  mapSignObjects: []
+--- !u!4 &1487153745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487153743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491821031
 GameObject:
   m_ObjectHideFlags: 0
@@ -10598,6 +10795,8 @@ GameObject:
   - component: {fileID: 1761244534}
   - component: {fileID: 1761244533}
   - component: {fileID: 1761244532}
+  - component: {fileID: 1761244539}
+  - component: {fileID: 1761244538}
   m_Layer: 5
   m_Name: Clearwater
   m_TagString: Untagged
@@ -10660,7 +10859,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
@@ -10733,6 +10932,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761244530}
   m_CullTransparentMesh: 1
+--- !u!225 &1761244538
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761244530}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1761244539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761244530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05df1ef57233717429b45704521bec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationName: "Clearwater\t"
+  state: 0
+  ExploredSign: {fileID: 21300000, guid: 56342e9b9ae2be840930709918ab4ab5, type: 3}
+  UnexploredSign: {fileID: 21300000, guid: a05b52d983b23af41bec96687c40bd81, type: 3}
 --- !u!1 &1768728274
 GameObject:
   m_ObjectHideFlags: 0
@@ -11345,6 +11572,8 @@ GameObject:
   - component: {fileID: 1957686801}
   - component: {fileID: 1957686800}
   - component: {fileID: 1957686799}
+  - component: {fileID: 1957686806}
+  - component: {fileID: 1957686805}
   m_Layer: 5
   m_Name: Redwood
   m_TagString: Untagged
@@ -11407,7 +11636,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
@@ -11480,6 +11709,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957686797}
   m_CullTransparentMesh: 1
+--- !u!225 &1957686805
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957686797}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1957686806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957686797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05df1ef57233717429b45704521bec76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationName: Redwood
+  state: 0
+  ExploredSign: {fileID: 21300000, guid: 41b9694a28fcf384690ef8b0c136a11c, type: 3}
+  UnexploredSign: {fileID: 21300000, guid: 100e15ef8ab48a14291444d8ac8e63f9, type: 3}
 --- !u!1 &1992210657
 GameObject:
   m_ObjectHideFlags: 0
@@ -12601,3 +12858,4 @@ SceneRoots:
   - {fileID: 819317093}
   - {fileID: 1039415042}
   - {fileID: 607304762}
+  - {fileID: 1487153745}

@@ -120,6 +120,7 @@ public class MapSceneManager : MonoBehaviour
                 timeText.text = GetCurrentTimeString();
             }
             DrawPath();
+            MapSignController.instance.UpdateMapSigns();
             yield return new WaitForEndOfFrame();
             distance = Vector2.Distance(playerPos, targetPos);
         }
