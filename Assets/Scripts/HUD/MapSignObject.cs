@@ -10,11 +10,13 @@ public class MapSignObject : MonoBehaviour
     private CanvasGroup group;
     private Image image;
     private RectTransform rectTransform;
+    private ToolTipObj toolTipObj;
     void Start()
     {
         state = GameParam.instance.GetMapSignState(locationName);
         group = GetComponent<CanvasGroup>();
         rectTransform = GetComponent<RectTransform>();
+        toolTipObj = GetComponent<ToolTipObj>();
         if(state == MapSignState.Hidden)
         {
             group.alpha = 0f;
@@ -26,10 +28,18 @@ public class MapSignObject : MonoBehaviour
             group.blocksRaycasts = true;
         }
         image = GetComponent<Image>();
-        if(state == MapSignState.Explored)
+        if (state == MapSignState.Explored)
+        {
+            if (toolTipObj != null)
+                toolTipObj.SetText(locationName);
             image.overrideSprite = ExploredSign;
-        if(state == MapSignState.Unexplored)
+        }
+        if (state == MapSignState.Unexplored)
+        {
+            if (toolTipObj != null)
+                toolTipObj.SetText("Unexplored");
             image.overrideSprite = UnexploredSign;
+        }
             
     }
 
@@ -38,6 +48,8 @@ public class MapSignObject : MonoBehaviour
         if (state == MapSignState.Explored)
             return;
         state = MapSignState.Unexplored;
+        if (toolTipObj != null)
+            toolTipObj.SetText("Unexplored");
         GameParam.instance.SetMapSignState(locationName, state);
         image.overrideSprite = UnexploredSign;
         group.alpha = 1f;

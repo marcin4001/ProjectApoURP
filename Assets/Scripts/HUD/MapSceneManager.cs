@@ -23,6 +23,7 @@ public class MapSceneManager : MonoBehaviour
     [SerializeField] private float gapSegment = 5f;
     [SerializeField] private float moveSpeed = 35f;
     [SerializeField] private string nextScene;
+    [SerializeField] private string mapSignName;
     private Image buttonEnterImage;
     private List<RectTransform> pathList = new List<RectTransform>();
     private Camera cam;
@@ -70,6 +71,7 @@ public class MapSceneManager : MonoBehaviour
         {
             GameParam.instance.currentTime = gameTime;
             GameParam.instance.mapPosition = playerSign.anchoredPosition;
+            GameParam.instance.SetMapSignState(mapSignName, MapSignState.Explored);
             SceneManager.LoadScene(nextScene);
         }
     }
@@ -94,6 +96,13 @@ public class MapSceneManager : MonoBehaviour
         if (blockSetTarget)
             return;
         nextScene = _scene;
+    }
+
+    public void SetMapSignText(string location)
+    {
+        if (blockSetTarget)
+            return;
+        mapSignName = location;
     }
 
     private IEnumerator MoveToTarget()
