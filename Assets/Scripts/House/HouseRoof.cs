@@ -42,8 +42,11 @@ public class HouseRoof : MonoBehaviour
     {
         if(!HouseIsOpen())
         {
-            if(inHouseTrigger == null)
+            if (inHouseTrigger == null)
+            {
                 roof.SetActive(true);
+                return;
+            }
             if (!inHouseTrigger.GetPlayerInTrigger())
                 roof.SetActive(true);
         }
