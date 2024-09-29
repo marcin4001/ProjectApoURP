@@ -45,7 +45,7 @@ public class WallCutout : MonoBehaviour
                 meshRenderer.material.SetVector(cutoutPositionProp, cutoutPos);
                 meshRenderer.material.SetFloat(cutoutSizeProp, cutoutSize);
                 meshRenderer.material.SetFloat(falloffSizeProp, falloffSize);
-                if(meshRenderer.tag != "Door" && meshRenderer.tag != "Item")
+                if(meshRenderer.tag != "Door" && meshRenderer.tag != "Item" && meshRenderer.tag != "Obstacle")
                     meshRenderer.gameObject.layer = 10;
                 renderers.Add(meshRenderer);
             }
