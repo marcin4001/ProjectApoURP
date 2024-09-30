@@ -53,15 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.578
+      value: -10.407
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01000011
+      value: 0.019999743
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.955
+      value: 17.156
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
       propertyPath: m_LocalRotation.w
@@ -69,15 +69,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -146,6 +146,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6803341283918450208}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5760066919771043254}
   m_SourcePrefab: {fileID: 100100000, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
 --- !u!1 &1387130254154488449 stripped
 GameObject:
@@ -226,6 +229,22 @@ MonoBehaviour:
   isOpenParam: isOpen
   isOpen: 0
   nearPoint: {fileID: 5495041484305401672}
+  cabinetName: cabinet
+  idCabinet: 0
+  items: []
+--- !u!114 &5760066919771043254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387130254154488449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: cabinet
 --- !u!4 &1732693098798186555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b192c63b2491b3e499e6441deeab8099, type: 3}
