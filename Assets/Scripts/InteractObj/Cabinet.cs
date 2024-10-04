@@ -25,15 +25,20 @@ public class Cabinet : MonoBehaviour, IUsableObj
     public IEnumerator Open()
     {
         isOpen = true;
-        animator.SetBool(isOpenParam, isOpen);
-        yield return new WaitForSeconds(0.5f);
+        if (animator != null)
+        {
+            animator.SetBool(isOpenParam, isOpen);
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield return null;
         CabinetUI.instance.Show(this);
     }
 
     public void Close()
     {
         isOpen = false;
-        animator.SetBool(isOpenParam, isOpen);
+        if(animator != null)
+            animator.SetBool(isOpenParam, isOpen);
     }
 
     public Vector3 GetNearPoint()
