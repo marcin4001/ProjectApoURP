@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
         weaponController = GetComponent<WeaponController>();
         animationPlayer = GetComponentInChildren<AnimationPlayer>();
         playerStats = GetComponent<PlayerStats>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     void OnEnable()
@@ -68,7 +69,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         camera = FindFirstObjectByType<Camera>();
         
         HUDController.instance.SetStateButtons(actionState);
@@ -549,6 +549,10 @@ public class PlayerController : MonoBehaviour
         return center.position;
     }
 
+    public NavMeshAgent GetAgent()
+    {
+        return agent;
+    }
 }
 
 public enum PlayerActionState
