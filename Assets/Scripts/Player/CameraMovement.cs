@@ -158,4 +158,9 @@ public class CameraMovement : MonoBehaviour
     {
         block = value;
     }
+
+    public Transform GetTransformCamera()
+    {
+        return m_Camera.transform;
+    }
 }

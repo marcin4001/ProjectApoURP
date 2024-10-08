@@ -41,6 +41,7 @@ public class BackgroundNPC : MonoBehaviour, IUsableObj
             if(nextIndex == texts.Length)
                 nextIndex = 0;
             coroutine = StartCoroutine(HideText());
+            dialogueText.transform.rotation = Quaternion.LookRotation(CameraMovement.instance.GetTransformCamera().forward);
         }
     }
 
