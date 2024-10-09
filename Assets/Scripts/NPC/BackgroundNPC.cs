@@ -8,11 +8,20 @@ public class BackgroundNPC : MonoBehaviour, IUsableObj
     [SerializeField] private Transform nearPoint;
     [SerializeField] private float timeToHide = 3f;
     [SerializeField] private string[] texts;
+    [SerializeField] private bool haveRifle = false;
+    [SerializeField] private string rifleLayer = "Rifle";
     private int nextIndex = 0;
     private Coroutine coroutine;
+    private Animator animator;
     void Start()
     {
         dialogueText.gameObject.SetActive(false);
+        animator = GetComponentInChildren<Animator>();
+        if(haveRifle)
+        {
+            int rifleIndex = animator.GetLayerIndex(rifleLayer);
+            animator.SetLayerWeight(rifleIndex, 1f);
+        }
     }
     public bool CanUse()
     {
