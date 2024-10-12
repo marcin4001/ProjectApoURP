@@ -124,8 +124,11 @@ public class MapSceneManager : MonoBehaviour
             {
                 distanceTraveled = 0f;
                 gameTime += 1f;
-                if(gameTime >= 24f)
+                if (gameTime >= 24f)
+                {
                     gameTime = 0f;
+                    GameParam.instance.AddDay();
+                }
                 timeText.text = GetCurrentTimeString();
             }
             DrawPath();

@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameParam : MonoBehaviour
 {
     public static GameParam instance;
+    public int day = 1;
     public float currentTime;
     public int healthPoint = 100;
     public int healthPointMax = 100;
@@ -52,5 +53,10 @@ public class GameParam : MonoBehaviour
             if(sign.name == _name)
                 sign.state = state;
         }
+    }
+
+    public void AddDay()
+    {
+        day = day + 1;
     }
 }

@@ -79,7 +79,7 @@ public class PlayerStats : MonoBehaviour
 
     public string GetStatsText()
     {
-        return $"Name: Revo\nHealth: {healthPoint}/{healthPointMax}\nRadiation level: {radLevel}/{radLevelMax}";
+        return $"Name: Revo\nHealth: {healthPoint}/{healthPointMax}\nRadiation level: {radLevel}/{radLevelMax}\nDay: {GameParam.instance.day}";
     }
 
     public int GetHP()

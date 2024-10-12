@@ -31,6 +31,7 @@ public class TimeGame : MonoBehaviour
             currentTime -= 24f;
             isSunRise = false;
             isSunset = false;
+            GameParam.instance.AddDay();
         }
 
         if(currentTime >= (sunriseTime + 0.5f) && !isSunRise) 
