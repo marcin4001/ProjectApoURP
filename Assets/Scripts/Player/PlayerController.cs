@@ -375,6 +375,7 @@ public class PlayerController : MonoBehaviour
             StopCoroutine(currentCoroutine);
         agent.isStopped = false;
         moveTarget = point;
+        currentSelectObj = null;
         currentCoroutine = StartCoroutine(MoveTask());
     }
 

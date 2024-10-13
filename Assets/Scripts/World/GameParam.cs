@@ -12,6 +12,7 @@ public class GameParam : MonoBehaviour
     public Vector2 mapPosition = Vector2.zero;
     public string prevScene = "";
     public MapSign[] mapSigns;
+    public Vector3 cameraPivotRot = new Vector3(30f, 35f, 0f);
     private void Awake()
     {
         if(instance != null && instance != this)

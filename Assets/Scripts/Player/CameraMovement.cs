@@ -65,6 +65,7 @@ public class CameraMovement : MonoBehaviour
             maxLimitVector.x = Mathf.Max(limitPointA.position.x, limitPointB.position.x);
             maxLimitVector.z = Mathf.Max(limitPointA.position.z, limitPointB.position.z);
         }
+        transform.eulerAngles = GameParam.instance.cameraPivotRot;
     }
 
     private void SetMousePosition(InputAction.CallbackContext ctx)
