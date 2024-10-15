@@ -13,6 +13,7 @@ public class GameParam : MonoBehaviour
     public string prevScene = "";
     public MapSign[] mapSigns;
     public Vector3 cameraPivotRot = new Vector3(30f, 35f, 0f);
+    public bool startGame;
     private void Awake()
     {
         if(instance != null && instance != this)
