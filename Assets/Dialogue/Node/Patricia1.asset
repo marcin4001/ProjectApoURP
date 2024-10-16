@@ -13,39 +13,42 @@ MonoBehaviour:
   m_Name: Patricia1
   m_EditorClassIdentifier: 
   options:
-  - optionText: What's up?
-    replyText: I have a problem. I wanted to make pork chops, but we're out of meat.
-      I know there are some rats near our house. Could you go hunt them and bring
-      the meat back?
-    nextNode: 1
+  - optionText: "That\u2019s impossible. Things like that don\u2019t exist."
+    replyText: "Maybe, but the book looked like a serious report. It talked about
+      research to restore dead land. I think it\u2019s worth checking out. We don\u2019t
+      have much to lose."
+    nextNode: 0
     exitOption: 0
     conditionType: 1
     questID: 0
     objectID: 0
     amountObject: 0
     actions: []
-  - optionText: Where exactly are those rats?
-    replyText: They usually gather near the old well behind the house.
+  - optionText: Do you have any details? Where could it be?
+    replyText: "They wrote about the south, in an old research facility. I don\u2019t
+      know the exact location, but they mentioned the ruins of a military base. That\u2019s
+      our only clue."
     nextNode: 0
     exitOption: 0
-    conditionType: 3
+    conditionType: 0
     questID: 0
-    objectID: 100
-    amountObject: 1
+    objectID: 0
+    amountObject: 0
     actions: []
-  - optionText: I managed to hunt the rats and brought the meat.
-    replyText: Great job, Revo! Now I can make those pork chops.
+  - optionText: That sounds like something we need to find.
+    replyText: "I know, but it\u2019s too dangerous for both of us to go. You have
+      to go alone, Revo. Someone needs to stay here and take care of everything while
+      you\u2019re gone. I know you can do this. You\u2019re the only one with a chance.
+      I believe in you."
     nextNode: 0
     exitOption: 0
-    conditionType: 4
+    conditionType: 1
     questID: 0
-    objectID: 100
-    amountObject: 1
+    objectID: 0
+    amountObject: 0
     actions:
-    - {fileID: 11400000, guid: 4f2d5d18e3f05be45ba14d7b8d8566f7, type: 2}
-    - {fileID: 11400000, guid: 6bd1b0227584eec4a994b5c2dd2f6c74, type: 2}
-    - {fileID: 11400000, guid: c03d7007c3c237649a3dbd252f4357ce, type: 2}
-  - optionText: I have to go. See you later!
+    - {fileID: 11400000, guid: 2195569d4fb687e4fb999d505e86dfd3, type: 2}
+  - optionText: I'm setting off
     replyText: 
     nextNode: 0
     exitOption: 1
