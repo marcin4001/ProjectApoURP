@@ -6,6 +6,7 @@ public class DialogueController : MonoBehaviour
     public static DialogueController instance;
     [SerializeField] private DialogueProfile profile;
     [SerializeField] private int indexNode = 0;
+    [SerializeField] private bool init = false;
     private void Awake()
     {
         instance = this;
@@ -21,13 +22,21 @@ public class DialogueController : MonoBehaviour
         indexNode = _indexNode;
     }
 
+    public void SetInit(bool _init)
+    {
+        init = _init;
+    }
+
     public void ShowFirstDialogue()
     {
         if (profile == null)
             return;
         DialogueUI.instance.Show();
         DialogueUI.instance.SetNPCLabel(profile.npcName, profile.job, profile.location);
-        DialogueUI.instance.SetReply(profile.firstReply);
+        if(!init)
+            DialogueUI.instance.SetReply(profile.firstReply);
+        else
+            DialogueUI.instance.SetReply(profile.secReply);
         CreateListOption();
     }
 
