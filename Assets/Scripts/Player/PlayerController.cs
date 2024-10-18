@@ -473,7 +473,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForEndOfFrame();
             if (currentSelectObj is BackgroundNPC && agent.remainingDistance < 0.7f)
                 break;
-            if (currentSelectObj is DialogueNPC && agent.remainingDistance < 0.5f)
+            if (currentSelectObj is DialogueNPC && agent.remainingDistance < 0.7f)
                 break;
         }
         agent.isStopped = true;
