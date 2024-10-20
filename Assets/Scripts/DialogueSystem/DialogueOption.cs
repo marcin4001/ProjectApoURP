@@ -28,6 +28,8 @@ public class DialogueOption
                 return PlayerNoHaveItem();
             case ConditionDialogueType.PlayerHaveItem:
                 return PlayerHaveItem();
+            case ConditionDialogueType.QuestStarted:
+                return QuestStarted();
         }
         return true;
     }
@@ -83,6 +85,13 @@ public class DialogueOption
         }
         return false;
     }
+
+    private bool QuestStarted()
+    {
+        if (QuestController.instance == null)
+            return false;
+        return QuestController.instance.HaveQuest(questID);
+    }
 }
 
 public enum ConditionDialogueType
@@ -92,4 +101,5 @@ public enum ConditionDialogueType
     QuestComplete,
     PlayerNoHaveItem,
     PlayerHaveItem,
+    QuestStarted
 }

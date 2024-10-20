@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: MarcusNode
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: I'm looking for information about the Oasis Generator.
+    replyText: "The Oasis Generator, you say? I\u2019ve only heard rumors. Elder
+      Barnabas might know more; he\u2019s familiar with many old stories."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Do you have any tasks for me?
+    replyText: "Actually, I might have something for you. We need a repair kit, and
+      I\u2019ve heard there\u2019s one at the junkyard south of the village. It\u2019s
+      a dangerous place, but if you could retrieve it, it would be a great help to
+      us."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 2
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 0f69ba29ce93eee489e961f521152d36, type: 2}
+  - optionText: Where did you say I could find that repair kit?
+    replyText: "At the junkyard, just south of here. It won\u2019t be easy to find,
+      but it\u2019s definitely there."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 2
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: I need more information about the junkyard.
+    replyText: "The junkyard is an old, abandoned place. It\u2019s full of dangerous
+      traps and wild creatures that have made it their home. Watch out for sharp
+      metal debris \u2014 rusty scraps can easily hide lurking threats. If you're
+      lucky, you might find something valuable, but stay alert."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 2
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Just looking around.
+    replyText: 
+    nextNode: 0
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []

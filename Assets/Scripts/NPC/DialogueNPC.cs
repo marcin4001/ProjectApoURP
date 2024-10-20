@@ -5,11 +5,20 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
     [SerializeField] private DialogueProfile profile;
     [SerializeField] private int indexNode = 0;
     [SerializeField] private Transform nearPoint;
+    [SerializeField] private bool haveRifle = false;
+    [SerializeField] private string rifleLayer = "Rifle";
+    private Animator animator;
 
     void Start()
     {
         string npcName = profile.npcName;
         NPCObjList.instance.AddNPC(npcName);
+        animator = GetComponentInChildren<Animator>();
+        if (haveRifle)
+        {
+            int rifleIndex = animator.GetLayerIndex(rifleLayer);
+            animator.SetLayerWeight(rifleIndex, 1f);
+        }
     }
 
     public bool CanUse()
