@@ -705,6 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: rock
+  isNPC: 0
 --- !u!208 &26195342
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -899,6 +900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1001 &40316091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -998,6 +1000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: fence
+  isNPC: 0
 --- !u!208 &40520736
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -2575,6 +2578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!4 &99118628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8793899033017299713, guid: 2c49ac1cf6322554f81ddb24494f9213, type: 3}
@@ -4277,6 +4281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &178489335
 GameObject:
   m_ObjectHideFlags: 0
@@ -4563,6 +4568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: curtain
+  isNPC: 0
 --- !u!208 &189424493
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -4865,6 +4871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!64 &195460793
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5018,6 +5025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &197936710
 GameObject:
   m_ObjectHideFlags: 0
@@ -5372,6 +5380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &207001703
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,6 +5652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &217620093
 GameObject:
   m_ObjectHideFlags: 0
@@ -5980,6 +5990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &224807347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6495,6 +6506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!208 &239510370
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -6902,6 +6914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: rock
+  isNPC: 0
 --- !u!208 &263929783
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -7457,6 +7470,7 @@ GameObject:
   - component: {fileID: 280423517}
   - component: {fileID: 280423516}
   - component: {fileID: 280423519}
+  - component: {fileID: 280423520}
   m_Layer: 0
   m_Name: Marcus
   m_TagString: Untagged
@@ -7543,6 +7557,20 @@ MonoBehaviour:
   nearPoint: {fileID: 1333991789}
   haveRifle: 0
   rifleLayer: Rifle
+--- !u!114 &280423520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280423514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: Marcus
+  isNPC: 1
 --- !u!4 &284193291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 464381786735379865, guid: 691ff8f02b97b8b40b3bfbdf2b129786, type: 3}
@@ -8560,6 +8588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &331315618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9656,6 +9685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: fence
+  isNPC: 0
 --- !u!208 &380274596
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -10537,6 +10567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!4 &416943666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: dab2771aba2520141b970eea05beff60, type: 3}
@@ -11361,6 +11392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: fence
+  isNPC: 0
 --- !u!208 &457380649
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -13001,6 +13033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &545722638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13156,6 +13189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &548256439
 GameObject:
   m_ObjectHideFlags: 0
@@ -15916,6 +15950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: rock
+  isNPC: 0
 --- !u!208 &670610730
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -16660,6 +16695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &734227601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16942,6 +16978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &746368915
 GameObject:
   m_ObjectHideFlags: 0
@@ -17493,6 +17530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &786116987
 GameObject:
   m_ObjectHideFlags: 0
@@ -17907,6 +17945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1001 &796118242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18420,35 +18459,15 @@ GameObject:
   - component: {fileID: 818704163}
   - component: {fileID: 818704162}
   - component: {fileID: 818704161}
-  - component: {fileID: 818704160}
+  - component: {fileID: 818704164}
+  - component: {fileID: 818704165}
   m_Layer: 0
-  m_Name: NPCHat
+  m_Name: Henry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &818704160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818704159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 2030492506}
-  nearPoint: {fileID: 1788161695}
-  timeToHide: 3
-  texts:
-  - Hi Revo!
-  - Nice to see you!
-  - How are you?
-  haveRifle: 0
-  rifleLayer: Rifle
 --- !u!195 &818704161
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -18508,10 +18527,40 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 276578921}
-  - {fileID: 2030492508}
   - {fileID: 1788161695}
   m_Father: {fileID: 1481634529}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &818704164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818704159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 10b540620ced0d7428bf5d7c451cbaab, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 1788161695}
+  haveRifle: 0
+  rifleLayer: Rifle
+--- !u!114 &818704165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818704159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: Henry
+  isNPC: 1
 --- !u!1001 &820588353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18821,6 +18870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &836337648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19318,6 +19368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &848493620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b5a131d5247d47c47b64d1a612143d15, type: 3}
@@ -19496,6 +19547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &867783189
 GameObject:
   m_ObjectHideFlags: 0
@@ -20602,6 +20654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: curtain
+  isNPC: 0
 --- !u!208 &914060973
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -20658,6 +20711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &915987598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20939,6 +20993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &932710151
 GameObject:
   m_ObjectHideFlags: 0
@@ -21776,6 +21831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: rock
+  isNPC: 0
 --- !u!208 &974055624
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -22129,6 +22185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &982145097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22184,7 +22241,7 @@ PrefabInstance:
     - target: {fileID: 23104358361419164, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: da3a42af857a36645a029afb9b713388, type: 2}
+      objectReference: {fileID: 2100000, guid: e158257f773620e45b297f97c4bd8bb9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23608,6 +23665,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.009999997
   m_Center: {x: -0.00000003306195, y: -0.000000056345016, z: -9.264423e-23}
+--- !u!4 &1057235802 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+  m_PrefabInstance: {fileID: 1511186359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1059967820 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9091327361041498694, guid: 459683d34f71b3741b2304016346ab4a, type: 3}
@@ -24076,6 +24138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &1078438311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5bb85f75fc573fe4c823bd3cdd269bfd, type: 3}
@@ -24681,6 +24744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &1100233615
 GameObject:
   m_ObjectHideFlags: 0
@@ -25187,6 +25251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1124062670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25266,6 +25331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!4 &1125297202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2522973274683485018, guid: 3bc714b60dd3d5e419f21ab078ee1bad, type: 3}
@@ -25294,6 +25360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: fence
+  isNPC: 0
 --- !u!208 &1132098955
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -25503,6 +25570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1141412737
 GameObject:
   m_ObjectHideFlags: 0
@@ -25962,6 +26030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: player
+  isNPC: 0
 --- !u!114 &1151120501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26128,6 +26197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: rock
+  isNPC: 0
 --- !u!208 &1156940665
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -26648,6 +26718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &1170858553
 GameObject:
   m_ObjectHideFlags: 0
@@ -27309,6 +27380,7 @@ GameObject:
   - component: {fileID: 1195865293}
   - component: {fileID: 1195865292}
   - component: {fileID: 1195865295}
+  - component: {fileID: 1195865296}
   m_Layer: 0
   m_Name: Barnabas
   m_TagString: Untagged
@@ -27395,6 +27467,20 @@ MonoBehaviour:
   nearPoint: {fileID: 1297652213}
   haveRifle: 0
   rifleLayer: Rifle
+--- !u!114 &1195865296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195865290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: Barnabas
+  isNPC: 1
 --- !u!1001 &1197175260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28255,6 +28341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1223730328
 GameObject:
   m_ObjectHideFlags: 0
@@ -28893,6 +28980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1262866461
 GameObject:
   m_ObjectHideFlags: 0
@@ -29223,6 +29311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1267830582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29354,6 +29443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &1272157143
 GameObject:
   m_ObjectHideFlags: 0
@@ -30837,6 +30927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: ground
+  isNPC: 0
 --- !u!1001 &1338528033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31309,6 +31400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1353507981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31579,6 +31671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1359968807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32373,6 +32466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1411859000
 GameObject:
   m_ObjectHideFlags: 0
@@ -32611,6 +32705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: curtain
+  isNPC: 0
 --- !u!1001 &1417626633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32708,6 +32803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1418927009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33149,6 +33245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!4 &1437846715 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4259941037088760, guid: 46d2992933c6968418c33e934904d7ad, type: 3}
@@ -33243,6 +33340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!4 &1439994571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9039757950452545166, guid: 6c252345a044e1540b2d107cc0157100, type: 3}
@@ -33600,6 +33698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!4 &1455014637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8793899033017299713, guid: 2c49ac1cf6322554f81ddb24494f9213, type: 3}
@@ -34179,6 +34278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1475307695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34316,8 +34416,8 @@ Transform:
   - {fileID: 2003062810}
   - {fileID: 1195865294}
   - {fileID: 280423518}
-  - {fileID: 4792033091692109318}
   - {fileID: 818704163}
+  - {fileID: 4792033091692109318}
   - {fileID: 1357652085}
   - {fileID: 1024849007}
   - {fileID: 1791269016}
@@ -34589,6 +34689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &1487762823
 GameObject:
   m_ObjectHideFlags: 0
@@ -34847,6 +34948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: curtain
+  isNPC: 0
 --- !u!1001 &1504827322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34909,6 +35011,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4416666560069214, guid: 0b4e64b68be2d404f8d503ed5ca46526, type: 3}
   m_PrefabInstance: {fileID: 1504827322}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1511186359
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1880034342}
+    m_Modifications:
+    - target: {fileID: 1906369875696866, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_Name
+      value: ApocalypticFlag01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.972
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.654
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.128
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872248116985424, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23104358361419164, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: da3a42af857a36645a029afb9b713388, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e935190224816504ca288ad6b3ff47f2, type: 3}
 --- !u!1 &1511778873
 GameObject:
   m_ObjectHideFlags: 0
@@ -35368,6 +35531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1525676650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35794,6 +35958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1554840328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35891,6 +36056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1555360399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36255,6 +36421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: rock
+  isNPC: 0
 --- !u!208 &1571669806
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -38219,6 +38386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1643120687
 GameObject:
   m_ObjectHideFlags: 0
@@ -38472,6 +38640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1662573743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38569,6 +38738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!4 &1675763559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8793899033017299713, guid: 2c49ac1cf6322554f81ddb24494f9213, type: 3}
@@ -38635,6 +38805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1001 &1682831498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39994,6 +40165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &1773344233
 GameObject:
   m_ObjectHideFlags: 0
@@ -40403,6 +40575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1781970795
 GameObject:
   m_ObjectHideFlags: 0
@@ -40821,6 +40994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: fence
+  isNPC: 0
 --- !u!208 &1798303601
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -41072,6 +41246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!208 &1816510618
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -41273,6 +41448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!4 &1822224767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1732693098798186555, guid: 9077a3f5b482ad544b3c8855ccccbb2a, type: 3}
@@ -41401,6 +41577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!4 &1851704784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: e9339893aba8fb94d99782dd4086c407, type: 3}
@@ -42074,6 +42251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1878366535 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 709a65d5b687bf3479d7ab28f3f78d90, type: 3}
@@ -42135,6 +42313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &1880034341
 GameObject:
   m_ObjectHideFlags: 0
@@ -42175,6 +42354,7 @@ Transform:
   - {fileID: 1439994571}
   - {fileID: 396802823}
   - {fileID: 707566468}
+  - {fileID: 1057235802}
   m_Father: {fileID: 331498970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1884520282
@@ -42669,6 +42849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &1905564542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43510,6 +43691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1001 &1949296859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43655,6 +43837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1952505959
 GameObject:
   m_ObjectHideFlags: 0
@@ -44206,6 +44389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1986913488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1646972488409600, guid: 00bbd7bbb63ef7149a38d214388ac850, type: 3}
@@ -44224,6 +44408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1989204728
 GameObject:
   m_ObjectHideFlags: 0
@@ -44353,6 +44538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &1994000430
 GameObject:
   m_ObjectHideFlags: 0
@@ -44733,6 +44919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &2003062806
 GameObject:
   m_ObjectHideFlags: 0
@@ -44745,6 +44932,7 @@ GameObject:
   - component: {fileID: 2003062809}
   - component: {fileID: 2003062808}
   - component: {fileID: 2003062811}
+  - component: {fileID: 2003062812}
   m_Layer: 0
   m_Name: Ethan
   m_TagString: Untagged
@@ -44831,6 +45019,20 @@ MonoBehaviour:
   nearPoint: {fileID: 1223730329}
   haveRifle: 1
   rifleLayer: Rifle
+--- !u!114 &2003062812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003062806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: Ethan
+  isNPC: 1
 --- !u!1 &2008039546 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: bd9a43100a429264ea0a74b8b15b8500, type: 3}
@@ -44892,6 +45094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1001 &2008073034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45093,6 +45296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!4 &2009546114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4807214896477175974, guid: 921fe571f69702d43ae2decf32ceede8, type: 3}
@@ -45327,6 +45531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &2013874470
 GameObject:
   m_ObjectHideFlags: 0
@@ -45487,6 +45692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &2023244280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45685,182 +45891,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028564238}
   m_CullTransparentMesh: 1
---- !u!1 &2030492505
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2030492508}
-  - component: {fileID: 2030492507}
-  - component: {fileID: 2030492506}
-  m_Layer: 0
-  m_Name: DialogueText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2030492506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030492505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: Hi Revo!
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 02099d070a59e9641b0660535ab94484, type: 2}
-  m_sharedMaterial: {fileID: -4755251632587306920, guid: 02099d070a59e9641b0660535ab94484, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4282056448
-  m_fontColor: {r: 0, g: 1, b: 0.22552037, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 4
-  m_fontSizeBase: 4
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 1024
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 0
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 2030492507}
-  m_maskType: 0
---- !u!23 &2030492507
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030492505}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -4755251632587306920, guid: 02099d070a59e9641b0660535ab94484, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!224 &2030492508
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2030492505}
-  m_LocalRotation: {x: 0, y: -0.8870109, z: 0, w: 0.46174863}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 818704163}
-  m_LocalEulerAnglesHint: {x: 0, y: -125, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.253}
-  m_SizeDelta: {x: 2.1914, y: 0.9156}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2032542853 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4af1309af8f5e6347a7bd48dfe1340d4, type: 3}
@@ -46163,6 +46193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &2046956248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b5a131d5247d47c47b64d1a612143d15, type: 3}
@@ -46181,6 +46212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!4 &2054766225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4923735572415008, guid: a4e0ff4643b80d547ba35af8e6089350, type: 3}
@@ -46867,6 +46899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: mountain
+  isNPC: 0
 --- !u!1 &2088948995
 GameObject:
   m_ObjectHideFlags: 0
@@ -46968,6 +47001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: rock
+  isNPC: 0
 --- !u!208 &2094073869
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -47409,6 +47443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!4 &2107208019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4807214896477175974, guid: 921fe571f69702d43ae2decf32ceede8, type: 3}
@@ -47499,6 +47534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1001 &2110057751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47695,6 +47731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &2114417190
 GameObject:
   m_ObjectHideFlags: 0
@@ -48060,6 +48097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: barrier
+  isNPC: 0
 --- !u!1 &2127199712
 GameObject:
   m_ObjectHideFlags: 0

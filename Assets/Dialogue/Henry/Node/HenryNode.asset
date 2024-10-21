@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: HenryNode
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: What exactly do you do?
+    replyText: "I treat people when they need help. Unfortunately, I have to make
+      most of the medicines myself, as ready-made supplies are scarce. It\u2019s
+      hard work, especially when I'm short on ingredients."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Do you have any tasks for me?
+    replyText: Yes, I'm running low on herbs to make a HealthPak. I would like you
+      to bring me 6 roots of Sandgrass, which grow in the canyon west of the village,
+      near the cacti. I would really appreciate it if you could bring them to me.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 3
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: e2cdfd7ba4fc20f438501e3919ce4404, type: 2}
+  - optionText: Sorry, what exactly was I supposed to do for you?
+    replyText: I would like you to bring me 6 roots of Sandgrass. They grow in the
+      canyon west of the village, close to the cacti.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 3
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Goodbye.
+    replyText: 
+    nextNode: 0
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
