@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: KasixNode
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: What do you and Remusua do?
+    replyText: "I make clothes. It keeps me busy and helps the folks around here.
+      Remusua? He\u2019s great with his hands, always fixing things. You should check
+      with everyone in the village; they might have something you need."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Can I do something for you?
+    replyText: "Actually, yeah! I\u2019ve been craving some pre-war chips, but they're
+      hard to come by around here. If you find a pack, I\u2019d really appreciate
+      it."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 4
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 42e7ea6f1c398fb449ab9bcf96077efc, type: 2}
+  - optionText: Where can I find chips?
+    replyText: "I\u2019m not sure where to find chips around here. Maybe try checking
+      with some of the traders or see if anyone has them stored away. I hope you
+      can find some!"
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 4
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Where can I find some supplies?
+    replyText: "You can find supplies by asking around the village. Each villager
+      usually has something to trade or sell, so it\u2019s a good idea to speak to
+      everyone."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: I have to go now.
+    replyText: 
+    nextNode: 0
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
