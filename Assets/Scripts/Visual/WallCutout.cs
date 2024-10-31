@@ -30,7 +30,8 @@ public class WallCutout : MonoBehaviour
             {
                 if(renderer == null)
                     continue;
-                renderer.material.SetFloat(cutoutSizeProp, 0f);
+                foreach (Material mat in renderer.materials)
+                    mat.SetFloat(cutoutSizeProp, 0f);
                 renderer.gameObject.layer = 7;
             }
             renderers.Clear();
@@ -42,9 +43,12 @@ public class WallCutout : MonoBehaviour
 
             if (meshRenderer != null)
             {
-                meshRenderer.material.SetVector(cutoutPositionProp, cutoutPos);
-                meshRenderer.material.SetFloat(cutoutSizeProp, cutoutSize);
-                meshRenderer.material.SetFloat(falloffSizeProp, falloffSize);
+                foreach (Material mat in meshRenderer.materials)
+                {
+                    mat.SetVector(cutoutPositionProp, cutoutPos);
+                    mat.SetFloat(cutoutSizeProp, cutoutSize);
+                    mat.SetFloat(falloffSizeProp, falloffSize);
+                }
                 if(meshRenderer.tag != "Door" && meshRenderer.tag != "Item" && meshRenderer.tag != "Obstacle")
                     meshRenderer.gameObject.layer = 10;
                 renderers.Add(meshRenderer);
