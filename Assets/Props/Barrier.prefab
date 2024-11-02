@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 879578258822607715}
   - component: {fileID: 8764605303583140963}
   - component: {fileID: 2238856322065033052}
+  - component: {fileID: 777766665174394246}
+  - component: {fileID: 718427309648902158}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Untagged
@@ -108,3 +110,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.482946, y: 3.730452, z: 9.430033}
   m_Center: {x: 0.741473, y: 1.9205489, z: 0.070389986}
+--- !u!208 &777766665174394246
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124250601305922474}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.74100006, y: 1.8650001, z: 4.715}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.74100006, y: 1.9210001, z: 0.07}
+  m_TimeToStationary: 0.5
+--- !u!114 &718427309648902158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124250601305922474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: barrier
+  isNPC: 0
