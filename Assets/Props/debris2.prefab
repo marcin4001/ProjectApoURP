@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5715481461007425194
+--- !u!1 &380350011124246381
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,56 +8,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8553997853986043478}
-  - component: {fileID: 7791089799819954435}
-  - component: {fileID: 189623841191117796}
-  - component: {fileID: 8015552220346958515}
-  - component: {fileID: 6181064478703510570}
-  - component: {fileID: 6456367829538038161}
+  - component: {fileID: 4529060725707215629}
+  - component: {fileID: 6249084971643206425}
+  - component: {fileID: 6851292583873361242}
+  - component: {fileID: 3819459175350409960}
+  - component: {fileID: 5639250981332580500}
+  - component: {fileID: -9036245503603725707}
   m_Layer: 7
-  m_Name: Bath
+  m_Name: debris2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8553997853986043478
+--- !u!4 &4529060725707215629
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715481461007425194}
+  m_GameObject: {fileID: 380350011124246381}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.318, y: 0.318, z: 0.318}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: 0.05062501, y: 0.7597274, z: 0.6455242, w: 0.059581548}
+  m_LocalPosition: {x: -0.07951641, y: 0.15463257, z: 0.5733156}
+  m_LocalScale: {x: 59.59608, y: 46.79019, z: 90.90226}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7791089799819954435
+--- !u!33 &6249084971643206425
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715481461007425194}
-  m_Mesh: {fileID: 4300000, guid: ae8352c51c6124747aa9e8a7374b86af, type: 3}
---- !u!23 &189623841191117796
+  m_GameObject: {fileID: 380350011124246381}
+  m_Mesh: {fileID: -7196802604745430461, guid: 4a73bf047abb8cc42b6c709d7d609c15, type: 3}
+--- !u!23 &6851292583873361242
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715481461007425194}
+  m_GameObject: {fileID: 380350011124246381}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 0
+  m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 80a0db094f8828840b5c6f0d4b453af0, type: 2}
+  - {fileID: 2100000, guid: dd54f206d86b2994a9195e30d8829ecf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,13 +89,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8015552220346958515
-BoxCollider:
+--- !u!64 &3819459175350409960
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715481461007425194}
+  m_GameObject: {fileID: 380350011124246381}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -107,36 +107,37 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.786426, y: 1.306321, z: 6.74815}
-  m_Center: {x: 0, y: 0.5531605, z: 0}
---- !u!208 &6181064478703510570
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7196802604745430461, guid: 4a73bf047abb8cc42b6c709d7d609c15, type: 3}
+--- !u!208 &5639250981332580500
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715481461007425194}
+  m_GameObject: {fileID: 380350011124246381}
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.393, y: 0.65300006, z: 3.374}
+  m_Extents: {x: 0.030000001, y: 0.037, z: 0.008}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0.55300003, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &6456367829538038161
+--- !u!114 &-9036245503603725707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5715481461007425194}
+  m_GameObject: {fileID: 380350011124246381}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameObject: bath
+  nameObject: debris
   isNPC: 0
