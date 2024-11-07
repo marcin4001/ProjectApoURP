@@ -40,11 +40,25 @@ MonoBehaviour:
       pretty easy to find.
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 5
-    objectID: 0
-    amountObject: 0
+    objectID: 205
+    amountObject: 1
     actions: []
+  - optionText: I found the integrated circuit.
+    replyText: "Great! Now I can fix the machine. This integrated circuit was exactly
+      what I needed to get it running. Thank you \u2013 here\u2019s $100 for your
+      help!"
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 5
+    objectID: 205
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: b81a67224e7add44abd5db41e12b5f23, type: 2}
+    - {fileID: 11400000, guid: f8aae6c78aa90f24fa102d53fac2d8a0, type: 2}
+    - {fileID: 11400000, guid: 8a2945b859f1c3646b7f49345da5e4ca, type: 2}
   - optionText: Do you sell supplies or know where I can find some?
     replyText: I don't sell supplies myself, but the quartermaster next door might
       have something for you. You should check with him.
@@ -52,6 +66,16 @@ MonoBehaviour:
     exitOption: 0
     conditionType: 0
     questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Do you have any other tasks for me?
+    replyText: "No, that\u2019s all for now. Thank you again for your help \u2013
+      it really made a difference!"
+    nextNode: 0
+    exitOption: 0
+    conditionType: 2
+    questID: 5
     objectID: 0
     amountObject: 0
     actions: []

@@ -42,11 +42,26 @@ MonoBehaviour:
       can find some!"
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 4
-    objectID: 0
-    amountObject: 0
+    objectID: 114
+    amountObject: 1
     actions: []
+  - optionText: I found the pre-war fromage chips for you.
+    replyText: "Wow, you actually got them! Thank you! The taste hasn\u2019t changed
+      since before the nuclear war \u2013 perfect for a cozy evening. I don\u2019t
+      have much to give you, but here\u2019s this wrench key. It\u2019ll help you
+      repair different things. Thanks again!"
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 4
+    objectID: 114
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 029dac5681f384446b9807ddca69dfa8, type: 2}
+    - {fileID: 11400000, guid: 4e90c666dabc03044a3c6116211d89e7, type: 2}
+    - {fileID: 11400000, guid: f08144ec1178eed4b981120fdf46f1ec, type: 2}
   - optionText: Where can I find some supplies?
     replyText: "You can find supplies by asking around the village. Each villager
       usually has something to trade or sell, so it\u2019s a good idea to speak to
