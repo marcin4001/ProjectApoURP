@@ -41,11 +41,26 @@ MonoBehaviour:
       canyon west of the village, close to the cacti.
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 3
-    objectID: 0
-    amountObject: 0
+    objectID: 207
+    amountObject: 6
     actions: []
+  - optionText: I brought you the Sandy Grass Roots.
+    replyText: "Excellent work! With these roots, I can prepare new HealthPaks to
+      help the people of Clearwater village. As a thank-you, here are two bottles
+      of HealthPak. I hope they serve you well. Thank you again \u2013 you\u2019ve
+      done a great job!"
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 3
+    objectID: 207
+    amountObject: 6
+    actions:
+    - {fileID: 11400000, guid: eb538f8e114a19f468adaf7ef0bfd8ae, type: 2}
+    - {fileID: 11400000, guid: 046961ea554e3e441a03754d02bd16cf, type: 2}
+    - {fileID: 11400000, guid: 289a67f954617cc489bb66cfa91c5f20, type: 2}
   - optionText: Goodbye.
     replyText: 
     nextNode: 0
