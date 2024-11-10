@@ -41,10 +41,10 @@ MonoBehaviour:
       but it\u2019s definitely there."
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 2
-    objectID: 0
-    amountObject: 0
+    objectID: 208
+    amountObject: 1
     actions: []
   - optionText: I need more information about the junkyard.
     replyText: "The junkyard is an old, abandoned place. It\u2019s full of dangerous
@@ -53,7 +53,30 @@ MonoBehaviour:
       lucky, you might find something valuable, but stay alert."
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
+    questID: 2
+    objectID: 208
+    amountObject: 1
+    actions: []
+  - optionText: I have the repair kit you asked for.
+    replyText: "Great, that\u2019s exactly what we needed. Here, $70 for your trouble.
+      Maybe we\u2019ll have more work for you in the future."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 2
+    objectID: 208
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 3ebd3e990ad9e3348acc7922b547b31e, type: 2}
+    - {fileID: 11400000, guid: e288cae8a4f5feb47bb14566ffe6825c, type: 2}
+    - {fileID: 11400000, guid: 861142bd1a40a88499964e2a576d2cc5, type: 2}
+  - optionText: Do you have anything else that needs doing?
+    replyText: "That\u2019s all for now. If something comes up, I\u2019ll let you
+      know. Thanks for your help."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 2
     questID: 2
     objectID: 0
     amountObject: 0
