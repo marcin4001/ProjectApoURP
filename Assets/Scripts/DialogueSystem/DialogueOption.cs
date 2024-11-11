@@ -30,6 +30,10 @@ public class DialogueOption
                 return PlayerHaveItem();
             case ConditionDialogueType.QuestStarted:
                 return QuestStarted();
+            case ConditionDialogueType.QuestNoComplete:
+                return QuestNoComplete();
+            case ConditionDialogueType.PlayerNoHaveItemWQ:
+                return PlayerNoHaveItemWQ();
         }
         return true;
     }
@@ -46,6 +50,13 @@ public class DialogueOption
         if (QuestController.instance == null)
             return false;
         return QuestController.instance.Complete(questID);
+    }
+
+    private bool QuestNoComplete()
+    {
+        if (QuestController.instance == null)
+            return true;
+        return !QuestController.instance.Complete(questID);
     }
 
     private bool PlayerNoHaveItem()
@@ -65,6 +76,17 @@ public class DialogueOption
             return !Inventory.instance.PlayerHaveItem(slot);
         }
         return false;
+    }
+
+    private bool PlayerNoHaveItemWQ()
+    {
+        if (Inventory.instance == null || ItemDB.instance == null)
+            return true;
+        Item item = ItemDB.instance.GetItemById(objectID);
+        if (item == null)
+            return true;
+        SlotItem slot = new SlotItem(item, amountObject);
+        return !Inventory.instance.PlayerHaveItem(slot);
     }
 
     private bool PlayerHaveItem()
@@ -101,5 +123,7 @@ public enum ConditionDialogueType
     QuestComplete,
     PlayerNoHaveItem,
     PlayerHaveItem,
-    QuestStarted
+    QuestStarted,
+    QuestNoComplete,
+    PlayerNoHaveItemWQ
 }
