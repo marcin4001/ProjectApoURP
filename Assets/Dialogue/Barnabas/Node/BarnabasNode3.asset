@@ -13,6 +13,43 @@ MonoBehaviour:
   m_Name: BarnabasNode3
   m_EditorClassIdentifier: 
   options:
+  - optionText: What do you know about the Oasis Generator?
+    replyText: I once read a book that had the blueprint for such a generator and
+      the location where you might find a working one. That book is in the library
+      in Evergreen City, south of here. If you truly want to find the Oasis Generator,
+      I suggest starting there.
+    nextNode: 2
+    exitOption: 0
+    conditionType: 1
+    questID: 6
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 712af2eefb080ec4c94e099c803ab464, type: 2}
+  - optionText: Where exactly is Evergreen City?
+    replyText: "Evergreen City is south of here, in the middle of the desert. It\u2019s
+      a fairly large city that stands out against the barren desert landscape. Stick
+      to the main trail, and you\u2019ll eventually reach it. But be careful\u2014these
+      lands are full of mutated animals. It\u2019s best to be prepared for anything."
+    nextNode: 2
+    exitOption: 0
+    conditionType: 5
+    questID: 6
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: What do you know about Evergreen City?
+    replyText: "It\u2019s the capital of the Republic of Free Arkansas, twice the
+      size of Clearwater. It\u2019s full of traders, craftsmen, and people from all
+      over the wasteland. The city is bustling with life. If you get there, contact
+      Marcus Reed, their leader. He\u2019s someone who might be able to help you."
+    nextNode: 2
+    exitOption: 0
+    conditionType: 5
+    questID: 6
+    objectID: 0
+    amountObject: 0
+    actions: []
   - optionText: Thank you, I have to go now.
     replyText: 
     nextNode: 0
