@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         {
             if(isUsingItem)
             {
-                UseItem(hit.point);
+                UseItem(hit.point, hit.collider.gameObject);
                 isUsingItem = false;
                 return;
             }
@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
             Destroy(itemInHand);
     }
 
-    public void UseItem(Vector3 point)
+    public void UseItem(Vector3 point, GameObject _target)
     {
         SlotItem slotItem = HUDController.instance.GetCurrentItem();
         Item item = slotItem.GetItem();
@@ -222,6 +222,9 @@ public class PlayerController : MonoBehaviour
             WeaponObject weapon = weaponController.GetCurrentWeapon();
             if (weapon == null)
                 return;
+            EnemyController enemy = _target.GetComponent<EnemyController>();
+                if (enemy == null) return;
+            HUDController.instance.AddConsolelog($"Enemy: {enemy.name}");
             float distanceToPoint = Vector3.Distance(center.position, point);
             if(distanceToPoint > weapon.GetRange())
             {
@@ -257,6 +260,11 @@ public class PlayerController : MonoBehaviour
             {
                 weapon.StartPlayMuzzle();
                 weapon.StartPlayAttack();
+            }
+            enemy.GetDamage();
+            if (GameParam.instance.inCombat)
+            {
+                CombatController.instance.NextTurn();
             }
         }
     }
@@ -381,6 +389,8 @@ public class PlayerController : MonoBehaviour
 
     private void Use(GameObject obj)
     {
+        if (GameParam.instance.inCombat)
+            return;
         if (isUsingObj)
             return;
         IUsableObj usable = obj.GetComponent<IUsableObj>();
@@ -454,6 +464,8 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator MoveTask()
     {
+        if (GameParam.instance.inCombat)
+            SetBlock(true);
         isMoving = true;
         agent.SetDestination(moveTarget);
         while(agent.pathPending)
@@ -479,7 +491,11 @@ public class PlayerController : MonoBehaviour
         agent.isStopped = true;
         animationPlayer.SetSpeedLocomotion(0f);
         isMoving = false;
-        if(currentSelectObj != null)
+        if (GameParam.instance.inCombat)
+        {
+            CombatController.instance.NextTurn();
+        }
+        if (currentSelectObj != null)
         {
             float distnceToObject = Vector3.Distance(transform.position, moveTarget);
             if(distnceToObject < maxDistance)

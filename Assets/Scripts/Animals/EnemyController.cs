@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class EnemyController : MonoBehaviour
 {
@@ -18,6 +19,20 @@ public class EnemyController : MonoBehaviour
     }
 
     
+    public void StartTurn()
+    {
+        Vector3 playerPos = FindFirstObjectByType<PlayerController>().transform.position;
+        float distance = Vector3.Distance(transform.position, playerPos);
+        if(distance > 0.7f)
+        {
+            MoveTo(playerPos);
+        }
+        else
+        {
+            Attack();
+        }
+    }
+
     public void MoveTo(Vector3 _target)
     {
         if (coroutine != null)
@@ -26,6 +41,12 @@ public class EnemyController : MonoBehaviour
         }
         target = _target;
         coroutine = StartCoroutine(Moving());
+    }
+
+    public void Attack()
+    {
+        Debug.Log("Attack");
+        CombatController.instance.NextTurn();
     }
 
     public IEnumerator Moving()
@@ -43,6 +64,12 @@ public class EnemyController : MonoBehaviour
         isMoving = false;
         anim.SetWalk(false);
         agent.isStopped = true;
+        CombatController.instance.NextTurn();
+    }
+
+    public void GetDamage()
+    {
+        Debug.Log("GetDamage");
     }
 
     void Update()

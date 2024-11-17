@@ -9,6 +9,7 @@ public class GameParam : MonoBehaviour
     public int healthPointMax = 100;
     public int radLevel = 0;
     public int radLevelMax = 5;
+    public bool inCombat = false;
     public Vector2 mapPosition = Vector2.zero;
     public string prevScene = "";
     public MapSign[] mapSigns;
