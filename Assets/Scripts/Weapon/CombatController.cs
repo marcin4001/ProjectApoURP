@@ -37,6 +37,12 @@ public class CombatController : MonoBehaviour
 
     public void NextTurn()
     {
+        if(isEndCombat())
+        {
+            GameParam.instance.inCombat = false;
+            player.SetBlock(false);
+            return;
+        }
         currentIndex++;
         if (currentIndex >= enemies.Length)
             currentIndex = -1;
@@ -49,6 +55,16 @@ public class CombatController : MonoBehaviour
             player.SetBlock(true);
             enemies[currentIndex].StartTurn();
         }
+    }
+
+    private bool isEndCombat()
+    {
+        bool result = true;
+        foreach(EnemyController enemy in enemies)
+        {
+            result &= enemy.IsDeath();
+        }
+        return result;
     }
 
     private void Update()

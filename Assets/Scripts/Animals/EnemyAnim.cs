@@ -4,6 +4,7 @@ public class EnemyAnim : MonoBehaviour
 {
     [SerializeField] private string walkParam = "Walk";
     [SerializeField] private string deathParam = "Death";
+    [SerializeField] private string attackParam = "Attack";
     [SerializeField] private bool isWalk = false;
     private Animator animator;
 
@@ -17,6 +18,11 @@ public class EnemyAnim : MonoBehaviour
     {
         isWalk = _isWalk;
         animator.SetBool(walkParam, isWalk);
+    }
+
+    public void Attack()
+    {
+        animator.SetTrigger(attackParam);
     }
 
     public void SetDeath()

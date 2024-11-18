@@ -1,26 +1,35 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private bool isMoving;
+    [SerializeField] private bool isMoving = false;
+    [SerializeField] private bool isDeath = false;
     [SerializeField] private bool isDebug;
     [SerializeField] private Transform debugTarget;
+    [SerializeField] private int healthPoint = 10;
+    [SerializeField] private GameObject bloodPrefab;
     private Vector3 target;
     private NavMeshAgent agent;
     private EnemyAnim anim;
     private Coroutine coroutine;
+    private PlayerController player;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<EnemyAnim>();
+        player = FindFirstObjectByType<PlayerController>();
     }
 
     
     public void StartTurn()
     {
+        if (isDeath)
+        {
+            CombatController.instance.NextTurn();
+            return;
+        }
         Vector3 playerPos = FindFirstObjectByType<PlayerController>().transform.position;
         float distance = Vector3.Distance(transform.position, playerPos);
         if(distance > 0.7f)
@@ -45,7 +54,17 @@ public class EnemyController : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("Attack");
+        coroutine = StartCoroutine(Attacking());
+    }
+
+    public IEnumerator Attacking()
+    {
+        yield return new WaitForSeconds(1.5f);
+        RotationToPlayer();
+        anim.Attack();
+        yield return new WaitForSeconds(0.5f);
+        PlayerStats.instance.RemoveHealthPoint(5);
+        player.TakeDamage();
         CombatController.instance.NextTurn();
     }
 
@@ -64,12 +83,43 @@ public class EnemyController : MonoBehaviour
         isMoving = false;
         anim.SetWalk(false);
         agent.isStopped = true;
+        RotationToPlayer();
         CombatController.instance.NextTurn();
     }
 
-    public void GetDamage()
+    public void GetDamage(int point)
     {
-        Debug.Log("GetDamage");
+        healthPoint -= point;
+        if(healthPoint <= 0)
+        {
+            healthPoint = 0;
+            isDeath = true;
+            anim.SetDeath();
+            Destroy(agent);
+            StartCoroutine(SpawnBlood());
+        }
+    }
+
+    private IEnumerator SpawnBlood()
+    {
+        yield return new WaitForSeconds(1f);
+        GameObject blood = Instantiate(bloodPrefab, transform.position, Quaternion.identity);
+        Vector3 bloodPos = blood.transform.position;
+        bloodPos.y = 0;
+        blood.transform.position = bloodPos;
+    }
+
+    private void RotationToPlayer()
+    {
+        Vector3 playerPos = FindFirstObjectByType<PlayerController>().transform.position;
+        Vector3 direction = new Vector3(playerPos.x - transform.position.x, 0f, playerPos.z - transform.position.z);
+        if (direction != null)
+            transform.rotation = Quaternion.LookRotation(direction);
+    }
+
+    public bool IsDeath()
+    {
+        return isDeath;
     }
 
     void Update()

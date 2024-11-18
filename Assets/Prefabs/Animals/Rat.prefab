@@ -48,8 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
+  isDeath: 0
   isDebug: 1
   debugTarget: {fileID: 0}
+  healthPoint: 10
+  bloodPrefab: {fileID: 2025030183170297089, guid: 444b7985d2987f344b15d412c4c0152e, type: 3}
 --- !u!195 &3253233612541110636
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -176,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkParam: Walk
   deathParam: Death
+  attackParam: Attack
   isWalk: 0
 --- !u!4 &5373753586367172961 stripped
 Transform:

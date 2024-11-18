@@ -9,6 +9,7 @@ public class AnimationPlayer : MonoBehaviour
     [SerializeField] private string attackParam = "Attack";
     [SerializeField] private string eatingParam = "Eating";
     [SerializeField] private string drinkingParam = "Drinking";
+    [SerializeField] private string takeDamageParam = "TakeDamage";
     [SerializeField] private string handGunLayer = "HandGun";
     [SerializeField] private string rifleLayer = "Rifle";
     [SerializeField] private float doorInteractTime = 2.5f;
@@ -53,6 +54,11 @@ public class AnimationPlayer : MonoBehaviour
     public void Drink()
     {
         animator.SetTrigger(drinkingParam);
+    }
+
+    public void TakeDamage()
+    {
+        animator.SetTrigger(takeDamageParam);
     }
 
     public void ActiveBaseLayer()

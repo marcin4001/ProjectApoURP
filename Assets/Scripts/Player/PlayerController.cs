@@ -147,6 +147,10 @@ public class PlayerController : MonoBehaviour
         HUDController.instance.RemoveCurrentItem();
         HUDController.instance.SetActiveInventoryBtn(true);
         CursorController.instance.SetIsWait(false);
+        if (GameParam.instance.inCombat)
+        {
+            CombatController.instance.NextTurn();
+        }
     }
 
 
@@ -166,6 +170,10 @@ public class PlayerController : MonoBehaviour
         HUDController.instance.RemoveCurrentItem();
         HUDController.instance.SetActiveInventoryBtn(true);
         CursorController.instance.SetIsWait(false);
+        if (GameParam.instance.inCombat)
+        {
+            CombatController.instance.NextTurn();
+        }
     }
 
     public void ShowWeapon(Item weapon)
@@ -261,7 +269,7 @@ public class PlayerController : MonoBehaviour
                 weapon.StartPlayMuzzle();
                 weapon.StartPlayAttack();
             }
-            enemy.GetDamage();
+            enemy.GetDamage(5);
             if (GameParam.instance.inCombat)
             {
                 CombatController.instance.NextTurn();
@@ -561,6 +569,11 @@ public class PlayerController : MonoBehaviour
         HUDController.instance.SetActiveInventoryBtn(true);
         if(!(usable is Bed))
             CursorController.instance.SetIsWait(false);
+    }
+
+    public void TakeDamage()
+    {
+        animationPlayer.TakeDamage();
     }
 
     public Vector3 GetCenterPosition()
