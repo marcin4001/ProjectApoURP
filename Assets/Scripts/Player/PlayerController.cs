@@ -231,7 +231,8 @@ public class PlayerController : MonoBehaviour
             if (weapon == null)
                 return;
             EnemyController enemy = _target.GetComponent<EnemyController>();
-                if (enemy == null) return;
+            if (enemy == null) return;
+            if (enemy.IsDeath()) return;
             HUDController.instance.AddConsolelog($"Enemy: {enemy.name}");
             float distanceToPoint = Vector3.Distance(center.position, point);
             if(distanceToPoint > weapon.GetRange())
@@ -274,6 +275,7 @@ public class PlayerController : MonoBehaviour
             {
                 CombatController.instance.NextTurn();
             }
+            
         }
     }
 
@@ -574,6 +576,11 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage()
     {
         animationPlayer.TakeDamage();
+    }
+
+    public void SetDeathState()
+    {
+        animationPlayer.SetDeath();    
     }
 
     public Vector3 GetCenterPosition()

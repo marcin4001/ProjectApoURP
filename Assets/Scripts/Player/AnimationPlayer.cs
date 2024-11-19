@@ -10,6 +10,7 @@ public class AnimationPlayer : MonoBehaviour
     [SerializeField] private string eatingParam = "Eating";
     [SerializeField] private string drinkingParam = "Drinking";
     [SerializeField] private string takeDamageParam = "TakeDamage";
+    [SerializeField] private string isDeathParam = "isDeath";
     [SerializeField] private string handGunLayer = "HandGun";
     [SerializeField] private string rifleLayer = "Rifle";
     [SerializeField] private float doorInteractTime = 2.5f;
@@ -61,6 +62,11 @@ public class AnimationPlayer : MonoBehaviour
         animator.SetTrigger(takeDamageParam);
     }
 
+    public void SetDeath()
+    {
+        animator.SetTrigger(isDeathParam);
+    }
+
     public void ActiveBaseLayer()
     {
         int handGunIndex = animator.GetLayerIndex(handGunLayer);
@@ -100,21 +106,4 @@ public class AnimationPlayer : MonoBehaviour
         return drinkingTime;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            ActiveHandGunLayer();
-        }
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            ActiveRifleLayer();
-        }
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            ActiveBaseLayer();
-        }
-
-
-    }
 }

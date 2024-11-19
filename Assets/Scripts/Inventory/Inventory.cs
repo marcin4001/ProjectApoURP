@@ -154,4 +154,11 @@ public class Inventory : MonoBehaviour
             return true;
         return false;
     }
+
+    public void Clear()
+    {
+        items.Clear();
+        for (int i = 0; i < slots.Length; i++)
+            SetNullSlot(i);
+    }
 }

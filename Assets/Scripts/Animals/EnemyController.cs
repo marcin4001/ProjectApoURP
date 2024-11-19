@@ -15,11 +15,13 @@ public class EnemyController : MonoBehaviour
     private EnemyAnim anim;
     private Coroutine coroutine;
     private PlayerController player;
+    private AudioSource source;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<EnemyAnim>();
         player = FindFirstObjectByType<PlayerController>();
+        source = GetComponent<AudioSource>();
     }
 
     
@@ -62,9 +64,14 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         RotationToPlayer();
         anim.Attack();
+        if(source != null)
+            source.Play();
         yield return new WaitForSeconds(0.5f);
         PlayerStats.instance.RemoveHealthPoint(5);
-        player.TakeDamage();
+        if(!PlayerStats.instance.isDeath())
+            player.TakeDamage();
+        else
+            player.SetDeathState();
         CombatController.instance.NextTurn();
     }
 
@@ -90,6 +97,10 @@ public class EnemyController : MonoBehaviour
     public void GetDamage(int point)
     {
         healthPoint -= point;
+        if(!GameParam.instance.inCombat)
+        {
+            StartCoroutine(TriggerCombat());
+        }
         if(healthPoint <= 0)
         {
             healthPoint = 0;
@@ -98,6 +109,12 @@ public class EnemyController : MonoBehaviour
             Destroy(agent);
             StartCoroutine(SpawnBlood());
         }
+    }
+
+    private IEnumerator TriggerCombat()
+    {
+        yield return new WaitForSeconds(1f);
+        CombatController.instance.StartCombat(false);
     }
 
     private IEnumerator SpawnBlood()

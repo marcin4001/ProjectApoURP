@@ -58,6 +58,22 @@ public class GameParam : MonoBehaviour
         }
     }
 
+    public void SetStartParam()
+    {
+        startGame = true;
+        currentTime = 6;
+        day = 1;
+        healthPoint = 100;
+        healthPointMax = 100;
+        radLevel = 0;
+        radLevelMax = 5;
+        prevScene = "";
+        foreach(MapSign sign in mapSigns)
+        {
+            sign.state = MapSignState.Hidden;
+        }
+    }
+
     public void AddDay()
     {
         day = day + 1;

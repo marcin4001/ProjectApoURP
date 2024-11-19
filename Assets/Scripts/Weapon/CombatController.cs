@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatController : MonoBehaviour
 {
@@ -31,13 +33,21 @@ public class CombatController : MonoBehaviour
         {
             player.SetBlock(true);
             currentIndex = 0;
+            Debug.Log("StartCombat");
             enemies[currentIndex].StartTurn();
         }
     }
 
     public void NextTurn()
     {
-        if(isEndCombat())
+        Debug.Log("NextTurn");
+        if (PlayerStats.instance.isDeath())
+        {
+            GameParam.instance.inCombat = false;
+            StartCoroutine(AfterDeath());
+            return;
+        }
+        if (isEndCombat())
         {
             GameParam.instance.inCombat = false;
             player.SetBlock(false);
@@ -55,6 +65,12 @@ public class CombatController : MonoBehaviour
             player.SetBlock(true);
             enemies[currentIndex].StartTurn();
         }
+    }
+
+    private IEnumerator AfterDeath()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(0);
     }
 
     private bool isEndCombat()
