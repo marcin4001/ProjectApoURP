@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform debugTarget;
     [SerializeField] private int healthPoint = 10;
     [SerializeField] private GameObject bloodPrefab;
+    [SerializeField] private EnemyGroup group;
     private Vector3 target;
     private NavMeshAgent agent;
     private EnemyAnim anim;
@@ -114,6 +115,7 @@ public class EnemyController : MonoBehaviour
     private IEnumerator TriggerCombat()
     {
         yield return new WaitForSeconds(1f);
+        CombatController.instance.SetGroup(group);
         CombatController.instance.StartCombat(false);
     }
 

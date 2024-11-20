@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour
                 weapon.StartPlayMuzzle();
                 weapon.StartPlayAttack();
             }
-            enemy.GetDamage(5);
+            enemy.GetDamage(weapon.GetDamage());
             if (GameParam.instance.inCombat)
             {
                 CombatController.instance.NextTurn();

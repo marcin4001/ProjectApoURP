@@ -107,6 +107,13 @@ public class WeaponObject : MonoBehaviour
         return weapon.range;
     }
 
+    public int GetDamage()
+    {
+        if(weapon == null)
+            return 5;
+        return weapon.damage;
+    }
+
     public bool OutOfAmmo()
     {
         if(currentAmmoInGun <= 0)

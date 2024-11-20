@@ -23,8 +23,9 @@ public class CombatController : MonoBehaviour
 
     public void StartCombat(bool firstPlayer)
     {
+        if(enemies.Length == 0)
+            return;
         GameParam.instance.inCombat = true;
-        enemies = FindObjectsByType<EnemyController>(FindObjectsSortMode.None);
         if(firstPlayer)
         {
             currentIndex = -1;
@@ -51,6 +52,7 @@ public class CombatController : MonoBehaviour
         {
             GameParam.instance.inCombat = false;
             player.SetBlock(false);
+            enemies = new EnemyController[0];
             return;
         }
         currentIndex++;
@@ -65,6 +67,11 @@ public class CombatController : MonoBehaviour
             player.SetBlock(true);
             enemies[currentIndex].StartTurn();
         }
+    }
+
+    public void SetGroup(EnemyGroup group)
+    {
+        enemies = group.GetEnemies();
     }
 
     private IEnumerator AfterDeath()
@@ -83,14 +90,14 @@ public class CombatController : MonoBehaviour
         return result;
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F3))
-        {
-            if (!GameParam.instance.inCombat)
-            {
-                StartCombat(false);
-            }
-        }
-    }
+    //private void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.F3))
+    //    {
+    //        if (!GameParam.instance.inCombat)
+    //        {
+    //            StartCombat(false);
+    //        }
+    //    }
+    //}
 }
