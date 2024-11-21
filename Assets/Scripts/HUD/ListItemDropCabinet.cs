@@ -13,6 +13,8 @@ public class ListItemDropCabinet : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
+            if(CabinetUI.instance.GetCabinet() == null)
+                return;
             SlotItemUI slotItemUI = eventData.pointerDrag.GetComponent<SlotItemUI>();
             if (slotItemUI == null)
                 return;

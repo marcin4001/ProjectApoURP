@@ -28,6 +28,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private ButtonRightClick slotChangeStateButton;
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
+    [SerializeField] private Button skipButton;
     [Header("Console")]
     [SerializeField] private TextMeshProUGUI consoleText;
     [SerializeField] private List<string> consoleLogs = new List<string>();
@@ -44,6 +45,8 @@ public class HUDController : MonoBehaviour
     [SerializeField] private int indexConsoleLog = 0;
     [Header("Timer")]
     [SerializeField] private TextMeshProUGUI timerText;
+    [Header("Fight Panel")]
+    [SerializeField] private GameObject fightPanel;
     private PlayerController player;
     private Canvas canvas;
 
@@ -66,6 +69,10 @@ public class HUDController : MonoBehaviour
         questPanelButton.onClick.AddListener(OpenQuestList);
         upConsoleButton.onClick.AddListener(OnClickButtonUpConsole);
         downConsoleButton.onClick.AddListener(OnClickButtonDownConsole);
+        if(skipButton != null)
+            skipButton.onClick.AddListener(OnClickSkip);
+        if(fightPanel != null)
+            fightPanel.SetActive(false);
         consoleText.text = string.Empty;
         slotStateText.text = slotState.ToString();
         Show();
@@ -408,6 +415,24 @@ public class HUDController : MonoBehaviour
         {
             consoleText.text += $"{newLog}\n";
         }
+    }
+
+    public void OnClickSkip()
+    {
+        if(GameParam.instance.inCombat)
+            CombatController.instance.NextTurn();
+    }
+
+    public void ShowFightPanel()
+    {
+        if(fightPanel != null)
+            fightPanel.SetActive(true);
+    }
+
+    public void HideFightPanel()
+    {
+        if (fightPanel != null)
+            fightPanel.SetActive(false);
     }
 
     private IEnumerator UpdateTimer()

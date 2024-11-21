@@ -26,6 +26,7 @@ public class CombatController : MonoBehaviour
         if(enemies.Length == 0)
             return;
         GameParam.instance.inCombat = true;
+        HUDController.instance.ShowFightPanel();
         if(firstPlayer)
         {
             currentIndex = -1;
@@ -45,12 +46,14 @@ public class CombatController : MonoBehaviour
         if (PlayerStats.instance.isDeath())
         {
             GameParam.instance.inCombat = false;
+            HUDController.instance.HideFightPanel();
             StartCoroutine(AfterDeath());
             return;
         }
         if (isEndCombat())
         {
             GameParam.instance.inCombat = false;
+            HUDController.instance.HideFightPanel();
             player.SetBlock(false);
             enemies = new EnemyController[0];
             return;
@@ -90,14 +93,8 @@ public class CombatController : MonoBehaviour
         return result;
     }
 
-    //private void Update()
-    //{
-    //    if(Input.GetKeyDown(KeyCode.F3))
-    //    {
-    //        if (!GameParam.instance.inCombat)
-    //        {
-    //            StartCombat(false);
-    //        }
-    //    }
-    //}
+    private void Update()
+    {
+
+    }
 }

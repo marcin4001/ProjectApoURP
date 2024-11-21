@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditorInternal.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,7 @@ public class CabinetUI : MonoBehaviour
     private Canvas canvas;
     private PlayerController player;
     private Cabinet cabinet;
+    private List<SlotItem> slotsEnemy = new List<SlotItem>();
     private void Awake()
     {
         instance = this;
@@ -55,6 +57,23 @@ public class CabinetUI : MonoBehaviour
         CameraMovement.instance.SetBlock(true);
     }
 
+    public void Show(List<SlotItem> items, string nameEnemy)
+    {
+        canvas.enabled = true;
+        player.SetInMenu(true);
+        CreateListCabinet(items);
+        CreateListPlayer();
+        if (scrollListItemsCabinet != null)
+            scrollListItemsCabinet.ResetPositionList();
+        if (scrollListItemsPlayer != null)
+            scrollListItemsPlayer.ResetPositionList();
+        consoleText.text = string.Empty;
+        active = true;
+        cabinetNameText.text = nameEnemy;
+        CameraMovement.instance.SetBlock(true);
+        slotsEnemy = items;
+    }
+
     public void CreateListCabinet()
     {
         foreach(Transform slot in contentCabinet)
@@ -63,6 +82,20 @@ public class CabinetUI : MonoBehaviour
         }
         List<SlotItem> listItem = cabinet.GetItems();
         foreach(SlotItem item in listItem)
+        {
+            SlotItemUI slot = Instantiate(slotPrefab, contentCabinet).GetComponent<SlotItemUI>();
+            slot.SetSlot(item);
+            slot.SetTypeSlot(SlotUIType.cabinet);
+        }
+    }
+
+    public void CreateListCabinet(List<SlotItem> items)
+    {
+        foreach (Transform slot in contentCabinet)
+        {
+            Destroy(slot.gameObject);
+        }
+        foreach (SlotItem item in items)
         {
             SlotItemUI slot = Instantiate(slotPrefab, contentCabinet).GetComponent<SlotItemUI>();
             slot.SetSlot(item);
@@ -86,6 +119,22 @@ public class CabinetUI : MonoBehaviour
         }
     }
 
+    public void RemoveItem(SlotItem item)
+    {
+        bool itemExist = slotsEnemy.Exists(x => x.GetItem().id == item.GetItem().id);
+        if (itemExist)
+        {
+            SlotItem foundItem = slotsEnemy.Find(x => x.GetItem().id == item.GetItem().id);
+            int newAmount = foundItem.GetAmount() - item.GetAmount();
+            if (newAmount > 0)
+            {
+                foundItem.SetAmount(newAmount);
+                return;
+            }
+            slotsEnemy.Remove(foundItem);
+        }
+    }
+
     public void ReCreateList()
     {
         StartCoroutine(CreateListAfterTime());
@@ -94,7 +143,10 @@ public class CabinetUI : MonoBehaviour
     private IEnumerator CreateListAfterTime()
     {
         yield return new WaitForEndOfFrame();
-        CreateListCabinet();
+        if(cabinet != null)
+            CreateListCabinet();
+        else
+            CreateListCabinet(slotsEnemy);
         CreateListPlayer();
     }
 
@@ -103,7 +155,8 @@ public class CabinetUI : MonoBehaviour
         canvas.enabled = false;
         player.SetInMenu(false);
         active = false;
-        cabinet.Close();
+        if(cabinet != null)
+            cabinet.Close();
         cabinet = null;
         CameraMovement.instance.SetBlock(false);
     }

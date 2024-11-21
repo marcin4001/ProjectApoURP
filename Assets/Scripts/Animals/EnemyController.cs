@@ -1,9 +1,11 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private string nameEnemy;
     [SerializeField] private bool isMoving = false;
     [SerializeField] private bool isDeath = false;
     [SerializeField] private bool isDebug;
@@ -11,6 +13,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int healthPoint = 10;
     [SerializeField] private GameObject bloodPrefab;
     [SerializeField] private EnemyGroup group;
+    [SerializeField] private List<SlotItem> slots = new List<SlotItem>();
     private Vector3 target;
     private NavMeshAgent agent;
     private EnemyAnim anim;
@@ -109,6 +112,7 @@ public class EnemyController : MonoBehaviour
             anim.SetDeath();
             Destroy(agent);
             StartCoroutine(SpawnBlood());
+            gameObject.AddComponent<EnemyInventory>();
         }
     }
 
@@ -139,6 +143,16 @@ public class EnemyController : MonoBehaviour
     public bool IsDeath()
     {
         return isDeath;
+    }
+
+    public List<SlotItem> GetItems()
+    {
+        return slots;
+    }
+
+    public string GetNameEnemy()
+    {
+        return nameEnemy;
     }
 
     void Update()

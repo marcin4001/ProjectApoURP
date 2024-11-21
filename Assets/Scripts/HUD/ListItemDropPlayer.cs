@@ -27,6 +27,11 @@ public class ListItemDropPlayer : MonoBehaviour, IDropHandler
                     cabinet.RemoveItem(slotItem);
                     Inventory.instance.AddItem(slotItem);
                 }
+                else
+                {
+                    CabinetUI.instance.RemoveItem(slotItem);
+                    Inventory.instance.AddItem(slotItem);
+                }
                 Item item = slotItem.GetItem();
                 if (item is MiscItem)
                 {
@@ -64,7 +69,10 @@ public class ListItemDropPlayer : MonoBehaviour, IDropHandler
         int newAmount = CounterUI.instance.GetNumber();
         SlotItem newItem = new SlotItem(slot.GetItem(), newAmount);
         Inventory.instance.AddItem(newItem);
-        cabinet.RemoveItem(newItem);
+        if(cabinet != null)
+            cabinet.RemoveItem(newItem);
+        else
+            CabinetUI.instance.RemoveItem(newItem);
         Item item = slot.GetItem();
         if (item is MiscItem)
         {

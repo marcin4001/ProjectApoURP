@@ -48,12 +48,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e02889e93ceb14bba2d2c19edb4ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameEnemy: Rat
   isMoving: 0
   isDeath: 0
   isDebug: 1
   debugTarget: {fileID: 0}
   healthPoint: 10
   bloodPrefab: {fileID: 2025030183170297089, guid: 444b7985d2987f344b15d412c4c0152e, type: 3}
+  group: {fileID: 0}
+  slots:
+  - item: {fileID: 11400000, guid: 14770c5f016166b4a8bdd0519a10c109, type: 2}
+    amount: 1
 --- !u!195 &3253233612541110636
 NavMeshAgent:
   m_ObjectHideFlags: 0
