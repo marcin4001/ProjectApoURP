@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
         CursorController.instance.SetIsWait(false);
         if (GameParam.instance.inCombat)
         {
-            CombatController.instance.NextTurn();
+            CombatController.instance.RemoveAP(1);
         }
     }
 
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
         CursorController.instance.SetIsWait(false);
         if (GameParam.instance.inCombat)
         {
-            CombatController.instance.NextTurn();
+            CombatController.instance.RemoveAP(1);
         }
     }
 
@@ -233,7 +233,6 @@ public class PlayerController : MonoBehaviour
             EnemyController enemy = _target.GetComponent<EnemyController>();
             if (enemy == null) return;
             if (enemy.IsDeath()) return;
-            HUDController.instance.AddConsolelog($"Enemy: {enemy.name}");
             float distanceToPoint = Vector3.Distance(center.position, point);
             if(distanceToPoint > weapon.GetRange())
             {
@@ -273,7 +272,7 @@ public class PlayerController : MonoBehaviour
             enemy.GetDamage(weapon.GetDamage());
             if (GameParam.instance.inCombat)
             {
-                CombatController.instance.NextTurn();
+                CombatController.instance.RemoveAP(2);
             }
             
         }
@@ -503,7 +502,7 @@ public class PlayerController : MonoBehaviour
         isMoving = false;
         if (GameParam.instance.inCombat)
         {
-            CombatController.instance.NextTurn();
+            CombatController.instance.RemoveAP(2);
         }
         if (currentSelectObj != null)
         {

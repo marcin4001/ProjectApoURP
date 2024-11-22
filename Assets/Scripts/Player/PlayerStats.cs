@@ -38,6 +38,8 @@ public class PlayerStats : MonoBehaviour
     public void RemoveHealthPoint(int point)
     {
         healthPoint -= point;
+        HUDController.instance.AddConsolelog($"You're hit! You lose {point}");
+        HUDController.instance.AddConsolelog("point(s).");
         if (healthPoint < 0)
             healthPoint = 0;
         HUDController.instance.UpdateHPBar(healthPoint, healthPointMax);

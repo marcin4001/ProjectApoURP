@@ -9,6 +9,8 @@ public class CombatController : MonoBehaviour
     public static CombatController instance;
     [SerializeField] private EnemyController[] enemies;
     [SerializeField] private int currentIndex = 0;
+    [SerializeField] public int actionPoint = 2;
+    [SerializeField] public int actionPointMax = 2;
     private PlayerController player;
 
     private void Awake()
@@ -23,19 +25,20 @@ public class CombatController : MonoBehaviour
 
     public void StartCombat(bool firstPlayer)
     {
-        if(enemies.Length == 0)
+        Debug.Log("StartCombat");
+        if (enemies.Length == 0)
             return;
         GameParam.instance.inCombat = true;
         HUDController.instance.ShowFightPanel();
         if(firstPlayer)
         {
             currentIndex = -1;
+            actionPoint = actionPointMax;
         }
         else
         {
             player.SetBlock(true);
             currentIndex = 0;
-            Debug.Log("StartCombat");
             enemies[currentIndex].StartTurn();
         }
     }
@@ -64,11 +67,28 @@ public class CombatController : MonoBehaviour
         if(currentIndex < 0)
         {
             player.SetBlock(false);
+            actionPoint = actionPointMax;
         }
         else
         {
             player.SetBlock(true);
             enemies[currentIndex].StartTurn();
+        }
+    }
+
+    public void RemoveAP(int point)
+    {
+        actionPoint -= point;
+        if (actionPoint == 1)
+        {
+            HUDController.instance.AddConsolelog("You have one action point left");
+            HUDController.instance.AddConsolelog("left.");
+        }
+        if(actionPoint <= 0)
+        {
+            //HUDController.instance.AddConsolelog("Your turn is over.");
+            actionPoint = 0;
+            NextTurn();
         }
     }
 
@@ -91,10 +111,5 @@ public class CombatController : MonoBehaviour
             result &= enemy.IsDeath();
         }
         return result;
-    }
-
-    private void Update()
-    {
-
     }
 }

@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private bool isDeath = false;
     [SerializeField] private bool isDebug;
     [SerializeField] private Transform debugTarget;
+    [SerializeField] private int damage = 5;
     [SerializeField] private int healthPoint = 10;
     [SerializeField] private GameObject bloodPrefab;
     [SerializeField] private EnemyGroup group;
@@ -71,7 +72,7 @@ public class EnemyController : MonoBehaviour
         if(source != null)
             source.Play();
         yield return new WaitForSeconds(0.5f);
-        PlayerStats.instance.RemoveHealthPoint(5);
+        PlayerStats.instance.RemoveHealthPoint(damage);
         if(!PlayerStats.instance.isDeath())
             player.TakeDamage();
         else
@@ -101,12 +102,15 @@ public class EnemyController : MonoBehaviour
     public void GetDamage(int point)
     {
         healthPoint -= point;
-        if(!GameParam.instance.inCombat)
+        HUDController.instance.AddConsolelog($"{nameEnemy} got hit! Loses");
+        HUDController.instance.AddConsolelog($"{point} point(s).");
+        if (!GameParam.instance.inCombat)
         {
             StartCoroutine(TriggerCombat());
         }
         if(healthPoint <= 0)
         {
+            HUDController.instance.AddConsolelog($"{nameEnemy} dies.");
             healthPoint = 0;
             isDeath = true;
             anim.SetDeath();
