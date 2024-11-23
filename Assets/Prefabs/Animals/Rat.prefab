@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3253233612541110636}
   - component: {fileID: 6431320842228704762}
   - component: {fileID: 1649484282431553511}
+  - component: {fileID: 2622786853801064436}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -54,6 +55,8 @@ MonoBehaviour:
   isDebug: 1
   debugTarget: {fileID: 0}
   damage: 3
+  chanceToHit: 60
+  chanceToCrit: 20
   healthPoint: 10
   bloodPrefab: {fileID: 2025030183170297089, guid: 444b7985d2987f344b15d412c4c0152e, type: 3}
   group: {fileID: 0}
@@ -200,6 +203,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2622786853801064436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3898224532369882411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: rat
+  isNPC: 1
 --- !u!1001 &5373753586367040409
 PrefabInstance:
   m_ObjectHideFlags: 0

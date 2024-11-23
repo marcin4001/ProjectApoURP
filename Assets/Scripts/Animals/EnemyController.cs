@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +12,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private bool isDebug;
     [SerializeField] private Transform debugTarget;
     [SerializeField] private int damage = 5;
+    [SerializeField] private int chanceToHit = 100;
+    [SerializeField] private int chanceToCrit = 20;
     [SerializeField] private int healthPoint = 10;
     [SerializeField] private GameObject bloodPrefab;
     [SerializeField] private EnemyGroup group;
@@ -72,11 +75,34 @@ public class EnemyController : MonoBehaviour
         if(source != null)
             source.Play();
         yield return new WaitForSeconds(0.5f);
-        PlayerStats.instance.RemoveHealthPoint(damage);
-        if(!PlayerStats.instance.isDeath())
-            player.TakeDamage();
+        bool isCrit = false;
+        int _damage = CombatController.instance.CalculateDamege(damage, chanceToHit, chanceToCrit, out isCrit);
+        if(_damage > 0)
+        {
+            if(isCrit)
+            {
+                HUDController.instance.AddConsolelog($"CRITICAL HIT! You lose {_damage}");
+                HUDController.instance.AddConsolelog("point(s).");
+            }
+            else
+            {
+                HUDController.instance.AddConsolelog($"You're hit! You lose {_damage}");
+                HUDController.instance.AddConsolelog("point(s).");
+            }
+        }
         else
-            player.SetDeathState();
+        {
+            HUDController.instance.AddConsolelog($"{nameEnemy} missed.");
+        }
+        
+        PlayerStats.instance.RemoveHealthPoint(_damage);
+        if (_damage > 0)
+        {
+            if (!PlayerStats.instance.isDeath())
+                player.TakeDamage();
+            else
+                player.SetDeathState();
+        }
         CombatController.instance.NextTurn();
     }
 

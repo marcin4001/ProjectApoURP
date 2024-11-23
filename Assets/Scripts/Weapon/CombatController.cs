@@ -9,8 +9,9 @@ public class CombatController : MonoBehaviour
     public static CombatController instance;
     [SerializeField] private EnemyController[] enemies;
     [SerializeField] private int currentIndex = 0;
-    [SerializeField] public int actionPoint = 2;
-    [SerializeField] public int actionPointMax = 2;
+    [SerializeField] private int actionPoint = 2;
+    [SerializeField] private int actionPointMax = 2;
+    [SerializeField] private GameObject bloodPrefab; 
     private PlayerController player;
 
     private void Awake()
@@ -97,9 +98,33 @@ public class CombatController : MonoBehaviour
         enemies = group.GetEnemies();
     }
 
+    public int CalculateDamege(int baseDamage, int chanceToHit, int chanceToCrit, out bool isCrit)
+    {
+        isCrit = false;
+        int hitChance = Random.Range(0, 100);
+        if(hitChance > chanceToHit)
+        {
+            return 0;
+        }
+        int critChance = Random.Range(0, 100);
+        if (critChance > chanceToCrit)
+        {
+            return baseDamage;
+        }
+        else
+        {
+            isCrit = true;
+            return baseDamage * 2;
+        }
+    }
+
     private IEnumerator AfterDeath()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
+        Vector3 spawnBlood = player.transform.position - player.transform.forward * 1f;
+        spawnBlood.y = 0.01f;
+        Instantiate(bloodPrefab, spawnBlood, Quaternion.identity);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(0);
     }
 
