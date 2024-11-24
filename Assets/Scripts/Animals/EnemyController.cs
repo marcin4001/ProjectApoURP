@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int chanceToHit = 100;
     [SerializeField] private int chanceToCrit = 20;
     [SerializeField] private int healthPoint = 10;
+    [SerializeField] private float minDistance = 0.7f;
     [SerializeField] private GameObject bloodPrefab;
     [SerializeField] private EnemyGroup group;
     [SerializeField] private List<SlotItem> slots = new List<SlotItem>();
@@ -42,7 +43,7 @@ public class EnemyController : MonoBehaviour
         }
         Vector3 playerPos = FindFirstObjectByType<PlayerController>().transform.position;
         float distance = Vector3.Distance(transform.position, playerPos);
-        if(distance > 0.7f)
+        if(distance > minDistance)
         {
             MoveTo(playerPos);
         }
@@ -113,7 +114,7 @@ public class EnemyController : MonoBehaviour
         agent.SetDestination(target);
         isMoving = true;
         anim.SetWalk(true);
-        while (distance > 0.7f)
+        while (distance > minDistance)
         {
             distance = Vector3.Distance(transform.position, target);
             yield return null;
@@ -183,6 +184,13 @@ public class EnemyController : MonoBehaviour
     public string GetNameEnemy()
     {
         return nameEnemy;
+    }
+
+    public void SetPriority(int priority)
+    {
+        if (agent == null)
+            return;
+        agent.avoidancePriority = priority;
     }
 
     void Update()
