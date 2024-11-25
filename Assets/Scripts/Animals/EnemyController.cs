@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int healthPoint = 10;
     [SerializeField] private float minDistance = 0.7f;
     [SerializeField] private GameObject bloodPrefab;
+    [SerializeField] private Vector3 bloodOffset = Vector3.zero;
     [SerializeField] private EnemyGroup group;
     [SerializeField] private List<SlotItem> slots = new List<SlotItem>();
     private Vector3 target;
@@ -158,7 +159,7 @@ public class EnemyController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         GameObject blood = Instantiate(bloodPrefab, transform.position, Quaternion.identity);
-        Vector3 bloodPos = blood.transform.position;
+        Vector3 bloodPos = blood.transform.position + bloodOffset;
         bloodPos.y = 0;
         blood.transform.position = bloodPos;
     }
