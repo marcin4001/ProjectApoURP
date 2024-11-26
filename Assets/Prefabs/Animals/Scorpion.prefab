@@ -60,6 +60,8 @@ MonoBehaviour:
   healthPoint: 30
   minDistance: 0.7
   bloodPrefab: {fileID: 2025030183170297089, guid: 7773d95ee1e53fd439023c3f9aab207c, type: 3}
+  outline: {fileID: 6682632193392999758}
+  bloodOffset: {x: 0, y: 0, z: 0}
   group: {fileID: 0}
   slots: []
 --- !u!195 &8423866445513525361
@@ -1091,12 +1093,38 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100142, guid: 426fe2e968742084ca79265b5fd572ee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 113231917027740353}
+    - targetCorrespondingSourceObject: {fileID: 100076, guid: 426fe2e968742084ca79265b5fd572ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6682632193392999758}
   m_SourcePrefab: {fileID: 100100000, guid: 426fe2e968742084ca79265b5fd572ee, type: 3}
 --- !u!4 &8914729631815866308 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400142, guid: 426fe2e968742084ca79265b5fd572ee, type: 3}
   m_PrefabInstance: {fileID: 8914729631816256714}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8914729631816288806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100076, guid: 426fe2e968742084ca79265b5fd572ee, type: 3}
+  m_PrefabInstance: {fileID: 8914729631816256714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6682632193392999758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8914729631816288806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8914729631816289252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100142, guid: 426fe2e968742084ca79265b5fd572ee, type: 3}

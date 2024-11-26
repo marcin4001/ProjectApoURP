@@ -590,6 +590,17 @@ public class PlayerController : MonoBehaviour
     public NavMeshAgent GetAgent()
     {
         return agent;
+        
+    }
+
+    public void PriorityUp()
+    {
+        agent.avoidancePriority = agent.avoidancePriority - 1;
+    }
+
+    public void PriorityDown()
+    {
+        agent.avoidancePriority = agent.avoidancePriority + 1;
     }
 }
 

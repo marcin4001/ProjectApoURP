@@ -33,11 +33,13 @@ public class CombatController : MonoBehaviour
         HUDController.instance.ShowFightPanel();
         if(firstPlayer)
         {
+            player.PriorityDown();
             currentIndex = -1;
             actionPoint = actionPointMax;
         }
         else
         {
+            player.PriorityUp();
             player.SetBlock(true);
             currentIndex = 0;
             enemies[currentIndex].StartTurn();
@@ -67,11 +69,13 @@ public class CombatController : MonoBehaviour
             currentIndex = -1;
         if(currentIndex < 0)
         {
+            player.PriorityDown();
             player.SetBlock(false);
             actionPoint = actionPointMax;
         }
         else
         {
+            player.PriorityUp();
             player.SetBlock(true);
             enemies[currentIndex].StartTurn();
         }

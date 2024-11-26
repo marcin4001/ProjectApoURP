@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4361376250626400065}
   - component: {fileID: 1593083536270302070}
   - component: {fileID: 3288011993367092446}
+  - component: {fileID: 9159836416865478837}
   m_Layer: 0
   m_Name: Buffalo
   m_TagString: Untagged
@@ -57,8 +58,9 @@ MonoBehaviour:
   chanceToHit: 70
   chanceToCrit: 30
   healthPoint: 30
-  minDistance: 1.7
+  minDistance: 1.8
   bloodPrefab: {fileID: 2025030183170297089, guid: 7773d95ee1e53fd439023c3f9aab207c, type: 3}
+  outline: {fileID: 5225237481959640239}
   bloodOffset: {x: -0.3, y: 0, z: 0}
   group: {fileID: 0}
   slots:
@@ -73,8 +75,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 2742274862692245807}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3
-  m_Speed: 1.5
+  m_Radius: 0.7
+  m_Speed: 3
   m_Acceleration: 120
   avoidancePriority: 47
   m_AngularSpeed: 1080
@@ -105,8 +107,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.3768755, z: 2.7083435}
-  m_Center: {x: 0, y: 0.69093865, z: 0.3169365}
+  m_Size: {x: 1.7802866, y: 1.3768755, z: 2.7083435}
+  m_Center: {x: -0.02084744, y: 0.69093865, z: 0.3169365}
 --- !u!114 &3288011993367092446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +123,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: Buffalo
   isNPC: 1
+--- !u!208 &9159836416865478837
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742274862692245807}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.6, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &4694445171631162277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,6 +770,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: cd1722673e65c234eaec442a39fc71cc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 518193552680810652}
+    - targetCorrespondingSourceObject: {fileID: 100042, guid: cd1722673e65c234eaec442a39fc71cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5225237481959640239}
   m_SourcePrefab: {fileID: 100100000, guid: cd1722673e65c234eaec442a39fc71cc, type: 3}
 --- !u!4 &4694445171630774565 stripped
 Transform:
@@ -779,3 +800,26 @@ MonoBehaviour:
   deathParam: Death
   attackParam: Attack
   isWalk: 0
+--- !u!1 &4694445171631064431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100042, guid: cd1722673e65c234eaec442a39fc71cc, type: 3}
+  m_PrefabInstance: {fileID: 4694445171631162277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5225237481959640239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4694445171631064431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

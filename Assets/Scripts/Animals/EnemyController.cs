@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int healthPoint = 10;
     [SerializeField] private float minDistance = 0.7f;
     [SerializeField] private GameObject bloodPrefab;
+    [SerializeField] private Outline outline;
     [SerializeField] private Vector3 bloodOffset = Vector3.zero;
     [SerializeField] private EnemyGroup group;
     [SerializeField] private List<SlotItem> slots = new List<SlotItem>();
@@ -26,12 +27,17 @@ public class EnemyController : MonoBehaviour
     private Coroutine coroutine;
     private PlayerController player;
     private AudioSource source;
+    private NavMeshObstacle obstacle;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<EnemyAnim>();
         player = FindFirstObjectByType<PlayerController>();
         source = GetComponent<AudioSource>();
+        obstacle = GetComponent<NavMeshObstacle>();
+        if(outline != null)
+            outline.enabled = false;
+        SetActiveObstacle(false);
     }
 
     
@@ -42,6 +48,7 @@ public class EnemyController : MonoBehaviour
             CombatController.instance.NextTurn();
             return;
         }
+        
         Vector3 playerPos = FindFirstObjectByType<PlayerController>().transform.position;
         float distance = Vector3.Distance(transform.position, playerPos);
         if(distance > minDistance)
@@ -72,6 +79,8 @@ public class EnemyController : MonoBehaviour
     public IEnumerator Attacking()
     {
         yield return new WaitForSeconds(1.5f);
+        if (outline != null)
+            outline.enabled = true;
         RotationToPlayer();
         anim.Attack();
         if(source != null)
@@ -106,10 +115,14 @@ public class EnemyController : MonoBehaviour
                 player.SetDeathState();
         }
         CombatController.instance.NextTurn();
+        if (outline != null)
+            outline.enabled = false;
     }
 
     public IEnumerator Moving()
     {
+        if (outline != null)
+            outline.enabled = true;
         agent.isStopped = false;
         float distance = Vector3.Distance(transform.position, target);
         agent.SetDestination(target);
@@ -125,6 +138,8 @@ public class EnemyController : MonoBehaviour
         agent.isStopped = true;
         RotationToPlayer();
         CombatController.instance.NextTurn();
+        if (outline != null)
+            outline.enabled = false;
     }
 
     public void GetDamage(int point)
@@ -192,6 +207,14 @@ public class EnemyController : MonoBehaviour
         if (agent == null)
             return;
         agent.avoidancePriority = priority;
+    }
+
+    public void SetActiveObstacle(bool activeObstacle)
+    {
+        if(obstacle == null)
+            return;
+        obstacle.enabled = activeObstacle;
+        agent.enabled = !activeObstacle;
     }
 
     void Update()

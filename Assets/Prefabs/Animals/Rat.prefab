@@ -60,6 +60,8 @@ MonoBehaviour:
   healthPoint: 10
   minDistance: 0.7
   bloodPrefab: {fileID: 2025030183170297089, guid: 444b7985d2987f344b15d412c4c0152e, type: 3}
+  outline: {fileID: 1753603315417264400}
+  bloodOffset: {x: 0, y: 0, z: 0}
   group: {fileID: 0}
   slots:
   - item: {fileID: 11400000, guid: 14770c5f016166b4a8bdd0519a10c109, type: 2}
@@ -76,7 +78,7 @@ NavMeshAgent:
   m_Radius: 0.3
   m_Speed: 1
   m_Acceleration: 120
-  avoidancePriority: 50
+  avoidancePriority: 47
   m_AngularSpeed: 1080
   m_StoppingDistance: 0.4
   m_AutoTraverseOffMeshLink: 1
@@ -281,6 +283,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100120, guid: e7beebd2f2ea21446a9bea6a7973a5ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4935473826435983938}
+    - targetCorrespondingSourceObject: {fileID: 100118, guid: e7beebd2f2ea21446a9bea6a7973a5ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1753603315417264400}
   m_SourcePrefab: {fileID: 100100000, guid: e7beebd2f2ea21446a9bea6a7973a5ea, type: 3}
 --- !u!1 &5373753586366942337 stripped
 GameObject:
@@ -303,6 +308,29 @@ MonoBehaviour:
   deathParam: Death
   attackParam: Attack
   isWalk: 0
+--- !u!1 &5373753586366942351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100118, guid: e7beebd2f2ea21446a9bea6a7973a5ea, type: 3}
+  m_PrefabInstance: {fileID: 5373753586367040409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1753603315417264400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5373753586366942351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &5373753586367172961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400120, guid: e7beebd2f2ea21446a9bea6a7973a5ea, type: 3}
