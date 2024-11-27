@@ -6929,6 +6929,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 614986291}
   - {fileID: 1019418055}
+  - {fileID: 6764046324490409596}
 --- !u!4 &410149456
 Transform:
   m_ObjectHideFlags: 0
@@ -16937,7 +16938,7 @@ NavMeshAgent:
   m_Radius: 0.3
   m_Speed: 2.5
   m_Acceleration: 120
-  avoidancePriority: 47
+  avoidancePriority: 50
   m_AngularSpeed: 1080
   m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
@@ -32151,6 +32152,67 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &4954118647771166966
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2850832180798792591, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: group
+      value: 
+      objectReference: {fileID: 410149455}
+    - target: {fileID: 8656507962696679879, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_Name
+      value: ScorpionMini
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179966935479861784, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.158
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179966935479861784, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179966935479861784, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179966935479861784, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179966935479861784, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179966935479861784, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179966935479861784, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179966935479861784, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179966935479861784, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9179966935479861784, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
 --- !u!114 &5021547277113865707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33053,6 +33115,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6764046324490409596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2850832180798792591, guid: d0c7af8687ae8f54da4cac24c6bcc691, type: 3}
+  m_PrefabInstance: {fileID: 4954118647771166966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e02889e93ceb14bba2d2c19edb4ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6833846120980190114
 Transform:
   m_ObjectHideFlags: 0
@@ -34111,6 +34184,7 @@ SceneRoots:
   - {fileID: 1952505961}
   - {fileID: 74981966}
   - {fileID: 1104820351}
+  - {fileID: 4954118647771166966}
   - {fileID: 355475034}
   - {fileID: 8823311344997958299}
   - {fileID: 410149456}

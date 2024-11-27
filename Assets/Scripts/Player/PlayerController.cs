@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     private Coroutine currentCoroutine;
     private IUsableObj currentSelectObj;
     private Vector3 moveTarget;
+    private Vector3 lastPos;
+    private float blockTime = 0;
     void Awake()
     {
         inputSystem = new MainInputSystem();
@@ -482,7 +484,7 @@ public class PlayerController : MonoBehaviour
 
         currentPath = agent.path;
         indexCorner = 1;
-
+        lastPos = transform.position;
         while (agent.remainingDistance > 0f)
         {
             float distance = Vector3.Distance(transform.position, currentPath.corners[indexCorner]);
@@ -496,6 +498,21 @@ public class PlayerController : MonoBehaviour
                 break;
             if (currentSelectObj is DialogueNPC && agent.remainingDistance < 0.7f)
                 break;
+            if(Vector3.Distance(transform.position, lastPos) < 0.01f)
+            {
+                blockTime += Time.deltaTime;
+                if(blockTime >= 1.5f)
+                {
+                    SetBlock(false);
+                    blockTime = 0f;
+                    break;
+                }
+            }
+            else
+            {
+                blockTime = 0f;
+            }
+            lastPos = transform.position;
         }
         agent.isStopped = true;
         animationPlayer.SetSpeedLocomotion(0f);

@@ -78,7 +78,7 @@ public class EnemyController : MonoBehaviour
 
     public IEnumerator Attacking()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.75f);
         if (outline != null)
             outline.enabled = true;
         RotationToPlayer();
