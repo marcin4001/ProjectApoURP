@@ -11,8 +11,11 @@ public class CombatController : MonoBehaviour
     [SerializeField] private int currentIndex = 0;
     [SerializeField] private int actionPoint = 2;
     [SerializeField] private int actionPointMax = 2;
-    [SerializeField] private GameObject bloodPrefab; 
+    [SerializeField] private GameObject bloodPrefab;
+    [SerializeField] private Vector3[] slots;
+    [SerializeField] private GameObject slotDebug;
     private PlayerController player;
+    private List<GameObject> debugSlots = new List<GameObject>();
 
     private void Awake()
     {
@@ -29,18 +32,25 @@ public class CombatController : MonoBehaviour
         Debug.Log("StartCombat");
         if (enemies.Length == 0)
             return;
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].SetIndexSlot(i);
+        }
         GameParam.instance.inCombat = true;
         HUDController.instance.ShowFightPanel();
         if(firstPlayer)
         {
-            player.PriorityDown();
             currentIndex = -1;
             actionPoint = actionPointMax;
+            foreach(EnemyController enemy in enemies)
+                enemy.SetActiveAgent(false);
         }
         else
         {
-            player.PriorityUp();
+            CreateSlots();
             player.SetBlock(true);
+            foreach (EnemyController enemy in enemies)
+                enemy.SetActiveAgent(true);
             currentIndex = 0;
             enemies[currentIndex].StartTurn();
         }
@@ -69,14 +79,18 @@ public class CombatController : MonoBehaviour
             currentIndex = -1;
         if(currentIndex < 0)
         {
-            player.PriorityDown();
+            foreach (EnemyController enemy in enemies)
+                enemy.SetActiveAgent(false);
             player.SetBlock(false);
             actionPoint = actionPointMax;
         }
         else
         {
-            player.PriorityUp();
+            if(currentIndex == 0)
+                CreateSlots();
             player.SetBlock(true);
+            foreach (EnemyController enemy in enemies)
+                enemy.SetActiveAgent(true);
             enemies[currentIndex].StartTurn();
         }
     }
@@ -140,5 +154,35 @@ public class CombatController : MonoBehaviour
             result &= enemy.IsDeath();
         }
         return result;
+    }
+
+    private void CreateSlots()
+    {
+        slots = new Vector3[4];
+        for (int i = 0; i < slots.Length; i++)
+        {
+            float angle = i * 90f;
+            float x = Mathf.Cos(Mathf.Deg2Rad * angle) * 0.5f;
+            float y = 0f;
+            float z = Mathf.Sin(Mathf.Deg2Rad * angle) * 0.5f;
+            slots[i] = new Vector3(x, y, z);
+        }
+        if (slotDebug == null)
+            return;
+        foreach(GameObject debugSlot in debugSlots)
+        {
+            Destroy(debugSlot);
+        }
+        debugSlots.Clear();
+        foreach(Vector3 slot in slots)
+        {
+            GameObject debugSlot = Instantiate(slotDebug, player.transform.position + slot, Quaternion.identity);
+            debugSlots.Add(debugSlot);
+        }
+    }
+
+    public Vector3 GetSlot(int index)
+    {
+        return slots[index] + player.transform.position;
     }
 }

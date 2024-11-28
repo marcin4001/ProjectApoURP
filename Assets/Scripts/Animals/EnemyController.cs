@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int chanceToCrit = 20;
     [SerializeField] private int healthPoint = 10;
     [SerializeField] private float minDistance = 0.7f;
+    [SerializeField] private int indexSlot = 0;
     [SerializeField] private GameObject bloodPrefab;
     [SerializeField] private Outline outline;
     [SerializeField] private Vector3 bloodOffset = Vector3.zero;
@@ -49,7 +50,7 @@ public class EnemyController : MonoBehaviour
             return;
         }
         
-        Vector3 playerPos = FindFirstObjectByType<PlayerController>().transform.position;
+        Vector3 playerPos = CombatController.instance.GetSlot(indexSlot);
         float distance = Vector3.Distance(transform.position, playerPos);
         if(distance > minDistance)
         {
@@ -215,6 +216,17 @@ public class EnemyController : MonoBehaviour
             return;
         obstacle.enabled = activeObstacle;
         agent.enabled = !activeObstacle;
+    }
+
+    public void SetActiveAgent(bool activeAgent)
+    {
+        if(agent != null)
+            agent.enabled = activeAgent;
+    }
+
+    public void SetIndexSlot(int index)
+    {
+        indexSlot = index;
     }
 
     void Update()

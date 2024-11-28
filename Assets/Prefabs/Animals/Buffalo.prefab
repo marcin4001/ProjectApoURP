@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4361376250626400065}
   - component: {fileID: 1593083536270302070}
   - component: {fileID: 3288011993367092446}
+  - component: {fileID: 2453569333373294594}
   - component: {fileID: 9159836416865478837}
   m_Layer: 0
   m_Name: Buffalo
@@ -55,10 +56,11 @@ MonoBehaviour:
   isDebug: 0
   debugTarget: {fileID: 0}
   damage: 10
-  chanceToHit: 70
+  chanceToHit: 90
   chanceToCrit: 30
   healthPoint: 30
   minDistance: 1.8
+  indexSlot: 0
   bloodPrefab: {fileID: 2025030183170297089, guid: 7773d95ee1e53fd439023c3f9aab207c, type: 3}
   outline: {fileID: 5225237481959640239}
   bloodOffset: {x: -0.3, y: 0, z: 0}
@@ -78,7 +80,7 @@ NavMeshAgent:
   m_Radius: 0.7
   m_Speed: 3
   m_Acceleration: 120
-  avoidancePriority: 47
+  avoidancePriority: 50
   m_AngularSpeed: 1080
   m_StoppingDistance: 0.4
   m_AutoTraverseOffMeshLink: 1
@@ -123,6 +125,103 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: Buffalo
   isNPC: 1
+--- !u!82 &2453569333373294594
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742274862692245807}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: df3b9bebffa71694a814a700176a2cd4, type: 3}
+  m_Resource: {fileID: 8300000, guid: df3b9bebffa71694a814a700176a2cd4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 3
+  MaxDistance: 5
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!208 &9159836416865478837
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -130,7 +229,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2742274862692245807}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
