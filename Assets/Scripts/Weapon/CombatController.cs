@@ -13,6 +13,7 @@ public class CombatController : MonoBehaviour
     [SerializeField] private int actionPointMax = 2;
     [SerializeField] private GameObject bloodPrefab;
     [SerializeField] private Vector3[] slots;
+    [SerializeField] private string deathSceneName = "DeathScene";
     [SerializeField] private GameObject slotDebug;
     private PlayerController player;
     private List<GameObject> debugSlots = new List<GameObject>();
@@ -142,8 +143,10 @@ public class CombatController : MonoBehaviour
         Vector3 spawnBlood = player.transform.position - player.transform.forward * 1f;
         spawnBlood.y = 0.01f;
         Instantiate(bloodPrefab, spawnBlood, Quaternion.identity);
-        yield return new WaitForSeconds(4f);
-        SceneManager.LoadScene(0);
+        yield return new WaitForSeconds(3f);
+        FadeController.instance.SetFadeIn(true);
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(deathSceneName);
     }
 
     private bool isEndCombat()
