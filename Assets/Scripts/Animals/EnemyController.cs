@@ -54,6 +54,8 @@ public class EnemyController : MonoBehaviour
         float distance = Vector3.Distance(transform.position, playerPos);
         if(distance > minDistance)
         {
+            if (distance > 2f)
+                CameraMovement.instance.CenterCameraTo(transform);
             MoveTo(playerPos);
         }
         else
@@ -69,6 +71,7 @@ public class EnemyController : MonoBehaviour
             StopCoroutine(coroutine);
         }
         target = _target;
+        
         coroutine = StartCoroutine(Moving());
     }
 

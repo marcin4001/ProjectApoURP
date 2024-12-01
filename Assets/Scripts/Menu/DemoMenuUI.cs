@@ -16,7 +16,8 @@ public class DemoMenuUI : MonoBehaviour
     private void OnClickPlay()
     {
         GameParam.instance.SetStartParam();
-        Inventory.instance.Clear();
+        if(Inventory.instance != null)
+            Inventory.instance.Clear();
         SceneManager.LoadScene(sceneStartName);
     }
 

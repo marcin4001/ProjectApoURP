@@ -91,6 +91,14 @@ public class CameraMovement : MonoBehaviour
         transform.position = cameraPosition;
     }
 
+    public void CenterCameraTo(Transform obj)
+    {
+        Vector3 cameraPosition = transform.position;
+        cameraPosition = obj.position;
+        cameraPosition.y = 0f;
+        transform.position = cameraPosition;
+    }
+
     private void Zoom(InputAction.CallbackContext ctx)
     {
         if (block)

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject itemInHand;
     [SerializeField] private Transform debugObject;
     [SerializeField] private bool block;
+    [SerializeField] private bool stopFlag = false;
     private int indexCorner = 1;
     private LayerMask layer;
     private Vector2 mousePosition;
@@ -481,7 +482,8 @@ public class PlayerController : MonoBehaviour
         agent.SetDestination(moveTarget);
         while(agent.pathPending)
             yield return new WaitForEndOfFrame();
-
+        //if(debugObject != null)
+        //    debugObject.position = moveTarget;
         currentPath = agent.path;
         indexCorner = 1;
         lastPos = transform.position;
@@ -498,13 +500,22 @@ public class PlayerController : MonoBehaviour
                 break;
             if (currentSelectObj is DialogueNPC && agent.remainingDistance < 0.7f)
                 break;
-            if(Vector3.Distance(transform.position, lastPos) < 0.01f)
+            if(agent.remainingDistance < 0.7f && stopFlag)
+                stopFlag = false;
+            if(stopFlag)
+            {
+                stopFlag = false;
+                break;
+            }
+            if(Vector3.Distance(transform.position, lastPos) < 0.005f)
             {
                 blockTime += Time.deltaTime;
+                Debug.Log(blockTime);
                 if(blockTime >= 1.5f)
                 {
                     SetBlock(false);
                     blockTime = 0f;
+                    Debug.Log("break");
                     break;
                 }
             }
@@ -532,17 +543,19 @@ public class PlayerController : MonoBehaviour
 
     public void StopMove()
     {
+        Debug.Log("Stop");
         if(isMoving)
         {
-            if(currentCoroutine != null)
-            {
-                StopCoroutine(currentCoroutine);
-                currentCoroutine = null;
-            }
-            isMoving = false;
-            agent.isStopped = true;
-            animationPlayer.SetSpeedLocomotion(0f);
-            currentSelectObj = null;
+            stopFlag = true;
+            //if(currentCoroutine != null)
+            //{
+            //    StopCoroutine(currentCoroutine);
+            //    currentCoroutine = null;
+            //}
+            //isMoving = false;
+            //agent.isStopped = true;
+            //animationPlayer.SetSpeedLocomotion(0f);
+            //currentSelectObj = null;
         }
     }
 

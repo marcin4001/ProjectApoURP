@@ -72,6 +72,7 @@ public class GameParam : MonoBehaviour
         {
             sign.state = MapSignState.Hidden;
         }
+        mapSigns[0].state = MapSignState.Explored;
     }
 
     public void AddDay()

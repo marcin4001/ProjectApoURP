@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CombatTrigger : MonoBehaviour
@@ -7,11 +8,17 @@ public class CombatTrigger : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            PlayerController player = other.GetComponent<PlayerController>();
-            player.StopMove();
-            CombatController.instance.SetGroup(group);
-            CombatController.instance.StartCombat(true);
-            Destroy(gameObject);
+            StartCoroutine(StartCombat(other));
         }
+    }
+
+    private IEnumerator StartCombat(Collider other)
+    {
+        PlayerController player = other.GetComponent<PlayerController>();
+        player.StopMove();
+        yield return null;
+        CombatController.instance.SetGroup(group);
+        CombatController.instance.StartCombat(true);
+        Destroy(gameObject);
     }
 }
