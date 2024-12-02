@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 89.85373, y: -27.453255, z: 151.22504}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 29.999998, y: 29.999998, z: 29.999998}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3032057513441156796}
-  m_Mesh: {fileID: 4300000, guid: 10c8e65543d17514f9e8fc019d4312f2, type: 3}
+  m_Mesh: {fileID: -7067507769129158167, guid: 0f36c50b9d5005148b4f2aece6b3021d, type: 3}
 --- !u!23 &8176781354507983812
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 148b46e29fb905545bc2d7472506155a, type: 2}
+  - {fileID: 2100000, guid: 548fee2560141e2458f1500689c90662, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,7 +110,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 10c8e65543d17514f9e8fc019d4312f2, type: 3}
+  m_Mesh: {fileID: -7067507769129158167, guid: 0f36c50b9d5005148b4f2aece6b3021d, type: 3}
 --- !u!208 &7047480970619521699
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -121,11 +121,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.295, y: 3.397, z: 2.154}
+  m_Extents: {x: 0.01, y: 0.036000002, z: 0.013}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.246, y: 3.3910003, z: -0.395}
+  m_Center: {x: 0, y: 0.036000002, z: -0.002}
   m_TimeToStationary: 0.5
 --- !u!114 &2315216201037557601
 MonoBehaviour:
@@ -140,3 +140,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: cactus
+  isNPC: 0
