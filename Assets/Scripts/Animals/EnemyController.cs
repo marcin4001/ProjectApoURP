@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int healthPoint = 10;
     [SerializeField] private float minDistance = 0.7f;
     [SerializeField] private int indexSlot = 0;
+    [SerializeField] private float timeMaxMoving = 30f;
+    [SerializeField] private float timeMoving = 0f;
     [SerializeField] private GameObject bloodPrefab;
     [SerializeField] private Outline outline;
     [SerializeField] private Vector3 bloodOffset = Vector3.zero;
@@ -52,6 +54,7 @@ public class EnemyController : MonoBehaviour
         
         Vector3 playerPos = CombatController.instance.GetSlot(indexSlot);
         float distance = Vector3.Distance(transform.position, playerPos);
+        timeMoving = 0f;
         if(distance > minDistance)
         {
             if (distance > 2f)
@@ -134,8 +137,15 @@ public class EnemyController : MonoBehaviour
         anim.SetWalk(true);
         while (distance > minDistance)
         {
+            Debug.Log($"Name: {name} Time: {timeMoving}");
+            if(timeMoving >= timeMaxMoving)
+            {
+                //timeMoving = 0;
+                break;
+            }
             distance = Vector3.Distance(transform.position, target);
-            yield return null;
+            yield return new WaitForEndOfFrame();
+            timeMoving += Time.deltaTime;
         }
         isMoving = false;
         anim.SetWalk(false);

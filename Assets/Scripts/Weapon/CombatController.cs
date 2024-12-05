@@ -57,6 +57,13 @@ public class CombatController : MonoBehaviour
         }
     }
 
+    public void StopCombat()
+    {
+        Debug.Log("StopCombat");
+        GameParam.instance.inCombat = false;
+        HUDController.instance.HideFightPanel();
+    }
+
     public void NextTurn()
     {
         Debug.Log("NextTurn");

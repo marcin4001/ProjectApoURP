@@ -22,6 +22,10 @@ public class ExitMapTrigger : MonoBehaviour
 
     private IEnumerator LoadScene()
     {
+        if(CombatController.instance != null)
+        {
+            CombatController.instance.StopCombat();
+        }
         yield return new WaitForSeconds(2);
         if (GameParam.instance != null)
         {

@@ -402,7 +402,11 @@ public class PlayerController : MonoBehaviour
     private void Use(GameObject obj)
     {
         if (GameParam.instance.inCombat)
+        {
+            HUDController.instance.AddConsolelog("Cannot be used during");
+            HUDController.instance.AddConsolelog("combat");
             return;
+        }
         if (isUsingObj)
             return;
         IUsableObj usable = obj.GetComponent<IUsableObj>();
