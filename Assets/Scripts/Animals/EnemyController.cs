@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private string nameEnemy;
+    [SerializeField] private bool isHuman = false;
     [SerializeField] private bool isMoving = false;
     [SerializeField] private bool isDeath = false;
     [SerializeField] private bool isDebug;
@@ -21,12 +22,15 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float timeMoving = 0f;
     [SerializeField] private GameObject bloodPrefab;
     [SerializeField] private Outline outline;
+    [SerializeField] private OutlineList outlineList;
     [SerializeField] private Vector3 bloodOffset = Vector3.zero;
     [SerializeField] private EnemyGroup group;
+    [SerializeField] private WeaponObject weapon;
     [SerializeField] private List<SlotItem> slots = new List<SlotItem>();
     private Vector3 target;
     private NavMeshAgent agent;
     private EnemyAnim anim;
+    private AnimationPlayer animHuman;
     private Coroutine coroutine;
     private PlayerController player;
     private AudioSource source;
@@ -34,13 +38,24 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        anim = GetComponentInChildren<EnemyAnim>();
+        if(!isHuman)
+            anim = GetComponentInChildren<EnemyAnim>();
+        else
+            animHuman = GetComponentInChildren<AnimationPlayer>();
         player = FindFirstObjectByType<PlayerController>();
         source = GetComponent<AudioSource>();
         obstacle = GetComponent<NavMeshObstacle>();
         if(outline != null)
             outline.enabled = false;
+        if(outlineList != null)
+            outlineList.Show(false);
+        
         SetActiveObstacle(false);
+
+        if(isHuman)
+        {
+            animHuman.ActiveRifleLayer();
+        }
     }
 
     
@@ -88,8 +103,22 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         if (outline != null)
             outline.enabled = true;
+        if (outlineList != null)
+            outlineList.Show(true);
         RotationToPlayer();
-        anim.Attack();
+        if (!isHuman)
+        {
+            anim.Attack();
+        }
+        else
+        {
+            animHuman.Shot();
+            if(weapon != null)
+            {
+                weapon.StartPlayMuzzle();
+                weapon.StartPlayAttack();
+            }
+        }
         if(source != null)
             source.Play();
         yield return new WaitForSeconds(0.5f);
@@ -124,36 +153,45 @@ public class EnemyController : MonoBehaviour
         CombatController.instance.NextTurn();
         if (outline != null)
             outline.enabled = false;
+        if (outlineList != null)
+            outlineList.Show(false);
     }
 
     public IEnumerator Moving()
     {
         if (outline != null)
             outline.enabled = true;
+        if (outlineList != null)
+            outlineList.Show(true);
         agent.isStopped = false;
         float distance = Vector3.Distance(transform.position, target);
         agent.SetDestination(target);
         isMoving = true;
-        anim.SetWalk(true);
+        if (!isHuman)
+            anim.SetWalk(true);
+        else
+            animHuman.SetSpeedLocomotion(1f);
         while (distance > minDistance)
         {
             Debug.Log($"Name: {name} Time: {timeMoving}");
             if(timeMoving >= timeMaxMoving)
-            {
-                //timeMoving = 0;
                 break;
-            }
             distance = Vector3.Distance(transform.position, target);
             yield return new WaitForEndOfFrame();
             timeMoving += Time.deltaTime;
         }
         isMoving = false;
-        anim.SetWalk(false);
+        if(!isHuman)
+            anim.SetWalk(false);
+        else
+            animHuman.SetSpeedLocomotion(0f);
         agent.isStopped = true;
         RotationToPlayer();
         CombatController.instance.NextTurn();
         if (outline != null)
             outline.enabled = false;
+        if (outlineList != null)
+            outlineList.Show(false);
     }
 
     public void GetDamage(int point)
@@ -170,11 +208,24 @@ public class EnemyController : MonoBehaviour
             HUDController.instance.AddConsolelog($"{nameEnemy} dies.");
             healthPoint = 0;
             isDeath = true;
-            anim.SetDeath();
+            if(!isHuman)
+                anim.SetDeath();
+            else
+                animHuman.SetDeath();
             Destroy(agent);
             StartCoroutine(SpawnBlood());
             gameObject.AddComponent<EnemyInventory>();
         }
+        if(healthPoint > 0 && isHuman)
+        {
+            StartCoroutine(GetDamageAnim());
+        }
+    }
+
+    private IEnumerator GetDamageAnim()
+    {
+        yield return new WaitForSeconds(0.2f);
+        animHuman.TakeDamage();
     }
 
     private IEnumerator TriggerCombat()
