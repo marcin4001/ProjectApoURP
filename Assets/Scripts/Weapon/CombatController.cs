@@ -15,6 +15,7 @@ public class CombatController : MonoBehaviour
     [SerializeField] private Vector3[] slots;
     [SerializeField] private string deathSceneName = "DeathScene";
     [SerializeField] private GameObject slotDebug;
+    [SerializeField] private bool skipTurnPlayer = false;
     private PlayerController player;
     private List<GameObject> debugSlots = new List<GameObject>();
 
@@ -62,6 +63,12 @@ public class CombatController : MonoBehaviour
         Debug.Log("StopCombat");
         GameParam.instance.inCombat = false;
         HUDController.instance.HideFightPanel();
+    }
+
+    public void SkipTurnPlayer()
+    {
+        skipTurnPlayer = true;
+        NextTurn();
     }
 
     public void NextTurn()
@@ -122,6 +129,16 @@ public class CombatController : MonoBehaviour
     public void SetGroup(EnemyGroup group)
     {
         enemies = group.GetEnemies();
+    }
+
+    public bool IsSkipTurnPlayer()
+    {
+        return skipTurnPlayer;
+    }
+
+    public void UnsetSkipTurnPlayer()
+    {
+        skipTurnPlayer = false;
     }
 
     public int CalculateDamege(int baseDamage, int chanceToHit, int chanceToCrit, out bool isCrit)

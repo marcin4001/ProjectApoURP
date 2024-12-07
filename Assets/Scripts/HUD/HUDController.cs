@@ -419,8 +419,8 @@ public class HUDController : MonoBehaviour
 
     public void OnClickSkip()
     {
-        if(GameParam.instance.inCombat)
-            CombatController.instance.NextTurn();
+        if (GameParam.instance.inCombat)
+            CombatController.instance.SkipTurnPlayer();
     }
 
     public void ShowFightPanel()

@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Vector3 bloodOffset = Vector3.zero;
     [SerializeField] private EnemyGroup group;
     [SerializeField] private WeaponObject weapon;
+    [SerializeField] private WeaponType weaponType = WeaponType.Rifle;
     [SerializeField] private List<SlotItem> slots = new List<SlotItem>();
     private Vector3 target;
     private NavMeshAgent agent;
@@ -35,6 +36,7 @@ public class EnemyController : MonoBehaviour
     private PlayerController player;
     private AudioSource source;
     private NavMeshObstacle obstacle;
+    private bool getDamage = false;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -54,7 +56,13 @@ public class EnemyController : MonoBehaviour
 
         if(isHuman)
         {
-            animHuman.ActiveRifleLayer();
+            if(weaponType == WeaponType.Rifle)
+                animHuman.ActiveRifleLayer();
+            if(weaponType == WeaponType.HandGun)
+                animHuman.ActiveHandGunLayer();
+            if(weaponType == WeaponType.Melee)
+                animHuman.ActiveBaseLayer();
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 
@@ -100,7 +108,15 @@ public class EnemyController : MonoBehaviour
 
     public IEnumerator Attacking()
     {
-        yield return new WaitForSeconds(0.75f);
+        if (CombatController.instance.IsSkipTurnPlayer())
+        {
+            CombatController.instance.UnsetSkipTurnPlayer();
+            yield return new WaitForSeconds(0.5f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(1.5f);
+        }
         if (outline != null)
             outline.enabled = true;
         if (outlineList != null)
@@ -112,16 +128,35 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            animHuman.Shot();
-            if(weapon != null)
+            if (weaponType != WeaponType.Melee)
             {
-                weapon.StartPlayMuzzle();
-                weapon.StartPlayAttack();
+                animHuman.Shot();
+                if (weapon != null)
+                {
+                    weapon.StartPlayMuzzle();
+                    weapon.StartPlayAttack();
+                }
+            }
+            else
+            {
+                animHuman.Attack();
+                if(weapon != null)
+                    weapon.StartPlayAttack();
             }
         }
         if(source != null)
             source.Play();
-        yield return new WaitForSeconds(0.5f);
+        if (!isHuman)
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+        else
+        {
+            if(weaponType == WeaponType.Melee)
+                yield return new WaitForSeconds(0.2f);
+            else
+                yield return new WaitForSeconds(0.5f);
+        }
         bool isCrit = false;
         int _damage = CombatController.instance.CalculateDamege(damage, chanceToHit, chanceToCrit, out isCrit);
         if(_damage > 0)
@@ -159,6 +194,9 @@ public class EnemyController : MonoBehaviour
 
     public IEnumerator Moving()
     {
+        CombatController.instance.UnsetSkipTurnPlayer();
+        while(getDamage)
+            yield return new WaitForEndOfFrame();
         if (outline != null)
             outline.enabled = true;
         if (outlineList != null)
@@ -215,6 +253,11 @@ public class EnemyController : MonoBehaviour
             Destroy(agent);
             StartCoroutine(SpawnBlood());
             gameObject.AddComponent<EnemyInventory>();
+            if(isHuman)
+            {
+                GetComponent<BoxCollider>().enabled = true;
+                GetComponent<CapsuleCollider>().enabled = false;
+            }
         }
         if(healthPoint > 0 && isHuman)
         {
@@ -224,8 +267,11 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator GetDamageAnim()
     {
+        getDamage = true;
         yield return new WaitForSeconds(0.2f);
         animHuman.TakeDamage();
+        yield return new WaitForSeconds(0.5f);
+        getDamage = false;
     }
 
     private IEnumerator TriggerCombat()
@@ -239,8 +285,17 @@ public class EnemyController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         GameObject blood = Instantiate(bloodPrefab, transform.position, Quaternion.identity);
-        Vector3 bloodPos = blood.transform.position + bloodOffset;
-        bloodPos.y = 0;
+        Vector3 bloodPos = Vector3.one;
+        if (!isHuman)
+        {
+            bloodPos = blood.transform.position + bloodOffset;
+            bloodPos.y = 0;
+        }
+        else
+        {
+            bloodPos = transform.position - transform.forward * 1f;
+            bloodPos.y = 0.01f;
+        }
         blood.transform.position = bloodPos;
     }
 
