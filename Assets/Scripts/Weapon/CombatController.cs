@@ -18,6 +18,7 @@ public class CombatController : MonoBehaviour
     [SerializeField] private bool skipTurnPlayer = false;
     private PlayerController player;
     private List<GameObject> debugSlots = new List<GameObject>();
+    private bool getDamage;
 
     private void Awake()
     {
@@ -211,5 +212,15 @@ public class CombatController : MonoBehaviour
     public Vector3 GetSlot(int index)
     {
         return slots[index] + player.transform.position;
+    }
+
+    public bool IsGetDamge()
+    {
+        return getDamage;
+    }
+
+    public void SetGetDamage(bool value)
+    {
+        getDamage = value;
     }
 }

@@ -36,7 +36,6 @@ public class EnemyController : MonoBehaviour
     private PlayerController player;
     private AudioSource source;
     private NavMeshObstacle obstacle;
-    private bool getDamage = false;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -195,7 +194,7 @@ public class EnemyController : MonoBehaviour
     public IEnumerator Moving()
     {
         CombatController.instance.UnsetSkipTurnPlayer();
-        while(getDamage)
+        while(CombatController.instance.IsGetDamge())
             yield return new WaitForEndOfFrame();
         if (outline != null)
             outline.enabled = true;
@@ -267,11 +266,11 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator GetDamageAnim()
     {
-        getDamage = true;
+        CombatController.instance.SetGetDamage(true);
         yield return new WaitForSeconds(0.2f);
         animHuman.TakeDamage();
         yield return new WaitForSeconds(0.5f);
-        getDamage = false;
+        CombatController.instance.SetGetDamage(false);
     }
 
     private IEnumerator TriggerCombat()
