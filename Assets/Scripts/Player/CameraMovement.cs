@@ -172,4 +172,12 @@ public class CameraMovement : MonoBehaviour
     {
         return m_Camera.transform;
     }
+
+    public bool ObjectInFov(Transform obj)
+    {
+        Vector3 pointInFov = m_Camera.WorldToViewportPoint(obj.position);
+        return (pointInFov.z > 0 
+                && pointInFov.x >= 0 && pointInFov.x <= 1
+                && pointInFov.y >= 0 && pointInFov.y <= 1);
+    }
 }

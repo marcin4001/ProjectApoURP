@@ -15,7 +15,8 @@ public class EnemyInventory : MonoBehaviour, IUsableObj
 
     public Vector3 GetNearPoint()
     {
-        return transform.position;
+        enemy = GetComponent<EnemyController>();
+        return enemy.GetNearPoint();
     }
 
     public void Use()

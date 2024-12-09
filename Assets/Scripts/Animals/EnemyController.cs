@@ -28,6 +28,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private WeaponObject weapon;
     [SerializeField] private WeaponType weaponType = WeaponType.Rifle;
     [SerializeField] private List<SlotItem> slots = new List<SlotItem>();
+    [SerializeField] private Transform nearPoint;
     private Vector3 target;
     private NavMeshAgent agent;
     private EnemyAnim anim;
@@ -347,14 +348,21 @@ public class EnemyController : MonoBehaviour
         indexSlot = index;
     }
 
-    void Update()
+    public Vector3 GetNearPoint()
     {
-        if(isDebug)
-        {
-            if(Input.GetKeyDown(KeyCode.F1))
-            {
-                MoveTo(debugTarget.position);
-            }
-        }
+        if(nearPoint != null)
+            return nearPoint.position;
+        return transform.position;
     }
+
+    //void Update()
+    //{
+    //    if(isDebug)
+    //    {
+    //        if(Input.GetKeyDown(KeyCode.F1))
+    //        {
+    //            MoveTo(debugTarget.position);
+    //        }
+    //    }
+    //}
 }

@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform debugObject;
     [SerializeField] private bool block;
     [SerializeField] private bool stopFlag = false;
+    [SerializeField] private float counterMoving = 0;
+    [SerializeField] private float counterMovingMax = 5;
     private int indexCorner = 1;
     private LayerMask layer;
     private Vector2 mousePosition;
@@ -481,7 +483,10 @@ public class PlayerController : MonoBehaviour
     private IEnumerator MoveTask()
     {
         if (GameParam.instance.inCombat)
+        {
+            counterMoving = 0;
             SetBlock(true);
+        }
         isMoving = true;
         agent.SetDestination(moveTarget);
         while(agent.pathPending)
@@ -496,6 +501,13 @@ public class PlayerController : MonoBehaviour
             float distance = Vector3.Distance(transform.position, currentPath.corners[indexCorner]);
             if (distance < 0.5f && currentPath.corners.Length - 1 > indexCorner)
                 indexCorner++;
+            if (GameParam.instance.inCombat)
+            {
+                counterMoving += Time.deltaTime;
+                Debug.Log($"Player moving time: {counterMoving}");
+                if(counterMoving >= counterMovingMax)
+                    break;
+            }
             Quaternion targetRotation = Quaternion.LookRotation(currentPath.corners[indexCorner] - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
             animationPlayer.SetSpeedLocomotion(agent.velocity.magnitude);
@@ -582,6 +594,10 @@ public class PlayerController : MonoBehaviour
             Vector3 slot = door.GetNearPoint();
             agent.Warp(slot);
             transform.rotation = Quaternion.LookRotation(door.GetRootPosition() - transform.position);
+        }
+        else if(usable is EnemyInventory)
+        {
+            transform.rotation = Quaternion.LookRotation(usable.GetNearPoint() - transform.position);
         }
         else
         {

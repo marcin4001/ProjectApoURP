@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 90297486333457632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.149, y: 0, z: 0.871}
+  m_LocalPosition: {x: 0.15, y: 0, z: -1.248}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -147,10 +147,10 @@ MonoBehaviour:
   isDeath: 0
   isDebug: 0
   debugTarget: {fileID: 0}
-  damage: 5
+  damage: 3
   chanceToHit: 80
   chanceToCrit: 20
-  healthPoint: 75
+  healthPoint: 50
   minDistance: 5
   indexSlot: 0
   timeMaxMoving: 5
@@ -165,6 +165,7 @@ MonoBehaviour:
   slots:
   - item: {fileID: 11400000, guid: 14770c5f016166b4a8bdd0519a10c109, type: 2}
     amount: 1
+  nearPoint: {fileID: 2296524016497914122}
 --- !u!114 &8992660765047935436
 MonoBehaviour:
   m_ObjectHideFlags: 0
