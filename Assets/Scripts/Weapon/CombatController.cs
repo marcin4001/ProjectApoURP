@@ -43,6 +43,8 @@ public class CombatController : MonoBehaviour
         HUDController.instance.ShowFightPanel();
         if(firstPlayer)
         {
+            if (!CameraMovement.instance.ObjectInFov(player.transform))
+                CameraMovement.instance.CenterCameraToPlayer();
             currentIndex = -1;
             actionPoint = actionPointMax;
             foreach(EnemyController enemy in enemies)
@@ -95,6 +97,8 @@ public class CombatController : MonoBehaviour
             currentIndex = -1;
         if(currentIndex < 0)
         {
+            if (!CameraMovement.instance.ObjectInFov(player.transform))
+                CameraMovement.instance.CenterCameraToPlayer();
             foreach (EnemyController enemy in enemies)
                 enemy.SetActiveAgent(false);
             player.SetBlock(false);
@@ -152,6 +156,26 @@ public class CombatController : MonoBehaviour
         }
         int critChance = Random.Range(0, 100);
         if (critChance > chanceToCrit)
+        {
+            return baseDamage;
+        }
+        else
+        {
+            isCrit = true;
+            return baseDamage * 2;
+        }
+    }
+
+    public int CalculateDamegePlayer(int baseDamage, out bool isCrit)
+    {
+        isCrit = false;
+        int hitChance = Random.Range(0, 100);
+        if (hitChance > GameParam.instance.chanceToHit)
+        {
+            return 0;
+        }
+        int critChance = Random.Range(0, 100);
+        if (critChance > GameParam.instance.chanceToCrit)
         {
             return baseDamage;
         }

@@ -80,7 +80,7 @@ public class EnemyController : MonoBehaviour
         timeMoving = 0f;
         if(distance > minDistance)
         {
-            if (distance > 2f)
+            if (!CameraMovement.instance.ObjectInFov(transform))
                 CameraMovement.instance.CenterCameraTo(transform);
             MoveTo(playerPos);
         }
@@ -234,9 +234,27 @@ public class EnemyController : MonoBehaviour
 
     public void GetDamage(int point)
     {
-        healthPoint -= point;
-        HUDController.instance.AddConsolelog($"{nameEnemy} got hit! Loses");
-        HUDController.instance.AddConsolelog($"{point} point(s).");
+        bool isCrit = false;
+        int pointDamage = CombatController.instance.CalculateDamegePlayer(point, out isCrit);
+        healthPoint -= pointDamage;
+        if(pointDamage <= 0)
+        {
+            HUDController.instance.AddConsolelog($"Revo missed.");
+        }
+        else
+        {
+            if(isCrit)
+            {
+                HUDController.instance.AddConsolelog($"CRITICAL HIT!");
+                HUDController.instance.AddConsolelog($"{nameEnemy} loses {pointDamage} point(s).");
+            }
+            else
+            {
+                HUDController.instance.AddConsolelog($"{nameEnemy} got hit! Loses");
+                HUDController.instance.AddConsolelog($"{pointDamage} point(s).");
+            }
+        }
+        
         if (!GameParam.instance.inCombat)
         {
             StartCoroutine(TriggerCombat());
