@@ -49,7 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e02889e93ceb14bba2d2c19edb4ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameEnemy: MutScorpion
+  nameEnemy: Goldrax
+  isHuman: 0
   isMoving: 0
   isDeath: 0
   isDebug: 0
@@ -64,9 +65,13 @@ MonoBehaviour:
   timeMoving: 0
   bloodPrefab: {fileID: 2025030183170297089, guid: 7773d95ee1e53fd439023c3f9aab207c, type: 3}
   outline: {fileID: 6682632193392999758}
+  outlineList: {fileID: 0}
   bloodOffset: {x: 0, y: 0, z: 0}
   group: {fileID: 0}
+  weapon: {fileID: 0}
+  weaponType: 0
   slots: []
+  nearPoint: {fileID: 0}
 --- !u!195 &8423866445513525361
 NavMeshAgent:
   m_ObjectHideFlags: 0

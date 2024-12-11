@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameEnemy: Buffalo
+  isHuman: 0
   isMoving: 0
   isDeath: 0
   isDebug: 0
@@ -65,11 +66,15 @@ MonoBehaviour:
   timeMoving: 0
   bloodPrefab: {fileID: 2025030183170297089, guid: 7773d95ee1e53fd439023c3f9aab207c, type: 3}
   outline: {fileID: 5225237481959640239}
+  outlineList: {fileID: 0}
   bloodOffset: {x: -0.3, y: 0, z: 0}
   group: {fileID: 0}
+  weapon: {fileID: 0}
+  weaponType: 0
   slots:
   - item: {fileID: 11400000, guid: 14770c5f016166b4a8bdd0519a10c109, type: 2}
     amount: 2
+  nearPoint: {fileID: 0}
 --- !u!195 &4361376250626400065
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -919,8 +924,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 5
+  outlineColor: {r: 0.745283, g: 0, b: 0, a: 1}
+  outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []

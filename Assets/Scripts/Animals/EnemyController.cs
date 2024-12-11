@@ -245,8 +245,8 @@ public class EnemyController : MonoBehaviour
         {
             if(isCrit)
             {
-                HUDController.instance.AddConsolelog($"CRITICAL HIT!");
-                HUDController.instance.AddConsolelog($"{nameEnemy} loses {pointDamage} point(s).");
+                HUDController.instance.AddConsolelog($"CRITICAL HIT! {nameEnemy}");
+                HUDController.instance.AddConsolelog($"loses {pointDamage} point(s).");
             }
             else
             {
