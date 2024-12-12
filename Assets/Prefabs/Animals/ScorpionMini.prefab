@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameEnemy: Scorpion
+  isHuman: 0
   isMoving: 0
   isDeath: 0
   isDebug: 0
@@ -62,11 +63,15 @@ MonoBehaviour:
   indexSlot: 0
   timeMaxMoving: 5
   timeMoving: 0
-  bloodPrefab: {fileID: 2025030183170297089, guid: 444b7985d2987f344b15d412c4c0152e, type: 3}
+  bloodPrefab: {fileID: 2025030183170297089, guid: 14ae1e4925ff9d941bb1a99c5db575b9, type: 3}
   outline: {fileID: 7670001457937231865}
+  outlineList: {fileID: 0}
   bloodOffset: {x: 0, y: 0, z: 0}
   group: {fileID: 0}
+  weapon: {fileID: 0}
+  weaponType: 0
   slots: []
+  nearPoint: {fileID: 0}
 --- !u!195 &5453036741331453033
 NavMeshAgent:
   m_ObjectHideFlags: 0

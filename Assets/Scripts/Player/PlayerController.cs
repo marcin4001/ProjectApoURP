@@ -277,10 +277,17 @@ public class PlayerController : MonoBehaviour
             enemy.GetDamage(weapon.GetDamage());
             if (GameParam.instance.inCombat)
             {
-                CombatController.instance.RemoveAP(2);
+                StartCoroutine(AfterUseWeaponInCombat());
             }
             
         }
+    }
+
+    private IEnumerator AfterUseWeaponInCombat()
+    {
+        SetBlock(true);
+        yield return new WaitForSeconds(0.3f);
+        CombatController.instance.RemoveAP(2);
     }
 
     public void ReloadGun()
