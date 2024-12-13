@@ -16774,6 +16774,9 @@ MonoBehaviour:
   itemInHand: {fileID: 0}
   debugObject: {fileID: 879074878}
   block: 0
+  stopFlag: 0
+  counterMoving: 0
+  counterMovingMax: 5
 --- !u!114 &1151120500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30288,14 +30291,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 961366779}
     m_Modifications:
     - target: {fileID: 7188409528313637758, guid: b297fe06a1b6ca744b901470754193bc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.90000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 7188409528313637758, guid: b297fe06a1b6ca744b901470754193bc, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.90000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 7188409528313637758, guid: b297fe06a1b6ca744b901470754193bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.4565
       objectReference: {fileID: 0}
@@ -30338,18 +30333,6 @@ PrefabInstance:
     - target: {fileID: 7532706667232408004, guid: b297fe06a1b6ca744b901470754193bc, type: 3}
       propertyPath: m_Name
       value: SausagePickUpObj
-      objectReference: {fileID: 0}
-    - target: {fileID: 9133010438597933195, guid: b297fe06a1b6ca744b901470754193bc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.919
-      objectReference: {fileID: 0}
-    - target: {fileID: 9133010438597933195, guid: b297fe06a1b6ca744b901470754193bc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.769
-      objectReference: {fileID: 0}
-    - target: {fileID: 9133010438597933195, guid: b297fe06a1b6ca744b901470754193bc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.887
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32287,14 +32270,6 @@ PrefabInstance:
       value: KnifePickUpObj
       objectReference: {fileID: 0}
     - target: {fileID: 1939544972459233653, guid: 35b8affd2701dfb42809f5a2889c9a22, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.7000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 1939544972459233653, guid: 35b8affd2701dfb42809f5a2889c9a22, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 1939544972459233653, guid: 35b8affd2701dfb42809f5a2889c9a22, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.661
       objectReference: {fileID: 0}
@@ -32333,18 +32308,6 @@ PrefabInstance:
     - target: {fileID: 1939544972459233653, guid: 35b8affd2701dfb42809f5a2889c9a22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 7079473157767187205, guid: 35b8affd2701dfb42809f5a2889c9a22, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 7079473157767187205, guid: 35b8affd2701dfb42809f5a2889c9a22, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.432
-      objectReference: {fileID: 0}
-    - target: {fileID: 7079473157767187205, guid: 35b8affd2701dfb42809f5a2889c9a22, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35136,18 +35099,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 961366779}
     m_Modifications:
-    - target: {fileID: 2993696470467969773, guid: 88e62dcbd0b154d408ac13ce3b4e5320, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993696470467969773, guid: 88e62dcbd0b154d408ac13ce3b4e5320, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.6794
-      objectReference: {fileID: 0}
-    - target: {fileID: 2993696470467969773, guid: 88e62dcbd0b154d408ac13ce3b4e5320, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.494
-      objectReference: {fileID: 0}
     - target: {fileID: 8328698259297430499, guid: 88e62dcbd0b154d408ac13ce3b4e5320, type: 3}
       propertyPath: m_Name
       value: BreadPickUpObj
@@ -35635,14 +35586,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 961366779}
     m_Modifications:
-    - target: {fileID: 1566849019408691360, guid: a46d7876b0c2b7341b32c03678d83f56, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.5899999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1566849019408691360, guid: a46d7876b0c2b7341b32c03678d83f56, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.066
-      objectReference: {fileID: 0}
     - target: {fileID: 5091722443937897416, guid: a46d7876b0c2b7341b32c03678d83f56, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.321

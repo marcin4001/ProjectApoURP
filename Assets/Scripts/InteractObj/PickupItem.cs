@@ -5,11 +5,14 @@ public class PickupItem : MonoBehaviour, IUsableObj
     [SerializeField] private Item item;
     [SerializeField] private int amount = 1;
     [SerializeField] private Transform nearPoint;
+    private OutlineList outlines;
     private void Start()
     {
         bool result = PickUpObjList.instance.ExistOnList(gameObject.name);
         if (!result)
             Destroy(gameObject);
+        outlines = GetComponent<OutlineList>();
+        HideOutline();
     }
     public void Use()
     {
@@ -47,5 +50,19 @@ public class PickupItem : MonoBehaviour, IUsableObj
     public GameObject GetMainGameObject()
     {
         return gameObject;
+    }
+
+    public void ShowOutline()
+    {
+        if (outlines == null)
+            return;
+        outlines.Show(true);
+    }
+
+    public void HideOutline()
+    {
+        if (outlines == null)
+            return;
+        outlines.Show(false);
     }
 }

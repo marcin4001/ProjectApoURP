@@ -32,6 +32,8 @@ public class CursorController : MonoBehaviour
     private Camera cam;
     private MainInputSystem mainInputSystem;
     private Coroutine waitCoroutine;
+    private PickupItem pickupItem;
+    private PickUpWeapon pickUpWeapon;
 
     private void Awake()
     {
@@ -197,12 +199,26 @@ public class CursorController : MonoBehaviour
         cursorImage.texture = defaultCursor;
         Ray ray = cam.ScreenPointToRay(mousePosition);
         RaycastHit hit;
+        if(pickupItem != null)
+        {
+            pickupItem.HideOutline();
+            pickupItem = null;
+        }
+        if(pickUpWeapon != null)
+        {
+            pickUpWeapon.HideOutline();
+            pickUpWeapon = null;
+        }
         if (Physics.Raycast(ray, out hit, 1000f, layerUse))
         {
             IUsableObj usableObj =  hit.collider.GetComponent<IUsableObj>();
             if (usableObj != null)
             {
                 cursorImage.texture = useCursor;
+                if(usableObj is PickupItem)
+                    pickupItem = (PickupItem)usableObj;
+                if(usableObj is PickUpWeapon)
+                    pickUpWeapon = (PickUpWeapon)usableObj;
             }
             else
             {
@@ -218,11 +234,24 @@ public class CursorController : MonoBehaviour
                         if (usableObj != null && distance < radiusPlayerCutWall)
                         {
                             cursorImage.texture = useCursor;
+                            if (usableObj is PickupItem)
+                                pickupItem = (PickupItem)usableObj;
+                            if (usableObj is PickUpWeapon)
+                                pickUpWeapon = (PickUpWeapon)usableObj;
                         }
                     }
 
                 }
             }
+        }
+
+        if (pickupItem != null)
+        {
+            pickupItem.ShowOutline();
+        }
+        if(pickUpWeapon != null)
+        {
+            pickUpWeapon.ShowOutline();
         }
     }
 

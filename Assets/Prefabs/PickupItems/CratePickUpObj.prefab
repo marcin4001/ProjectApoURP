@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 9181354172902035439}
   - component: {fileID: 4115164696183918627}
   - component: {fileID: 6500730412934351888}
+  - component: {fileID: 2137206222984803484}
+  - component: {fileID: 1646370149647814466}
   m_Layer: 0
   m_Name: CratePickUpObj
   m_TagString: Untagged
@@ -171,3 +173,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: Supply Pack
   isNPC: 0
+--- !u!114 &2137206222984803484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303479099245200106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 1
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1646370149647814466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303479099245200106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443cc0eeca9b8bb46b50c1998ccff82c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlines:
+  - {fileID: 2137206222984803484}

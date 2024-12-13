@@ -123,6 +123,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9c2d939e006f39489dbae690ba9a52f, type: 3}
       insertIndex: -1
       addedObject: {fileID: -915386940457843215}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9c2d939e006f39489dbae690ba9a52f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 369705260683855471}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c9c2d939e006f39489dbae690ba9a52f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4893336295665617461}
   m_SourcePrefab: {fileID: 100100000, guid: c9c2d939e006f39489dbae690ba9a52f, type: 3}
 --- !u!1 &2306606405268027606 stripped
 GameObject:
@@ -178,6 +184,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: rope
+  isNPC: 0
+--- !u!114 &369705260683855471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306606405268027606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443cc0eeca9b8bb46b50c1998ccff82c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlines:
+  - {fileID: 4893336295665617461}
+--- !u!114 &4893336295665617461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306606405268027606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 1
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &3119137335163511404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c9c2d939e006f39489dbae690ba9a52f, type: 3}
