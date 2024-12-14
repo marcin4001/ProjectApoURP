@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private string nameEnemy;
     [SerializeField] private bool isHuman = false;
+    [SerializeField] private bool isHumanoid = false;
     [SerializeField] private bool isMoving = false;
     [SerializeField] private bool isDeath = false;
     [SerializeField] private bool isDebug;
@@ -40,6 +41,8 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        if(isHumanoid)
+            isHuman = false;
         if(!isHuman)
             anim = GetComponentInChildren<EnemyAnim>();
         else
@@ -64,6 +67,9 @@ public class EnemyController : MonoBehaviour
                 animHuman.ActiveBaseLayer();
             GetComponent<BoxCollider>().enabled = false;
         }
+
+        if(isHumanoid)
+            GetComponent<BoxCollider>().enabled = false;
     }
 
     
@@ -271,7 +277,7 @@ public class EnemyController : MonoBehaviour
             Destroy(agent);
             StartCoroutine(SpawnBlood());
             gameObject.AddComponent<EnemyInventory>();
-            if(isHuman)
+            if(isHuman || isHumanoid)
             {
                 GetComponent<BoxCollider>().enabled = true;
                 GetComponent<CapsuleCollider>().enabled = false;
@@ -281,6 +287,10 @@ public class EnemyController : MonoBehaviour
         {
             StartCoroutine(GetDamageAnim());
         }
+        if (healthPoint > 0 && isHumanoid)
+        {
+            StartCoroutine(GetDamageAnimHumanoid());
+        }
     }
 
     private IEnumerator GetDamageAnim()
@@ -288,6 +298,14 @@ public class EnemyController : MonoBehaviour
         CombatController.instance.SetGetDamage(true);
         yield return new WaitForSeconds(0.2f);
         animHuman.TakeDamage();
+        yield return new WaitForSeconds(0.5f);
+        CombatController.instance.SetGetDamage(false);
+    }
+    private IEnumerator GetDamageAnimHumanoid()
+    {
+        CombatController.instance.SetGetDamage(true);
+        yield return new WaitForSeconds(0.2f);
+        anim.TakeDamage();
         yield return new WaitForSeconds(0.5f);
         CombatController.instance.SetGetDamage(false);
     }
@@ -304,15 +322,15 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         GameObject blood = Instantiate(bloodPrefab, transform.position, Quaternion.identity);
         Vector3 bloodPos = Vector3.one;
-        if (!isHuman)
-        {
-            bloodPos = blood.transform.position + bloodOffset;
-            bloodPos.y = 0;
-        }
-        else
+        if (isHuman || isHumanoid)
         {
             bloodPos = transform.position - transform.forward * 1f;
             bloodPos.y = 0.01f;
+        }
+        else
+        {
+            bloodPos = blood.transform.position + bloodOffset;
+            bloodPos.y = 0;
         }
         blood.transform.position = bloodPos;
     }
