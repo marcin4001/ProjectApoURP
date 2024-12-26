@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private string nameEnemy;
+    [SerializeField] private int idEnemy = -1;
     [SerializeField] private bool isHuman = false;
     [SerializeField] private bool isHumanoid = false;
     [SerializeField] private bool isMoving = false;
@@ -38,6 +39,17 @@ public class EnemyController : MonoBehaviour
     private PlayerController player;
     private AudioSource source;
     private NavMeshObstacle obstacle;
+
+    private void Awake()
+    {
+        if (KilledEnemiesList.instance != null) 
+        {
+            if(KilledEnemiesList.instance.OnList(idEnemy))
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -269,6 +281,10 @@ public class EnemyController : MonoBehaviour
         {
             HUDController.instance.AddConsolelog($"{nameEnemy} dies.");
             healthPoint = 0;
+            if(!isDeath && KilledEnemiesList.instance != null)
+            {
+                KilledEnemiesList.instance.AddToList(idEnemy);
+            }
             isDeath = true;
             if(!isHuman)
                 anim.SetDeath();
@@ -389,6 +405,11 @@ public class EnemyController : MonoBehaviour
         if(nearPoint != null)
             return nearPoint.position;
         return transform.position;
+    }
+
+    public void RandomizeID()
+    {
+        idEnemy = Random.Range(0, 10000);
     }
 
     //void Update()
