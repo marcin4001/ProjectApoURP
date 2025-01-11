@@ -14,6 +14,12 @@ public class Cabinet : MonoBehaviour, IUsableObj
     void Start()
     {
         animator = GetComponent<Animator>();
+        StartCoroutine(AfterStart());
+    }
+
+    private IEnumerator AfterStart()
+    {
+        yield return new WaitForSeconds(0.1f);
         items = ListCabinet.instance.GetListItem(idCabinet);
     }
 

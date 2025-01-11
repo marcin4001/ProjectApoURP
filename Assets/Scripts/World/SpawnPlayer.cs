@@ -3,6 +3,8 @@ using UnityEngine;
 public class SpawnPlayer : MonoBehaviour
 {
     [SerializeField] private Transform cameraPivotSpawn;
+    [SerializeField] private int indexCabinetData = 0;
+
     void Start()
     {
         if(GameParam.instance.startGame)
@@ -19,5 +21,6 @@ public class SpawnPlayer : MonoBehaviour
             return;
         }
         CameraMovement.instance.transform.position = cameraPivotSpawn.position;
+        ListCabinet.instance.indexCabinetData = indexCabinetData;
     }
 }

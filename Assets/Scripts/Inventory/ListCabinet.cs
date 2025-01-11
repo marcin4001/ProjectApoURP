@@ -5,6 +5,9 @@ public class ListCabinet : MonoBehaviour
 {
     public static ListCabinet instance;
     public List<CabinetItemList> list = new List<CabinetItemList>();
+    public CabinetPlaceData[] cabinetData;
+    public List<ListCabinetData> cabinetsList = new List<ListCabinetData>();
+    public int indexCabinetData = 0;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -14,12 +17,20 @@ public class ListCabinet : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+        foreach(CabinetPlaceData cabinetData in cabinetData)
+        {
+            ListCabinetData data = new ListCabinetData();
+            data.list = cabinetData.Copy();
+            cabinetsList.Add(data);
+        }
     }
+
 
     public List<SlotItem> GetListItem(int id)
     {
         List<SlotItem> newList = new List<SlotItem>();
-        CabinetItemList listItemLite = list.Find(x => x.idCabinet == id);
+        Debug.Log(indexCabinetData);
+        CabinetItemList listItemLite = cabinetsList[indexCabinetData].list.Find(x => x.idCabinet == id);
         if(listItemLite != null)
         {
             foreach(SlotItemLite slot in listItemLite.slots)
@@ -32,14 +43,18 @@ public class ListCabinet : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            Debug.Log("No on list");
+        }
         return newList;
     }
 
     public void SetListItem(int id, List<SlotItem> slots)
     {
-        CabinetItemList oldList = list.Find(x => x.idCabinet == id);
+        CabinetItemList oldList = cabinetsList[indexCabinetData].list.Find(x => x.idCabinet == id);
         if (oldList != null)
-            list.Remove(oldList);
+            cabinetsList[indexCabinetData].list.Remove(oldList);
         CabinetItemList newList = new CabinetItemList();
         newList.idCabinet = id;
         newList.slots = new List<SlotItemLite>();
@@ -53,7 +68,7 @@ public class ListCabinet : MonoBehaviour
                 newList.slots.Add(slotLite);
             }
         }
-        list.Add(newList);
+        cabinetsList[indexCabinetData].list.Add(newList);
     }
 
     public void SaveCabinets()
@@ -61,5 +76,8 @@ public class ListCabinet : MonoBehaviour
         Cabinet[] cabinets = FindObjectsByType<Cabinet>(FindObjectsSortMode.None);
         foreach(Cabinet cabinet in cabinets)
             cabinet.SaveItems();
+        VendingMachine[] vendingMachines = FindObjectsByType<VendingMachine>(FindObjectsSortMode.None);
+        foreach(VendingMachine machine in vendingMachines)
+            machine.SaveItems();
     }
 }

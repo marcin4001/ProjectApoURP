@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
@@ -12,8 +13,14 @@ public class VendingMachine : MonoBehaviour, IUsableObj
 
     private void Start()
     {
-        items = ListCabinet.instance.GetListItem(idCabinet);
         source = GetComponent<AudioSource>();
+        StartCoroutine(AfterStart());
+    }
+
+    private IEnumerator AfterStart()
+    {
+        yield return new WaitForSeconds(0.1f);
+        items = ListCabinet.instance.GetListItem(idCabinet);
     }
 
     public bool CanUse()
