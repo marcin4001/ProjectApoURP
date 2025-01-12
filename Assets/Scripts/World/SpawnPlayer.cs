@@ -15,12 +15,12 @@ public class SpawnPlayer : MonoBehaviour
         PlayerController controller = FindFirstObjectByType<PlayerController>();
         controller.GetAgent().Warp(transform.position);
         controller.transform.eulerAngles = transform.eulerAngles;
-        if(cameraPivotSpawn == null)
+        ListCabinet.instance.indexCabinetData = indexCabinetData;
+        if (cameraPivotSpawn == null)
         {
             CameraMovement.instance.transform.position = transform.position;
             return;
         }
         CameraMovement.instance.transform.position = cameraPivotSpawn.position;
-        ListCabinet.instance.indexCabinetData = indexCabinetData;
     }
 }
