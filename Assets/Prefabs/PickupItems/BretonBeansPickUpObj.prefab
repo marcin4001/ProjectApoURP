@@ -143,6 +143,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7961a0aed4f7fa44d8f989caa0cf92f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6180888893492413224}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7961a0aed4f7fa44d8f989caa0cf92f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5452162278009142653}
+    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 7961a0aed4f7fa44d8f989caa0cf92f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4377075198386607004}
   m_SourcePrefab: {fileID: 100100000, guid: 7961a0aed4f7fa44d8f989caa0cf92f0, type: 3}
 --- !u!1 &4984320523921380804 stripped
 GameObject:
@@ -198,8 +204,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: Breton Beans
+  isNPC: 0
+--- !u!114 &5452162278009142653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984320523921380804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443cc0eeca9b8bb46b50c1998ccff82c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlines:
+  - {fileID: 4377075198386607004}
 --- !u!4 &5647529013857849214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7961a0aed4f7fa44d8f989caa0cf92f0, type: 3}
   m_PrefabInstance: {fileID: 5326268289650321557}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8886621669989541525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 7961a0aed4f7fa44d8f989caa0cf92f0, type: 3}
+  m_PrefabInstance: {fileID: 5326268289650321557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4377075198386607004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886621669989541525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
