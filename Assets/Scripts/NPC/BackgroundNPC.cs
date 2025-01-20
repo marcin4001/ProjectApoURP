@@ -10,9 +10,12 @@ public class BackgroundNPC : MonoBehaviour, IUsableObj
     [SerializeField] private string[] texts;
     [SerializeField] private bool haveRifle = false;
     [SerializeField] private string rifleLayer = "Rifle";
+    [SerializeField] private Vector3 textPos = new Vector3(0f, 1.8f, 0f);
+    private Transform textSocket;
     private int nextIndex = 0;
     private Coroutine coroutine;
     private Animator animator;
+    private DialogueTagObj dialogueTagObj;
     void Start()
     {
         dialogueText.gameObject.SetActive(false);
@@ -22,6 +25,8 @@ public class BackgroundNPC : MonoBehaviour, IUsableObj
             int rifleIndex = animator.GetLayerIndex(rifleLayer);
             animator.SetLayerWeight(rifleIndex, 1f);
         }
+        textSocket = new GameObject(gameObject.name + "Text Socket").transform;
+        textSocket.position = transform.position + textPos;
     }
     public bool CanUse()
     {
@@ -42,6 +47,16 @@ public class BackgroundNPC : MonoBehaviour, IUsableObj
     {
         if (texts.Length > 0)
         {
+            if(DialogueTag.instance != null)
+            {
+                if(dialogueTagObj != null)
+                    Destroy(dialogueTagObj.gameObject);
+                dialogueTagObj = DialogueTag.instance.CreateDialogue(textSocket, texts[nextIndex]);
+                nextIndex++;
+                if (nextIndex == texts.Length)
+                    nextIndex = 0;
+                return;
+            }
             if (coroutine != null)
                 StopCoroutine(coroutine);
             dialogueText.gameObject.SetActive(true);
