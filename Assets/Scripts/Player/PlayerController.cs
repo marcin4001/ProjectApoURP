@@ -450,6 +450,8 @@ public class PlayerController : MonoBehaviour
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         float distnceToObject = Vector3.Distance(transform.position, obj.transform.position);
+        if(usable is BackgroundNPC || usable is DialogueNPC)
+            distnceToObject = Vector3.Distance(transform.position, usable.GetNearPoint());
         if(distnceToObject > maxDistance)
         {
             currentSelectObj = usable;

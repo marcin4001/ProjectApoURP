@@ -14,7 +14,7 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
         string npcName = profile.npcName;
         NPCObjList.instance.AddNPC(npcName);
         animator = GetComponentInChildren<Animator>();
-        if (haveRifle)
+        if (animator != null && haveRifle)
         {
             int rifleIndex = animator.GetLayerIndex(rifleLayer);
             animator.SetLayerWeight(rifleIndex, 1f);
