@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueNPC : MonoBehaviour, IUsableObj
@@ -7,7 +8,10 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
     [SerializeField] private Transform nearPoint;
     [SerializeField] private bool haveRifle = false;
     [SerializeField] private string rifleLayer = "Rifle";
+    [SerializeField] private bool seller = false;
+    [SerializeField] private List<SlotItem> tradeSlots = new List<SlotItem>();
     private Animator animator;
+    private string noSellReply = "I'm sorry. I have nothing for sale.";
 
     void Start()
     {
@@ -36,6 +40,26 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
         return nearPoint.position;
     }
 
+    public string GetNPCName()
+    {
+        return profile.npcName;
+    }
+
+    public bool IsSeller()
+    {
+        return seller;
+    }
+
+    public List<SlotItem> GetItems()
+    {
+        return tradeSlots;
+    }
+
+    public void ShowNoSellReply()
+    {
+        DialogueUI.instance.SetReply(noSellReply);
+    }
+
     public void Use()
     {
         string npcName = profile.npcName;
@@ -45,6 +69,8 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
         DialogueController.instance.SetIndexNode(indexNode);
         DialogueController.instance.SetProfile(profile);
         DialogueController.instance.ShowFirstDialogue();
+        if(TradeUI.instance != null )
+            TradeUI.instance.SetNPC(this);
         NPCObjList.instance.SetInit(npcName);
     }
 }

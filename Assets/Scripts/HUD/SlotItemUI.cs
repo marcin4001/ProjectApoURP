@@ -42,6 +42,8 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
                 InventoryUI.instance.ShowDescription(slot);
             else if (slotType == SlotUIType.cabinet)
                 CabinetUI.instance.ShowDescription(slot);
+            else
+                TradeUI.instance.ShowDescription(slot);
         }
     }
 
@@ -57,6 +59,8 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
             canvas = InventoryUI.instance.GetCanvas();
         else if (slotType == SlotUIType.cabinet)
             canvas = CabinetUI.instance.GetCanvas();
+        else
+            canvas = TradeUI.instance.GetCanvas();
     }
 
     public SlotItem GetSlot()
