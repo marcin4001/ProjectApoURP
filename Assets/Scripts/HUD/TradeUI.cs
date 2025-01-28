@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class TradeUI : MonoBehaviour
 {
@@ -20,8 +21,8 @@ public class TradeUI : MonoBehaviour
     [SerializeField] private bool active = false;
     [SerializeField] private ScrollListController scrollListItemsNPC;
     [SerializeField] private ScrollListController scrollListItemsPlayer;
-    [SerializeField] private SlotItem moneyPlayer;
-    [SerializeField] private SlotItem moneyNPC;
+    [SerializeField] private int moneyPlayer;
+    [SerializeField] private int moneyNPC;
     private Canvas canvas;
     private PlayerController player;
     private DialogueNPC nPC;
@@ -79,8 +80,8 @@ public class TradeUI : MonoBehaviour
         {
             if(item.GetItem().id == moneyID)
             {
-                moneyNPC = item;
-                moneyNPCText.text = $"${moneyNPC.GetAmount()}";
+                moneyNPC = item.GetAmount();
+                moneyNPCText.text = $"${moneyNPC}";
                 continue;
             }
             SlotItemUI slot = Instantiate(slotPrefab, contentNPC).GetComponent<SlotItemUI>();
@@ -101,8 +102,8 @@ public class TradeUI : MonoBehaviour
         {
             if (item.GetItem().id == moneyID)
             {
-                moneyPlayer = item;
-                moneyPlayerText.text = $"${moneyPlayer.GetAmount()}";
+                moneyPlayer = item.GetAmount();
+                moneyPlayerText.text = $"${moneyPlayer}";
                 continue;
             }
             SlotItemUI slot = Instantiate(slotPrefab, contentPlayer).GetComponent<SlotItemUI>();
@@ -146,11 +147,39 @@ public class TradeUI : MonoBehaviour
         nPC = npc;
     }
 
+    public int GetMoneyNPC()
+    {
+        return moneyNPC;
+    }
+
+    public int GetMoneyPlayer()
+    {
+        return moneyPlayer;
+    }
+
+    public SlotItem GetNewMoneySlot(int amount)
+    {
+        Item item = ItemDB.instance.GetItemById(moneyID);
+        return new SlotItem(item, amount);
+    }
+
     public void ShowDescription(SlotItem slot)
     {
         Item item = slot.GetItem();
         consoleText.text = $"{item.nameItem}\n{separator}\n{item.description}";
         if (slot.GetAmount() > 1)
             consoleText.text += $"\nAmount: {slot.GetAmount()}";
+        consoleText.text += $"\nValue: ${slot.GetItem().value}";
+    }
+
+    public void ShowInfoPlayerHaveEnoughMoney()
+    {
+        consoleText.text = $"{separator}\nYou don't have enough money to buy this!\n{separator}";
+    }
+
+    public void ShowInfoNPCHaveEnoughMoney()
+    {
+        consoleText.text = $"{separator}\n{nPC.GetNPCName()} doesn't have enough money to buy this!\n{separator}";
     }
 }
+

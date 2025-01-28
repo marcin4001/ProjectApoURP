@@ -73,4 +73,38 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
             TradeUI.instance.SetNPC(this);
         NPCObjList.instance.SetInit(npcName);
     }
+
+    public void RemoveItem(SlotItem item)
+    {
+        bool itemExist = tradeSlots.Exists(x => x.GetItem().id == item.GetItem().id);
+        if (itemExist)
+        {
+            SlotItem foundItem = tradeSlots.Find(x => x.GetItem().id == item.GetItem().id);
+            int newAmount = foundItem.GetAmount() - item.GetAmount();
+            if (newAmount > 0)
+            {
+                foundItem.SetAmount(newAmount);
+                return;
+            }
+            tradeSlots.Remove(foundItem);
+        }
+    }
+
+    public void AddItem(SlotItem item)
+    {
+        if (item.GetItem() is WeaponItem)
+        {
+            tradeSlots.Add(item);
+            return;
+        }
+        bool itemExist = tradeSlots.Exists(x => x.GetItem().id == item.GetItem().id);
+        if (itemExist)
+        {
+            SlotItem foundItem = tradeSlots.Find(x => x.GetItem().id == item.GetItem().id);
+            int newAmount = foundItem.GetAmount() + item.GetAmount();
+            foundItem.SetAmount(newAmount);
+            return;
+        }
+        tradeSlots.Add(item);
+    }
 }

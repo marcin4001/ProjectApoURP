@@ -8,5 +8,6 @@ public abstract class Item : ScriptableObject
     [TextArea(3,7)]
     public string description = "";
     public Sprite uiSprite;
+    public int value;
 }
 

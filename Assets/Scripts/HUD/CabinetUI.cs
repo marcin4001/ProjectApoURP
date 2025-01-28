@@ -176,5 +176,6 @@ public class CabinetUI : MonoBehaviour
         consoleText.text = $"{item.nameItem}\n{separator}\n{item.description}";
         if (slot.GetAmount() > 1)
             consoleText.text += $"\nAmount: {slot.GetAmount()}";
+        consoleText.text += $"\nValue: ${slot.GetItem().value}";
     }
 }
