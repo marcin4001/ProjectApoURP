@@ -9,6 +9,7 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
     [SerializeField] private bool haveRifle = false;
     [SerializeField] private string rifleLayer = "Rifle";
     [SerializeField] private bool seller = false;
+    [SerializeField] private int idOffer = 0;
     [SerializeField] private List<SlotItem> tradeSlots = new List<SlotItem>();
     private Animator animator;
     private string noSellReply = "I'm sorry. I have nothing for sale.";
@@ -22,6 +23,10 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
         {
             int rifleIndex = animator.GetLayerIndex(rifleLayer);
             animator.SetLayerWeight(rifleIndex, 1f);
+        }
+        if(seller && ListOffers.instance != null)
+        {
+            tradeSlots = ListOffers.instance.GetListItem(idOffer);
         }
     }
 
@@ -107,4 +112,12 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
         }
         tradeSlots.Add(item);
     }
+
+    public void SaveItems()
+    {
+        if(!seller)
+            return;
+        ListOffers.instance.SetListItem(idOffer, tradeSlots);
+    }
+
 }

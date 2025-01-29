@@ -34,6 +34,8 @@ public class ExitMapTrigger : MonoBehaviour
         }
         if(ListCabinet.instance != null)
             ListCabinet.instance.SaveCabinets();
+        if(ListOffers.instance != null)
+            ListOffers.instance.SaveOffers();
         SceneManager.LoadScene(sceneName);
     }
 }

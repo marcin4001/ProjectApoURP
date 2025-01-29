@@ -31,6 +31,12 @@ public class EscController : MonoBehaviour
         if (block)
             return;
 
+        if(TradeUI.instance.GetActive())
+        {
+            TradeUI.instance.Hide();
+            return;
+        }
+
         if(InventoryUI.instance.GetActive())
         {
             InventoryUI.instance.Hide();
