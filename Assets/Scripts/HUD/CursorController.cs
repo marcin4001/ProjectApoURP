@@ -99,9 +99,9 @@ public class CursorController : MonoBehaviour
 
         if (HUDController.instance.PointerOnHUD() || player.IsUsingItem() || player.InMenu())
         {
-            if (HUDController.instance.PointerOnUpButtonConsole())
+            if (HUDController.instance.PointerOnUpButtonConsole() && !player.InMenu())
                 cursorImage.texture = upCursor;
-            else if(HUDController.instance.PointerOnDownButtonConsole())
+            else if(HUDController.instance.PointerOnDownButtonConsole() && !player.InMenu())
                 cursorImage.texture = downCursor;
             else
                 cursorImage.texture = defaultCursor;
