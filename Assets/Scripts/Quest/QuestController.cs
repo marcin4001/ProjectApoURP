@@ -47,6 +47,9 @@ public class QuestController : MonoBehaviour
 
     public void AddQuest(Quest quest)
     { 
+        bool questOnList = quests.Exists(x => x.id == quest.id);
+        if(questOnList)
+            return;
         Quest newQuest = new Quest(quest.id, quest.questTitle, quest.owner, quest.location);
         quests.Add(newQuest);
     }

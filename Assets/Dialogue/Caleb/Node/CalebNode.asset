@@ -41,15 +41,40 @@ MonoBehaviour:
   - optionText: Do you have any problems I could help with?
     replyText: "Actually, yes. My watering can\u2019s completely useless now - it
       leaks like a sieve. Without it, my corn\u2019s going to dry out. If you\u2019re
-      ever in Pinehill, maybe you can find me a new one. Tools like that are hard
+      ever in Clearwater, maybe you can find me a new one. Tools like that are hard
       to come by these days. It\u2019d make a big difference."
     nextNode: 0
     exitOption: 0
-    conditionType: 0
-    questID: 0
+    conditionType: 1
+    questID: 7
     objectID: 0
     amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 955e48ba2eaf81b4db1740b39b04acdf, type: 2}
+  - optionText: Remind me again - where do I find that watering can?
+    replyText: In Clearwater. If you find one, bring it back. I really need it for
+      my crops.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 3
+    questID: 7
+    objectID: 209
+    amountObject: 1
     actions: []
+  - optionText: Found a watering can for you. Looks sturdy.
+    replyText: "No way\u2026 You actually found one? I was starting to think my cornfield
+      was done for. This\u2019ll help more than you know. Here, take the 80 bucks
+      I promised. You earned it."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 7
+    objectID: 209
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 7bfee1c3e3a2e3847a07a555ce6548ed, type: 2}
+    - {fileID: 11400000, guid: 1b82f15d4428b19449e31e51564c29b3, type: 2}
+    - {fileID: 11400000, guid: cc7ff761099300e4396d41f0e032763a, type: 2}
   - optionText: Goodbye. Stay safe out there.
     replyText: 
     nextNode: 0
