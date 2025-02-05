@@ -27,13 +27,25 @@ MonoBehaviour:
     actions: []
   - optionText: Is there something I can do for you?
     replyText: "Yes, I\u2019ve got something for you. My men lost a valuable radio
-      transmitter \u2013 a tool that would allow us to stay in contact with other
-      settlements. Start by talking to the Black Eagles at the bar. They might know
-      what happened to it."
+      transmitter - a tool that would allow us to stay in contact with other settlements.
+      Start by talking to the Black Eagles at the bar. They might know what happened
+      to it."
     nextNode: 1
     exitOption: 0
-    conditionType: 0
-    questID: 0
+    conditionType: 1
+    questID: 11
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 62df7ef3b9cf299449420e340d4352bd, type: 2}
+  - optionText: Where should I start looking for the transmitter?
+    replyText: "Go talk to the Black Eagles at the bar. They were the last ones to
+      have it, so they might know where it ended up. If anyone has a clue, it\u2019s
+      them."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 5
+    questID: 11
     objectID: 0
     amountObject: 0
     actions: []
