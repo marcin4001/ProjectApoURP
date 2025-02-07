@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 public class KilledEnemiesList : MonoBehaviour
@@ -44,6 +45,14 @@ public class KilledEnemiesList : MonoBehaviour
         }
         return true;
     }
+
+    //private void Update()
+    //{
+    //    if(Input.GetKeyUp(KeyCode.K))
+    //    {
+    //        Debug.Log($"IsGroupDefeated(9): {IsGroupDefeated(9)}");
+    //    }
+    //}
 }
 
 [System.Serializable]

@@ -34,6 +34,10 @@ public class DialogueOption
                 return QuestNoComplete();
             case ConditionDialogueType.PlayerNoHaveItemWQ:
                 return PlayerNoHaveItemWQ();
+            case ConditionDialogueType.EnemiesNotKilled:
+                return EnemiesNotKilled();
+            case ConditionDialogueType.EnemiesKilled:
+                return EnemiesKilled();
         }
         return true;
     }
@@ -114,6 +118,20 @@ public class DialogueOption
             return false;
         return QuestController.instance.HaveQuest(questID);
     }
+
+    private bool EnemiesNotKilled()
+    {
+        if(KilledEnemiesList.instance == null)
+            return false;
+        return !KilledEnemiesList.instance.IsGroupDefeated(questID);
+    }
+
+    private bool EnemiesKilled()
+    {
+        if (KilledEnemiesList.instance == null)
+            return true;
+        return KilledEnemiesList.instance.IsGroupDefeated(questID);
+    }
 }
 
 public enum ConditionDialogueType
@@ -125,5 +143,7 @@ public enum ConditionDialogueType
     PlayerHaveItem,
     QuestStarted,
     QuestNoComplete,
-    PlayerNoHaveItemWQ
+    PlayerNoHaveItemWQ,
+    EnemiesNotKilled,
+    EnemiesKilled
 }
