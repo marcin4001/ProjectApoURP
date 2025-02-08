@@ -58,11 +58,24 @@ MonoBehaviour:
       the hellish goldraxes are."
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 8
     questID: 9
     objectID: 0
     amountObject: 0
     actions: []
+  - optionText: The goldraxes are dead. Your pastures are clear now.
+    replyText: "No kidding? Damn, that\u2019s a relief. My cattle will finally have
+      a place to graze again. You did us all a huge favor - here, take this. 100
+      dollars might not be much, but it\u2019s what I can spare. You earned it."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 9
+    questID: 9
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 2905e136e2dd59b49bfa028e671f77b2, type: 2}
+    - {fileID: 11400000, guid: 15aaff82144185240a2b31bd3600e7ae, type: 2}
   - optionText: No more questions. See you around.
     replyText: 
     nextNode: 0

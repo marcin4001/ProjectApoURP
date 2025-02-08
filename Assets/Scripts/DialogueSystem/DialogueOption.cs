@@ -121,13 +121,25 @@ public class DialogueOption
 
     private bool EnemiesNotKilled()
     {
-        if(KilledEnemiesList.instance == null)
+        if (QuestController.instance == null)
+            return false;
+        if (!QuestController.instance.HaveQuest(questID))
+            return false;
+        if (QuestController.instance.Complete(questID))
+            return false;
+        if (KilledEnemiesList.instance == null)
             return false;
         return !KilledEnemiesList.instance.IsGroupDefeated(questID);
     }
 
     private bool EnemiesKilled()
     {
+        if (QuestController.instance == null)
+            return false;
+        if (!QuestController.instance.HaveQuest(questID))
+            return false;
+        if (QuestController.instance.Complete(questID))
+            return false;
         if (KilledEnemiesList.instance == null)
             return true;
         return KilledEnemiesList.instance.IsGroupDefeated(questID);
