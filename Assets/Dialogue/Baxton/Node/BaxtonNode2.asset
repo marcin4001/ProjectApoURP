@@ -44,11 +44,26 @@ MonoBehaviour:
       them."
     nextNode: 1
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 11
-    objectID: 0
-    amountObject: 0
+    objectID: 210
+    amountObject: 1
     actions: []
+  - optionText: I got the transmitter. Kane sold it in Clearwater, cost me 100 dollars
+      to get it back.
+    replyText: "Figures. That bastard would sell his own boots for a drink. But you
+      got it back, and that\u2019s what matters. Here\u2019s 150 dollars - consider
+      it a little extra for your trouble."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 4
+    questID: 11
+    objectID: 210
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: ef07597431b22704eb70f1b512a3ccb3, type: 2}
+    - {fileID: 11400000, guid: bfa49e1cacfabee418170db2bd06399d, type: 2}
+    - {fileID: 11400000, guid: 183bc57f4854d5344a3ff61a4d3337de, type: 2}
   - optionText: "Alright, that\u2019s it for now. Goodbye."
     replyText: 
     nextNode: 1

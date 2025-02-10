@@ -9,5 +9,7 @@ public abstract class Item : ScriptableObject
     public string description = "";
     public Sprite uiSprite;
     public int value;
+    public bool questItem;
+    public int questID;
 }
 

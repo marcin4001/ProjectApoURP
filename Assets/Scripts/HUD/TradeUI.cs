@@ -84,6 +84,11 @@ public class TradeUI : MonoBehaviour
                 moneyNPCText.text = $"${moneyNPC}";
                 continue;
             }
+            if (item.GetItem().questItem && QuestController.instance != null)
+            {
+                if (!QuestController.instance.HaveQuest(item.GetItem().questID))
+                    continue;
+            }
             SlotItemUI slot = Instantiate(slotPrefab, contentNPC).GetComponent<SlotItemUI>();
             slot.SetSlot(item);
             slot.SetTypeSlot(SlotUIType.trade);
