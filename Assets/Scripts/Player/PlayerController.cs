@@ -1,4 +1,6 @@
 using System.Collections;
+using NUnit.Framework.Internal;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -12,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isUsingItem = false;
     [SerializeField] private bool isMoving = false;
     [SerializeField] private bool isUsingObj = false;
+    [SerializeField] private bool isUsingKey = false;
     [SerializeField] private bool inMenu = false;
     [SerializeField] private Transform center;
     [SerializeField] private float rotationSpeed = 5f;
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool stopFlag = false;
     [SerializeField] private float counterMoving = 0;
     [SerializeField] private float counterMovingMax = 5;
+    private int keyID = 0;
     private int indexCorner = 1;
     private LayerMask layer;
     private Vector2 mousePosition;
@@ -280,6 +284,38 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(AfterUseWeaponInCombat());
             }
             
+        }
+        if(item is MiscItem)
+        {
+            Debug.Log("Misc");
+            Door door = _target.GetComponent<Door>();
+            if(door != null)
+            {
+                Debug.Log("Door");
+                if (!door.IsLock())
+                {
+                    HUDController.instance.AddConsolelog("These doors are not locked.");
+                    return;
+                }
+                if (currentCoroutine != null)
+                    StopCoroutine(currentCoroutine);
+                float distnceToObject = Vector3.Distance(transform.position, _target.transform.position);
+                if (distnceToObject > maxDistance)
+                {
+                    currentSelectObj = door;
+                    agent.isStopped = false;
+                    moveTarget = currentSelectObj.GetNearPoint();
+                    currentCoroutine = StartCoroutine(MoveTask());
+                    isUsingKey = true;
+                    keyID = item.id;
+                    return;
+                }
+                agent.isStopped = true;
+                animationPlayer.SetSpeedLocomotion(0f);
+                isUsingKey = true;
+                keyID = item.id;
+                StartCoroutine(InteractAction(door));
+            }
         }
     }
 
@@ -562,6 +598,8 @@ public class PlayerController : MonoBehaviour
             float distnceToObject = Vector3.Distance(transform.position, moveTarget);
             if(distnceToObject < maxDistance)
                 StartCoroutine(InteractAction(currentSelectObj));
+            if(isUsingKey)
+                StartCoroutine(InteractAction(currentSelectObj));
             currentSelectObj = null;
         }
     }
@@ -603,6 +641,17 @@ public class PlayerController : MonoBehaviour
             Vector3 slot = door.GetNearPoint();
             agent.Warp(slot);
             transform.rotation = Quaternion.LookRotation(door.GetRootPosition() - transform.position);
+            if (isUsingKey)
+            {
+                if (door.CheckKey(keyID))
+                {
+                    door.Unlock();
+                }
+                else
+                {
+                    HUDController.instance.AddConsolelog("The key doesn't fit.");
+                }
+            }
         }
         else if(usable is EnemyInventory)
         {
@@ -625,7 +674,14 @@ public class PlayerController : MonoBehaviour
             weaponController.ShowCurrentWeapon(true);
         }
         usable.Use();
+        if(usable is Door)
+        {
+            Door door = (Door)usable;
+            if (door.IsLock() && !isUsingKey)
+                HUDController.instance.AddConsolelog("The door is locked.");
+        }
         isUsingObj = false;
+        isUsingKey = false;
         HUDController.instance.SetActiveInventoryBtn(true);
         if(!(usable is Bed))
             CursorController.instance.SetIsWait(false);

@@ -117,6 +117,19 @@ public class HUDController : MonoBehaviour
                     break;
             }
         }
+        if(item is MiscItem)
+        {
+            MiscItem miscItem = (MiscItem) item;
+            if(miscItem.isKey)
+            {
+                switch (slotState)
+                {
+                    case SlotState.Use:
+                        player.StartUsingItem();
+                        break;
+                }
+            }
+        }
     }
 
     public void ChangeStateSlot()

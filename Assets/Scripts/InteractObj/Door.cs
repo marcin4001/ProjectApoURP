@@ -13,6 +13,8 @@ public class Door : MonoBehaviour, IUsableObj
     [SerializeField] private float closeAngle = 0f;
     [SerializeField] private float openAngle = -90f;
     [SerializeField] private bool isOpen = false;
+    [SerializeField] private bool isLock = false;
+    [SerializeField] private int keyID = 0;
     private PlayerController player;
     private NavMeshObstacle obstacle;
     private Coroutine currentCoroutine;
@@ -26,6 +28,10 @@ public class Door : MonoBehaviour, IUsableObj
 
     public void Use()
     {
+        if(isLock)
+        {
+            return;
+        }
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         isOpen = !isOpen;
@@ -40,6 +46,16 @@ public class Door : MonoBehaviour, IUsableObj
             else
                 roof.Show();
         }
+    }
+
+    public bool CheckKey(int _keyID)
+    {
+        return keyID == _keyID;
+    }
+
+    public void Unlock()
+    {
+        isLock = false;
     }
 
     public Vector3 GetRootPosition()
@@ -98,5 +114,10 @@ public class Door : MonoBehaviour, IUsableObj
     public bool IsOpen()
     {
         return isOpen;
+    }
+
+    public bool IsLock()
+    {
+        return isLock;
     }
 }
