@@ -17,6 +17,11 @@ public class WallCutout : MonoBehaviour
     
     private List<MeshRenderer> renderers = new List<MeshRenderer> ();
 
+    private void Start()
+    {
+        player = FindFirstObjectByType<PlayerController>();
+    }
+
     void Update()
     {
         transform.position = player.GetCenterPosition() - Vector3.forward * 3f - Vector3.right * 3f;

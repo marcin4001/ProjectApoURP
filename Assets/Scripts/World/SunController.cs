@@ -12,6 +12,7 @@ public class SunController : MonoBehaviour
     {
         gameTime = FindFirstObjectByType<TimeGame>();
         sunTransform = sunLight.transform;
+        playerLight = GameObject.FindGameObjectWithTag("PlayerLight").GetComponent<Light>();
     }
 
 
