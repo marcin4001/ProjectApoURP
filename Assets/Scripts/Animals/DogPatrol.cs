@@ -8,6 +8,8 @@ public class DogPatrol : MonoBehaviour
     [SerializeField] private float range = 4f;
     [SerializeField] private float waitingTime = 2f;
     [SerializeField] private EnemyAnim anim;
+    [SerializeField] private float counter = 0f;
+    [SerializeField] private float patrolTime = 5f;
     private NavMeshAgent agent;
 
     void Start()
@@ -44,9 +46,12 @@ public class DogPatrol : MonoBehaviour
             while(distance > 0.7f)
             {
                 yield return new WaitForEndOfFrame();
+                counter += Time.deltaTime;
+                if(counter >= patrolTime) break;
                 distance = Vector3.Distance(transform.position, target);
             }
             agent.isStopped = true;
+            counter = 0;
             anim.SetWalk(false);
             yield return new WaitForSeconds(waitingTime);
             agent.isStopped = false;
@@ -54,7 +59,6 @@ public class DogPatrol : MonoBehaviour
             target = GetRandomWaypoint();
             agent.SetDestination(target);
             distance = Vector3.Distance(transform.position, target);
-            Debug.Log("Jest");
         }
         
     }
