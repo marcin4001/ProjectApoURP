@@ -708,6 +708,11 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public AnimationPlayer GetAnim()
+    {
+        return animationPlayer;
+    }
+
     public void PriorityUp()
     {
         agent.avoidancePriority = agent.avoidancePriority - 1;

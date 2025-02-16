@@ -324,6 +324,12 @@ public class HUDController : MonoBehaviour
             slotState = SlotState.Use;
             slotItemImage.enabled = true;
             slotItemImage.overrideSprite = item.uiSprite;
+
+            int amountItemSlot = slotItem.GetAmount();
+            if (amountItemSlot > 1)
+                slotAmountText.text = $"x{amountItemSlot}";
+            else
+                slotAmountText.text = string.Empty;
             if (item is WeaponItem)
             {
                 player.ShowWeapon(item);
@@ -333,13 +339,14 @@ public class HUDController : MonoBehaviour
                 player.ShowWeapon(null);
                 player.SpawnItemInHand(item);
             }
-            int amountItemSlot = slotItem.GetAmount();
-            if (amountItemSlot > 1)
-                slotAmountText.text = $"x{amountItemSlot}";
-            else
-                slotAmountText.text = string.Empty;
+            
         }
         slotStateText.text = slotState.ToString();
+    }
+
+    public void UpdateAmmoText(string _text)
+    {
+        slotAmountText.text = _text;
     }
 
     public void UpdateCurrentSlotAmountText()

@@ -13,10 +13,12 @@ public class WeaponObject : MonoBehaviour
     [SerializeField] private AudioClip attackClip;
     [SerializeField] private AudioClip reloadSound;
     private AudioSource source;
+    private PlayerController player;
 
-    private void Start()
+    private void Awake()
     {
         source = GetComponent<AudioSource>();
+        player = FindFirstObjectByType<PlayerController>();
     }
 
     public void InitAmmo()
@@ -26,8 +28,18 @@ public class WeaponObject : MonoBehaviour
             return;
         if (ammoSlot != null && !ammoSlot.IsEmpty())
         {
-            if(ammoSlot.GetAmount() < currentAmmoInGun)
+            if (ammoSlot.GetAmount() < currentAmmoInGun)
+            {
                 currentAmmoInGun = ammoSlot.GetAmount();
+                ammoOutGun = 0;
+                player.GetAnim().Reload();
+                PlayReloadSound();
+
+            }
+            else
+            {
+                ammoOutGun = ammoSlot.GetAmount() - currentAmmoInGun;
+            }
             return;
         }
         ammoSlot = Inventory.instance.GetSlot(weapon.idAmmo);
@@ -42,6 +54,8 @@ public class WeaponObject : MonoBehaviour
             currentAmmoInGun = weapon.ammoMax;
             ammoOutGun = ammoSlot.GetAmount() - currentAmmoInGun;
         }
+        player.GetAnim().Reload();
+        PlayReloadSound();
     }
 
     public void UpdateAmmoOutGun()
@@ -195,6 +209,7 @@ public class WeaponObject : MonoBehaviour
 
     public void ShowAmmoInConsole()
     {
-        HUDController.instance.AddConsolelog($"Ammo: {currentAmmoInGun}/{ammoOutGun}");
+        //HUDController.instance.AddConsolelog($"Ammo: {currentAmmoInGun}/{ammoOutGun}");
+        HUDController.instance.UpdateAmmoText($"{currentAmmoInGun}/{ammoOutGun}");
     }
 }
