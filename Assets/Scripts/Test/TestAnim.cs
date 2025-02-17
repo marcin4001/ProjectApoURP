@@ -27,7 +27,10 @@ public class TestAnim : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.F1))
         {
-            anim.Shot();
+            if(weaponType != WeaponType.Melee)
+                anim.Shot();
+            else
+                anim.Attack();
             weapon.StartPlayAttack();
             weapon.StartPlayMuzzle();
         }
