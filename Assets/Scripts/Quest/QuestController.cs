@@ -58,4 +58,9 @@ public class QuestController : MonoBehaviour
     {
         return quests;
     }
+
+    public void ClearList()
+    {
+        quests.Clear();
+    }
 }

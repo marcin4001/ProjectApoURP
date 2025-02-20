@@ -46,6 +46,11 @@ public class KilledEnemiesList : MonoBehaviour
         return true;
     }
 
+    public void ClearList()
+    {
+        list.Clear();
+    }
+
     //private void Update()
     //{
     //    if(Input.GetKeyUp(KeyCode.K))

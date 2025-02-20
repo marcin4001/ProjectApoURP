@@ -79,4 +79,15 @@ public class ListCabinet : MonoBehaviour
         foreach(VendingMachine machine in vendingMachines)
             machine.SaveItems();
     }
+
+    public void CopyList()
+    {
+        cabinetsList.Clear();
+        foreach (CabinetPlaceData cabinetData in cabinetData)
+        {
+            ListCabinetData data = new ListCabinetData();
+            data.list = cabinetData.Copy();
+            cabinetsList.Add(data);
+        }
+    }
 }

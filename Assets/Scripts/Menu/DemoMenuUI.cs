@@ -18,6 +18,12 @@ public class DemoMenuUI : MonoBehaviour
         GameParam.instance.SetStartParam();
         if(Inventory.instance != null)
             Inventory.instance.Clear();
+        PickUpObjList.instance.CopyList();
+        KilledEnemiesList.instance.ClearList();
+        NPCObjList.instance.ClearList();
+        ListCabinet.instance.CopyList();
+        ListOffers.instance.CopyList();
+        QuestController.instance.ClearList();
         SceneManager.LoadScene(sceneStartName);
     }
 

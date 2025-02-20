@@ -63,4 +63,9 @@ public class NPCObjList : MonoBehaviour
             npc.nodeIndex = index;
         }
     }
+
+    public void ClearList()
+    {
+        list.Clear();
+    }
 }

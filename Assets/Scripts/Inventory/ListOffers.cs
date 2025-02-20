@@ -70,4 +70,9 @@ public class ListOffers : MonoBehaviour
             npc.SaveItems();
         }
     }
+
+    public void CopyList()
+    {
+        list = initOffers.Copy();
+    }
 }
