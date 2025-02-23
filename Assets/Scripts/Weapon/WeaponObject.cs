@@ -23,7 +23,7 @@ public class WeaponObject : MonoBehaviour
 
     public void InitAmmo()
     {
-        
+        Debug.Log("InitAmmo");
         if (weapon.type == WeaponType.Melee)
             return;
         if (ammoSlot != null && !ammoSlot.IsEmpty())
@@ -40,6 +40,12 @@ public class WeaponObject : MonoBehaviour
             {
                 ammoOutGun = ammoSlot.GetAmount() - currentAmmoInGun;
             }
+            if(currentAmmoInGun == 0 && ammoOutGun > 0)
+            {
+                Reload();
+                player.GetAnim().Reload();
+                PlayReloadSound();
+            }
             return;
         }
         ammoSlot = Inventory.instance.GetSlot(weapon.idAmmo);
@@ -54,6 +60,8 @@ public class WeaponObject : MonoBehaviour
             currentAmmoInGun = weapon.ammoMax;
             ammoOutGun = ammoSlot.GetAmount() - currentAmmoInGun;
         }
+        if(currentAmmoInGun <= 0)
+            return;
         player.GetAnim().Reload();
         PlayReloadSound();
     }
@@ -80,6 +88,7 @@ public class WeaponObject : MonoBehaviour
         if(ammoSlot == null ||  ammoSlot.IsEmpty())
         {
             SetEmptyAmmo();
+            ShowAmmoInConsole();
             return;
         }
         int fullAmmo = ammoSlot.GetAmount();
@@ -92,6 +101,8 @@ public class WeaponObject : MonoBehaviour
             currentAmmoInGun = fullAmmo;
             ammoOutGun = 0;
         }
+        Debug.Log("UpdateAmmoSlot");
+        ShowAmmoInConsole();
     }
 
     public int GetIdItem()
@@ -210,6 +221,7 @@ public class WeaponObject : MonoBehaviour
     public void ShowAmmoInConsole()
     {
         //HUDController.instance.AddConsolelog($"Ammo: {currentAmmoInGun}/{ammoOutGun}");
-        HUDController.instance.UpdateAmmoText($"{currentAmmoInGun}/{ammoOutGun}");
+        if(WeaponController.instance.GetCurrentWeapon() == this)
+            HUDController.instance.UpdateAmmoText($"{currentAmmoInGun}/{ammoOutGun}");
     }
 }

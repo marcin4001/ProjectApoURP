@@ -44,7 +44,7 @@ public class ListItemDropPlayerTrade : MonoBehaviour, IDropHandler
                         WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(item.id);
                         if (weapon != null)
                         {
-                            weapon.UpdateAmmoOutGun();
+                            weapon.UpdateAmmoSlot();//weapon.UpdateAmmoOutGun();
                         }
                     }
                 }
@@ -91,7 +91,7 @@ public class ListItemDropPlayerTrade : MonoBehaviour, IDropHandler
                     WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(item.id);
                     if (weapon != null)
                     {
-                        weapon.UpdateAmmoOutGun();
+                        weapon.UpdateAmmoSlot();//weapon.UpdateAmmoOutGun();
                     }
                 }
             }

@@ -14,6 +14,8 @@ public class GameParam : MonoBehaviour
     public string prevScene = "";
     public MapSign[] mapSigns;
     public Vector3 cameraPivotRot = new Vector3(30f, 35f, 0f);
+    public float nearClip = -15f;
+    public bool showGrid = false;
     public bool startGame;
     public int chanceToHit = 70;
     public int chanceToCrit = 20;

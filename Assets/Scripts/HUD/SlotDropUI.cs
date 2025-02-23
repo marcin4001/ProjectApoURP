@@ -87,4 +87,11 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
             slotItemUI.UpdateAmountText();
         }
     }
+
+    public void AddSlot(SlotItemUI slotItem)
+    {
+        slotItemUI = slotItem;
+        slotItemUI.SetSlotDrop(this);
+        slotItemUI.SetInDropSlot();
+    }
 }

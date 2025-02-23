@@ -27,6 +27,15 @@ public class InventoryUI : MonoBehaviour
         canvas = GetComponent<Canvas>();
         player = FindFirstObjectByType<PlayerController>();
         closeButton.onClick.AddListener(Hide);
+        for(int i = 0; i < slotsDrop.Length; i++)
+        {
+            SlotItem item = Inventory.instance.GetSlotItem(i);
+            if(item.IsEmpty())
+                continue;
+            SlotItemUI slot = Instantiate(slotPrefab, content).GetComponent<SlotItemUI>();
+            slot.SetSlot(item);
+            slotsDrop[i].AddSlot(slot);
+        }
         canvas.enabled = false;
     }
 

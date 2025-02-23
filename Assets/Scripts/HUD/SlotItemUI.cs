@@ -167,6 +167,18 @@ public class SlotItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDr
         canvasGroup.blocksRaycasts = true;    
     }
 
+    public void SetInDropSlot()
+    {
+        if (slotDrop != null)
+        {
+            RectTransform slotDropTransform = slotDrop.GetComponent<RectTransform>();
+            rectTransform = GetComponent<RectTransform>();
+            rectTransform.SetParent(slotDropTransform);
+            rectTransform.sizeDelta = sizeOnSlot;
+            amountText.fontSize = sizeFontOnSlot;
+            rectTransform.anchoredPosition = slotDrop.GetPositionItem();
+        }
+    }
 }
 
 public enum SlotUIType

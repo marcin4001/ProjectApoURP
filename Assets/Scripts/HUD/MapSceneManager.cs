@@ -39,7 +39,6 @@ public class MapSceneManager : MonoBehaviour
     void Start()
     {
         cam = FindFirstObjectByType<Camera>();
-        grid.SetActive(false);
         gridButton.onClick.AddListener(ShowGrid);
         enterButton.onClick.AddListener(OnClickEnter);
         target.gameObject.SetActive(false);
@@ -49,6 +48,8 @@ public class MapSceneManager : MonoBehaviour
             gameTime = GameParam.instance.currentTime;
             playerSign.anchoredPosition = GameParam.instance.mapPosition;
             nextScene = GameParam.instance.prevScene;
+            if(!GameParam.instance.showGrid)
+                grid.SetActive(false);
         }
         timeText.text = GetCurrentTimeString();
     }
@@ -58,10 +59,12 @@ public class MapSceneManager : MonoBehaviour
         if(grid.activeSelf)
         {
             grid.SetActive(false);
+            GameParam.instance.showGrid = false;
         }
         else
         {
             grid.SetActive(true);
+            GameParam.instance.showGrid = true;
         }
     }
 

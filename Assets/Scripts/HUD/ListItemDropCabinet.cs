@@ -74,10 +74,12 @@ public class ListItemDropCabinet : MonoBehaviour, IDropHandler
             MiscItem miscItem = (MiscItem)item;
             if (miscItem.isAmmo)
             {
+                Debug.Log("IsAmmo");
                 WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(item.id);
                 if (weapon != null)
                 {
                     weapon.UpdateAmmoSlot();
+                    Debug.Log("UpdateAmmoSlot");
                 }
             }
         }
