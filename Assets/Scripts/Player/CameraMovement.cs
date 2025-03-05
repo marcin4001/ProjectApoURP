@@ -67,6 +67,7 @@ public class CameraMovement : MonoBehaviour
         }
         transform.eulerAngles = GameParam.instance.cameraPivotRot;
         m_Camera.nearClipPlane = GameParam.instance.nearClip;
+        m_Camera.transform.localPosition = GameParam.instance.posCamera;
     }
 
     private void SetMousePosition(InputAction.CallbackContext ctx)
