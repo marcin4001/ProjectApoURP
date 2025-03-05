@@ -6,6 +6,7 @@ public class PickUpObjList : MonoBehaviour
     public static PickUpObjList instance;
     public List<string> objects = new List<string>();
     public List<string> currentObjects = new List<string>();
+    public List<int> objectIDs = new List<int>();
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -15,7 +16,7 @@ public class PickUpObjList : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        CopyList();
+        //CopyList();
     }
 
     public bool ExistOnList(string item)
@@ -39,5 +40,21 @@ public class PickUpObjList : MonoBehaviour
             currentObjects.Clear();
         foreach (string item in objects)
             currentObjects.Add(item);   
+    }
+
+    public void Clear()
+    {
+        objectIDs.Clear();
+    }
+
+    public void AddIdToList(int _id)
+    {
+        objectIDs.Add(_id);
+        objectIDs.Sort();
+    }
+
+    public bool ExistOnList(int _id)
+    {
+        return objectIDs.Contains(_id);
     }
 }

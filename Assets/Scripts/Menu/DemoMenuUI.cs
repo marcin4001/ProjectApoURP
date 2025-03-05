@@ -18,7 +18,8 @@ public class DemoMenuUI : MonoBehaviour
         GameParam.instance.SetStartParam();
         if(Inventory.instance != null)
             Inventory.instance.Clear();
-        PickUpObjList.instance.CopyList();
+        //PickUpObjList.instance.CopyList();
+        PickUpObjList.instance.Clear();
         KilledEnemiesList.instance.ClearList();
         NPCObjList.instance.ClearList();
         ListCabinet.instance.CopyList();

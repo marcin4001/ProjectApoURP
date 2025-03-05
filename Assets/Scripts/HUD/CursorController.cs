@@ -32,7 +32,7 @@ public class CursorController : MonoBehaviour
     private Camera cam;
     private MainInputSystem mainInputSystem;
     private Coroutine waitCoroutine;
-    private PickupItem pickupItem;
+    [SerializeField] private PickupItem pickupItem;
     private PickUpWeapon pickUpWeapon;
 
     private void Awake()

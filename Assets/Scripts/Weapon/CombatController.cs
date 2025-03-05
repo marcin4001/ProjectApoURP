@@ -120,7 +120,7 @@ public class CombatController : MonoBehaviour
         actionPoint -= point;
         if (actionPoint == 1)
         {
-            HUDController.instance.AddConsolelog("You have one action point left");
+            HUDController.instance.AddConsolelog("You have one action point");
             HUDController.instance.AddConsolelog("left.");
         }
         if(actionPoint <= 0)

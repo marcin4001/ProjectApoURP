@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -6514,6 +6515,10 @@ PrefabInstance:
       propertyPath: amount
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6116294559271369176, guid: 1893c0fa59b5f2847b76968fa9126e9e, type: 3}
+      propertyPath: idPickUp
+      value: 37
+      objectReference: {fileID: 0}
     - target: {fileID: 6226492424522449981, guid: 1893c0fa59b5f2847b76968fa9126e9e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.657685
@@ -10610,6 +10615,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.021
       objectReference: {fileID: 0}
+    - target: {fileID: 3562327918049166523, guid: 88e62dcbd0b154d408ac13ce3b4e5320, type: 3}
+      propertyPath: idPickUp
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 8328698259297430499, guid: 88e62dcbd0b154d408ac13ce3b4e5320, type: 3}
       propertyPath: m_Name
       value: BreadPickUpObj (2)
@@ -12613,6 +12622,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1.009
       objectReference: {fileID: 0}
+    - target: {fileID: 1913155802362738811, guid: 4cbf1c33c163127478814fbe3e6df763, type: 3}
+      propertyPath: idPickUp
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 4984320523921380804, guid: 4cbf1c33c163127478814fbe3e6df763, type: 3}
       propertyPath: m_Name
       value: BretonBeansPickUpObj
@@ -13569,6 +13582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_AgentTypeID: 0
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
@@ -14845,6 +14859,10 @@ PrefabInstance:
     - target: {fileID: 2236902248648015830, guid: cf3af602ff0d2cc4b8e90db14af33d88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709956203118828655, guid: cf3af602ff0d2cc4b8e90db14af33d88, type: 3}
+      propertyPath: idPickUp
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8652381120678613312, guid: cf3af602ff0d2cc4b8e90db14af33d88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17576,6 +17594,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1036127114}
     m_Modifications:
+    - target: {fileID: 229053013613269072, guid: c2fc47c3fb618a149be45c6b078f1399, type: 3}
+      propertyPath: idPickUp
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 2306606405268027606, guid: c2fc47c3fb618a149be45c6b078f1399, type: 3}
       propertyPath: m_Name
       value: RopePickUpObject
@@ -20722,6 +20744,10 @@ PrefabInstance:
     - target: {fileID: 1566849019408691360, guid: a46d7876b0c2b7341b32c03678d83f56, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.121
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015850808139807385, guid: a46d7876b0c2b7341b32c03678d83f56, type: 3}
+      propertyPath: idPickUp
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 5091722443937897416, guid: a46d7876b0c2b7341b32c03678d83f56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25417,6 +25443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 0
   m_Area: 0
   m_OverrideGenerateLinks: 0
@@ -26996,6 +27023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 0
   m_Area: 0
   m_OverrideGenerateLinks: 0
@@ -32084,6 +32112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 0
   m_Area: 0
   m_OverrideGenerateLinks: 0
@@ -38100,6 +38129,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!114 &1155336898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39078,6 +39108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 0
   m_Area: 0
   m_OverrideGenerateLinks: 0
@@ -50081,6 +50112,10 @@ PrefabInstance:
     - target: {fileID: 7532706667232408004, guid: b297fe06a1b6ca744b901470754193bc, type: 3}
       propertyPath: m_Name
       value: SausagePickUpObj (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338052416137282550, guid: b297fe06a1b6ca744b901470754193bc, type: 3}
+      propertyPath: idPickUp
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 9133010438597933195, guid: b297fe06a1b6ca744b901470754193bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67205,6 +67240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 0
   m_Area: 0
   m_OverrideGenerateLinks: 0

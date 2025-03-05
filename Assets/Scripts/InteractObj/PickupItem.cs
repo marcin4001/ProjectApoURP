@@ -5,11 +5,12 @@ public class PickupItem : MonoBehaviour, IUsableObj
     [SerializeField] private Item item;
     [SerializeField] private int amount = 1;
     [SerializeField] private Transform nearPoint;
+    [SerializeField] private int idPickUp;
     private OutlineList outlines;
     private void Start()
     {
-        bool result = PickUpObjList.instance.ExistOnList(gameObject.name);
-        if (!result)
+        bool result = PickUpObjList.instance.ExistOnList(idPickUp);
+        if (result)
             Destroy(gameObject);
         outlines = GetComponent<OutlineList>();
         HideOutline();
@@ -31,7 +32,8 @@ public class PickupItem : MonoBehaviour, IUsableObj
                 }
             }
         }
-        PickUpObjList.instance.DestroyOnList(gameObject.name);
+        //PickUpObjList.instance.DestroyOnList(gameObject.name);
+        PickUpObjList.instance.AddIdToList(idPickUp);
         Destroy(gameObject);
     }
 

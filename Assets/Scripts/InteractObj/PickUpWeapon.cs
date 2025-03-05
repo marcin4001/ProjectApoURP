@@ -5,11 +5,12 @@ public class PickUpWeapon : MonoBehaviour, IUsableObj
     [SerializeField] private Item item;
     [SerializeField] private SlotItem ammoSlot;
     [SerializeField] private Transform nearPoint;
+    [SerializeField] private int idPickUp;
     private OutlineList outlines;
     private void Start()
     {
-        bool result = PickUpObjList.instance.ExistOnList(gameObject.name);
-        if (!result)
+        bool result = PickUpObjList.instance.ExistOnList(idPickUp);
+        if (result)
             Destroy(gameObject);
         outlines = GetComponent<OutlineList>();
         HideOutline();
@@ -21,7 +22,8 @@ public class PickUpWeapon : MonoBehaviour, IUsableObj
         {
             Inventory.instance.AddItem(ammoSlot.GetItem(), ammoSlot.GetAmount());
         }
-        PickUpObjList.instance.DestroyOnList(gameObject.name);
+        //PickUpObjList.instance.DestroyOnList(gameObject.name);
+        PickUpObjList.instance.AddIdToList(idPickUp);
         Destroy(gameObject);
         return;
     }
