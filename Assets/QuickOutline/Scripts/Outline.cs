@@ -74,17 +74,18 @@ public class Outline : MonoBehaviour {
   [SerializeField, HideInInspector]
   private List<ListVector3> bakeValues = new List<ListVector3>();
 
-  private Renderer[] renderers;
+  private Renderer renderers;
   private Material outlineMaskMaterial;
   private Material outlineFillMaterial;
-  private List<Material> inits = new List<Material>();
+    [SerializeField]
+    private List<Material> inits = new List<Material>();
 
   private bool needsUpdate;
 
   void Awake() {
 
     // Cache renderers
-    renderers = GetComponentsInChildren<Renderer>();
+    renderers = GetComponent<Renderer>();
 
     // Instantiate outline materials
     outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
@@ -98,20 +99,19 @@ public class Outline : MonoBehaviour {
 
     // Apply material properties immediately
     needsUpdate = true;
-  }
+        inits = renderers.sharedMaterials.ToList();
+        inits.Remove(outlineMaskMaterial);
+        inits.Remove(outlineFillMaterial);
+    }
 
   void OnEnable() {
-    foreach (var renderer in renderers) {
-            inits = renderer.sharedMaterials.ToList();
-            // Append outline shaders
-            var materials = renderer.sharedMaterials.ToList();
+        var materials = renderers.sharedMaterials.ToList();
 
-      materials.Add(outlineMaskMaterial);
-      materials.Add(outlineFillMaterial);
+        materials.Add(outlineMaskMaterial);
+        materials.Add(outlineFillMaterial);
 
-      renderer.materials = materials.ToArray();
+        renderers.materials = materials.ToArray();
     }
-  }
 
   void OnValidate() {
 
@@ -139,17 +139,7 @@ public class Outline : MonoBehaviour {
   }
 
   void OnDisable() {
-    foreach (var renderer in renderers) {
-
-      // Remove outline shaders
-      var materials = renderer.sharedMaterials.ToList();
-
-      materials.Remove(outlineMaskMaterial);
-      materials.Remove(outlineFillMaterial);
-
-      //renderer.materials = materials.ToArray();
-      renderer.materials = inits.ToArray();
-    }
+        renderers.materials = inits.ToArray();
   }
 
   void OnDestroy() {
