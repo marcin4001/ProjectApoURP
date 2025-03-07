@@ -514,6 +514,12 @@ public class PlayerController : MonoBehaviour
                 {
                     Vector3 playerScreenPosition = camera.WorldToScreenPoint(GetCenterPosition());
                     float distance = Vector3.Distance(playerScreenPosition, mousePosition);
+                    ObjectInfoLogList logListTemp = hit.collider.GetComponent<ObjectInfoLogList>();
+                    if(logListTemp != null)
+                    {
+                        logListTemp.ShowLogs();
+                        return;
+                    }
                     ObjectInfoLog logObjTemp = hit.collider.GetComponent<ObjectInfoLog>();
                     if (logObjTemp != null && distance < radiusPlayerCutWall)
                         logObj = logObjTemp;
@@ -521,6 +527,11 @@ public class PlayerController : MonoBehaviour
             }
             string log = logObj.GetLog();
             HUDController.instance.AddConsolelog(log);
+        }
+        ObjectInfoLogList logList = obj.GetComponent<ObjectInfoLogList>();
+        if(logList != null)
+        {
+            logList.ShowLogs();
         }
     }
 

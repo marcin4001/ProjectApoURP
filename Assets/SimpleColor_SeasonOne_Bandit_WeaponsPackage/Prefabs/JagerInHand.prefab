@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2645346915528695557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1228519194648121049}
+  m_Layer: 6
+  m_Name: JagerInHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1228519194648121049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2645346915528695557}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3019969242260534052}
+  - {fileID: 5529126165251517412}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4696070657628020534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3019969242260534052}
+  m_Layer: 6
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3019969242260534052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4696070657628020534}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.08756135, y: 0.12648933, z: -0.04481375, w: 0.98707914}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1228519194648121049}
+  m_LocalEulerAnglesHint: {x: -9.295, y: 15.129, z: -6.436}
+--- !u!1001 &5418357630242327567
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1228519194648121049}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8409
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8409
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8409
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.103
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.076
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.1969229
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.6542363
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7287468
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.046091247
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -10.981
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 519.28
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -81.819
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+      propertyPath: m_Name
+      value: JagerLord
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+--- !u!4 &5529126165251517412 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67a0824971fa43f40a77371671b0112d, type: 3}
+  m_PrefabInstance: {fileID: 5418357630242327567}
+  m_PrefabAsset: {fileID: 0}
