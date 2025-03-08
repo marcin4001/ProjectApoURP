@@ -126,7 +126,7 @@ public class MapSceneManager : MonoBehaviour
             if(distanceTraveled >= 18f)
             {
                 distanceTraveled = 0f;
-                gameTime += 1f;
+                gameTime += 0.5f;
                 if (gameTime >= 24f)
                 {
                     gameTime = 0f;

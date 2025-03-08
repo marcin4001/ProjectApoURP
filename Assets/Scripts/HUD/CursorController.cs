@@ -176,6 +176,16 @@ public class CursorController : MonoBehaviour
 
     public void SetMoveCursor()
     {
+        if (pickupItem != null)
+        {
+            pickupItem.HideOutline();
+            pickupItem = null;
+        }
+        if (pickUpWeapon != null)
+        {
+            pickUpWeapon.HideOutline();
+            pickUpWeapon = null;
+        }
         Ray ray = cam.ScreenPointToRay(mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 1000f, layer))
@@ -258,5 +268,59 @@ public class CursorController : MonoBehaviour
     public void SetLookCursor()
     {
         cursorImage.texture = lookCursor;
+        Ray ray = cam.ScreenPointToRay(mousePosition);
+        RaycastHit hit;
+        if (pickupItem != null)
+        {
+            pickupItem.HideOutline();
+            pickupItem = null;
+        }
+        if (pickUpWeapon != null)
+        {
+            pickUpWeapon.HideOutline();
+            pickUpWeapon = null;
+        }
+        if (Physics.Raycast(ray, out hit, 1000f, layerUse))
+        {
+            IUsableObj usableObj = hit.collider.GetComponent<IUsableObj>();
+            if (usableObj != null)
+            {
+                if (usableObj is PickupItem)
+                    pickupItem = (PickupItem)usableObj;
+                if (usableObj is PickUpWeapon)
+                    pickUpWeapon = (PickUpWeapon)usableObj;
+            }
+            else
+            {
+                if (hit.collider.gameObject.layer == 10)
+                {
+                    Ray ray2 = cam.ScreenPointToRay(mousePosition);
+                    RaycastHit hit2;
+                    if (Physics.Raycast(ray, out hit2, 1000f, layerInsideHouse))
+                    {
+                        Vector3 playerScreenPosition = cam.WorldToScreenPoint(player.GetCenterPosition());
+                        float distance = Vector3.Distance(playerScreenPosition, mousePosition);
+                        usableObj = hit2.collider.GetComponent<IUsableObj>();
+                        if (usableObj != null && distance < radiusPlayerCutWall)
+                        {
+                            if (usableObj is PickupItem)
+                                pickupItem = (PickupItem)usableObj;
+                            if (usableObj is PickUpWeapon)
+                                pickUpWeapon = (PickUpWeapon)usableObj;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        if (pickupItem != null)
+        {
+            pickupItem.ShowOutline();
+        }
+        if (pickUpWeapon != null)
+        {
+            pickUpWeapon.ShowOutline();
+        }
     }
 }
