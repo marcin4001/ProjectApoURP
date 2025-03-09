@@ -219,7 +219,9 @@ GameObject:
   - component: {fileID: 4454344515460626619}
   - component: {fileID: 5411171512269469564}
   - component: {fileID: 3096738026072416151}
-  m_Layer: 0
+  - component: {fileID: 2126257264546364495}
+  - component: {fileID: 1528823695740220335}
+  m_Layer: 7
   m_Name: PatiBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +276,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4912528752775924614}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.3
   m_Speed: 2.5
@@ -308,6 +310,39 @@ MonoBehaviour:
   - Hi Revo!
   - Nice to see you!
   - How are you?
+  haveRifle: 0
+  rifleLayer: Rifle
+  textPos: {x: 0, y: 1.8, z: 0}
+--- !u!208 &2126257264546364495
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4912528752775924614}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.3, y: 0.8, z: 0.3}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.79, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &1528823695740220335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4912528752775924614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: NPC
+  isNPC: 1
 --- !u!1001 &6315376576376870790
 PrefabInstance:
   m_ObjectHideFlags: 0
