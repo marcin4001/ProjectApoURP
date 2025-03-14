@@ -36,6 +36,54 @@ MonoBehaviour:
     objectID: 0
     amountObject: 0
     actions: []
+  - optionText: Got any plans for new baked goods?
+    replyText: "Actually, yes. I\u2019ve wanted to make pizza again for a while,
+      but I forgot the exact recipe. Recently, I found an old notebook, and now I
+      can finally try. The problem is, I need a few ingredients\u2026 Maybe you could
+      help me?"
+    nextNode: 1
+    exitOption: 0
+    conditionType: 1
+    questID: 12
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: What ingredients do I need for the pizza?
+    replyText: "For the pizza, you\u2019ll need cheese, salami, and tomatoes. I can
+      sell you the flour, so don\u2019t worry about that. Once you have the rest,
+      you can bake it in my oven."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 3
+    questID: 12
+    objectID: 217
+    amountObject: 1
+    actions: []
+  - optionText: Where can I get salami?
+    replyText: "Best ask Roy in Evergreen City. He raises cattle, so if anyone\u2019s
+      got good salami, it\u2019s him."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 3
+    questID: 12
+    objectID: 217
+    amountObject: 1
+    actions: []
+  - optionText: I managed to bake the pizza.
+    replyText: "Well, would you look at that\u2026 real pizza! Let me have a taste\u2026
+      Hmm, tastes almost like I remember. Great job! Here\u2019s 100$ for your effort.
+      And now that we have it, I\u2019ll add it to my menu. Who knows, maybe all
+      of Arkansas will know my pizza now!"
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 12
+    objectID: 217
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 1350fae8c90bcb04cb3062fd4cd7b07f, type: 2}
+    - {fileID: 11400000, guid: 6cee2a390fbfadc49ac2faae03851cb1, type: 2}
+    - {fileID: 11400000, guid: 2ad6d3d69f6bd08478ab46e90ac5d6ec, type: 2}
   - optionText: "I\u2019ll come back later."
     replyText: 
     nextNode: 0
