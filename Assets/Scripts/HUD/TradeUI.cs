@@ -87,6 +87,11 @@ public class TradeUI : MonoBehaviour
             {
                 if (!QuestController.instance.HaveQuest(item.GetItem().questID))
                     continue;
+                if(item.GetItem().questMustBeComplete)
+                {
+                    if (!QuestController.instance.Complete(item.GetItem().questID))
+                        continue;
+                }
             }
             SlotItemUI slot = Instantiate(slotPrefab, contentNPC).GetComponent<SlotItemUI>();
             slot.SetSlot(item);
