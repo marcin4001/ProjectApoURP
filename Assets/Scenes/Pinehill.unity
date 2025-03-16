@@ -11502,9 +11502,9 @@ GameObject:
   - component: {fileID: 576333466}
   - component: {fileID: 576333465}
   - component: {fileID: 576333464}
-  - component: {fileID: 576333463}
   - component: {fileID: 576333462}
   - component: {fileID: 576333461}
+  - component: {fileID: 576333467}
   m_Layer: 7
   m_Name: ThomasNPC
   m_TagString: Untagged
@@ -11542,28 +11542,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.79, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &576333463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576333460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 1541276177}
-  nearPoint: {fileID: 1598448327}
-  timeToHide: 3
-  texts:
-  - Hi Revo!
-  - Nice to see you!
-  - How are you?
-  haveRifle: 0
-  rifleLayer: Rifle
-  textPos: {x: 0, y: 1.8, z: 0}
 --- !u!195 &576333464
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -11627,6 +11605,26 @@ Transform:
   - {fileID: 1598448327}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &576333467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576333460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: b9d92a7cdb493f14cb26b4783aaf631d, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 1598448327}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!4 &581899645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8680301532144119810, guid: e3729cab5cd8f4c459ef8d249965eeae, type: 3}
@@ -38589,7 +38587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1541276177
 MonoBehaviour:
   m_ObjectHideFlags: 0
