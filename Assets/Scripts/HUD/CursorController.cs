@@ -32,8 +32,9 @@ public class CursorController : MonoBehaviour
     private Camera cam;
     private MainInputSystem mainInputSystem;
     private Coroutine waitCoroutine;
-    [SerializeField] private PickupItem pickupItem;
+    private PickupItem pickupItem;
     private PickUpWeapon pickUpWeapon;
+    private Poster poster;
 
     private void Awake()
     {
@@ -186,6 +187,11 @@ public class CursorController : MonoBehaviour
             pickUpWeapon.HideOutline();
             pickUpWeapon = null;
         }
+        if(poster != null)
+        {
+            poster.HideOutline();
+            poster = null;
+        }
         Ray ray = cam.ScreenPointToRay(mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 1000f, layer))
@@ -219,6 +225,11 @@ public class CursorController : MonoBehaviour
             pickUpWeapon.HideOutline();
             pickUpWeapon = null;
         }
+        if(poster != null)
+        {
+            poster.HideOutline();
+            poster = null;
+        }
         if (Physics.Raycast(ray, out hit, 1000f, layerUse))
         {
             IUsableObj usableObj =  hit.collider.GetComponent<IUsableObj>();
@@ -229,6 +240,8 @@ public class CursorController : MonoBehaviour
                     pickupItem = (PickupItem)usableObj;
                 if(usableObj is PickUpWeapon)
                     pickUpWeapon = (PickUpWeapon)usableObj;
+                if(usableObj is Poster)
+                    poster = (Poster)usableObj;
             }
             else
             {
@@ -248,6 +261,8 @@ public class CursorController : MonoBehaviour
                                 pickupItem = (PickupItem)usableObj;
                             if (usableObj is PickUpWeapon)
                                 pickUpWeapon = (PickUpWeapon)usableObj;
+                            if (usableObj is Poster)
+                                poster = (Poster)usableObj;
                         }
                     }
 
@@ -262,6 +277,10 @@ public class CursorController : MonoBehaviour
         if(pickUpWeapon != null)
         {
             pickUpWeapon.ShowOutline();
+        }
+        if(poster != null)
+        {
+            poster.ShowOutline();
         }
     }
 
@@ -280,6 +299,11 @@ public class CursorController : MonoBehaviour
             pickUpWeapon.HideOutline();
             pickUpWeapon = null;
         }
+        if(poster != null)
+        {
+            poster.HideOutline();
+            poster = null;
+        }
         if (Physics.Raycast(ray, out hit, 1000f, layerUse))
         {
             IUsableObj usableObj = hit.collider.GetComponent<IUsableObj>();
@@ -289,6 +313,8 @@ public class CursorController : MonoBehaviour
                     pickupItem = (PickupItem)usableObj;
                 if (usableObj is PickUpWeapon)
                     pickUpWeapon = (PickUpWeapon)usableObj;
+                if (usableObj is Poster)
+                    poster = (Poster)usableObj;
             }
             else
             {
@@ -307,6 +333,8 @@ public class CursorController : MonoBehaviour
                                 pickupItem = (PickupItem)usableObj;
                             if (usableObj is PickUpWeapon)
                                 pickUpWeapon = (PickUpWeapon)usableObj;
+                            if(usableObj is Poster)
+                                poster = (Poster)usableObj;
                         }
                     }
 
@@ -321,6 +349,10 @@ public class CursorController : MonoBehaviour
         if (pickUpWeapon != null)
         {
             pickUpWeapon.ShowOutline();
+        }
+        if(poster != null)
+        {
+            poster.ShowOutline();
         }
     }
 }

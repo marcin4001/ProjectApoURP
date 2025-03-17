@@ -21,4 +21,9 @@ public class ObjectInfoLog : MonoBehaviour
             return "an";
         return "a";
     }
+
+    public void SetNameObject(string _name)
+    {
+        nameObject = _name;
+    }
 }
