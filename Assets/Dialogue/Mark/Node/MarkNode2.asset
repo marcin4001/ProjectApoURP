@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: MarkNode2
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: What can you tell me about Pinehill?
+    replyText: "It\u2019s a quiet village in the middle of the desert. We\u2019ve
+      got two mills that provide flour for our baker, Jonas. There\u2019s also Thomas\u2019
+      gym and Travis\u2019 gun store. We\u2019re not a big settlement, but we have
+      everything we need to live."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: How did you become the leader of this village?
+    replyText: I became the leader by chance. I found some pre-war ruins, fixed them
+      up, and built the mills. Soon, other people started coming and setting up their
+      own businesses. I made a deal with President Nixon, who accepted us into the
+      Republic of Arkansas and sent guards to protect us.
+    nextNode: 1
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Who is the person in the picture behind you?
+    replyText: "That\u2019s the President of Arkansas, the current ruler. He was
+      elected two years ago, and he has a big influence on how our republic develops."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Where can I find a floppy disk?
+    replyText: "Try the old relay tower northeast of Pinehill. You might find a blank
+      floppy disk there. Or, if you don\u2019t want to search dangerous places, maybe
+      from one of the scavengers."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 5
+    questID: 14
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Why can't you use paper to write the list?
+    replyText: "That\u2019s the agreement with the President. He prefers using a
+      floppy disk reader rather than reading from paper. Generally, this is how we
+      transfer information in the Republic."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 5
+    questID: 14
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Thanks for the talk, Mark. Bye.
+    replyText: 
+    nextNode: 0
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
