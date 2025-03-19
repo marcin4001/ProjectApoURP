@@ -11,6 +11,8 @@ public class ListItemDropPlayer : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null)
         {
             SlotItemUI slotItemUI = eventData.pointerDrag.GetComponent<SlotItemUI>();
+            if (slotItemUI.GetTypeSlot() != SlotUIType.cabinet)
+                return;
             if (slotItemUI == null)
                 return;
             if (slotItemUI.IsPlayerItem())

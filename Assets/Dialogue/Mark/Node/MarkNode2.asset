@@ -53,10 +53,10 @@ MonoBehaviour:
       from one of the scavengers."
     nextNode: 1
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 14
-    objectID: 0
-    amountObject: 0
+    objectID: 219
+    amountObject: 1
     actions: []
   - optionText: Why can't you use paper to write the list?
     replyText: "That\u2019s the agreement with the President. He prefers using a
@@ -64,11 +64,25 @@ MonoBehaviour:
       transfer information in the Republic."
     nextNode: 1
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 14
-    objectID: 0
-    amountObject: 0
+    objectID: 219
+    amountObject: 1
     actions: []
+  - optionText: I brought the floppy disk.
+    replyText: "Thanks! I\u2019ll write the supplies list now...[Mark clicks on his
+      device, saving data onto the floppy disk] Take it straight to the President,
+      and don\u2019t lose it on the way!"
+    nextNode: 1
+    exitOption: 0
+    conditionType: 4
+    questID: 14
+    objectID: 219
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 7fd6d203412eb7c49bd5bb6badd89409, type: 2}
+    - {fileID: 11400000, guid: d1757cfa4892f5c48b939eb21a8fbe34, type: 2}
+    - {fileID: 11400000, guid: 10cf7d7efe22bd64e98f37370808e49e, type: 2}
   - optionText: Thanks for the talk, Mark. Bye.
     replyText: 
     nextNode: 0
