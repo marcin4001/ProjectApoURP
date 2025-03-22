@@ -582,7 +582,7 @@ public class PlayerController : MonoBehaviour
             if(Vector3.Distance(transform.position, lastPos) < 0.005f)
             {
                 blockTime += Time.deltaTime;
-                Debug.Log(blockTime);
+                //Debug.Log(blockTime);
                 if(blockTime >= 1.5f)
                 {
                     SetBlock(false);

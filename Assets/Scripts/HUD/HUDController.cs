@@ -267,6 +267,9 @@ public class HUDController : MonoBehaviour
         {
             bool onBackground = RectTransformUtility.RectangleContainsScreenPoint(background, Input.mousePosition);
             bool onShowButton = RectTransformUtility.RectangleContainsScreenPoint(hideButton.GetComponent<RectTransform>(), Input.mousePosition);
+            bool onFightButton = RectTransformUtility.RectangleContainsScreenPoint(fightPanel.GetComponent<RectTransform>(), Input.mousePosition);
+            if(GameParam.instance.inCombat)
+                return onBackground || onShowButton || onFightButton;
             return onBackground || onShowButton;
         }
         return RectTransformUtility.RectangleContainsScreenPoint(showButton.GetComponent<RectTransform>(), Input.mousePosition);
