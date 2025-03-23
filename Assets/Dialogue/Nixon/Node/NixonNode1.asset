@@ -70,10 +70,10 @@ MonoBehaviour:
       with them."
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 10
-    objectID: 0
-    amountObject: 0
+    objectID: 220
+    amountObject: 1
     actions: []
   - optionText: Where is Pinehill?
     replyText: "You\u2019ll find Pinehill by heading southeast. It\u2019s a village
@@ -81,11 +81,25 @@ MonoBehaviour:
       You better be well prepared."
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 10
-    objectID: 0
-    amountObject: 0
+    objectID: 220
+    amountObject: 1
     actions: []
+  - optionText: I brought the supplies list from Mark.
+    replyText: "Thanks, good job. This list is quite extensive, but we\u2019ll manage.
+      For this, you\u2019ll get the standard payment, like for any contractor - 50
+      dollars."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 10
+    objectID: 220
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: eb764f5815cd16e47991caa68df4ff94, type: 2}
+    - {fileID: 11400000, guid: f909394a8d685a343bed83af1b17d072, type: 2}
+    - {fileID: 11400000, guid: 2eb49a4424b3b234fa03471ee0e7e732, type: 2}
   - optionText: "That\u2019s all I wanted to know, Mr. President. Goodbye."
     replyText: 
     nextNode: 0
