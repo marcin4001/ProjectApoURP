@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: DylanNode
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: What happened, Dylan?
+    replyText: "I left Silverton down south, heading to my brother in Missouri. On
+      the way through Clearwater, I ran out of fuel. I didn\u2019t feel too good
+      in the town I was in before - bandits from Louisiana kept attacking. And that\u2019s
+      how I ended up stuck here."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Can I help you with something?
+    replyText: "Yeah, you can. Bring me a fuel can. You can find an empty one at
+      my place in Silverton. As for the fuel, I heard there\u2019s an old gas station
+      to the east of here - maybe there\u2019s still something left."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 15
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 2129a142d76a68343ad2c779ee79ed34, type: 2}
+  - optionText: Where should I look for fuel?
+    replyText: I heard there's an old gas station to the east of here. Maybe there's
+      still something left. You can find an empty can at my place in Silverton.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 15
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Nice shirt, where did you get it?
+    replyText: "Thanks! It\u2019s a Hawaiian shirt, I bought it in Silverton. There
+      are many traders there with interesting goods."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: "Alright, I\u2019m off. Take care, Dylan."
+    replyText: 
+    nextNode: 0
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
