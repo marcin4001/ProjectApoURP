@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: DukeNode
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: Can you open the gate?
+    replyText: Show me your pass if you want to get in.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 16
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 3167ac5d15a3db648868de526c7c5c88, type: 2}
+  - optionText: Where can I get a pass?
+    replyText: You can get one at one of our foreign embassies. The nearest one is
+      in Clearwater.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 3
+    questID: 16
+    objectID: 214
+    amountObject: 1
+    actions: []
+  - optionText: I have a pass.
+    replyText: "Alright, I\u2019ll check it... Yep, everything\u2019s fine. I\u2019ll
+      open the gate."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 16
+    objectID: 214
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 26346c1fce5f09d45a57549d5e60faa4, type: 2}
+    - {fileID: 11400000, guid: d078251019f94214299a584e0a50c7a8, type: 2}
+  - optionText: "I\u2019ll be back later."
+    replyText: 
+    nextNode: 0
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
