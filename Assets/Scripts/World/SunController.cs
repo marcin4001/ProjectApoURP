@@ -50,6 +50,6 @@ public class SunController : MonoBehaviour
         }
         
 
-        sunTransform.rotation = Quaternion.Euler(sunRotationX % 360, 270, 0f);
+        sunTransform.rotation = Quaternion.Euler(sunRotationX % 360, 270f, 0f);
     }
 }

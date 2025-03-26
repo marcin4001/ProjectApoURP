@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: FranklinNode2
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: Barnabas told me about the library there, and I want to use it.
+    replyText: "If he told you, that means he trusts you. It\u2019s not easy to gain
+      his trust, not many people know about that library. That\u2019s a good reason.
+      Here\u2019s your pass. Give it to the gatekeeper, he\u2019ll let you in."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 6
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 27f273bcaa76af044801086982ea9de8, type: 2}
+  - optionText: I just want to look around.
+    replyText: "That\u2019s not a good enough reason to enter. The capital\u2019s
+      been having serious issues with the poor stealing crops and other goods. Because
+      of that, they haven\u2019t been letting outsiders in. If you have a better
+      reason, come back to me."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
