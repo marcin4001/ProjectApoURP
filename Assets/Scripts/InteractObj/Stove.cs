@@ -19,10 +19,7 @@ public class Stove : MonoBehaviour, IUsableObj
 
     public bool CanUse()
     {
-        if(Inventory.instance.PlayerHaveItem(rawMeatItem.id))
-            return true;
-        else
-            return false;
+        return true;
     }
 
     public GameObject GetMainGameObject()
@@ -37,6 +34,12 @@ public class Stove : MonoBehaviour, IUsableObj
 
     public void Use()
     {
+        if (!Inventory.instance.PlayerHaveItem(rawMeatItem.id))
+        {
+            HUDController.instance.AddConsolelog("You don't have any raw");
+            HUDController.instance.AddConsolelog("meat.");
+            return;
+        }
         StartCoroutine(Cooking());
     }
 
