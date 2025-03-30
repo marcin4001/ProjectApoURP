@@ -17887,6 +17887,7 @@ GameObject:
   - component: {fileID: 699072883}
   - component: {fileID: 699072882}
   - component: {fileID: 699072881}
+  - component: {fileID: 699072886}
   m_Layer: 7
   m_Name: Dylan
   m_TagString: Untagged
@@ -18006,6 +18007,19 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.79, z: 0}
+--- !u!114 &699072886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699072879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871a20b73a019a748ab00d0259496c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questID: 15
 --- !u!4 &705166111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8793899033017299713, guid: 2c49ac1cf6322554f81ddb24494f9213, type: 3}
@@ -18184,6 +18198,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.043425392, y: 0.022131262, z: 0.014395438}
   m_Center: {x: -0.0036049995, y: 0.011025964, z: 0.0005884701}
+--- !u!114 &718073569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718073562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871a20b73a019a748ab00d0259496c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questID: 15
 --- !u!1 &719215123
 GameObject:
   m_ObjectHideFlags: 0
@@ -43968,6 +43995,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c1450c61f942cc64bb13c126525e918d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 718073563}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c1450c61f942cc64bb13c126525e918d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 718073569}
   m_SourcePrefab: {fileID: 100100000, guid: c1450c61f942cc64bb13c126525e918d, type: 3}
 --- !u!4 &1837010775 stripped
 Transform:

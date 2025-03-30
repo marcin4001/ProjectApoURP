@@ -13,6 +13,20 @@ MonoBehaviour:
   m_Name: DylanNode
   m_EditorClassIdentifier: 
   options:
+  - optionText: I brought the fuel can.
+    replyText: "Thanks, you really helped me out! I\u2019ll pour the fuel into the
+      tank and head to Missouri. In return, I have two Healthpacks for you. If you
+      need a place to stay, you can crash at my place in Silverton for a while."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 15
+    objectID: 222
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: a972e14c6b3575f44bff855bef8e1cab, type: 2}
+    - {fileID: 11400000, guid: c0c9dc5c51ca2134ea5f047a1f05d1e4, type: 2}
+    - {fileID: 11400000, guid: 71ec051c14a905248b80baac2520c46e, type: 2}
   - optionText: What happened, Dylan?
     replyText: "I left Silverton down south, heading to my brother in Missouri. On
       the way through Clearwater, I ran out of fuel. I didn\u2019t feel too good
@@ -42,10 +56,10 @@ MonoBehaviour:
       still something left. You can find an empty can at my place in Silverton.
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 15
-    objectID: 0
-    amountObject: 0
+    objectID: 222
+    amountObject: 1
     actions: []
   - optionText: Nice shirt, where did you get it?
     replyText: "Thanks! It\u2019s a Hawaiian shirt, I bought it in Silverton. There
