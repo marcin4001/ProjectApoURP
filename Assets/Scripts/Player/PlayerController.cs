@@ -355,6 +355,11 @@ public class PlayerController : MonoBehaviour
         return inMenu;
     }
 
+    public float GetRadiusPlayerCutWall()
+    {
+        return radiusPlayerCutWall;
+    }
+
     public void SetState(PlayerActionState newState)
     {
         actionState = newState;

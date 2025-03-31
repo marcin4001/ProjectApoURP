@@ -55,6 +55,7 @@ public class CursorController : MonoBehaviour
         Cursor.visible = false;
         if(inMenu)
             cursorImage.texture = defaultCursor;
+        radiusPlayerCutWall = player.GetRadiusPlayerCutWall();
     }
 
     private void OnEnable()

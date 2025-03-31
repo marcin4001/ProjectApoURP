@@ -20,6 +20,7 @@ public class WallCutout : MonoBehaviour
     private void Start()
     {
         player = FindFirstObjectByType<PlayerController>();
+        cutoutSize = GameParam.instance.cutoutSize;
     }
 
     void Update()
