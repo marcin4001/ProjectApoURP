@@ -28,7 +28,7 @@ public class WallCutout : MonoBehaviour
         transform.position = player.GetCenterPosition() - Vector3.forward * 3f - Vector3.right * 3f;
         Vector2 cutoutPos = cam.WorldToViewportPoint(player.GetCenterPosition());
         Vector3 offsetCam =  transform.position - player.GetCenterPosition();
-        RaycastHit[] hits = Physics.SphereCastAll(player.GetCenterPosition(), 0.2f, offsetCam, offsetCam.magnitude);
+        RaycastHit[] hits = Physics.SphereCastAll(player.GetCenterPosition(), 0.3f, offsetCam, offsetCam.magnitude);
 
         if (renderers.Count > 0)
         {
