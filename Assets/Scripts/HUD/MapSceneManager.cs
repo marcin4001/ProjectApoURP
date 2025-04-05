@@ -24,6 +24,8 @@ public class MapSceneManager : MonoBehaviour
     [SerializeField] private float moveSpeed = 35f;
     [SerializeField] private string nextScene;
     [SerializeField] private string mapSignName;
+    [SerializeField] private Sprite playerSignRight;
+    [SerializeField] private Sprite playerSignLeft;
     private Image buttonEnterImage;
     private List<RectTransform> pathList = new List<RectTransform>();
     private Camera cam;
@@ -113,6 +115,18 @@ public class MapSceneManager : MonoBehaviour
         blockSetTarget = true;
         Vector2 playerPos = playerSign.anchoredPosition;
         Vector2 targetPos = target.anchoredPosition;
+        if (Mathf.Abs(playerPos.x - targetPos.x) < 0.01f) // niemal ten sam X
+        {
+            playerSign.GetComponent<Image>().overrideSprite = playerSignRight;
+        }
+        else if (targetPos.x < playerPos.x)
+        {
+            playerSign.GetComponent<Image>().overrideSprite = playerSignLeft;
+        }
+        else
+        {
+            playerSign.GetComponent<Image>().overrideSprite = playerSignRight;
+        }
         float distance = Vector2.Distance(playerPos, targetPos);
         float distanceTraveled = 0;
         buttonEnterImage.overrideSprite = enterBtnInactiveSprite;
