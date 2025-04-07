@@ -6,6 +6,7 @@ public class HouseRoof : MonoBehaviour
     [SerializeField] private Door[] doors;
     [SerializeField] private InHouseTrigger inHouseTrigger;
     [SerializeField] private bool playerInTrigger = false;
+    [SerializeField] private bool openOnStart = false;
     private void Start()
     {
         doors = GetComponentsInChildren<Door>();
@@ -54,7 +55,9 @@ public class HouseRoof : MonoBehaviour
 
     private bool HouseIsOpen()
     {
-        if(doors.Length == 0)
+        if (openOnStart)
+            return true;
+        if (doors.Length == 0)
             return true;
         foreach(Door door in doors)
         {

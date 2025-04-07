@@ -14,6 +14,7 @@ public class Door : MonoBehaviour, IUsableObj
     [SerializeField] private float openAngle = -90f;
     [SerializeField] private bool isOpen = false;
     [SerializeField] private bool isLock = false;
+    [SerializeField] private bool isPermanentlyLocked = false;
     [SerializeField] private int keyID = 0;
     private PlayerController player;
     private NavMeshObstacle obstacle;
@@ -28,6 +29,11 @@ public class Door : MonoBehaviour, IUsableObj
 
     public void Use()
     {
+        if(isPermanentlyLocked)
+        {
+            HUDController.instance.AddConsolelog("The door is jammed!");
+            return;
+        }
         if(isLock)
         {
             return;
