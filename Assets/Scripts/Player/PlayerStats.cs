@@ -102,4 +102,9 @@ public class PlayerStats : MonoBehaviour
         return radLevelMax;
     }
 
+
+    public bool RadLevelIsFull()
+    {
+        return radLevel >= radLevelMax;
+    }
 }

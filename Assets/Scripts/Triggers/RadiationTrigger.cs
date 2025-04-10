@@ -43,6 +43,10 @@ public class RadiationTrigger : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(timeAddRadiation);
+            if(PlayerStats.instance.RadLevelIsFull() && RadDeath.instance != null)
+            {
+                RadDeath.instance.SetDeath();
+            }
             PlayerStats.instance.AddOneRadLevel();
         }
     }

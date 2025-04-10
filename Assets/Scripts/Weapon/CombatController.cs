@@ -247,4 +247,9 @@ public class CombatController : MonoBehaviour
     {
         getDamage = value;
     }
+
+    public GameObject GetBloodPrefab()
+    {
+        return bloodPrefab;
+    }
 }
