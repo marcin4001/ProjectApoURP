@@ -203,6 +203,7 @@ public class EnemyController : MonoBehaviour
             else
                 player.SetDeathState();
         }
+        yield return new WaitForSeconds(0.3f);
         CombatController.instance.NextTurn();
         if (outline != null)
             outline.enabled = false;
@@ -257,7 +258,7 @@ public class EnemyController : MonoBehaviour
         healthPoint -= pointDamage;
         if(pointDamage <= 0)
         {
-            HUDController.instance.AddConsolelog($"Revo missed.");
+            HUDController.instance.AddConsolelog($"Thomas missed.");
         }
         else
         {
