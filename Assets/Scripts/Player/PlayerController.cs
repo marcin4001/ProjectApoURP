@@ -474,6 +474,7 @@ public class PlayerController : MonoBehaviour
                     Vector3 playerScreenPosition = camera.WorldToScreenPoint(GetCenterPosition());
                     float distance = Vector3.Distance(playerScreenPosition, mousePosition);
                     IUsableObj usableTemp = hit.collider.GetComponent<IUsableObj>();
+                    Debug.Log($"Distance to player: {distance}");
                     if (usableTemp != null && distance < radiusPlayerCutWall)
                     {
                         usable = usableTemp;

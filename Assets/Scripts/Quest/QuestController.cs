@@ -42,6 +42,7 @@ public class QuestController : MonoBehaviour
         if (quest != null)
         {
             quest.complete = true;
+            GameParam.instance.AddExp(quest.exp);
         }
     }
 
@@ -50,7 +51,7 @@ public class QuestController : MonoBehaviour
         bool questOnList = quests.Exists(x => x.id == quest.id);
         if(questOnList)
             return;
-        Quest newQuest = new Quest(quest.id, quest.questTitle, quest.owner, quest.location, quest.subQuests);
+        Quest newQuest = new Quest(quest.id, quest.questTitle, quest.owner, quest.location, quest.subQuests, quest.exp);
         quests.Add(newQuest);
     }
 

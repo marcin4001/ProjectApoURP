@@ -10,8 +10,9 @@ public class Quest
     public string location;
     public bool complete = false;
     public List<SubQuest> subQuests = new List<SubQuest>();
+    public int exp = 0;
 
-    public Quest(int _id, string _title, string _owner, string _location, List<SubQuest> _subQuests)
+    public Quest(int _id, string _title, string _owner, string _location, List<SubQuest> _subQuests, int exp)
     {
         id = _id;
         questTitle = _title;
@@ -26,6 +27,8 @@ public class Quest
             newSubQuest.complete = subQuest.complete;
             subQuests.Add(newSubQuest);
         }
+
+        this.exp = exp;
     }
 
     public bool CanComplete()

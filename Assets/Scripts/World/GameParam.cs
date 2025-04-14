@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class GameParam : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class GameParam : MonoBehaviour
     public int healthPointMax = 100;
     public int radLevel = 0;
     public int radLevelMax = 5;
+    public int exp = 0;
+    public int level = 0;
+    public int expToNextLevel = 500;
     public bool inCombat = false;
     public Vector2 mapPosition = Vector2.zero;
     public string prevScene = "";
@@ -73,6 +77,9 @@ public class GameParam : MonoBehaviour
         healthPointMax = 100;
         radLevel = 0;
         radLevelMax = 5;
+        exp = 0;
+        level = 0;
+        expToNextLevel = 500;
         prevScene = "";
         foreach(MapSign sign in mapSigns)
         {
@@ -86,5 +93,22 @@ public class GameParam : MonoBehaviour
         day = day + 1;
     }
 
+    public void AddExp(int _exp)
+    {
+        exp += _exp;
+        HUDController.instance.AddConsolelog($"You earn {_exp} EXP.");
+        while(exp >= expToNextLevel)
+        {
+            LevelUp();
+        }
+    }
+
+    public void LevelUp()
+    {
+        exp -= expToNextLevel;
+        level += 1;
+        expToNextLevel += 500;
+        HUDController.instance.AddConsolelog($"Level Up! New level: {level}");
+    }
 
 }

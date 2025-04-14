@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private WeaponType weaponType = WeaponType.Rifle;
     [SerializeField] private List<SlotItem> slots = new List<SlotItem>();
     [SerializeField] private Transform nearPoint;
+    [SerializeField] private int exp = 30;
     private Vector3 target;
     private NavMeshAgent agent;
     private EnemyAnim anim;
@@ -281,6 +282,7 @@ public class EnemyController : MonoBehaviour
         if(healthPoint <= 0)
         {
             HUDController.instance.AddConsolelog($"{nameEnemy} dies.");
+            GameParam.instance.AddExp(exp);
             healthPoint = 0;
             if(!isDeath && KilledEnemiesList.instance != null)
             {
@@ -299,6 +301,7 @@ public class EnemyController : MonoBehaviour
                 GetComponent<BoxCollider>().enabled = true;
                 GetComponent<CapsuleCollider>().enabled = false;
             }
+
         }
         if(healthPoint > 0 && isHuman)
         {

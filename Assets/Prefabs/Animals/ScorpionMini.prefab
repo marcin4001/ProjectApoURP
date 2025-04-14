@@ -50,7 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameEnemy: Scorpion
+  idEnemy: -1
   isHuman: 0
+  isHumanoid: 0
   isMoving: 0
   isDeath: 0
   isDebug: 0
@@ -72,6 +74,7 @@ MonoBehaviour:
   weaponType: 0
   slots: []
   nearPoint: {fileID: 0}
+  exp: 35
 --- !u!195 &5453036741331453033
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1113,6 +1116,7 @@ MonoBehaviour:
   walkParam: Walk
   deathParam: Death
   attackParam: Attack
+  takeDamageParam: TakeDamage
   isWalk: 0
 --- !u!1 &3182951082294915395 stripped
 GameObject:
@@ -1137,6 +1141,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!4 &3182951082295143585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400142, guid: 426fe2e968742084ca79265b5fd572ee, type: 3}

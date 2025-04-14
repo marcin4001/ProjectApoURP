@@ -51,7 +51,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameEnemy: Buffalo
+  idEnemy: -1
   isHuman: 0
+  isHumanoid: 0
   isMoving: 0
   isDeath: 0
   isDebug: 0
@@ -75,6 +77,7 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 14770c5f016166b4a8bdd0519a10c109, type: 2}
     amount: 2
   nearPoint: {fileID: 0}
+  exp: 50
 --- !u!195 &4361376250626400065
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -905,6 +908,7 @@ MonoBehaviour:
   walkParam: Walk
   deathParam: Death
   attackParam: Attack
+  takeDamageParam: TakeDamage
   isWalk: 0
 --- !u!1 &4694445171631064431 stripped
 GameObject:
@@ -929,3 +933,4 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []

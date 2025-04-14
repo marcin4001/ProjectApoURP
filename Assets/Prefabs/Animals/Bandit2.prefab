@@ -111,7 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameEnemy: Bandit
+  idEnemy: -1
   isHuman: 1
+  isHumanoid: 0
   isMoving: 0
   isDeath: 0
   isDebug: 0
@@ -137,6 +139,7 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
     amount: 20
   nearPoint: {fileID: 7613367016290540498}
+  exp: 60
 --- !u!114 &6618467386473760089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +548,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!1 &1524967829840315815 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 83bd373c11b2a21409d9ffde42b9872b, type: 3}
@@ -621,6 +625,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!4 &2189337132650700573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83bd373c11b2a21409d9ffde42b9872b, type: 3}
@@ -649,6 +654,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!1 &4950460113279782966 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2496332547428783936, guid: 83bd373c11b2a21409d9ffde42b9872b, type: 3}
@@ -672,6 +678,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!1 &5011600735919115104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6657560127643677590, guid: 83bd373c11b2a21409d9ffde42b9872b, type: 3}
@@ -695,6 +702,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!1 &5443201843303050901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3286910004361259421, guid: 83bd373c11b2a21409d9ffde42b9872b, type: 3}
@@ -718,6 +726,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!1001 &7706039159484338473
 PrefabInstance:
   m_ObjectHideFlags: 0

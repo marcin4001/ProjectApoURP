@@ -142,7 +142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameEnemy: Bandit
+  idEnemy: -1
   isHuman: 1
+  isHumanoid: 0
   isMoving: 0
   isDeath: 0
   isDebug: 0
@@ -165,6 +167,8 @@ MonoBehaviour:
   slots:
   - item: {fileID: 11400000, guid: 14770c5f016166b4a8bdd0519a10c109, type: 2}
     amount: 1
+  nearPoint: {fileID: 0}
+  exp: 60
 --- !u!114 &5000089768902744479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +407,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!4 &602452155923722444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1e1512879c6285c4a9a69e014efa52f1, type: 3}
@@ -431,6 +436,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!4 &1613206466948688111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 1e1512879c6285c4a9a69e014efa52f1, type: 3}
@@ -459,6 +465,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!1 &3235792369885074817 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6687504106412162394, guid: 1e1512879c6285c4a9a69e014efa52f1, type: 3}
@@ -482,6 +489,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!1 &5948640139172380647 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2496332547428783936, guid: 1e1512879c6285c4a9a69e014efa52f1, type: 3}
@@ -505,6 +513,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!1 &6031034445861774513 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6657560127643677590, guid: 1e1512879c6285c4a9a69e014efa52f1, type: 3}
@@ -528,6 +537,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!1 &6752130259319226692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3286910004361259421, guid: 1e1512879c6285c4a9a69e014efa52f1, type: 3}
@@ -551,6 +561,7 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!1001 &1951986034725124471
 PrefabInstance:
   m_ObjectHideFlags: 0
