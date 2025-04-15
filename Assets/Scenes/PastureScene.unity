@@ -526,10 +526,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: cowSkull (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 884585460}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 884585459}
   m_SourcePrefab: {fileID: 100100000, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
 --- !u!1 &31190865
 GameObject:
@@ -4873,10 +4883,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: cowSkull (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 957930462}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 957930461}
   m_SourcePrefab: {fileID: 100100000, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
 --- !u!1001 &702982980
 PrefabInstance:
@@ -4967,6 +4987,46 @@ Transform:
   - {fileID: 1516838077}
   m_Father: {fileID: 546090332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &719509560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+  m_PrefabInstance: {fileID: 2101819216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &719509564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719509560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: cow skull
+  isNPC: 0
+--- !u!65 &719509565
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719509560}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.04516844, y: 0.03847448, z: 0.013726327}
+  m_Center: {x: -0.000010472748, y: -0.000067942856, z: 0.000821983}
 --- !u!1001 &745238286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6538,6 +6598,46 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e2f0c98908e16042af44ee39c8981a9, type: 3}
+--- !u!1 &884585455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+  m_PrefabInstance: {fileID: 22218026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &884585459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884585455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: cow skull
+  isNPC: 0
+--- !u!65 &884585460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884585455}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.04516844, y: 0.03847448, z: 0.013726326}
+  m_Center: {x: -0.000010472704, y: -0.00006794285, z: 0.000821983}
 --- !u!1001 &913792551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6774,6 +6874,46 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dab2771aba2520141b970eea05beff60, type: 3}
+--- !u!1 &957930457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+  m_PrefabInstance: {fileID: 680703184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &957930461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957930457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: cow skull
+  isNPC: 0
+--- !u!65 &957930462
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957930457}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.045168456, y: 0.038474493, z: 0.013726333}
+  m_Center: {x: -0.00001047276, y: -0.0000679429, z: 0.00082198315}
 --- !u!1 &961366778
 GameObject:
   m_ObjectHideFlags: 0
@@ -8360,6 +8500,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1158430059 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+  m_PrefabInstance: {fileID: 1953055659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1158430063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158430059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: cow skull
+  isNPC: 0
+--- !u!65 &1158430064
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158430059}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.045168437, y: 0.038474478, z: 0.013726324}
+  m_Center: {x: -0.000010472709, y: -0.000067942805, z: 0.000821983}
 --- !u!1 &1160045497
 GameObject:
   m_ObjectHideFlags: 0
@@ -14657,10 +14837,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: cowSkull (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1158430064}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1158430063}
   m_SourcePrefab: {fileID: 100100000, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
 --- !u!1 &1955937165
 GameObject:
@@ -15967,10 +16157,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: cowSkull
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 719509565}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 719509564}
   m_SourcePrefab: {fileID: 100100000, guid: 717f0894e48c27942ab025b78d0e0323, type: 3}
 --- !u!1 &2109260959
 GameObject:
