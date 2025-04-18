@@ -76,7 +76,7 @@ public class MapSceneManager : MonoBehaviour
         {
             GameParam.instance.currentTime = gameTime;
             GameParam.instance.mapPosition = playerSign.anchoredPosition;
-            GameParam.instance.SetMapSignState(mapSignName, MapSignState.Explored);
+            //GameParam.instance.SetMapSignState(mapSignName, MapSignState.Explored);
             SceneManager.LoadScene(nextScene);
         }
     }
@@ -115,7 +115,7 @@ public class MapSceneManager : MonoBehaviour
         blockSetTarget = true;
         Vector2 playerPos = playerSign.anchoredPosition;
         Vector2 targetPos = target.anchoredPosition;
-        if (Mathf.Abs(playerPos.x - targetPos.x) < 0.01f) // niemal ten sam X
+        if (Mathf.Abs(playerPos.x - targetPos.x) < 0.01f)
         {
             playerSign.GetComponent<Image>().overrideSprite = playerSignRight;
         }

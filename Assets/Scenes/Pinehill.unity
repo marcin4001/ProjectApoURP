@@ -7367,8 +7367,20 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2049322897}
     m_Modifications:
+    - target: {fileID: 81351926652477442, guid: ce1f7bfdc707a0e469342157aad01551, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 81351926652477442, guid: ce1f7bfdc707a0e469342157aad01551, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 81351926652477442, guid: ce1f7bfdc707a0e469342157aad01551, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 125
+      objectReference: {fileID: 0}
     - target: {fileID: 81351926652477442, guid: ce1f7bfdc707a0e469342157aad01551, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.877
@@ -7422,6 +7434,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1f7bfdc707a0e469342157aad01551, type: 3}
+--- !u!4 &570981650 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 81351926652477442, guid: ce1f7bfdc707a0e469342157aad01551, type: 3}
+  m_PrefabInstance: {fileID: 570981649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &576333460
 GameObject:
   m_ObjectHideFlags: 0
@@ -14250,7 +14267,7 @@ GameObject:
   - component: {fileID: 837019547}
   - component: {fileID: 837019546}
   m_Layer: 7
-  m_Name: GameObject
+  m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23854,6 +23871,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraPivotSpawn: {fileID: 1138282695}
   indexCabinetData: 5
+  importantPlace: 1
+  mapSignName: Pinehill
 --- !u!4 &1138282695
 Transform:
   m_ObjectHideFlags: 0
@@ -40975,6 +40994,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 570981650}
   - {fileID: 1642205708}
   - {fileID: 1432505542}
   - {fileID: 1514683491}
@@ -88145,4 +88165,3 @@ SceneRoots:
   - {fileID: 771034567}
   - {fileID: 1548674534}
   - {fileID: 837019547}
-  - {fileID: 570981649}
