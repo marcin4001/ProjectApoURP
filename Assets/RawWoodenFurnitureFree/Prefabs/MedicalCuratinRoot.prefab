@@ -1,0 +1,194 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8211649706560004171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1140200255110953710}
+  - component: {fileID: 1622644750476628270}
+  - component: {fileID: 3851722094409591132}
+  - component: {fileID: 6533830711277267120}
+  m_Layer: 7
+  m_Name: MedicalCuratinRoot
+  m_TagString: Obstacle
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1140200255110953710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211649706560004171}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -14.742, y: 1.076, z: -30.036}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8082399574991751886}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+--- !u!65 &1622644750476628270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211649706560004171}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3566836, y: 1.8014808, z: 1.8174133}
+  m_Center: {x: 0.002175227, y: 0.03400904, z: -0.15192473}
+--- !u!208 &3851722094409591132
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211649706560004171}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.1783418, y: 0.9007405, z: 0.9087065}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002175227, y: 0.03400904, z: -0.15192473}
+  m_TimeToStationary: 0.5
+--- !u!114 &6533830711277267120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211649706560004171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: medical curatin
+  isNPC: 0
+--- !u!1001 &8620112793940241701
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1140200255110953710}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9991689
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000059604645
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.04076384
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7597297452762587485, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cb37fe6d76b23524c95fbc7f523f41e1, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cb37fe6d76b23524c95fbc7f523f41e1, type: 2}
+    - target: {fileID: -2323429349509785978, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cb37fe6d76b23524c95fbc7f523f41e1, type: 2}
+    - target: {fileID: -1479579006857399788, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cb37fe6d76b23524c95fbc7f523f41e1, type: 2}
+    - target: {fileID: -284985943379480274, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cb37fe6d76b23524c95fbc7f523f41e1, type: 2}
+    - target: {fileID: 919132149155446097, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: m_Name
+      value: MedicalCuratin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825350974359034705, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cb37fe6d76b23524c95fbc7f523f41e1, type: 2}
+    - target: {fileID: 4354043278153488560, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cb37fe6d76b23524c95fbc7f523f41e1, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+--- !u!4 &8082399574991751886 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7fba0ba2c8da48e4d9a2b2c782f96da9, type: 3}
+  m_PrefabInstance: {fileID: 8620112793940241701}
+  m_PrefabAsset: {fileID: 0}
