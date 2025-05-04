@@ -53,7 +53,10 @@ public class TimeGame : MonoBehaviour
     {
         currentTime += hours;
         if (currentTime >= 24f)
+        {
             currentTime -= 24f;
+            GameParam.instance.AddDay();
+        }
     }
 
     public string GetCurrentTimeString()
