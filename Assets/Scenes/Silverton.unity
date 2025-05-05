@@ -11366,6 +11366,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.957
       objectReference: {fileID: 0}
+    - target: {fileID: 4482393063174731986, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5787048253285659601, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
       propertyPath: nameObject
       value: Dr. Harlan
@@ -11410,7 +11414,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1893928476227419609, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1827648878360874349, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
     m_AddedGameObjects:
@@ -11418,6 +11423,9 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 717173194}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2876531377557654850, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2044893755}
     - targetCorrespondingSourceObject: {fileID: 4482393063174731986, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -25766,6 +25774,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dab2771aba2520141b970eea05beff60, type: 3}
+--- !u!4 &1596198873 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2997409050769543261, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+  m_PrefabInstance: {fileID: 751158139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1596690701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33305,6 +33318,31 @@ Transform:
   - {fileID: 1293935503}
   m_Father: {fileID: 331498970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2044893749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2876531377557654850, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+  m_PrefabInstance: {fileID: 751158139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2044893755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044893749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: f60578a611d03214e8d6f8da664bbd1c, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 1596198873}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1001 &2046611312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34519,6 +34557,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2.137
       objectReference: {fileID: 0}
+    - target: {fileID: 4482393063174731986, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5787048253285659601, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
       propertyPath: nameObject
       value: Jed
@@ -34563,7 +34605,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1893928476227419609, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1827648878360874349, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
     m_AddedGameObjects:
@@ -34574,15 +34617,45 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 318994744}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4482393063174731986, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 2876531377557654850, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 2117601152}
   m_SourcePrefab: {fileID: 100100000, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
 --- !u!4 &2117601149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8200613717549845821, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
   m_PrefabInstance: {fileID: 2117601148}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2117601150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2876531377557654850, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+  m_PrefabInstance: {fileID: 2117601148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2117601151 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2997409050769543261, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+  m_PrefabInstance: {fileID: 2117601148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2117601152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117601150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 641c9bef7bacd33478784455040e174e, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 2117601151}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1001 &2118306515
 PrefabInstance:
   m_ObjectHideFlags: 0
