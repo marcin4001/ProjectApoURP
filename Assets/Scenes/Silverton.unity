@@ -11426,9 +11426,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2876531377557654850, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2044893755}
-    - targetCorrespondingSourceObject: {fileID: 4482393063174731986, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
 --- !u!4 &751158140 stripped
 Transform:
@@ -12326,6 +12323,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dab2771aba2520141b970eea05beff60, type: 3}
+--- !u!4 &824109399 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2997409050769543261, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+  m_PrefabInstance: {fileID: 1720947251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &829186847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13635,7 +13637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &944514303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13994,8 +13996,8 @@ GameObject:
   - component: {fileID: 950798928}
   - component: {fileID: 950798927}
   - component: {fileID: 950798926}
-  - component: {fileID: 950798925}
   - component: {fileID: 950798924}
+  - component: {fileID: 950798929}
   m_Layer: 7
   m_Name: MartinNPC
   m_TagString: Untagged
@@ -14017,27 +14019,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: Martin
   isNPC: 0
---- !u!114 &950798925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950798923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 944514303}
-  nearPoint: {fileID: 16814860}
-  timeToHide: 3
-  texts:
-  - Hey Thomas
-  - How are you?
-  haveRifle: 0
-  rifleLayer: Rifle
-  textPos: {x: 0, y: 1.8, z: 0}
 --- !u!208 &950798926
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -14093,6 +14074,26 @@ Transform:
   - {fileID: 16814860}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &950798929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950798923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 7c530c0bc9db359459646834eca5fb03, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 16814860}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!4 &959019239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7073378017817154753, guid: e052864731e24ef4b838fe9d4bfb7ef6, type: 3}
@@ -22627,6 +22628,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ad44805c5c14045a2d243d1f45d196, type: 3}
+--- !u!1 &1400501293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2876531377557654850, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+  m_PrefabInstance: {fileID: 1720947251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1402367931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28180,6 +28186,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.149
       objectReference: {fileID: 0}
+    - target: {fileID: 4482393063174731986, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5787048253285659601, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
       propertyPath: nameObject
       value: Adam
@@ -28224,7 +28234,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1893928476227419609, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1827648878360874349, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
     m_AddedGameObjects:
@@ -28232,6 +28243,9 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 933682759}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2876531377557654850, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1765014307}
     - targetCorrespondingSourceObject: {fileID: 4482393063174731986, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -28483,6 +28497,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8200613717549845821, guid: f43e63e1085a7cc42b477cf2f427872a, type: 3}
   m_PrefabInstance: {fileID: 1720947251}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1765014307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400501293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 342e15adf416c3144a833fbe2162e047, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 824109399}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1 &1765069244
 GameObject:
   m_ObjectHideFlags: 0
