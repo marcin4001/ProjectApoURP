@@ -153,6 +153,11 @@ public class PlayerController : MonoBehaviour
             playerStats.AddOneRadLevel();
         if(food.healRadioactive) 
             playerStats.RemoveOneRadLevel();
+        if(food.healRadioactiveDuo)
+        {
+            playerStats.RemoveOneRadLevel();
+            playerStats.RemoveOneRadLevel();
+        }
         HUDController.instance.RemoveCurrentItem();
         HUDController.instance.SetActiveInventoryBtn(true);
         CursorController.instance.SetIsWait(false);
@@ -176,6 +181,11 @@ public class PlayerController : MonoBehaviour
             playerStats.AddOneRadLevel();
         if (food.healRadioactive)
             playerStats.RemoveOneRadLevel();
+        if (food.healRadioactiveDuo)
+        {
+            playerStats.RemoveOneRadLevel();
+            playerStats.RemoveOneRadLevel();
+        }
         HUDController.instance.RemoveCurrentItem();
         HUDController.instance.SetActiveInventoryBtn(true);
         CursorController.instance.SetIsWait(false);

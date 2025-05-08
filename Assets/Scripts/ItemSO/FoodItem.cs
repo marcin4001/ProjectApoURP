@@ -6,6 +6,7 @@ public class FoodItem : Item
     public int healPoint = 10;
     public bool radioactive = false;
     public bool healRadioactive = false;
+    public bool healRadioactiveDuo = false;
     public bool isDrink = false;
     public GameObject spawnObj;
 }
