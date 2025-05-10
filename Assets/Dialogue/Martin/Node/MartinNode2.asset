@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: MartinNode2
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: It's no problem for me to go to the zombies.
+    replyText: "Alright, here\u2019s the contract. You'll take it to their leader
+      for a signature. They'll receive a barrel of water once a week. Bring me the
+      signed contract, and you'll get $200 for it."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: bb815924817ccca4ab1d4ec267572c91, type: 2}
+  - optionText: No, I can't do it. I too am repulsed by zombies.
+    replyText: I understand, I'll find someone else to take care of it. Thank you
+      for your honesty.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
