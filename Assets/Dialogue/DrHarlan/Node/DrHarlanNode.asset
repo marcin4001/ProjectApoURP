@@ -66,11 +66,26 @@ MonoBehaviour:
       anything, bring it to me."
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 19
-    objectID: 0
-    amountObject: 0
+    objectID: 225
+    amountObject: 1
     actions: []
+  - optionText: "I\u2019ve got the Encyclopedia of Medicine for you."
+    replyText: "Oh, thank you! This could be exactly what we need. [flips through
+      the book] Here it is! Mixing a Healthpak with a Radkiller stops the zombie
+      transformation. Here\u2019s $300 for your trouble - that\u2019s what this book
+      is currently worth on the market, as far as I know."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 19
+    objectID: 225
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 4870899dc3923ba44b892b6af87fcc84, type: 2}
+    - {fileID: 11400000, guid: 2b351e239f466ef4da1c36c96340d97a, type: 2}
+    - {fileID: 11400000, guid: 4bac12e5d46ac4e4b907e4af908fc98b, type: 2}
   - optionText: "Stay safe. I\u2019ll be back."
     replyText: 
     nextNode: 0
