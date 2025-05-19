@@ -61,11 +61,26 @@ MonoBehaviour:
       where something happened. If you find any clues, come back to me right away."
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 20
-    objectID: 0
-    amountObject: 0
+    objectID: 226
+    amountObject: 1
     actions: []
+  - optionText: I found a fabric list on the bodies in a canyon near Pinehill. Your
+      name is on it.
+    replyText: "Damn it\u2026 I had a feeling something was wrong. Bandits must\u2019ve
+      gotten to them. Looks like I\u2019ll need to find new suppliers. Here, take
+      $120 for your trouble."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 20
+    objectID: 226
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 0ec7add730ac7424e92f70e563d0d893, type: 2}
+    - {fileID: 11400000, guid: 1d5d6812f3673da468e6e4fbf30a43e2, type: 2}
+    - {fileID: 11400000, guid: d79f441a340dc9948aeaac55e5b242aa, type: 2}
   - optionText: Aloha, Jed!
     replyText: 
     nextNode: 0
