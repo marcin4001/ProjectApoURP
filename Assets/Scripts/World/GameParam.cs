@@ -8,6 +8,7 @@ public class GameParam : MonoBehaviour
     public float currentTime;
     public int healthPoint = 100;
     public int healthPointMax = 100;
+    public int healthPointMaxBase = 100;
     public int radLevel = 0;
     public int radLevelMax = 5;
     public int exp = 0;
@@ -44,6 +45,7 @@ public class GameParam : MonoBehaviour
         {
             healthPoint = PlayerStats.instance.GetHP();
             healthPointMax = PlayerStats.instance.GetMaxHP();
+            healthPointMaxBase = PlayerStats.instance.GetMaxHPBase();
             radLevel = PlayerStats.instance.GetRadLevel();
             radLevelMax = PlayerStats.instance.GetMaxRadLevel();
         }
@@ -75,6 +77,7 @@ public class GameParam : MonoBehaviour
         day = 1;
         healthPoint = 100;
         healthPointMax = 100;
+        healthPointMaxBase = 100;
         radLevel = 0;
         radLevelMax = 5;
         exp = 0;

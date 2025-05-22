@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -5,8 +6,19 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats instance;
     [SerializeField] private int healthPoint = 100;
     [SerializeField] private int healthPointMax = 100;
+    [SerializeField] private int healthPointMaxBase = 100;
     [SerializeField] private int radLevel = 0;
     [SerializeField] private int radLevelMax = 5;
+    private Dictionary<int, float> radHPPercent = new Dictionary<int, float>
+    {
+        {0, 1f},
+        {1, 0.95f},
+        {2, 0.9f},
+        {3, 0.8f},
+        {4, 0.7f},
+        {5, 0.6f},
+    };
+
 
     private void Awake()
     {
@@ -19,6 +31,7 @@ public class PlayerStats : MonoBehaviour
         {
             healthPoint = GameParam.instance.healthPoint;
             healthPointMax = GameParam.instance.healthPointMax;
+            healthPointMaxBase = GameParam.instance.healthPointMaxBase;
             radLevel = GameParam.instance.radLevel;
             radLevelMax = GameParam.instance.radLevelMax;
         }
@@ -47,6 +60,8 @@ public class PlayerStats : MonoBehaviour
     {
         healthPointMax = newMax;
         healthPoint = newMax;
+        healthPointMaxBase = newMax;
+        radLevel = 0;
         HUDController.instance.UpdateHPBar(healthPoint, healthPointMax);
     }
 
@@ -60,7 +75,9 @@ public class PlayerStats : MonoBehaviour
         radLevel++;
         if (radLevel > radLevelMax)
             radLevel = radLevelMax;
+        UpdateMaxHP();
         HUDController.instance.UpdateRadBar(radLevel, radLevelMax);
+        HUDController.instance.UpdateHPBar(healthPoint, healthPointMax);
     }
 
     public void RemoveOneRadLevel()
@@ -68,13 +85,24 @@ public class PlayerStats : MonoBehaviour
         radLevel--;
         if (radLevel < 0)
             radLevel = 0;
+        UpdateMaxHP();
         HUDController.instance.UpdateRadBar(radLevel, radLevelMax);
+        HUDController.instance.UpdateHPBar(healthPoint, healthPointMax);
     }
 
     public void RemoveAllLevelsRad()
     {
         radLevel = 0;
+        UpdateMaxHP();
         HUDController.instance.UpdateRadBar(radLevel, radLevelMax);
+        HUDController.instance.UpdateHPBar(healthPoint, healthPointMax);
+    }
+
+    private void UpdateMaxHP()
+    {
+        healthPointMax = Mathf.RoundToInt(healthPointMaxBase * radHPPercent[radLevel]);
+        if(healthPoint > healthPointMax)
+            healthPoint = healthPointMax;
     }
 
     public string GetStatsText()
@@ -92,6 +120,11 @@ public class PlayerStats : MonoBehaviour
     public int GetMaxHP()
     {
         return healthPointMax;
+    }
+
+    public int GetMaxHPBase()
+    {
+        return healthPointMaxBase;
     }
 
     public int GetRadLevel()
