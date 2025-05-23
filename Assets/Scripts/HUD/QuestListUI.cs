@@ -14,6 +14,9 @@ public class QuestListUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI questListText;
     [SerializeField] private Transform playerStats;
     [SerializeField] private GameObject cameraPlayerStats;
+    [SerializeField] private Image viewPlayerImage;
+    [SerializeField] private Sprite[] viewPlayerSprites;
+    [SerializeField] private RawImage oldImage;
     [SerializeField] private bool active;
     [SerializeField] private string separator = "########################################";
     private Canvas canvas;
@@ -29,6 +32,8 @@ public class QuestListUI : MonoBehaviour
         closeButton.onClick.AddListener(Hide);
         currentButton.onClick.AddListener(CreateCurrentQuestList);
         completeButton.onClick.AddListener(CreateCompleteQuestList);
+        if (oldImage != null)
+            oldImage.gameObject.SetActive(false);
     }
 
     public void Show()
@@ -38,8 +43,8 @@ public class QuestListUI : MonoBehaviour
         player.SetInMenu(true);
         CameraMovement.instance.SetBlock(true);
         statsText.text = PlayerStats.instance.GetStatsText();
-        cameraPlayerStats.SetActive(true);
-        coroutine = StartCoroutine(RotatePlayer());
+        //cameraPlayerStats.SetActive(true);
+        coroutine = StartCoroutine(ChangePlayerView());
         CreateCurrentQuestList();
     }
 
@@ -49,7 +54,7 @@ public class QuestListUI : MonoBehaviour
         canvas.enabled = false;
         player.SetInMenu(false);
         CameraMovement.instance.SetBlock(false);
-        cameraPlayerStats.SetActive(false);
+        //cameraPlayerStats.SetActive(false);
         if(coroutine != null)
             StopCoroutine(coroutine);
     }
@@ -66,6 +71,20 @@ public class QuestListUI : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             playerStats.Rotate(0f, -90f, 0f);
+        }
+    }
+
+    private IEnumerator ChangePlayerView()
+    {
+        int indexImage = 0;
+        viewPlayerImage.overrideSprite = viewPlayerSprites[indexImage];
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            indexImage++;
+            if(indexImage == viewPlayerSprites.Length)
+                indexImage = 0;
+            viewPlayerImage.overrideSprite = viewPlayerSprites[indexImage];
         }
     }
 
