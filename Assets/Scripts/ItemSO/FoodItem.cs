@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.Splines.SplineInstantiate;
 
 [CreateAssetMenu(fileName = "FoodItem", menuName = "Item/FoodItem")]
 public class FoodItem : Item
@@ -8,5 +9,6 @@ public class FoodItem : Item
     public bool healRadioactive = false;
     public bool healRadioactiveDuo = false;
     public bool isDrink = false;
+    public bool isSpicy = false;
     public GameObject spawnObj;
 }

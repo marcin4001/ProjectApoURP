@@ -161,6 +161,11 @@ public class PlayerController : MonoBehaviour
         HUDController.instance.RemoveCurrentItem();
         HUDController.instance.SetActiveInventoryBtn(true);
         CursorController.instance.SetIsWait(false);
+        if(food.isSpicy)
+        {
+            HUDController.instance.AddConsolelog("The spicy taste scorches");
+            HUDController.instance.AddConsolelog("your throat!");
+        }
         if (GameParam.instance.inCombat)
         {
             CombatController.instance.RemoveAP(1);

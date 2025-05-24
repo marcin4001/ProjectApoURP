@@ -8,5 +8,13 @@ public class AddItemAction : ActionDialogue
     public override void Execute()
     {
         Inventory.instance.AddItem(item);
+        if(item.GetItem() is MiscItem)
+        {
+            MiscItem miscItem = (MiscItem)item.GetItem();
+            if(miscItem.isAmmo)
+            {
+                HUDController.instance.SetItemSlot();
+            }
+        }
     }
 }
