@@ -48,7 +48,10 @@ public class DialogueController : MonoBehaviour
             indexNode = 0;
             return;
         }
-        DialogueUI.instance.SetReply(option.replyText);
+        if (option.replyText != "")
+        {
+            DialogueUI.instance.SetReply(option.replyText);
+        }
         indexNode = option.nextNode;
         CreateListOption();
     }

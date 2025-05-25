@@ -5954,13 +5954,18 @@ PrefabInstance:
       propertyPath: nameObject
       value: Velma
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8845664228342376423, guid: 000c265d8a00c5e4787fe875438d9ff0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5985087114145160721, guid: 000c265d8a00c5e4787fe875438d9ff0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8845664228342376423, guid: 000c265d8a00c5e4787fe875438d9ff0, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 4577771706863673321, guid: 000c265d8a00c5e4787fe875438d9ff0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 2023573562}
   m_SourcePrefab: {fileID: 100100000, guid: 000c265d8a00c5e4787fe875438d9ff0, type: 3}
 --- !u!1001 &368436181
 PrefabInstance:
@@ -11593,6 +11598,11 @@ Transform:
   - {fileID: 1781970796}
   m_Father: {fileID: 2146885258}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &790139254 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3355090100537491467, guid: 000c265d8a00c5e4787fe875438d9ff0, type: 3}
+  m_PrefabInstance: {fileID: 365171571}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &793404170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14564,6 +14574,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16e0fce5a3130274baae3d8eb1a53a0f, type: 3}
+--- !u!1 &990084524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 990084526}
+  - component: {fileID: 990084525}
+  m_Layer: 0
+  m_Name: AmericanRoulette
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &990084525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990084524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbede3f365dfba4faf1e98bd790bdee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  colorBet: 1
+  evenOddBet: 0
+  lowHighBet: 0
+--- !u!4 &990084526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990084524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &992776305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32577,6 +32635,31 @@ Transform:
   - {fileID: 197936711}
   m_Father: {fileID: 1195671225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2023573561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4577771706863673321, guid: 000c265d8a00c5e4787fe875438d9ff0, type: 3}
+  m_PrefabInstance: {fileID: 365171571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2023573562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023573561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 7ca98f8cc8e88ec47b0f7c2f7714df75, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 790139254}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1001 &2024243804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38205,3 +38288,4 @@ SceneRoots:
   - {fileID: 1906902711}
   - {fileID: 1949666653}
   - {fileID: 1887342403}
+  - {fileID: 990084526}
