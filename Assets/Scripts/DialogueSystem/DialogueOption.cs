@@ -38,6 +38,10 @@ public class DialogueOption
                 return EnemiesNotKilled();
             case ConditionDialogueType.EnemiesKilled:
                 return EnemiesKilled();
+            case ConditionDialogueType.CanNotComplete:
+                return CanNotComplete();
+            case ConditionDialogueType.CanComplete:
+                return CanComplete();
         }
         return true;
     }
@@ -144,6 +148,30 @@ public class DialogueOption
             return true;
         return KilledEnemiesList.instance.IsGroupDefeated(questID);
     }
+
+    private bool CanNotComplete()
+    {
+        if (QuestController.instance == null)
+            return false;
+        if (!QuestController.instance.HaveQuest(questID))
+            return false;
+        if (QuestController.instance.Complete(questID))
+            return false;
+        Quest quest = QuestController.instance.GetQuest(questID);
+        return !quest.CanComplete();
+    }
+
+    private bool CanComplete()
+    {
+        if (QuestController.instance == null)
+            return false;
+        if (!QuestController.instance.HaveQuest(questID))
+            return false;
+        if (QuestController.instance.Complete(questID))
+            return false;
+        Quest quest = QuestController.instance.GetQuest(questID);
+        return quest.CanComplete();
+    }
 }
 
 public enum ConditionDialogueType
@@ -157,5 +185,7 @@ public enum ConditionDialogueType
     QuestNoComplete,
     PlayerNoHaveItemWQ,
     EnemiesNotKilled,
-    EnemiesKilled
+    EnemiesKilled,
+    CanNotComplete,
+    CanComplete
 }
