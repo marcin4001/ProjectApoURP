@@ -28,4 +28,12 @@ public class Grate : MonoBehaviour
     {
         animator.SetTrigger(openParam);
     }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.F11))
+        {
+            Open();
+        }
+    }
 }
