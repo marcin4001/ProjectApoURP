@@ -48,8 +48,12 @@ MonoBehaviour:
   currentTime: 8
   healthPoint: 100
   healthPointMax: 100
+  healthPointMaxBase: 100
   radLevel: 0
   radLevelMax: 5
+  exp: 0
+  level: 0
+  expToNextLevel: 500
   inCombat: 0
   mapPosition: {x: -227.5, y: 227.5}
   prevScene: 
@@ -69,6 +73,8 @@ MonoBehaviour:
   - name: Pinehill
     state: 0
   - name: Junkyard
+    state: 0
+  - name: Restaurant
     state: 0
   cameraPivotRot: {x: 30, y: 35, z: 0}
   nearClip: -2
