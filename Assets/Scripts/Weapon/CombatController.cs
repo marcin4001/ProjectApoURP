@@ -70,8 +70,11 @@ public class CombatController : MonoBehaviour
 
     public void SkipTurnPlayer()
     {
-        skipTurnPlayer = true;
-        NextTurn();
+        if (currentIndex < 0)
+        {
+            skipTurnPlayer = true;
+            NextTurn();
+        }
     }
 
     public void NextTurn()
