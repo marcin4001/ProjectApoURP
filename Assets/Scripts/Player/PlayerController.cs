@@ -302,8 +302,8 @@ public class PlayerController : MonoBehaviour
         }
         if(item is MiscItem)
         {
-            Debug.Log("Misc");
             Door door = _target.GetComponent<Door>();
+            Debug.Log(_target.name);
             if(door != null)
             {
                 Debug.Log("Door");
