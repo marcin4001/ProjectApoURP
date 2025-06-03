@@ -252,10 +252,15 @@ public class EnemyController : MonoBehaviour
             outlineList.Show(false);
     }
 
-    public void GetDamage(int point)
+    public void GetDamage(int point, bool rawDamage = false)
     {
         bool isCrit = false;
         int pointDamage = CombatController.instance.CalculateDamegePlayer(point, out isCrit);
+        if(rawDamage)
+        {
+            isCrit = false;
+            pointDamage = point;
+        }
         healthPoint -= pointDamage;
         if(pointDamage <= 0)
         {

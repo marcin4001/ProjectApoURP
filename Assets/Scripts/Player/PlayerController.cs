@@ -248,7 +248,37 @@ public class PlayerController : MonoBehaviour
         SlotItem slotItem = HUDController.instance.GetCurrentItem();
         Item item = slotItem.GetItem();
         if (item == null)
+        {
+            EnemyController enemy = _target.GetComponent<EnemyController>();
+            if (enemy == null) return;
+            if (enemy.IsDeath()) return;
+            float distanceToPoint = Vector3.Distance(center.position, point);
+            if (distanceToPoint > 2f)
+            {
+                HUDController.instance.AddConsolelog("The target is too far");
+                HUDController.instance.AddConsolelog("away.");
+                return;
+            }
+            Vector3 direction = point - center.position;
+            RaycastHit[] hits = Physics.RaycastAll(center.position, direction, distanceToPoint);
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.collider.tag == "Wall" || hit.collider.tag == "Door")
+                {
+                    HUDController.instance.AddConsolelog("The target is too far");
+                    HUDController.instance.AddConsolelog("away.");
+                    return;
+                }
+            }
+            animationPlayer.Punch();
+            transform.rotation = Quaternion.LookRotation(point - transform.position);
+            enemy.GetDamage(2, true);
+            if (GameParam.instance.inCombat)
+            {
+                StartCoroutine(AfterUseWeaponInCombat());
+            }
             return;
+        }
         if (item is WeaponItem)
         {
             WeaponObject weapon = weaponController.GetCurrentWeapon();

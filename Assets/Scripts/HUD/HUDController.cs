@@ -75,6 +75,10 @@ public class HUDController : MonoBehaviour
             fightPanel.SetActive(false);
         consoleText.text = string.Empty;
         slotStateText.text = slotState.ToString();
+        if(slotState == SlotState.None)
+        {
+            slotStateText.text = "Unarmed";
+        }
         Show();
         SetItemSlot();
         StartCoroutine(UpdateTimer());
@@ -130,6 +134,11 @@ public class HUDController : MonoBehaviour
                 }
             }
         }
+        if(item == null)
+        {
+            Debug.Log("Unarmed");
+            player.StartUsingItem();
+        }
     }
 
     public void ChangeStateSlot()
@@ -150,7 +159,11 @@ public class HUDController : MonoBehaviour
                     slotState = SlotState.Use;
                     break;
             }
-        slotStateText.text = slotState.ToString();
+            slotStateText.text = slotState.ToString();
+            if (slotState == SlotState.None)
+            {
+                slotStateText.text = "Unarmed";
+            }
         }
     }
 
@@ -345,6 +358,10 @@ public class HUDController : MonoBehaviour
             
         }
         slotStateText.text = slotState.ToString();
+        if (slotState == SlotState.None)
+        {
+            slotStateText.text = "Unarmed";
+        }
     }
 
     public void UpdateAmmoText(string _text)

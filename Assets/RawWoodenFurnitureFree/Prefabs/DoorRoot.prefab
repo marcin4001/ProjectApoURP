@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6730300209921290751}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1670697391913934214}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: DoorRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9009677652239372225}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 2144390748763369528}
   - component: {fileID: 404059742295356953}
   - component: {fileID: 4150664809068664106}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62ea3137ffb32c40b2eebede25e9647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roof: {fileID: 0}
   root: {fileID: 1670697391913934214}
   slot1: {fileID: 6730300209921290751}
   slot2: {fileID: 9009677652239372225}
@@ -152,6 +153,9 @@ MonoBehaviour:
   closeAngle: 0
   openAngle: -90
   isOpen: 0
+  isLock: 0
+  isPermanentlyLocked: 0
+  keyID: 0
 --- !u!33 &7231977516241050654
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -255,3 +259,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameObject: door
+  isNPC: 0
