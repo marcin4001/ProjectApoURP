@@ -257,10 +257,7 @@ public class EnemyController : MonoBehaviour
         bool isCrit = false;
         int pointDamage = CombatController.instance.CalculateDamegePlayer(point, out isCrit);
         if(rawDamage)
-        {
-            isCrit = false;
-            pointDamage = point;
-        }
+            pointDamage = CombatController.instance.CalculateDamegePlayerOnlyCrit(point, out isCrit);
         healthPoint -= pointDamage;
         if(pointDamage <= 0)
         {

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,10 @@ public class WeaponController : MonoBehaviour
     public static WeaponController instance;
     [SerializeField] WeaponObject currentWeapon;
     [SerializeField] private List<WeaponObject> weaponItems = new List<WeaponObject>();
+    [SerializeField] private AudioSource handSource;
+    [SerializeField] private AudioClip punchClip;
+    [SerializeField] private float startPlayAudio = 0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -83,5 +88,17 @@ public class WeaponController : MonoBehaviour
         {
             weapon.gameObject.SetActive(false);
         }
+    }
+
+    public void StartPlayPunch()
+    {
+        StartCoroutine(PlayPunch());
+    }
+
+    private IEnumerator PlayPunch()
+    {
+        yield return new WaitForSeconds(startPlayAudio);
+        if (handSource != null)
+            handSource.PlayOneShot(punchClip);
     }
 }

@@ -189,6 +189,21 @@ public class CombatController : MonoBehaviour
         }
     }
 
+    public int CalculateDamegePlayerOnlyCrit(int baseDamage, out bool isCrit)
+    {
+        isCrit = false;
+        int critChance = Random.Range(0, 100);
+        if (critChance > GameParam.instance.chanceToCrit)
+        {
+            return baseDamage;
+        }
+        else
+        {
+            isCrit = true;
+            return baseDamage * 2;
+        }
+    }
+
     private IEnumerator AfterDeath()
     {
         yield return new WaitForSeconds(2f);
