@@ -20,8 +20,8 @@ MonoBehaviour:
       rebuild what we could. Now, we decide our own future.
     nextNode: 1
     exitOption: 0
-    conditionType: 5
-    questID: 22
+    conditionType: 0
+    questID: 0
     objectID: 0
     amountObject: 0
     actions: []
@@ -45,8 +45,8 @@ MonoBehaviour:
       can be trusted."
     nextNode: 1
     exitOption: 0
-    conditionType: 0
-    questID: 0
+    conditionType: 6
+    questID: 22
     objectID: 0
     amountObject: 0
     actions: []
@@ -57,11 +57,24 @@ MonoBehaviour:
       with his response."
     nextNode: 1
     exitOption: 0
-    conditionType: 0
-    questID: 0
+    conditionType: 10
+    questID: 22
     objectID: 0
     amountObject: 0
     actions: []
+  - optionText: Barnabas said to let you know he'll respond in a month.
+    replyText: "Hmph. Typical of him... But at least he didn\u2019t reject it outright.
+      Since you've been so useful to us, here - take the key to the library in Evergreen
+      City. It holds a wealth of pre-war knowledge. It might be very useful to you."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 11
+    questID: 22
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: a4bf8f1c159cb8641afecb34581290d3, type: 2}
+    - {fileID: 11400000, guid: 9728115d6e875a746bf6d79587c7ecce, type: 2}
   - optionText: "That\u2019s all I wanted to know, Mr. President. Goodbye."
     replyText: 
     nextNode: 0
