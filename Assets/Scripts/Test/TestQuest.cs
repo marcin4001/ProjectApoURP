@@ -12,7 +12,9 @@ public class TestQuest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.F9))
+        if (!GameParam.instance.inDev)
+            return;
+        if (Input.GetKeyUp(KeyCode.F9))
         {
             foreach(ActionDialogue action in actions)
             {

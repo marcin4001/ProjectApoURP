@@ -12,6 +12,8 @@ public class TestPlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameParam.instance.inDev)
+            return;
         if (Input.GetKeyUp(KeyCode.F1))
             playerStats.AddHealthPoint(5);
         if (Input.GetKeyUp(KeyCode.F2))

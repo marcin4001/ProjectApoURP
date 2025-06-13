@@ -26,6 +26,7 @@ public class GameParam : MonoBehaviour
     public bool startGame;
     public int chanceToHit = 70;
     public int chanceToCrit = 20;
+    public bool inDev = false;
     private void Awake()
     {
         if(instance != null && instance != this)

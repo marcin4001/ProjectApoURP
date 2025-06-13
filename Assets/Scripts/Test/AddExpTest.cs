@@ -6,6 +6,8 @@ public class AddExpTest : MonoBehaviour
 
     void Update()
     {
+        if(!GameParam.instance.inDev)
+            return;
         if(Input.GetKeyDown(KeyCode.E))
         {
             GameParam.instance.AddExp(exp);
