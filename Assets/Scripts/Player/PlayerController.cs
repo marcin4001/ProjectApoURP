@@ -269,6 +269,13 @@ public class PlayerController : MonoBehaviour
                     HUDController.instance.AddConsolelog("away.");
                     return;
                 }
+
+                if(hit.collider.gameObject.layer == 7)
+                {
+                    HUDController.instance.AddConsolelog("The target is too far");
+                    HUDController.instance.AddConsolelog("away.");
+                    return;
+                }
             }
             animationPlayer.Punch();
             transform.rotation = Quaternion.LookRotation(point - transform.position);
@@ -659,10 +666,15 @@ public class PlayerController : MonoBehaviour
         if (currentSelectObj != null)
         {
             float distnceToObject = Vector3.Distance(transform.position, moveTarget);
+            Debug.Log($"Distance: {distnceToObject} max: {maxDistance}");
             if(distnceToObject < maxDistance)
                 StartCoroutine(InteractAction(currentSelectObj));
             if(isUsingKey)
                 StartCoroutine(InteractAction(currentSelectObj));
+            if(currentSelectObj is Door)
+            {
+                StartCoroutine(InteractAction(currentSelectObj));
+            }
             currentSelectObj = null;
         }
     }

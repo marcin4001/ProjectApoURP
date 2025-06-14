@@ -25,9 +25,8 @@ MonoBehaviour:
     amountObject: 0
     actions: []
   - optionText: Do you have any details? Where could it be?
-    replyText: "They wrote about the south, in an old research facility. They didn\u2019t
-      mention the location, but I heard that a village called Clearwater was founded
-      a few years ago to the east. Maybe someone there knows something."
+    replyText: The book mentioned an old research facility somewhere in the south,
+      but without any real details.
     nextNode: 0
     exitOption: 0
     conditionType: 0
@@ -37,9 +36,9 @@ MonoBehaviour:
     actions: []
   - optionText: That sounds like something we need to find.
     replyText: "I know, but it\u2019s too dangerous for both of us to go. You have
-      to go alone, Thomas. Someone needs to stay here and take care of everything
-      while you\u2019re gone. I know you can do this. You\u2019re the only one with
-      a chance. I believe in you."
+      to go alone, Thomas. Someone needs to stay and look after the place - we can\u2019t
+      just leave it unattended while you\u2019re gone. I know you can do this. You\u2019re
+      the only one with a chance. I believe in you."
     nextNode: 0
     exitOption: 0
     conditionType: 1
@@ -48,6 +47,16 @@ MonoBehaviour:
     amountObject: 0
     actions:
     - {fileID: 11400000, guid: 2195569d4fb687e4fb999d505e86dfd3, type: 2}
+  - optionText: Where should I start looking?
+    replyText: I think you should start looking in the village of Clearwater in the
+      east. Maybe someone there knows some details.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
   - optionText: I'm setting off
     replyText: 
     nextNode: 0
