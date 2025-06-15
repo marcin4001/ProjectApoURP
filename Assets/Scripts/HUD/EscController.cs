@@ -31,6 +31,12 @@ public class EscController : MonoBehaviour
         if (block)
             return;
 
+        if(BookReader.instance.GetActive())
+        {
+            BookReader.instance.Hide();
+            return;
+        }
+
         if(TradeUI.instance.GetActive())
         {
             TradeUI.instance.Hide();
