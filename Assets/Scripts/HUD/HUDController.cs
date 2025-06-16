@@ -133,10 +133,14 @@ public class HUDController : MonoBehaviour
                         break;
                 }
             }
+            if(miscItem.isBook)
+            {
+                BookReader.instance.Show(miscItem.bookProfile);
+                return;
+            }
         }
         if(item == null)
         {
-            Debug.Log("Unarmed");
             player.StartUsingItem();
         }
     }

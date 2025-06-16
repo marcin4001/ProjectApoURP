@@ -30,13 +30,13 @@ public class BookReader : MonoBehaviour
     }
 
     
-    public void Show()
+    public void Show(BookProfile profile)
     {
         active = true;
         panel.SetActive(true);
         player.SetInMenu(true);
         CameraMovement.instance.SetBlock(true);
-
+        book = profile;
         if(book != null)
         {
             if(book.pages.Count ==  0)
@@ -53,15 +53,16 @@ public class BookReader : MonoBehaviour
         panel.SetActive(false);
         player.SetInMenu(false);
         CameraMovement.instance.SetBlock(false);
+        book = null;
     }
 
-    void Update()
-    {
-        if(!active && Input.GetKeyDown(KeyCode.B))
-        {
-            Show();
-        }
-    }
+    //void Update()
+    //{
+    //    if(!active && Input.GetKeyDown(KeyCode.B))
+    //    {
+    //        Show();
+    //    }
+    //}
 
     public bool GetActive()
     {
