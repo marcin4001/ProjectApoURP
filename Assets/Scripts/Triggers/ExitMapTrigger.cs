@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 public class ExitMapTrigger : MonoBehaviour
 {
     [SerializeField] private string sceneName = "DemoMenu";
+    [SerializeField] private bool startQuest = false;
+    [SerializeField] private int idQuest = 0;
+    [SerializeField] private string textLog = "";
     private PlayerController playerController;
     void Start()
     {
@@ -13,6 +16,14 @@ public class ExitMapTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(startQuest)
+        {
+            if (!QuestController.instance.HaveQuest(idQuest))
+            {
+                HUDController.instance.AddConsolelog(textLog);
+                return;
+            }
+        }
         if (other.tag == "Player")
         {
             playerController.SetBlock(true);
