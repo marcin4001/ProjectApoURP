@@ -671,10 +671,10 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(InteractAction(currentSelectObj));
             if(isUsingKey)
                 StartCoroutine(InteractAction(currentSelectObj));
-            if(currentSelectObj is Door)
-            {
-                StartCoroutine(InteractAction(currentSelectObj));
-            }
+            //if(currentSelectObj is Door)
+            //{
+            //    StartCoroutine(InteractAction(currentSelectObj));
+            //}
             currentSelectObj = null;
         }
     }
@@ -706,6 +706,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator InteractAction(IUsableObj usable)
     {
+
         HUDController.instance.SetActiveInventoryBtn(false);
         CursorController.instance.SetIsWait(true);
         isUsingObj = true;
@@ -753,7 +754,10 @@ public class PlayerController : MonoBehaviour
         {
             Door door = (Door)usable;
             if (door.IsLock() && !isUsingKey)
+            {
                 HUDController.instance.AddConsolelog("The door is locked.");
+                
+            }
         }
         isUsingObj = false;
         isUsingKey = false;

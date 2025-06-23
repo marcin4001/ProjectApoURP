@@ -20,6 +20,7 @@ public class Door : MonoBehaviour, IUsableObj
     private NavMeshObstacle obstacle;
     private Coroutine currentCoroutine;
     private float alpha = 0f;
+    private bool active = true;
 
     void Start()
     {
@@ -29,6 +30,15 @@ public class Door : MonoBehaviour, IUsableObj
 
     public void Use()
     {
+        if(active)
+        {
+            active = false;
+            StartCoroutine(SetActiveAfterTime());
+        }
+        else
+        {
+            return;
+        }
         if(isPermanentlyLocked)
         {
             HUDController.instance.AddConsolelog("The door is jammed!");
@@ -41,6 +51,7 @@ public class Door : MonoBehaviour, IUsableObj
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         isOpen = !isOpen;
+        
         if (isOpen)
             currentCoroutine = StartCoroutine(OpenTask());
         else
@@ -52,6 +63,12 @@ public class Door : MonoBehaviour, IUsableObj
             else
                 roof.Show();
         }
+    }
+
+    private IEnumerator SetActiveAfterTime()
+    {
+        yield return new WaitForEndOfFrame();
+        active = true;
     }
 
     public bool CheckKey(int _keyID)

@@ -3244,8 +3244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: b158da8f720a2214d9921e55a022f230, type: 2}
-  - {fileID: 11400000, guid: eb764f5815cd16e47991caa68df4ff94, type: 2}
+  - {fileID: 11400000, guid: 712af2eefb080ec4c94e099c803ab464, type: 2}
+  - {fileID: 11400000, guid: 9728115d6e875a746bf6d79587c7ecce, type: 2}
 --- !u!4 &129044658
 Transform:
   m_ObjectHideFlags: 0
@@ -8955,11 +8955,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 404059742295356953, guid: 880d5e369e4a0d64b9b04e1527030829, type: 3}
       propertyPath: m_Size.z
-      value: 0.0044000074
+      value: 0.0008751129
       objectReference: {fileID: 0}
     - target: {fileID: 404059742295356953, guid: 880d5e369e4a0d64b9b04e1527030829, type: 3}
       propertyPath: m_Center.z
-      value: -0.0018233191
+      value: -0.000060871876
       objectReference: {fileID: 0}
     - target: {fileID: 1670697391913934214, guid: 880d5e369e4a0d64b9b04e1527030829, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33080,6 +33080,73 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.88, y: 1.97, z: 0.3}
   m_Center: {x: 0, y: 1.02, z: 0}
+--- !u!1 &1331948534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1331948537}
+  - component: {fileID: 1331948536}
+  - component: {fileID: 1331948535}
+  m_Layer: 8
+  m_Name: Quest6CompleteTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1331948535
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331948534}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.8057606, z: 1.68}
+  m_Center: {x: 0, y: 0.9028803, z: 0}
+--- !u!114 &1331948536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331948534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4926586f77c1010449fa46082955a36d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idQuest: 6
+--- !u!4 &1331948537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331948534}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -13.627, y: 0, z: 24.223}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &1332674931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: dab2771aba2520141b970eea05beff60, type: 3}
@@ -52018,6 +52085,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: MapScene
+  startQuest: 0
+  idQuest: 0
+  textLog: 
 --- !u!65 &2109260961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55631,3 +55701,4 @@ SceneRoots:
   - {fileID: 377140712}
   - {fileID: 129044658}
   - {fileID: 1169067626}
+  - {fileID: 1331948537}

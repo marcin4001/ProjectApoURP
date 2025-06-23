@@ -47,6 +47,8 @@ public class HUDController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     [Header("Fight Panel")]
     [SerializeField] private GameObject fightPanel;
+    [Header("Quest")]
+    [SerializeField] private TextMeshProUGUI questText;
     private PlayerController player;
     private Canvas canvas;
 
@@ -78,6 +80,10 @@ public class HUDController : MonoBehaviour
         if(slotState == SlotState.None)
         {
             slotStateText.text = "Unarmed";
+        }
+        if(questText != null)
+        {
+            questText.text = "";
         }
         Show();
         SetItemSlot();
@@ -487,6 +493,21 @@ public class HUDController : MonoBehaviour
             timerText.text = time;
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    public void SetQuestCompleteText(Quest quest)
+    {
+        if(questText == null) 
+            return;
+        questText.text = "Quest Complete:\n";
+        questText.text += quest.questTitle;
+        StartCoroutine(HideQuestText());
+    }
+
+    private IEnumerator HideQuestText()
+    {
+        yield return new WaitForSeconds(5f);
+        questText.text = "";
     }
 }
 
