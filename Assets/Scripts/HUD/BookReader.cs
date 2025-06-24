@@ -76,10 +76,17 @@ public class BookReader : MonoBehaviour
         if (book.pages.Count == 0)
             return;
         pageIndex += 1;
-        if(pageIndex >= book.pages.Count)
+        if (pageIndex >= book.pages.Count)
+        {
             pageIndex = book.pages.Count - 1;
+            return;
+        }
         screenText.text = book.pages[pageIndex].text;
         pageText.text = $"{pageIndex + 1}/{book.pages.Count}";
+        if (pageIndex == book.pages.Count - 1)
+        {
+            book.Execute();
+        }
     }
 
     public void LeftBtn()

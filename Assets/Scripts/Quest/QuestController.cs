@@ -53,6 +53,7 @@ public class QuestController : MonoBehaviour
             return;
         Quest newQuest = new Quest(quest.id, quest.questTitle, quest.owner, quest.location, quest.subQuests, quest.exp);
         quests.Add(newQuest);
+        HUDController.instance.AddConsolelog("New quest added to journal");
     }
 
     public List<Quest> GetQuests()
