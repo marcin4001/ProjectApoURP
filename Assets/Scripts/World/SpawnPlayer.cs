@@ -6,9 +6,12 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private int indexCabinetData = 0;
     [SerializeField] private bool importantPlace;
     [SerializeField] private string mapSignName;
+    [SerializeField] private int indexTheme = 0;
 
     void Start()
     {
+        MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
+        MusicManager.instance.SetTheme(indexTheme);
         if(GameParam.instance.startGame)
         {
             GameParam.instance.startGame = false;
@@ -18,6 +21,7 @@ public class SpawnPlayer : MonoBehaviour
         controller.GetAgent().Warp(transform.position);
         controller.transform.eulerAngles = transform.eulerAngles;
         ListCabinet.instance.indexCabinetData = indexCabinetData;
+
         if (importantPlace && GameParam.instance.GetMapSignState(mapSignName) != MapSignState.Explored)
         {
             GameParam.instance.SetMapSignState(mapSignName, MapSignState.Explored);

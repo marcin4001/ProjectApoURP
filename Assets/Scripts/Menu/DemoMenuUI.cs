@@ -7,8 +7,11 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private string sceneStartName = "MainScene";
     [SerializeField] private Button playButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private int indexTheme = 0;
     void Start()
     {
+        MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
+        MusicManager.instance.SetTheme(indexTheme);
         playButton.onClick.AddListener(OnClickPlay);
         quitButton.onClick.AddListener(OnClickQuit);
     }

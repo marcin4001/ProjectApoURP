@@ -26,6 +26,7 @@ public class MapSceneManager : MonoBehaviour
     [SerializeField] private string mapSignName;
     [SerializeField] private Sprite playerSignRight;
     [SerializeField] private Sprite playerSignLeft;
+    [SerializeField] private int indexTheme = 0;
     private Image buttonEnterImage;
     private List<RectTransform> pathList = new List<RectTransform>();
     private Camera cam;
@@ -40,6 +41,8 @@ public class MapSceneManager : MonoBehaviour
     }
     void Start()
     {
+        MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
+        MusicManager.instance.SetTheme(indexTheme);
         cam = FindFirstObjectByType<Camera>();
         gridButton.onClick.AddListener(ShowGrid);
         enterButton.onClick.AddListener(OnClickEnter);
