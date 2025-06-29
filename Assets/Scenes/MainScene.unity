@@ -6222,6 +6222,75 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08455138, y: 0.0017932449, z: 0.08455138}
   m_Center: {x: 0, y: 0.00089661934, z: -3.5183714e-19}
+--- !u!1 &901874245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 901874248}
+  - component: {fileID: 901874247}
+  - component: {fileID: 901874246}
+  m_Layer: 8
+  m_Name: ChangeIndexNodeTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &901874246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901874245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97576d7b88779140bd6bfd2754f7314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questID: 24
+  nameNPC: Patricia
+  newIndex: 1
+--- !u!65 &901874247
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901874245}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.5906343, y: 1.6225997, z: 1}
+  m_Center: {x: -0.100317, y: 0.81129986, z: 0}
+--- !u!4 &901874248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901874245}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -4.55, y: 0, z: 6.596}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &915551469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17162,3 +17231,4 @@ SceneRoots:
   - {fileID: 678837675}
   - {fileID: 1322889419}
   - {fileID: 257787570}
+  - {fileID: 901874248}

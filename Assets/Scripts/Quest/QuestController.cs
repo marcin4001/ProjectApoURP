@@ -41,6 +41,8 @@ public class QuestController : MonoBehaviour
         Quest quest = quests.Find(x => x.id == id);
         if (quest != null)
         {
+            if(quest.complete)
+                return;
             quest.complete = true;
             GameParam.instance.AddExp(quest.exp);
         }
