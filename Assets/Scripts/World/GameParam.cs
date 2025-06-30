@@ -1,5 +1,4 @@
 using UnityEngine;
-using static Cinemachine.DocumentationSortingAttribute;
 
 public class GameParam : MonoBehaviour
 {
@@ -27,6 +26,9 @@ public class GameParam : MonoBehaviour
     public int chanceToHit = 70;
     public int chanceToCrit = 20;
     public float maxVolumeTheme = 1f;
+    [Range(0f, 1f)] public float mainMusicVolume = 1f;
+    [Range(0f, 1f)] public float sfxVolume = 1f;
+    public Vector2Int[] resolutions; 
     public bool inDev = false;
     private void Awake()
     {
