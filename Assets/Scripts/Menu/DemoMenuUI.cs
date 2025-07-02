@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -9,6 +10,27 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private int indexTheme = 0;
+    private MainInputSystem inputActions;
+
+    private void Awake()
+    {
+        inputActions = new MainInputSystem();
+        inputActions.Player.Pause.performed += OnEscClick;
+        inputActions.Enable();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Player.Pause.performed += OnEscClick;
+        inputActions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Pause.performed -= OnEscClick;
+        inputActions.Disable();
+    }
+
     void Start()
     {
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
@@ -42,5 +64,14 @@ public class DemoMenuUI : MonoBehaviour
     {
         Debug.Log("Exit");
         Application.Quit();
+    }
+
+    public void OnEscClick(InputAction.CallbackContext ctx)
+    {
+        if (SettingsUI.instance.GetActive())
+        {
+            SettingsUI.instance.Close();
+            return;
+        }
     }
 }

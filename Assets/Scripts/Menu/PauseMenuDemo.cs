@@ -5,6 +5,7 @@ public class PauseMenuDemo : MonoBehaviour
 {
     public static PauseMenuDemo instance;
     [SerializeField] private Button resumeButton;
+    [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private bool active = false;
     private Canvas canvas;
@@ -21,6 +22,7 @@ public class PauseMenuDemo : MonoBehaviour
         canvas.enabled = false;
         resumeButton.onClick.AddListener(Hide);
         quitButton.onClick.AddListener(OnClickQuit);
+        settingsButton.onClick.AddListener(OnClickSettings);
     }
 
     public bool GetActive()
@@ -44,6 +46,11 @@ public class PauseMenuDemo : MonoBehaviour
         HUDController.instance.SetActiveCanvas(true);
         player.SetInMenu(false);
         active = false;
+    }
+
+    private void OnClickSettings()
+    {
+        SettingsUI.instance.Show();
     }
 
     private void OnClickQuit()

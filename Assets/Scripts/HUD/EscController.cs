@@ -67,6 +67,12 @@ public class EscController : MonoBehaviour
             return;
         }
 
+        if(SettingsUI.instance.GetActive())
+        {
+            SettingsUI.instance.Close();
+            return;
+        }
+
         if (PauseMenuDemo.instance.GetActive()) 
         {
             PauseMenuDemo.instance.Hide();

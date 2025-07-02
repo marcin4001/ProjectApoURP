@@ -28,7 +28,8 @@ public class GameParam : MonoBehaviour
     public float maxVolumeTheme = 1f;
     [Range(0f, 1f)] public float mainMusicVolume = 1f;
     [Range(0f, 1f)] public float sfxVolume = 1f;
-    public Vector2Int[] resolutions; 
+    public Vector2Int[] resolutions;
+    public int currentResolution;
     public bool inDev = false;
     private void Awake()
     {
