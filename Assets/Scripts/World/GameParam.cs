@@ -40,6 +40,8 @@ public class GameParam : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+        mainMusicVolume = PlayerPrefs.GetFloat("mainMusicVolume", 1f);
+        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
     }
 
     public void UpdateParam()

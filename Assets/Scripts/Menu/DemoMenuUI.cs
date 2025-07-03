@@ -17,6 +17,7 @@ public class DemoMenuUI : MonoBehaviour
         inputActions = new MainInputSystem();
         inputActions.Player.Pause.performed += OnEscClick;
         inputActions.Enable();
+        
     }
 
     private void OnEnable()
@@ -38,6 +39,8 @@ public class DemoMenuUI : MonoBehaviour
         playButton.onClick.AddListener(OnClickPlay);
         settingsButton.onClick.AddListener(OnClickSettings);
         quitButton.onClick.AddListener(OnClickQuit);
+        GameParam.instance.mainMusicVolume = PlayerPrefs.GetFloat("mainMusicVolume", 1f);
+        GameParam.instance.sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
     }
 
     private void OnClickPlay()

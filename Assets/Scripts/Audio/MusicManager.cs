@@ -13,13 +13,16 @@ public class MusicManager : MonoBehaviour
     {
         instance = this;
         sfxSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+        GameParam.instance.mainMusicVolume = PlayerPrefs.GetFloat("mainMusicVolume", 1f);
+        GameParam.instance.sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
         SetVolumeMainMusic(GameParam.instance.mainMusicVolume);
         SetVolumeSFX(GameParam.instance.sfxVolume);
     }
 
     private void Start()
     {
-        
+        SetVolumeMainMusic(GameParam.instance.mainMusicVolume);
+        SetVolumeSFX(GameParam.instance.sfxVolume);
     }
 
     public void SetTheme(int index)

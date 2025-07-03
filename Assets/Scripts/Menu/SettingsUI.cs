@@ -54,6 +54,7 @@ public class SettingsUI : MonoBehaviour
         }
         musicSlider.value = GameParam.instance.mainMusicVolume;
         sfxSlider.value = GameParam.instance.sfxVolume;
+        
         backgroud.SetActive(true);
         panel.SetActive(true);
         active = true;
@@ -111,6 +112,9 @@ public class SettingsUI : MonoBehaviour
         GameParam.instance.sfxVolume = sfxSlider.value;
         MusicManager.instance.SetVolumeMainMusic(musicSlider.value);
         MusicManager.instance.SetVolumeSFX(sfxSlider.value);
+
+        PlayerPrefs.SetFloat("mainMusicVolume", GameParam.instance.mainMusicVolume);
+        PlayerPrefs.SetFloat("sfxVolume", GameParam.instance.sfxVolume);
     }
 
     public void ValidResolution()
