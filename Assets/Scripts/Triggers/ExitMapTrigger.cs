@@ -6,6 +6,7 @@ public class ExitMapTrigger : MonoBehaviour
 {
     [SerializeField] private string sceneName = "DemoMenu";
     [SerializeField] private bool startQuest = false;
+    [SerializeField] private bool endDemo = false;
     [SerializeField] private int idQuest = 0;
     [SerializeField] private string textLog = "";
     private PlayerController playerController;
@@ -21,6 +22,14 @@ public class ExitMapTrigger : MonoBehaviour
             if (!QuestController.instance.HaveQuest(idQuest))
             {
                 HUDController.instance.AddConsolelog(textLog);
+                return;
+            }
+        }
+        if(GameParam.instance.inDemo && endDemo)
+        {
+            if(QuestController.instance.HaveQuest(idQuest))
+            {
+                StartCoroutine(EndDemoLoadScene());
                 return;
             }
         }
@@ -48,5 +57,16 @@ public class ExitMapTrigger : MonoBehaviour
         if(ListOffers.instance != null)
             ListOffers.instance.SaveOffers();
         SceneManager.LoadScene(sceneName);
+    }
+
+    private IEnumerator EndDemoLoadScene()
+    {
+        playerController.SetBlock(true);
+        if (CombatController.instance != null)
+        {
+            CombatController.instance.StopCombat();
+        }
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
     }
 }

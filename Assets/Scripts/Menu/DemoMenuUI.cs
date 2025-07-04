@@ -10,6 +10,7 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private int indexTheme = 0;
+    [SerializeField] private bool inDemo = false; 
     private MainInputSystem inputActions;
 
     private void Awake()
@@ -46,6 +47,7 @@ public class DemoMenuUI : MonoBehaviour
     private void OnClickPlay()
     {
         GameParam.instance.SetStartParam();
+        GameParam.instance.inDemo = inDemo;
         if(Inventory.instance != null)
             Inventory.instance.Clear();
         //PickUpObjList.instance.CopyList();

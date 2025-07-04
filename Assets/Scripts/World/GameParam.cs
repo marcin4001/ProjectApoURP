@@ -31,6 +31,7 @@ public class GameParam : MonoBehaviour
     public Vector2Int[] resolutions;
     public int currentResolution;
     public bool inDev = false;
+    public bool inDemo = false;
     private void Awake()
     {
         if(instance != null && instance != this)

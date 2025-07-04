@@ -12,7 +12,8 @@ public class SpawnPlayer : MonoBehaviour
     {
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
         MusicManager.instance.SetTheme(indexTheme);
-        if(GameParam.instance.startGame)
+        ListCabinet.instance.indexCabinetData = indexCabinetData;
+        if (GameParam.instance.startGame)
         {
             GameParam.instance.startGame = false;
             return;
@@ -20,7 +21,7 @@ public class SpawnPlayer : MonoBehaviour
         PlayerController controller = FindFirstObjectByType<PlayerController>();
         controller.GetAgent().Warp(transform.position);
         controller.transform.eulerAngles = transform.eulerAngles;
-        ListCabinet.instance.indexCabinetData = indexCabinetData;
+        
 
         if (importantPlace && GameParam.instance.GetMapSignState(mapSignName) != MapSignState.Explored)
         {

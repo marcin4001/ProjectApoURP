@@ -7,6 +7,7 @@ public class MapSignObject : MonoBehaviour
     [SerializeField] private MapSignState state;
     [SerializeField] private Sprite ExploredSign;
     [SerializeField] private Sprite UnexploredSign;
+    [SerializeField] private bool block = false;
     private CanvasGroup group;
     private Image image;
     private RectTransform rectTransform;
@@ -69,6 +70,8 @@ public class MapSignObject : MonoBehaviour
 
     public float GetDistanceTo(RectTransform _rectTransform)
     {
+        if (block)
+            return 1000f;
         return Vector2.Distance(rectTransform.anchoredPosition, _rectTransform.localPosition);
     }
 }
