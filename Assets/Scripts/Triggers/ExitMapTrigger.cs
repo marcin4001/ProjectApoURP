@@ -9,6 +9,7 @@ public class ExitMapTrigger : MonoBehaviour
     [SerializeField] private bool endDemo = false;
     [SerializeField] private int idQuest = 0;
     [SerializeField] private string textLog = "";
+    [SerializeField] private string thxDemoScene = "ThxDemoScene";
     private PlayerController playerController;
     void Start()
     {
@@ -67,6 +68,6 @@ public class ExitMapTrigger : MonoBehaviour
             CombatController.instance.StopCombat();
         }
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(thxDemoScene);
     }
 }

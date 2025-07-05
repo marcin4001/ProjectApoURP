@@ -50,6 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameEnemy: Rat
+  idEnemy: -1
+  isHuman: 0
+  isHumanoid: 0
   isMoving: 0
   isDeath: 0
   isDebug: 1
@@ -64,11 +67,16 @@ MonoBehaviour:
   timeMoving: 0
   bloodPrefab: {fileID: 2025030183170297089, guid: 444b7985d2987f344b15d412c4c0152e, type: 3}
   outline: {fileID: 1753603315417264400}
+  outlineList: {fileID: 0}
   bloodOffset: {x: 0, y: 0, z: 0}
   group: {fileID: 0}
+  weapon: {fileID: 0}
+  weaponType: 0
   slots:
   - item: {fileID: 11400000, guid: 14770c5f016166b4a8bdd0519a10c109, type: 2}
     amount: 1
+  nearPoint: {fileID: 0}
+  exp: 30
 --- !u!195 &3253233612541110636
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -310,6 +318,7 @@ MonoBehaviour:
   walkParam: Walk
   deathParam: Death
   attackParam: Attack
+  takeDamageParam: TakeDamage
   isWalk: 0
 --- !u!1 &5373753586366942351 stripped
 GameObject:
@@ -330,10 +339,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 0.745283, g: 0, b: 0, a: 1}
-  outlineWidth: 2
+  outlineWidth: 1
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+  inits: []
 --- !u!4 &5373753586367172961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400120, guid: e7beebd2f2ea21446a9bea6a7973a5ea, type: 3}

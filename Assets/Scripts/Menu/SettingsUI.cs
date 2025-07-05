@@ -121,7 +121,6 @@ public class SettingsUI : MonoBehaviour
     {
         Vector2Int vectorRes = new Vector2Int(Screen.width, Screen.height);
         int foundIndex = System.Array.IndexOf(GameParam.instance.resolutions, vectorRes);
-        Debug.Log($"index: {foundIndex}");
 
         if(foundIndex != -1)
         {
