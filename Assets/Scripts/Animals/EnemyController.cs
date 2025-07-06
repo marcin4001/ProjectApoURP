@@ -83,9 +83,17 @@ public class EnemyController : MonoBehaviour
 
         if(isHumanoid)
             GetComponent<BoxCollider>().enabled = false;
+
+        StartCoroutine(CorrectPositionYAfterTime());
     }
 
-    
+
+    private IEnumerator CorrectPositionYAfterTime()
+    {
+        yield return new WaitForEndOfFrame();
+        CorrectPositionY();
+    }
+
     public void StartTurn()
     {
         if (isDeath)
@@ -204,7 +212,7 @@ public class EnemyController : MonoBehaviour
             else
                 player.SetDeathState();
         }
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         CombatController.instance.NextTurn();
         if (outline != null)
             outline.enabled = false;
@@ -231,6 +239,7 @@ public class EnemyController : MonoBehaviour
             animHuman.SetSpeedLocomotion(1f);
         while (distance > minDistance)
         {
+            CorrectPositionY();
             Debug.Log($"Name: {name} Time: {timeMoving}");
             if(timeMoving >= timeMaxMoving)
                 break;
@@ -250,6 +259,18 @@ public class EnemyController : MonoBehaviour
             outline.enabled = false;
         if (outlineList != null)
             outlineList.Show(false);
+    }
+
+    private void CorrectPositionY()
+    {
+        Transform meshPos = null;
+        if (isHuman)
+            meshPos = animHuman.transform;
+        else
+            meshPos = anim.transform;
+        Vector3 newPosition = meshPos.position;
+        newPosition.y = (isHuman) ? 0.01f : 0f;
+        meshPos.position = newPosition;
     }
 
     public void GetDamage(int point, bool rawDamage = false)

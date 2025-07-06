@@ -83,7 +83,14 @@ public class PlayerController : MonoBehaviour
         HUDController.instance.SetStateButtons(actionState);
         layer = layerMove;
         currentPath = new NavMeshPath();
+        StartCoroutine(CorrectPositionYAfterTime());
 
+    }
+
+    private IEnumerator CorrectPositionYAfterTime()
+    {
+        yield return new WaitForEndOfFrame();
+        CorrectPositionY();
     }
 
     private void SetMousePosition(InputAction.CallbackContext ctx)
@@ -545,6 +552,8 @@ public class PlayerController : MonoBehaviour
         if (currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         float distnceToObject = Vector3.Distance(transform.position, obj.transform.position);
+        distnceToObject = Mathf.Round(distnceToObject * 10f) / 10f;
+        Debug.Log($"distnceToObject: {distnceToObject}");
         if(usable is BackgroundNPC || usable is DialogueNPC)
             distnceToObject = Vector3.Distance(transform.position, usable.GetNearPoint());
         if(distnceToObject > maxDistance)
@@ -614,6 +623,7 @@ public class PlayerController : MonoBehaviour
         while (agent.remainingDistance > 0f)
         {
             float distance = Vector3.Distance(transform.position, currentPath.corners[indexCorner]);
+            CorrectPositionY();
             if (distance < 0.5f && currentPath.corners.Length - 1 > indexCorner)
                 indexCorner++;
             if (GameParam.instance.inCombat)
@@ -646,7 +656,6 @@ public class PlayerController : MonoBehaviour
                 {
                     SetBlock(false);
                     blockTime = 0f;
-                    Debug.Log("break");
                     break;
                 }
             }
@@ -666,7 +675,6 @@ public class PlayerController : MonoBehaviour
         if (currentSelectObj != null)
         {
             float distnceToObject = Vector3.Distance(transform.position, moveTarget);
-            Debug.Log($"Distance: {distnceToObject} max: {maxDistance}");
             if(distnceToObject < maxDistance)
                 StartCoroutine(InteractAction(currentSelectObj));
             if(isUsingKey)
@@ -677,6 +685,14 @@ public class PlayerController : MonoBehaviour
             //}
             currentSelectObj = null;
         }
+    }
+
+    private void CorrectPositionY()
+    {
+        Transform meshPos = animationPlayer.transform;
+        Vector3 newPosition = meshPos.position;
+        newPosition.y = 0.01f;
+        meshPos.position = newPosition;
     }
 
     public void StopMove()
