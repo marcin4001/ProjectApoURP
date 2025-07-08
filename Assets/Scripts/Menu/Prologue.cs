@@ -29,18 +29,21 @@ public class Prologue : MonoBehaviour
     {
         inputSystem = new MainInputSystem();
         inputSystem.Player.Enter.performed += Next;
+        inputSystem.Player.PlayerAction.performed += Next;
         inputSystem.Enable();
     }
 
     private void OnEnable()
     {
         inputSystem.Player.Enter.performed += Next;
+        inputSystem.Player.PlayerAction.performed += Next;
         inputSystem.Enable();
     }
 
     private void OnDisable()
     {
         inputSystem.Player.Enter.performed -= Next;
+        inputSystem.Player.PlayerAction.performed -= Next;
         inputSystem.Disable();
     }
 

@@ -31,7 +31,7 @@ public class Grate : MonoBehaviour
 
     private void Update()
     {
-        if(!GameParam.instance.inDev)
+        if (!GameParam.instance.inDev)
             return;
         if(Input.GetKeyUp(KeyCode.F11))
         {

@@ -97,6 +97,7 @@ public class GameParam : MonoBehaviour
             sign.state = MapSignState.Hidden;
         }
         mapSigns[0].state = MapSignState.Explored;
+        mapPosition = new Vector2(-227.5f, 227.5f);
     }
 
     public void AddDay()

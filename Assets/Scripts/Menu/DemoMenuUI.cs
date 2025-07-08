@@ -9,8 +9,10 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private Button guideButton;
     [SerializeField] private int indexTheme = 0;
-    [SerializeField] private bool inDemo = false; 
+    [SerializeField] private bool inDemo = false;
+    [SerializeField] private string guideURL = "https://drive.google.com/file/d/1cEXWEQmxcKytIYpjPMdWPtfHDkKfMPUp/view?usp=sharing";
     private MainInputSystem inputActions;
 
     private void Awake()
@@ -40,6 +42,7 @@ public class DemoMenuUI : MonoBehaviour
         playButton.onClick.AddListener(OnClickPlay);
         settingsButton.onClick.AddListener(OnClickSettings);
         quitButton.onClick.AddListener(OnClickQuit);
+        guideButton.onClick.AddListener(OnClickGuide);
         GameParam.instance.mainMusicVolume = PlayerPrefs.GetFloat("mainMusicVolume", 1f);
         GameParam.instance.sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
     }
@@ -78,5 +81,10 @@ public class DemoMenuUI : MonoBehaviour
             SettingsUI.instance.Close();
             return;
         }
+    }
+
+    public void OnClickGuide()
+    {
+        Application.OpenURL(guideURL);
     }
 }
