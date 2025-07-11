@@ -43,6 +43,7 @@ public class CombatController : MonoBehaviour
         HUDController.instance.ShowFightPanel();
         if(firstPlayer)
         {
+            Debug.Log("firstPlayer");
             if (!CameraMovement.instance.ObjectInFov(player.transform))
                 CameraMovement.instance.CenterCameraToPlayer();
             currentIndex = -1;

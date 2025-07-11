@@ -270,7 +270,10 @@ public class EnemyController : MonoBehaviour
             meshPos = anim.transform;
         Vector3 newPosition = meshPos.position;
         newPosition.y = (isHuman) ? 0.01f : 0f;
+        if(isHumanoid)
+            newPosition.y = -0.07f;
         meshPos.position = newPosition;
+        Debug.Log(meshPos.position.y);
     }
 
     public void GetDamage(int point, bool rawDamage = false)

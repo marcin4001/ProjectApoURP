@@ -9,7 +9,7 @@ public class EnemySpawnerGroup : MonoBehaviour
             return;
         foreach(EnemyGroup group in enemyGroups)
             group.gameObject.SetActive(false);
-        int groupCount = enemyGroups.Length + 1;
+        int groupCount = enemyGroups.Length;
         int probability = 100 / groupCount;
         int randomVal = Random.Range(0, 101);
         Debug.Log($"Random Val: {randomVal}");
@@ -21,19 +21,13 @@ public class EnemySpawnerGroup : MonoBehaviour
 
             if(randomVal <= cumulativeProbability)
             {
-                if(i == 0)
-                {
-                    Debug.Log("None Group Spawn");
-                    return;
-                }
-                else
-                {
-                    enemyGroups[i - 1].gameObject.SetActive(true);
-                    Debug.Log($"Active Group: {i - 1}");
-                    return;
-                }
+                enemyGroups[i].gameObject.SetActive(true);
+                Debug.Log($"Active Group: {i}");
+                return;
             }
         }
+        enemyGroups[groupCount - 1].gameObject.SetActive(true);
+        Debug.Log($"Fallback Active Group: {groupCount - 1}");
     }
 
 }
