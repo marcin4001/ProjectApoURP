@@ -50,13 +50,13 @@ public class KilledEnemiesList : MonoBehaviour
         list.Clear();
     }
 
-    //private void Update()
-    //{
-    //    if(Input.GetKeyUp(KeyCode.K))
-    //    {
-    //        Debug.Log($"IsGroupDefeated(9): {IsGroupDefeated(9)}");
-    //    }
-    //}
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            Debug.Log($"IsGroupDefeated(17): {IsGroupDefeated(17)}");
+        }
+    }
 }
 
 [System.Serializable]
