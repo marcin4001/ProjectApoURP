@@ -13,6 +13,21 @@ MonoBehaviour:
   m_Name: MartinNode
   m_EditorClassIdentifier: 
   options:
+  - optionText: "The problem with the bandits is solved. They won\u2019t be raiding
+      you anymore."
+    replyText: "Really? I don\u2019t even know how to thank you\u2026 We\u2019ve
+      been living in fear for weeks, and the guards couldn\u2019t do a thing. You
+      did what no one else could. You\u2019re a hero to this village. Here - 500
+      dollars. From all of us."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 9
+    questID: 17
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 0260ae39401582b46ac96e8cfa9aa5f9, type: 2}
+    - {fileID: 11400000, guid: 9473fa726f03278499e6131d61f30249, type: 2}
   - optionText: "How\u2019s business?"
     replyText: "Going really well. I supply water to several villages that don\u2019t
       have a single well. Always on the lookout for new customers."
@@ -66,7 +81,7 @@ MonoBehaviour:
       out there - their camp\u2019s west of here and they\u2019re real dangerous."
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 8
     questID: 17
     objectID: 0
     amountObject: 0
