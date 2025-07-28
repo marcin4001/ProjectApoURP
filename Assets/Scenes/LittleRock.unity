@@ -17095,11 +17095,11 @@ GameObject:
   - component: {fileID: 1166157688}
   - component: {fileID: 1166157687}
   - component: {fileID: 1166157686}
-  - component: {fileID: 1166157685}
   - component: {fileID: 1166157684}
   - component: {fileID: 1166157683}
+  - component: {fileID: 1166157689}
   m_Layer: 7
-  m_Name: Zombie6NPC
+  m_Name: ChuckNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17133,29 +17133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameObject: Zombie
+  nameObject: Chuck
   isNPC: 1
---- !u!114 &1166157685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166157682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 1459741583}
-  nearPoint: {fileID: 841296493}
-  timeToHide: 3
-  texts:
-  - Hi Thomas
-  - How are you?
-  haveRifle: 0
-  rifleLayer: Rifle
-  textPos: {x: 0, y: 1.8, z: 0}
 --- !u!195 &1166157686
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -17220,6 +17199,26 @@ Transform:
   - {fileID: 449255986}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1166157689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166157682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 8e47300c614cb6947abb474ba9991d5a, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 841296493}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!4 &1169101056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8700783698680967558, guid: 2ec289ff7a30d8244b8a3e3521a68aab, type: 3}
@@ -21451,7 +21450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1459741583
 MonoBehaviour:
   m_ObjectHideFlags: 0
