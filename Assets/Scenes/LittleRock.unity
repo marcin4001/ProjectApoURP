@@ -31359,11 +31359,11 @@ GameObject:
   - component: {fileID: 1001116844263870854}
   - component: {fileID: 8810858115137185379}
   - component: {fileID: 6533905993036225262}
-  - component: {fileID: 4764208878745334744}
   - component: {fileID: 7689020627877187050}
   - component: {fileID: 1300842373948501032}
+  - component: {fileID: 8810858115137185380}
   m_Layer: 7
-  m_Name: Zombie1NPC
+  m_Name: MorrowNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31607,27 +31607,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 97.40114, y: 1, z: 1}
   m_Center: {x: 48.20057, y: 0, z: 2.1291444e-16}
---- !u!114 &4764208878745334744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2819316939989957025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 2918164502828853283}
-  nearPoint: {fileID: 7184467625804366885}
-  timeToHide: 3
-  texts:
-  - Hi Thomas
-  - How are you?
-  haveRifle: 0
-  rifleLayer: Rifle
-  textPos: {x: 0, y: 1.8, z: 0}
 --- !u!1 &4806539434810890266
 GameObject:
   m_ObjectHideFlags: 0
@@ -31645,7 +31624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5508363809260753763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 211599893187871054, guid: 0c08ecc61e8e7034ab08c39ffa898ded, type: 3}
@@ -31728,7 +31707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameObject: Zombie
+  nameObject: Morrow
   isNPC: 1
 --- !u!114 &8357395497068982127
 MonoBehaviour:
@@ -31767,6 +31746,26 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.79, z: 0}
+--- !u!114 &8810858115137185380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819316939989957025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 40cdf26d87da92b46995b4caa76d8d58, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 7184467625804366885}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
