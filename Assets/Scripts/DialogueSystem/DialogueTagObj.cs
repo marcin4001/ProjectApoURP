@@ -9,11 +9,14 @@ public class DialogueTagObj : MonoBehaviour
     [SerializeField] private Transform headPos;
     private RectTransform textRect;
 
-    public void Init(Transform _headPos, string text)
+    public void Init(Transform _headPos, string text, bool angry = false)
     {
         textRect = GetComponent<RectTransform>();
         headPos = _headPos;
         GetComponent<TextMeshProUGUI>().text = text;
+        GetComponent<TextMeshProUGUI>().color = GameParam.instance.normalDialogueTag;
+        if(angry)
+            GetComponent<TextMeshProUGUI>().color = GameParam.instance.angryDialogueTag;
         StartCoroutine(Showing());
     }
 

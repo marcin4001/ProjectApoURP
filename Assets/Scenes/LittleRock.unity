@@ -12726,7 +12726,7 @@ GameObject:
   - component: {fileID: 890845898}
   - component: {fileID: 890845899}
   m_Layer: 7
-  m_Name: Zombie3NPC
+  m_Name: Zombie1NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12803,11 +12803,13 @@ MonoBehaviour:
   nearPoint: {fileID: 550524087}
   timeToHide: 3
   texts:
-  - Hi Thomas
-  - How are you?
+  - "I don\u2019t trust the living..."
+  - Lost, human?
+  - Get outta here...
   haveRifle: 0
   rifleLayer: Rifle
   textPos: {x: 0, y: 1.8, z: 0}
+  isAngry: 1
 --- !u!1001 &892291369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24136,7 +24138,7 @@ GameObject:
   - component: {fileID: 1610238673}
   - component: {fileID: 1610238672}
   m_Layer: 7
-  m_Name: Zombie5NPC
+  m_Name: Zombie3NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24188,11 +24190,13 @@ MonoBehaviour:
   nearPoint: {fileID: 1042484845}
   timeToHide: 3
   texts:
-  - Hi Thomas
-  - How are you?
+  - "I don\u2019t trust the living..."
+  - Lost, human?
+  - Get outta here...
   haveRifle: 0
   rifleLayer: Rifle
   textPos: {x: 0, y: 1.8, z: 0}
+  isAngry: 1
 --- !u!195 &1610238675
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -24246,8 +24250,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610238671}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9972282, z: -0, w: -0.07440393}
-  m_LocalPosition: {x: -0.1, y: 0.0009998083, z: 3.31}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 4.89, y: 0.0009998083, z: -0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24255,7 +24259,7 @@ Transform:
   - {fileID: 1042484845}
   - {fileID: 1229078765}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -188.534, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &1610683496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28086,7 +28090,7 @@ GameObject:
   - component: {fileID: 1955108259}
   - component: {fileID: 1955108258}
   m_Layer: 7
-  m_Name: Zombie4NPC
+  m_Name: Zombie2NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28138,11 +28142,13 @@ MonoBehaviour:
   nearPoint: {fileID: 1930835648}
   timeToHide: 3
   texts:
-  - Hi Thomas
-  - How are you?
+  - "Smoothskins aren\u2019t welcome here."
+  - Go rot somewhere else, smoothie.
+  - Lost, human?
   haveRifle: 0
   rifleLayer: Rifle
   textPos: {x: 0, y: 1.8, z: 0}
+  isAngry: 1
 --- !u!195 &1955108261
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -31820,10 +31826,10 @@ SceneRoots:
   - {fileID: 1543615561}
   - {fileID: 587547121}
   - {fileID: 890845897}
-  - {fileID: 1001116844263870854}
-  - {fileID: 677335275}
   - {fileID: 1955108263}
   - {fileID: 1610238677}
+  - {fileID: 1001116844263870854}
+  - {fileID: 677335275}
   - {fileID: 1166157688}
   - {fileID: 1287568183}
   - {fileID: 1602302686}

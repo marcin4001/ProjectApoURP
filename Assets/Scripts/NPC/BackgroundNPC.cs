@@ -11,6 +11,7 @@ public class BackgroundNPC : MonoBehaviour, IUsableObj
     [SerializeField] private bool haveRifle = false;
     [SerializeField] private string rifleLayer = "Rifle";
     [SerializeField] private Vector3 textPos = new Vector3(0f, 1.8f, 0f);
+    [SerializeField] private bool isAngry = false;
     private Transform textSocket;
     private int nextIndex = 0;
     private Coroutine coroutine;
@@ -51,7 +52,7 @@ public class BackgroundNPC : MonoBehaviour, IUsableObj
             {
                 if(dialogueTagObj != null)
                     Destroy(dialogueTagObj.gameObject);
-                dialogueTagObj = DialogueTag.instance.CreateDialogue(textSocket, texts[nextIndex]);
+                dialogueTagObj = DialogueTag.instance.CreateDialogue(textSocket, texts[nextIndex], isAngry);
                 nextIndex++;
                 if (nextIndex == texts.Length)
                     nextIndex = 0;

@@ -30,6 +30,8 @@ public class GameParam : MonoBehaviour
     [Range(0f, 1f)] public float sfxVolume = 1f;
     public Vector2Int[] resolutions;
     public int currentResolution;
+    public Color normalDialogueTag;
+    public Color angryDialogueTag;
     public bool inDev = false;
     public bool inDemo = false;
     private void Awake()

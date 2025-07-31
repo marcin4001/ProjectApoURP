@@ -27,13 +27,13 @@ public class DialogueTag : MonoBehaviour
         return canvas;
     }
 
-    public DialogueTagObj CreateDialogue(Transform headPos, string text)
+    public DialogueTagObj CreateDialogue(Transform headPos, string text, bool isAngry = false)
     {
         GameObject newText = Instantiate(dialoguePrefab, canvas);
         DialogueTagObj dialogueTagObj = newText.GetComponent<DialogueTagObj>();
         if (dialogueTagObj != null)
         {
-            dialogueTagObj.Init(headPos, text);
+            dialogueTagObj.Init(headPos, text, isAngry);
             return dialogueTagObj;
         }
         return null;
