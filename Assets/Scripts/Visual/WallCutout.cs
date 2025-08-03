@@ -32,9 +32,9 @@ public class WallCutout : MonoBehaviour
         Vector3 direction = offsetCam.normalized;
         float baseDistance = offsetCam.magnitude;
 
-        int rayCount = 15;
-        float spacing = 0.1f; // Odległość między promieniami (lewo/prawo)
-        Vector3 right = Vector3.Cross(Vector3.up, direction); // wektor w prawo względem kierunku patrzenia
+        int rayCount = 20;
+        float spacing = 0.1f;
+        Vector3 right = Vector3.Cross(Vector3.up, direction);
 
         List<RaycastHit> allHits = new List<RaycastHit>();
 
@@ -50,9 +50,28 @@ public class WallCutout : MonoBehaviour
             {
                 Debug.DrawRay(rayOrigin, direction * baseDistance, i == rayCount / 2 ? Color.yellow : Color.red, 0.1f);
             }
+
+            if (i == 0)
+            {
+                RaycastHit[] hitsCenter = Physics.RaycastAll(player.GetCenterPosition(), direction * baseDistance, baseDistance);
+                Debug.Log("hitsCenter.Length = " + hitsCenter.Length);
+                if(hitsCenter.Length == 1)
+                {
+                    Debug.Log(hitsCenter[0].collider);
+                    if (hitsCenter[0].collider.isTrigger)
+                    {
+                        allHits.Clear();
+                        break;
+                    }
+                }
+                if (hitsCenter.Length == 0)
+                {
+                    allHits.Clear();
+                    break;
+                }
+            }
         }
 
-        // Reset renderów z poprzedniej klatki
         if (renderers.Count > 0)
         {
             foreach (MeshRenderer renderer in renderers)
@@ -66,7 +85,6 @@ public class WallCutout : MonoBehaviour
             renderers.Clear();
         }
 
-        // Obsługa trafień
         foreach (RaycastHit hit in allHits)
         {
             MeshRenderer meshRenderer = hit.collider.GetComponent<MeshRenderer>();
