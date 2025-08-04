@@ -10,6 +10,8 @@ public class InteractAction : ActionDialogue
         {
             case InteractActionType.OpenGrate:
                 OpenGrate(); break;
+            case InteractActionType.SwitchOnTV:
+                SwitchOnTV(); break;
             default:
                 break;
         }
@@ -23,11 +25,20 @@ public class InteractAction : ActionDialogue
             grate.Open();
         }
     }
+
+    public void SwitchOnTV()
+    {
+        TVScreen screen = FindFirstObjectByType<TVScreen>();
+        if (screen != null)
+        {
+            screen.SwitchOnTV();
+        }
+    }
 }
 
 public enum InteractActionType
 {
-    OpenGrate
+    OpenGrate, SwitchOnTV
 }
 
 

@@ -13,6 +13,17 @@ MonoBehaviour:
   m_Name: RyanNode
   m_EditorClassIdentifier: 
   options:
+  - optionText: "I\u2019ve got a VHS tape for you. Looks like some old western."
+    replyText: "Great! I used to watch westerns a lot when I was young. Might\u2019ve
+      seen this one already\u2026 The tape looks old, but maybe it still works. Will
+      you wait while I check?"
+    nextNode: 1
+    exitOption: 0
+    conditionType: 4
+    questID: 26
+    objectID: 232
+    amountObject: 1
+    actions: []
   - optionText: How did you end up here?
     replyText: I came from one of the bases to rescue survivors from Little Rock.
       At first, there was a survivor camp here, then we rebuilt it into a village.
@@ -36,6 +47,19 @@ MonoBehaviour:
     objectID: 0
     amountObject: 0
     actions: []
+  - optionText: Can I do something for you?
+    replyText: "Yeah. A few days ago I found an old TV. There\u2019s no signal anymore
+      - all gone after the war. But it\u2019s got a VHS player. If you find any movie
+      tape out there, bring it to me. I\u2019ll reward you with some AK ammo - 7.62
+      mm."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 26
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 2c2fd2ec992cd314d9d2678727f64361, type: 2}
   - optionText: At ease, I have to go now.
     replyText: 
     nextNode: 0
