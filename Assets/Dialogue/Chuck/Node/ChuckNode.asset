@@ -45,6 +45,32 @@ MonoBehaviour:
     objectID: 0
     amountObject: 0
     actions: []
+  - optionText: Can I help you with something?
+    replyText: "If you can, bring me some carrots. I think five should be enough.
+      My vegetable supplier hasn\u2019t come back in a week, and I\u2019m running
+      out of carrots for the soup. I\u2019ll make it worth your while \u2013 I\u2019ll
+      pay you 20% more than what they\u2019re worth."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 27
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: bd1af39d33dd00f47873ddae7afa335b, type: 2}
+  - optionText: I brought the carrots you asked for.
+    replyText: "Great! I thought you weren\u2019t coming back. The soup almost lost
+      its unique taste! Thanks, here\u2019s 60 dollars \u2013 just like I promised."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 27
+    objectID: 119
+    amountObject: 5
+    actions:
+    - {fileID: 11400000, guid: 18eaa2d3aadbfcd4386f3505238e29da, type: 2}
+    - {fileID: 11400000, guid: e30d578c124b3f74eb7befec2b8d62c9, type: 2}
+    - {fileID: 11400000, guid: 8158872a93779ab42aac52c66d9837d0, type: 2}
   - optionText: See you later, Chuck.
     replyText: 
     nextNode: 0

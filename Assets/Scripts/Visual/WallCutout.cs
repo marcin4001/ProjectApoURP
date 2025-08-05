@@ -54,10 +54,8 @@ public class WallCutout : MonoBehaviour
             if (i == 0)
             {
                 RaycastHit[] hitsCenter = Physics.RaycastAll(player.GetCenterPosition(), direction * baseDistance, baseDistance);
-                Debug.Log("hitsCenter.Length = " + hitsCenter.Length);
                 if(hitsCenter.Length == 1)
                 {
-                    Debug.Log(hitsCenter[0].collider);
                     if (hitsCenter[0].collider.isTrigger)
                     {
                         allHits.Clear();
