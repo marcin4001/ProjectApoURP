@@ -13,6 +13,17 @@ MonoBehaviour:
   m_Name: RyanNode
   m_EditorClassIdentifier: 
   options:
+  - optionText: Did you work at Elwood Research Annex?
+    replyText: "Yeah, I did. I was just a regular soldier there, guarding the scientists.
+      Funny you know about that classified place, but whatever \u2013 war's over,
+      USA's gone. Why are you asking?"
+    nextNode: 2
+    exitOption: 0
+    conditionType: 11
+    questID: 25
+    objectID: 0
+    amountObject: 0
+    actions: []
   - optionText: "I\u2019ve got a VHS tape for you. Looks like some old western."
     replyText: "Great! I used to watch westerns a lot when I was young. Might\u2019ve
       seen this one already\u2026 The tape looks old, but maybe it still works. Will
@@ -60,6 +71,16 @@ MonoBehaviour:
     amountObject: 0
     actions:
     - {fileID: 11400000, guid: 2c2fd2ec992cd314d9d2678727f64361, type: 2}
+  - optionText: Where exactly should I look for the old president?
+    replyText: In the state of Mississippi. Just head straight east. If the rumors
+      I heard are true, he should be somewhere near an oasis out there.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 29
+    objectID: 0
+    amountObject: 0
+    actions: []
   - optionText: At ease, I have to go now.
     replyText: 
     nextNode: 0
