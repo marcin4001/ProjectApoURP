@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: DonaldNode
   m_EditorClassIdentifier: 
   options:
+  - optionText: Private Ryan told me you might have an access card to the Elwood
+      Research Annex. Can you give it to me?
+    replyText: "Elwood Research Annex, you say? Interesting... How do you even know
+      about that? I can\u2019t just give you that card. How do I know you\u2019re
+      not a Soviet spy?"
+    nextNode: 1
+    exitOption: 0
+    conditionType: 11
+    questID: 29
+    objectID: 0
+    amountObject: 0
+    actions: []
   - optionText: Where do you get the water from?
     replyText: "From that little lake right in front of me. Might not be crystal
       clear, but out here, it\u2019s all about killing the thirst. You don\u2019t
@@ -42,6 +54,16 @@ MonoBehaviour:
     exitOption: 0
     conditionType: 0
     questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Do you know where those scavengers are now?
+    replyText: "From what I\u2019ve found out, they stopped north of here and set
+      up a small camp. Be careful, they\u2019re armed to the teeth."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 30
     objectID: 0
     amountObject: 0
     actions: []
