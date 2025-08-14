@@ -13,6 +13,22 @@ MonoBehaviour:
   m_Name: DonaldNode
   m_EditorClassIdentifier: 
   options:
+  - optionText: I brought your watch.
+    replyText: "Let\u2019s see if it\u2019s really the one\u2026 [examines the watch
+      for a moment] Yes, that\u2019s it. Thank you very much. This is a very important
+      keepsake - I got it from President Reagan. As promised, here\u2019s the military
+      base access card."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 30
+    objectID: 233
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 84025bd5e0f083349863f31a8800686f, type: 2}
+    - {fileID: 11400000, guid: 8b364c836cae57147ba8bdbfb16155e4, type: 2}
+    - {fileID: 11400000, guid: 40e5235211289a64088d48453b7cc7ae, type: 2}
+    - {fileID: 11400000, guid: f2177f9de74e6814eb8d8d11a7522439, type: 2}
   - optionText: Private Ryan told me you might have an access card to the Elwood
       Research Annex. Can you give it to me?
     replyText: "Elwood Research Annex, you say? Interesting... How do you even know
@@ -62,10 +78,10 @@ MonoBehaviour:
       up a small camp. Be careful, they\u2019re armed to the teeth."
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 30
-    objectID: 0
-    amountObject: 0
+    objectID: 233
+    amountObject: 1
     actions: []
   - optionText: See you around, old president.
     replyText: 
