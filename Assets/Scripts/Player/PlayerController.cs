@@ -376,6 +376,28 @@ public class PlayerController : MonoBehaviour
                 keyID = item.id;
                 StartCoroutine(InteractAction(door));
             }
+            BaseDoorOutside baseDoor = _target.GetComponent<BaseDoorOutside>();
+            if(baseDoor != null)
+            {
+                if (currentCoroutine != null)
+                    StopCoroutine(currentCoroutine);
+                float distnceToObject = Vector3.Distance(transform.position, baseDoor.GetNearPoint());
+                if (distnceToObject > maxDistance)
+                {
+                    currentSelectObj = baseDoor;
+                    agent.isStopped = false;
+                    moveTarget = currentSelectObj.GetNearPoint();
+                    currentCoroutine = StartCoroutine(MoveTask());
+                    isUsingKey = true;
+                    keyID = item.id;
+                    return;
+                }
+                agent.isStopped = true;
+                animationPlayer.SetSpeedLocomotion(0f);
+                isUsingKey = true;
+                keyID = item.id;
+                StartCoroutine(InteractAction(baseDoor));
+            }
         }
     }
 
@@ -675,9 +697,10 @@ public class PlayerController : MonoBehaviour
         if (currentSelectObj != null)
         {
             float distnceToObject = Vector3.Distance(transform.position, moveTarget);
-            if(distnceToObject < maxDistance)
+            Debug.Log("currentSelectObj");
+            if (isUsingKey)
                 StartCoroutine(InteractAction(currentSelectObj));
-            if(isUsingKey)
+            if (distnceToObject < maxDistance && !isUsingKey)
                 StartCoroutine(InteractAction(currentSelectObj));
             //if(currentSelectObj is Door)
             //{
@@ -745,6 +768,24 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        else if(usable is BaseDoorOutside)
+        {
+            BaseDoorOutside baseDoor = (BaseDoorOutside)usable;
+            Vector3 slot = baseDoor.GetNearPoint();
+            agent.Warp(slot);
+            transform.rotation = Quaternion.LookRotation(usable.GetNearPoint() - transform.position);
+            if(isUsingKey)
+            {
+                if(baseDoor.CheckKey(keyID))
+                {
+                    baseDoor.Unlock();
+                }
+                else
+                {
+                    HUDController.instance.AddConsolelog("This item doesn’t fit.");
+                }
+            }
+        }
         else if(usable is EnemyInventory)
         {
             transform.rotation = Quaternion.LookRotation(usable.GetNearPoint() - transform.position);
@@ -773,6 +814,14 @@ public class PlayerController : MonoBehaviour
             {
                 HUDController.instance.AddConsolelog("The door is locked.");
                 
+            }
+        }
+        if(usable is BaseDoorOutside)
+        {
+            BaseDoorOutside baseDoor = (BaseDoorOutside)usable;
+            if(baseDoor.IsLocked() && !isUsingKey)
+            {
+                HUDController.instance.AddConsolelog("The door is locked.");
             }
         }
         isUsingObj = false;
