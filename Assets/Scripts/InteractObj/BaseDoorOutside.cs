@@ -9,13 +9,17 @@ public class BaseDoorOutside : MonoBehaviour, IUsableObj
     [SerializeField] private int keyID;
     private bool isLock = true;
     private Animator anim;
+    private Collider col;
     private void Start()
     {
         anim = GetComponent<Animator>();
+        col = GetComponent<Collider>();
     }
 
     public bool CanUse()
     {
+        if(!isLock)
+            return false;
         return true;
     }
 
@@ -35,8 +39,10 @@ public class BaseDoorOutside : MonoBehaviour, IUsableObj
         if (isLock)
             return;
         anim.SetTrigger(openParam);
-
+        col.enabled = false;
     }
+
+
 
     public bool CheckKey(int _keyID)
     {
