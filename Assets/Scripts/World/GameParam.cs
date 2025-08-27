@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameParam : MonoBehaviour
@@ -34,6 +35,8 @@ public class GameParam : MonoBehaviour
     public Color angryDialogueTag;
     public bool inDev = false;
     public bool inDemo = false;
+    public bool exitInside = false;
+    public List<string> doorsOpened = new List<string>();
     private void Awake()
     {
         if(instance != null && instance != this)
@@ -125,4 +128,15 @@ public class GameParam : MonoBehaviour
         HUDController.instance.AddConsolelog($"Level Up! New level: {level}");
     }
 
+    public void AddOpenDoor(string idDoor)
+    {
+        if(doorsOpened.Contains(idDoor))
+            return;
+        doorsOpened.Add(idDoor);
+    }
+
+    public bool DoorOnList(string idDoor)
+    {
+        return doorsOpened.Contains(idDoor);
+    }
 }

@@ -10,6 +10,7 @@ public class ExitMapTrigger : MonoBehaviour
     [SerializeField] private int idQuest = 0;
     [SerializeField] private string textLog = "";
     [SerializeField] private string thxDemoScene = "ThxDemoScene";
+    [SerializeField] private bool inside = false;
     private PlayerController playerController;
     void Start()
     {
@@ -57,6 +58,8 @@ public class ExitMapTrigger : MonoBehaviour
             ListCabinet.instance.SaveCabinets();
         if(ListOffers.instance != null)
             ListOffers.instance.SaveOffers();
+        if(inside)
+            GameParam.instance.exitInside = true;
         SceneManager.LoadScene(sceneName);
     }
 
