@@ -398,6 +398,28 @@ public class PlayerController : MonoBehaviour
                 keyID = item.id;
                 StartCoroutine(InteractAction(baseDoor));
             }
+            OldCar oldCar = _target.GetComponent<OldCar>();
+            if(oldCar != null)
+            {
+                if (currentCoroutine != null)
+                    StopCoroutine(currentCoroutine);
+                float distnceToObject = Vector3.Distance(transform.position, oldCar.GetNearPoint());
+                if (distnceToObject > maxDistance)
+                {
+                    currentSelectObj = oldCar;
+                    agent.isStopped = false;
+                    moveTarget = currentSelectObj.GetNearPoint();
+                    currentCoroutine = StartCoroutine(MoveTask());
+                    isUsingKey = true;
+                    keyID = item.id;
+                    return;
+                }
+                agent.isStopped = true;
+                animationPlayer.SetSpeedLocomotion(0f);
+                isUsingKey = true;
+                keyID = item.id;
+                StartCoroutine(InteractAction(oldCar));
+            }
         }
     }
 
@@ -779,6 +801,24 @@ public class PlayerController : MonoBehaviour
                 if(baseDoor.CheckKey(keyID))
                 {
                     baseDoor.Unlock();
+                }
+                else
+                {
+                    HUDController.instance.AddConsolelog("This item doesn’t fit.");
+                }
+            }
+        }
+        else if(usable is OldCar)
+        {
+            OldCar oldCar = (OldCar)usable;
+            Vector3 slot = oldCar.GetNearPoint();
+            agent.Warp(slot);
+            transform.rotation = Quaternion.LookRotation(usable.GetNearPoint() - transform.position);
+            if (isUsingKey)
+            {
+                if (oldCar.CheckKey(keyID))
+                {
+                    oldCar.Unlock();
                 }
                 else
                 {
