@@ -7,8 +7,11 @@ public class HouseRoof : MonoBehaviour
     [SerializeField] private InHouseTrigger inHouseTrigger;
     [SerializeField] private bool playerInTrigger = false;
     [SerializeField] private bool openOnStart = false;
+    [SerializeField] private bool withoutDoors = false;
     private void Start()
     {
+        if(withoutDoors)
+            return;
         doors = GetComponentsInChildren<Door>();
     }
 
