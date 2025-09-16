@@ -8,6 +8,7 @@ public class WallCutout : MonoBehaviour
     [Space]
     [SerializeField] private float cutoutSize = 0.1f;
     [SerializeField] private float falloffSize = 0.05f;
+    [SerializeField] private float lengthRay = 3f;
     [SerializeField] private string cutoutPositionProp = "_Cutout_Position";
     [SerializeField] private string cutoutSizeProp = "_Cutout_Size";
     [SerializeField] private string falloffSizeProp = "_Falloff_Size";
@@ -25,7 +26,7 @@ public class WallCutout : MonoBehaviour
 
     void Update()
     {
-        transform.position = player.GetCenterPosition() - Vector3.forward * 3f - Vector3.right * 3f;
+        transform.position = player.GetCenterPosition() - Vector3.forward * lengthRay - Vector3.right * lengthRay;
 
         Vector2 cutoutPos = cam.WorldToViewportPoint(player.GetCenterPosition());
         Vector3 offsetCam = transform.position - player.GetCenterPosition();
