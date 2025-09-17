@@ -3186,7 +3186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivotSpawn: {fileID: 0}
-  insideSprawnPos: {fileID: 0}
+  insideSprawnPos: {fileID: 543011340}
   indexCabinetData: 11
   importantPlace: 0
   mapSignName: 
@@ -11042,6 +11042,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 8fa6215b40a260e42a29384b61d80d83, type: 3}
   m_PrefabInstance: {fileID: 2083469568}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &543011339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543011340}
+  m_Layer: 0
+  m_Name: SpawnPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &543011340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543011339}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 8.934, y: 0, z: 16.403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &546090331
 GameObject:
   m_ObjectHideFlags: 0
@@ -23309,7 +23340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f78b2b90910da40a07826e043ded74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - item: {fileID: 11400000, guid: c4753aeeb16298f48a278837c3c587c8, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 5acd59adbb5d3524b856616e707fc344, type: 2}
+    amount: 1
   slots:
   - item: {fileID: 0}
     amount: 0
@@ -36782,6 +36817,9 @@ MonoBehaviour:
   nearPoint: {fileID: 636001109}
   openParam: Open
   anim: {fileID: 982790616}
+  sceneName: FoodMartUnder
+  ropeID: 203
+  doorID: FoodMartTrapdoor
 --- !u!114 &1874150706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37151,6 +37189,7 @@ MonoBehaviour:
   cam: {fileID: 843152229}
   cutoutSize: 0.11
   falloffSize: 0.05
+  lengthRay: 3
   cutoutPositionProp: _Cutout_Position
   cutoutSizeProp: _Cutout_Size
   falloffSizeProp: _Falloff_Size
@@ -42587,6 +42626,7 @@ SceneRoots:
   - {fileID: 1100233616}
   - {fileID: 913792551}
   - {fileID: 176419482}
+  - {fileID: 543011340}
   - {fileID: 1143535603}
   - {fileID: 95874537}
   - {fileID: 316931470}

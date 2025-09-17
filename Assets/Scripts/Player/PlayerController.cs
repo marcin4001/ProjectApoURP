@@ -376,6 +376,28 @@ public class PlayerController : MonoBehaviour
                 keyID = item.id;
                 StartCoroutine(InteractAction(door));
             }
+            Trapdoor trapdoor = _target.GetComponent<Trapdoor>();
+            if(trapdoor != null)
+            {
+                if (currentCoroutine != null)
+                    StopCoroutine(currentCoroutine);
+                float distnceToObject = Vector3.Distance(transform.position, trapdoor.GetNearPoint());
+                if (distnceToObject > maxDistance)
+                {
+                    currentSelectObj = trapdoor;
+                    agent.isStopped = false;
+                    moveTarget = currentSelectObj.GetNearPoint();
+                    currentCoroutine = StartCoroutine(MoveTask());
+                    isUsingKey = true;
+                    keyID = item.id;
+                    return;
+                }
+                agent.isStopped = true;
+                animationPlayer.SetSpeedLocomotion(0f);
+                isUsingKey = true;
+                keyID = item.id;
+                StartCoroutine(InteractAction(trapdoor));
+            }
             BaseDoorOutside baseDoor = _target.GetComponent<BaseDoorOutside>();
             if(baseDoor != null)
             {
@@ -790,6 +812,24 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        else if(usable is Trapdoor)
+        {
+            Trapdoor trapdoor = (Trapdoor)usable;
+            Vector3 slot = trapdoor.GetNearPoint();
+            agent.Warp(slot);
+            transform.rotation = Quaternion.LookRotation(usable.GetNearPoint() - transform.position);
+            if (isUsingKey)
+            {
+                if (trapdoor.CheckRope(keyID))
+                {
+                    trapdoor.Unlock();
+                }
+                else
+                {
+                    HUDController.instance.AddConsolelog("This item doesn’t fit.");
+                }
+            }
+        }
         else if(usable is BaseDoorOutside)
         {
             BaseDoorOutside baseDoor = (BaseDoorOutside)usable;
@@ -862,6 +902,14 @@ public class PlayerController : MonoBehaviour
             if(baseDoor.IsLocked() && !isUsingKey)
             {
                 HUDController.instance.AddConsolelog("The door is locked.");
+            }
+        }
+        if(usable is Trapdoor)
+        {
+            Trapdoor trapdoor = (Trapdoor)usable;
+            if(trapdoor.IsLock() && !isUsingKey)
+            {
+                HUDController.instance.AddConsolelog("You need a rope.");
             }
         }
         isUsingObj = false;

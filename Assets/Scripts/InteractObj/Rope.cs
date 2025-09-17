@@ -1,26 +1,13 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class Trapdoor : MonoBehaviour, IUsableObj
+public class Rope : MonoBehaviour, IUsableObj
 {
     [SerializeField] private Transform nearPoint;
-    [SerializeField] private string openParam = "Open";
-    [SerializeField] private Animator anim;
     [SerializeField] private string sceneName;
-    [SerializeField] private int ropeID;
-    [SerializeField] private string doorID;
-    private bool isLock = true;
     private PlayerController playerController;
-    void Start()
-    {
-        playerController = FindFirstObjectByType<PlayerController>();
-        if (GameParam.instance.DoorOnList(doorID))
-        {
-            isLock = false;
-        }
-    }
+
     public bool CanUse()
     {
         return true;
@@ -38,27 +25,12 @@ public class Trapdoor : MonoBehaviour, IUsableObj
 
     public void Use()
     {
-        if(isLock)
-            return;
-        anim.SetTrigger(openParam);
         StartCoroutine(LoadScene());
-        GameParam.instance.AddOpenDoor(doorID);
     }
 
-    public bool CheckRope(int _ropeID)
+    void Start()
     {
-        return ropeID == _ropeID;
-    }
-
-    public void Unlock()
-    {
-        isLock = false;
-        HUDController.instance.RemoveCurrentItem();
-    }
-
-    public bool IsLock()
-    {
-        return isLock;
+        playerController = FindFirstObjectByType<PlayerController>();
     }
 
     private IEnumerator LoadScene()
@@ -69,7 +41,7 @@ public class Trapdoor : MonoBehaviour, IUsableObj
             CombatController.instance.StopCombat();
         }
         playerController.SetBlock(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.3f);
         if (GameParam.instance != null)
         {
             GameParam.instance.UpdateParam();
@@ -79,6 +51,7 @@ public class Trapdoor : MonoBehaviour, IUsableObj
             ListCabinet.instance.SaveCabinets();
         if (ListOffers.instance != null)
             ListOffers.instance.SaveOffers();
+        GameParam.instance.exitInside = true;
         SceneManager.LoadScene(sceneName);
     }
 }
