@@ -1237,6 +1237,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1047047428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &165065559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2523543975098618253, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
+  m_PrefabInstance: {fileID: 327395220}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &187222921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,7 +1810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2523543975098618253, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
       propertyPath: m_Name
-      value: DrugMakerNPC
+      value: FrancisNPC
       objectReference: {fileID: 0}
     - target: {fileID: 5059946508588391412, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
       propertyPath: texts.Array.size
@@ -1823,11 +1828,16 @@ PrefabInstance:
       propertyPath: 'texts.Array.data[2]'
       value: Roy says I worry too much, but someone has to.
       objectReference: {fileID: 0}
+    - target: {fileID: 5084869744822874166, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7967351199865660870, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
       propertyPath: nameObject
-      value: Drug Maker
+      value: Francis
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5059946508588391412, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5098445054933295202, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
     m_AddedGameObjects:
@@ -1835,9 +1845,9 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 651960262}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5084869744822874166, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 2523543975098618253, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 1024423851}
   m_SourcePrefab: {fileID: 100100000, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
 --- !u!1 &331498969
 GameObject:
@@ -4408,6 +4418,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 703118199536826794, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
   m_PrefabInstance: {fileID: 327395220}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1024423851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165065559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 5188096fbfe61af42b287081efd6f2df, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 1888065444}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 1
+  idOffer: 15
+  tradeSlots: []
 --- !u!1 &1047047427
 GameObject:
   m_ObjectHideFlags: 0
@@ -8271,6 +8301,11 @@ Transform:
   - {fileID: 187222922}
   m_Father: {fileID: 1578453885}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1888065444 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7462762603620477961, guid: 3fc61d2522bb07b488d022747bbdc768, type: 3}
+  m_PrefabInstance: {fileID: 327395220}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1888687803
 GameObject:
   m_ObjectHideFlags: 0

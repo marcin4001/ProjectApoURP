@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: FrancisNode1
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: "What am I doing here? I should be the one asking what you\u2019re
+      doing and who you are."
+    replyText: "Ok, I\u2019m Francis. I make my \u201Ccandies\u201D here. But these
+      aren\u2019t ordinary sweet candies - they\u2019re candies that enhance combat
+      performance. Still, you shouldn\u2019t overdo it; in excess, they can cause
+      hallucinations and vomiting."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: f02668e4f88ddac4bb46fc369831c213, type: 2}
+  - optionText: I have to go now, see you later.
+    replyText: 
+    nextNode: 0
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
