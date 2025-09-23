@@ -4825,7 +4825,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
     - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
       propertyPath: slots.Array.data[0].amount
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5092477193407798650, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4926,6 +4926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivotSpawn: {fileID: 551729650}
+  insideSprawnPos: {fileID: 0}
   indexCabinetData: 9
   importantPlace: 0
   mapSignName: 
@@ -7312,7 +7313,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
     - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
       propertyPath: slots.Array.data[0].amount
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5092477193407798650, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9433,7 +9434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 733519587838812059, guid: be836e2b04473764d8136b66db2273f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000022888184
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 733519587838812059, guid: be836e2b04473764d8136b66db2273f7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9830,6 +9831,7 @@ MonoBehaviour:
   cam: {fileID: 843152229}
   cutoutSize: 0.11
   falloffSize: 0.05
+  lengthRay: 3
   cutoutPositionProp: _Cutout_Position
   cutoutSizeProp: _Cutout_Size
   falloffSizeProp: _Falloff_Size
@@ -11402,6 +11404,7 @@ MonoBehaviour:
   idQuest: 0
   textLog: 
   thxDemoScene: ThxDemoScene
+  inside: 0
 --- !u!65 &2109260961
 BoxCollider:
   m_ObjectHideFlags: 0

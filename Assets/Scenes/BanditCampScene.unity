@@ -1266,6 +1266,22 @@ PrefabInstance:
       propertyPath: idEnemy
       value: 5902
       objectReference: {fileID: 0}
+    - target: {fileID: 7096907542302263741, guid: 0ba34097ef038e14f8963ea025ed339a, type: 3}
+      propertyPath: slots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096907542302263741, guid: 0ba34097ef038e14f8963ea025ed339a, type: 3}
+      propertyPath: slots.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
+    - target: {fileID: 7096907542302263741, guid: 0ba34097ef038e14f8963ea025ed339a, type: 3}
+      propertyPath: slots.Array.data[0].amount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096907542302263741, guid: 0ba34097ef038e14f8963ea025ed339a, type: 3}
+      propertyPath: slots.Array.data[1].amount
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1519,6 +1535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivotSpawn: {fileID: 0}
+  insideSprawnPos: {fileID: 0}
   indexCabinetData: 0
   importantPlace: 1
   mapSignName: Bandit Camp
@@ -10155,6 +10172,10 @@ PrefabInstance:
       propertyPath: idEnemy
       value: 5904
       objectReference: {fileID: 0}
+    - target: {fileID: 6876101227154564394, guid: d9f161dca6090704995a1f166c4a9597, type: 3}
+      propertyPath: slots.Array.data[1].amount
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7827953907390271051, guid: d9f161dca6090704995a1f166c4a9597, type: 3}
       propertyPath: 'outlines.Array.data[4]'
       value: 
@@ -16276,6 +16297,7 @@ MonoBehaviour:
   cam: {fileID: 843152229}
   cutoutSize: 0.11
   falloffSize: 0.05
+  lengthRay: 3
   cutoutPositionProp: _Cutout_Position
   cutoutSizeProp: _Cutout_Size
   falloffSizeProp: _Falloff_Size
@@ -17309,6 +17331,26 @@ PrefabInstance:
       propertyPath: idEnemy
       value: 5903
       objectReference: {fileID: 0}
+    - target: {fileID: 6876101227154564394, guid: d9f161dca6090704995a1f166c4a9597, type: 3}
+      propertyPath: slots.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6876101227154564394, guid: d9f161dca6090704995a1f166c4a9597, type: 3}
+      propertyPath: slots.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
+    - target: {fileID: 6876101227154564394, guid: d9f161dca6090704995a1f166c4a9597, type: 3}
+      propertyPath: slots.Array.data[1].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 77c6fb5c45b05404698e44f48c530b89, type: 2}
+    - target: {fileID: 6876101227154564394, guid: d9f161dca6090704995a1f166c4a9597, type: 3}
+      propertyPath: slots.Array.data[0].amount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6876101227154564394, guid: d9f161dca6090704995a1f166c4a9597, type: 3}
+      propertyPath: slots.Array.data[1].amount
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18187,6 +18229,7 @@ MonoBehaviour:
   idQuest: 0
   textLog: 
   thxDemoScene: ThxDemoScene
+  inside: 0
 --- !u!65 &2109260961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18713,6 +18756,18 @@ PrefabInstance:
       propertyPath: group
       value: 
       objectReference: {fileID: 1733349797}
+    - target: {fileID: 6876101227154564394, guid: d9f161dca6090704995a1f166c4a9597, type: 3}
+      propertyPath: slots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6876101227154564394, guid: d9f161dca6090704995a1f166c4a9597, type: 3}
+      propertyPath: slots.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
+    - target: {fileID: 6876101227154564394, guid: d9f161dca6090704995a1f166c4a9597, type: 3}
+      propertyPath: slots.Array.data[0].amount
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
