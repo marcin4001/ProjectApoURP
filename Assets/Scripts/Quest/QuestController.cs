@@ -53,9 +53,10 @@ public class QuestController : MonoBehaviour
         bool questOnList = quests.Exists(x => x.id == quest.id);
         if(questOnList)
             return;
-        Quest newQuest = new Quest(quest.id, quest.questTitle, quest.owner, quest.location, quest.subQuests, quest.exp);
+        Quest newQuest = new Quest(quest.id, quest.questTitle, quest.owner, quest.location, quest.subQuests, quest.exp, quest.hidden);
         quests.Add(newQuest);
-        HUDController.instance.AddConsolelog("New quest added to journal");
+        if(!newQuest.hidden)
+            HUDController.instance.AddConsolelog("New quest added to journal");
     }
 
     public List<Quest> GetQuests()

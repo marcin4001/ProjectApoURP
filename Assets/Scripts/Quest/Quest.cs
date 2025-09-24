@@ -11,8 +11,9 @@ public class Quest
     public bool complete = false;
     public List<SubQuest> subQuests = new List<SubQuest>();
     public int exp = 0;
+    public bool hidden = false;
 
-    public Quest(int _id, string _title, string _owner, string _location, List<SubQuest> _subQuests, int exp)
+    public Quest(int _id, string _title, string _owner, string _location, List<SubQuest> _subQuests, int exp, bool hidden)
     {
         id = _id;
         questTitle = _title;
@@ -29,6 +30,7 @@ public class Quest
         }
 
         this.exp = exp;
+        this.hidden = hidden;
     }
 
     public bool CanComplete()

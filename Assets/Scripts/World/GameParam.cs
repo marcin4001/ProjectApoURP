@@ -112,6 +112,8 @@ public class GameParam : MonoBehaviour
 
     public void AddExp(int _exp)
     {
+        if(_exp <= 0)
+            return;
         exp += _exp;
         HUDController.instance.AddConsolelog($"You earn {_exp} EXP.");
         while(exp >= expToNextLevel)

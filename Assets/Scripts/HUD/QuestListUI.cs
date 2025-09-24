@@ -92,7 +92,7 @@ public class QuestListUI : MonoBehaviour
     {
         string questList = $"{separator}\nCurrent Quests\n{separator}\n";
         List<Quest> quests = QuestController.instance.GetQuests();
-        List<Quest> currentQuest = quests.FindAll(x => !x.complete);
+        List<Quest> currentQuest = quests.FindAll(x => !x.complete && !x.hidden);
         if(currentQuest.Count == 0)
         {
             questList += "You don't have current Quests!";
@@ -110,7 +110,7 @@ public class QuestListUI : MonoBehaviour
     {
         string questList = $"{separator}\nComplete Quests\n{separator}\n";
         List<Quest> quests = QuestController.instance.GetQuests();
-        List<Quest> completeQuest = quests.FindAll(x => x.complete);
+        List<Quest> completeQuest = quests.FindAll(x => x.complete && !x.hidden);
         if (completeQuest.Count == 0)
         {
             questList += "You don't have current Quests!";
