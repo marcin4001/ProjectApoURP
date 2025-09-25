@@ -10543,6 +10543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivotSpawn: {fileID: 1237189586}
+  insideSprawnPos: {fileID: 0}
   indexCabinetData: 1
   importantPlace: 1
   mapSignName: "Clearwater\t"
@@ -35082,6 +35083,7 @@ MonoBehaviour:
   cam: {fileID: 843152229}
   cutoutSize: 0.11
   falloffSize: 0.05
+  lengthRay: 3
   cutoutPositionProp: _Cutout_Position
   cutoutSizeProp: _Cutout_Size
   falloffSizeProp: _Falloff_Size
@@ -39704,6 +39706,7 @@ MonoBehaviour:
   idQuest: 6
   textLog: 
   thxDemoScene: ThxDemoScene
+  inside: 0
 --- !u!65 &2109260961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42007,7 +42010,8 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5501471202525897677, guid: 6186bb9ff51583f44a49e3634730ca05, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -42671,12 +42675,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.083142854, y: 0.033642307, z: 0.0036237335}
-  m_Center: {x: 0, y: 0.015923077, z: 0.00019798859}
+  m_Size: {x: 0.083142854, y: 0.033642307, z: 0.004134536}
+  m_Center: {x: 0, y: 0.015923077, z: -0.000057412533}
 --- !u!1001 &8312065220508483670
 PrefabInstance:
   m_ObjectHideFlags: 0

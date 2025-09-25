@@ -25,9 +25,9 @@ MonoBehaviour:
     actions: []
   - optionText: Do you have any tasks for me?
     replyText: "Actually, I might have something for you. We need a repair kit, and
-      I\u2019ve heard there\u2019s one at the junkyard south of the village. It\u2019s
-      a dangerous place, but if you could retrieve it, it would be a great help to
-      us."
+      I heard from a scavenger that there\u2019s one at the junkyard south of the
+      village. It\u2019s a dangerous place, but if you could retrieve it, it would
+      be a great help to us."
     nextNode: 0
     exitOption: 0
     conditionType: 1
@@ -37,8 +37,8 @@ MonoBehaviour:
     actions:
     - {fileID: 11400000, guid: 0f69ba29ce93eee489e961f521152d36, type: 2}
   - optionText: Where did you say I could find that repair kit?
-    replyText: "At the junkyard, just south of here. It won\u2019t be easy to find,
-      but it\u2019s definitely there."
+    replyText: "At the junkyard, just south of here. If no one has taken it before,
+      it\u2019s definitely there."
     nextNode: 0
     exitOption: 0
     conditionType: 3
@@ -59,8 +59,9 @@ MonoBehaviour:
     amountObject: 1
     actions: []
   - optionText: I have the repair kit you asked for.
-    replyText: "Great, that\u2019s exactly what we needed. Here, $70 for your trouble.
-      Maybe we\u2019ll have more work for you in the future."
+    replyText: "Great, that\u2019s exactly what we needed. As a reward for your effort,
+      I\u2019ll give you a pistol I found in the ruins of a police station, along
+      with a pack of ammunition. Maybe we\u2019ll have more work for you in the future."
     nextNode: 0
     exitOption: 0
     conditionType: 4
@@ -69,6 +70,7 @@ MonoBehaviour:
     amountObject: 1
     actions:
     - {fileID: 11400000, guid: 3ebd3e990ad9e3348acc7922b547b31e, type: 2}
+    - {fileID: 11400000, guid: c193fccf2a2e76f44a84ac95a49305e7, type: 2}
     - {fileID: 11400000, guid: e288cae8a4f5feb47bb14566ffe6825c, type: 2}
     - {fileID: 11400000, guid: 861142bd1a40a88499964e2a576d2cc5, type: 2}
   - optionText: Do you have anything else that needs doing?
