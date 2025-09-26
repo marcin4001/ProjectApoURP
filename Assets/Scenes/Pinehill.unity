@@ -1102,6 +1102,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4627411215997416, guid: 8168deffb204a954397701720040a9dd, type: 3}
   m_PrefabInstance: {fileID: 1309984845}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &92200059
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2517794540059718836, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_Name
+      value: Radio
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006944845296905742, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006944845296905742, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.278
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006944845296905742, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.692
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006944845296905742, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006944845296905742, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006944845296905742, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006944845296905742, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006944845296905742, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006944845296905742, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006944845296905742, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 61e64fd0abfcde64c8b15d73cc3d7ff1, type: 3}
 --- !u!1 &93758987
 GameObject:
   m_ObjectHideFlags: 0
@@ -22756,6 +22813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivotSpawn: {fileID: 1138282695}
+  insideSprawnPos: {fileID: 0}
   indexCabinetData: 5
   importantPlace: 1
   mapSignName: Pinehill
@@ -32133,6 +32191,7 @@ MonoBehaviour:
   cam: {fileID: 843152229}
   cutoutSize: 0.11
   falloffSize: 0.05
+  lengthRay: 3
   cutoutPositionProp: _Cutout_Position
   cutoutSizeProp: _Cutout_Size
   falloffSizeProp: _Falloff_Size
@@ -39415,6 +39474,7 @@ MonoBehaviour:
   idQuest: 0
   textLog: 
   thxDemoScene: ThxDemoScene
+  inside: 0
 --- !u!65 &2109260961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86036,3 +86096,4 @@ SceneRoots:
   - {fileID: 771034567}
   - {fileID: 1548674534}
   - {fileID: 837019547}
+  - {fileID: 92200059}
