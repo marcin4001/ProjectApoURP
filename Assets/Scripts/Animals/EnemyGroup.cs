@@ -43,6 +43,8 @@ public class EnemyGroup : MonoBehaviour
         bool stop = false;
         while (!stop)
         {
+            if(GameParam.instance.inCombat)
+                yield break;
             foreach (EnemyController enemy in enemies)
             {
                 float distance = Vector3.Distance(enemy.transform.position, player.transform.position);

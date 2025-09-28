@@ -6,6 +6,8 @@ public class PickupItem : MonoBehaviour, IUsableObj
     [SerializeField] private int amount = 1;
     [SerializeField] private Transform nearPoint;
     [SerializeField] private int idPickUp;
+    [SerializeField] private bool instantReadBook = false;
+    [SerializeField] private BookProfile book;
     private OutlineList outlines;
     private void Start()
     {
@@ -33,6 +35,11 @@ public class PickupItem : MonoBehaviour, IUsableObj
             }
         }
         //PickUpObjList.instance.DestroyOnList(gameObject.name);
+        if (instantReadBook)
+        {
+            BookReader.instance.Show(book);
+            book.Execute();
+        }
         PickUpObjList.instance.AddIdToList(idPickUp);
         Destroy(gameObject);
     }

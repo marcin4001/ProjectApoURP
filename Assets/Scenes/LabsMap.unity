@@ -8207,6 +8207,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 813905199}
     - target: {fileID: 1110428815689226332, guid: 6a532929f74c0754c986c29ac00acdc1, type: 3}
+      propertyPath: group
+      value: 
+      objectReference: {fileID: 1228445585}
+    - target: {fileID: 1110428815689226332, guid: 6a532929f74c0754c986c29ac00acdc1, type: 3}
       propertyPath: idEnemy
       value: 9734
       objectReference: {fileID: 0}
@@ -12181,12 +12185,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4989117358022958508, guid: 44c6c9e4627bf5f4ba1abc589bd2fba3, type: 3}
+      propertyPath: book
+      value: 
+      objectReference: {fileID: 11400000, guid: 288746835cf16bf4d96397f4bf65f397, type: 2}
+    - target: {fileID: 4989117358022958508, guid: 44c6c9e4627bf5f4ba1abc589bd2fba3, type: 3}
       propertyPath: item
       value: 
       objectReference: {fileID: 11400000, guid: 794df894e26ac514dbfcdcedb227d2d1, type: 2}
     - target: {fileID: 4989117358022958508, guid: 44c6c9e4627bf5f4ba1abc589bd2fba3, type: 3}
       propertyPath: idPickUp
       value: 303
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989117358022958508, guid: 44c6c9e4627bf5f4ba1abc589bd2fba3, type: 3}
+      propertyPath: instantReadBook
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5138329210934316433, guid: 44c6c9e4627bf5f4ba1abc589bd2fba3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22089,6 +22101,8 @@ MonoBehaviour:
   amount: 1
   nearPoint: {fileID: 1150319795}
   idPickUp: 302
+  instantReadBook: 0
+  book: {fileID: 0}
 --- !u!114 &8855261717355759208
 MonoBehaviour:
   m_ObjectHideFlags: 0
