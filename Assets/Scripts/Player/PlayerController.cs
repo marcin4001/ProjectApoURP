@@ -853,7 +853,7 @@ public class PlayerController : MonoBehaviour
             OldCar oldCar = (OldCar)usable;
             Vector3 slot = oldCar.GetNearPoint();
             agent.Warp(slot);
-            transform.rotation = Quaternion.LookRotation(usable.GetNearPoint() - transform.position);
+            transform.rotation = Quaternion.LookRotation(usable.GetMainGameObject().transform.position - transform.position);
             if (isUsingKey)
             {
                 if (oldCar.CheckKey(keyID))
