@@ -8,6 +8,7 @@ public class Trapdoor : MonoBehaviour, IUsableObj
     [SerializeField] private Transform nearPoint;
     [SerializeField] private string openParam = "Open";
     [SerializeField] private Animator anim;
+    [SerializeField] private bool withOutLoadScene = false;
     [SerializeField] private string sceneName;
     [SerializeField] private int ropeID;
     [SerializeField] private string doorID;
@@ -41,7 +42,8 @@ public class Trapdoor : MonoBehaviour, IUsableObj
         if(isLock)
             return;
         anim.SetTrigger(openParam);
-        StartCoroutine(LoadScene());
+        if(!withOutLoadScene)
+            StartCoroutine(LoadScene());
         GameParam.instance.AddOpenDoor(doorID);
     }
 
