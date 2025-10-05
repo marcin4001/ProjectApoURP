@@ -10,25 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
-  m_Name: ArchiNode1
+  m_Name: ArchiNode2
   m_EditorClassIdentifier: 
   options:
-  - optionText: President sent me. I need access to the government bunker under your
-      farm.
-    replyText: "I don\u2019t care who sent you. That bunker\u2019s on my land and
-      I decide who gets in."
+  - optionText: How can I convince you to let me in?
+    replyText: "Ehh, I see you\u2019re not giving me any peace. If you want to convince
+      me, first bring me a can of pre-war coffee. A traveling merchant tested me
+      with one not long ago - been craving it ever since. When you bring me the can,
+      then we\u2019ll talk."
     nextNode: 1
     exitOption: 0
-    conditionType: 5
-    questID: 33
+    conditionType: 1
+    questID: 34
     objectID: 0
     amountObject: 0
     actions:
-    - {fileID: 11400000, guid: 4fffafbc69249ae4a8fc4e42403f9740, type: 2}
+    - {fileID: 11400000, guid: 73686679748655645bda17d373a96dd5, type: 2}
+  - optionText: Where the hell am I supposed to find coffee in the wastelands?
+    replyText: "I don\u2019t know. Try looking in some store. If I remember right,
+      before the war my mom did the shopping at the FoodMart in Little Rock. Maybe
+      that store\u2019s still standing."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 11
+    questID: 34
+    objectID: 0
+    amountObject: 0
+    actions: []
   - optionText: What are you doing out here in the middle of nowhere?
     replyText: "I tend to my cows and grow corn. Can\u2019t you see the cows and
       corn outside?"
-    nextNode: 0
+    nextNode: 1
     exitOption: 0
     conditionType: 0
     questID: 0
@@ -38,7 +50,7 @@ MonoBehaviour:
   - optionText: How many years have you lived here?
     replyText: Since I was born. My father tended this land before me, and now I
       inherited it. Anything else you want to know?
-    nextNode: 0
+    nextNode: 1
     exitOption: 0
     conditionType: 0
     questID: 0
@@ -48,16 +60,7 @@ MonoBehaviour:
   - optionText: "Don\u2019t you get bored living here all by yourself?"
     replyText: "No. There\u2019s always work to do on the farm. No girlfriend yet,
       but I\u2019ll find someone someday. Anything else you want to know?"
-    nextNode: 0
-    exitOption: 0
-    conditionType: 0
-    questID: 0
-    objectID: 0
-    amountObject: 0
-    actions: []
-  - optionText: "What\u2019s under that trapdoor?"
-    replyText: Why do you care? Stay away from it.
-    nextNode: 0
+    nextNode: 1
     exitOption: 0
     conditionType: 0
     questID: 0
