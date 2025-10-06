@@ -32,11 +32,24 @@ MonoBehaviour:
       that store\u2019s still standing."
     nextNode: 1
     exitOption: 0
-    conditionType: 11
+    conditionType: 3
     questID: 34
-    objectID: 0
-    amountObject: 0
+    objectID: 240
+    amountObject: 1
     actions: []
+  - optionText: I found that coffee you wanted.
+    replyText: "Hah, didn\u2019t think you\u2019d pull it off. [sniffs the coffee]
+      Mmm, that aroma\u2026 But coffee alone isn\u2019t enough. You\u2019ll need
+      to do more to convince me to open the bunker."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 4
+    questID: 34
+    objectID: 240
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 5ce5700e97e866f488a2dd2316b22439, type: 2}
+    - {fileID: 11400000, guid: 30f540c665102594080de4ef9de19d19, type: 2}
   - optionText: What are you doing out here in the middle of nowhere?
     replyText: "I tend to my cows and grow corn. Can\u2019t you see the cows and
       corn outside?"
