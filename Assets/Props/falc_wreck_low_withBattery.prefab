@@ -218,7 +218,7 @@ PrefabInstance:
       addedObject: {fileID: 7817771992101301063}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c8aad1b8ba002fc458ccfe350fe989b5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 308499736556499624}
+      addedObject: {fileID: 4638771584104879067}
   m_SourcePrefab: {fileID: 100100000, guid: c8aad1b8ba002fc458ccfe350fe989b5, type: 3}
 --- !u!1 &3796885301495136316 stripped
 GameObject:
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: car wreck
   isNPC: 0
---- !u!114 &308499736556499624
+--- !u!114 &4638771584104879067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,17 +285,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3796885301495136316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1aa26ec1757e314e87565a093490dfb, type: 3}
+  m_Script: {fileID: 11500000, guid: ba8d1a65d5a38e142b9f4c01bba341cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nearpoint: {fileID: 1278025846033259111}
-  mainObj: {fileID: 8242637386585589348}
+  mainObj: {fileID: 3796885301495136316}
   keyID: 204
-  carBattery:
+  part:
     item: {fileID: 11400000, guid: fa636063093373443897c88c9db7cac8, type: 2}
     amount: 1
-  carBatteryObj: {fileID: 4227428714630315916}
-  idPickUp: 500
+  partObj: {fileID: 4227428714630315916}
+  idPickUp: 2628
 --- !u!4 &4610260760276589190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c8aad1b8ba002fc458ccfe350fe989b5, type: 3}
@@ -426,11 +426,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93402faeefc489e49a5d843f6f2ee9ce, type: 3}
---- !u!1 &8242637386585589348 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 93402faeefc489e49a5d843f6f2ee9ce, type: 3}
-  m_PrefabInstance: {fileID: 9125087628679772981}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8730346232015854814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 93402faeefc489e49a5d843f6f2ee9ce, type: 3}

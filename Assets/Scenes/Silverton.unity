@@ -2079,11 +2079,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 72a1e175db5ab64438c9fea8d04113b4, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 72a1e175db5ab64438c9fea8d04113b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 561285942}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 72a1e175db5ab64438c9fea8d04113b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1555895095}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 72a1e175db5ab64438c9fea8d04113b4, type: 3}
       insertIndex: -1
@@ -2094,7 +2100,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 72a1e175db5ab64438c9fea8d04113b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1501423048}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 72a1e175db5ab64438c9fea8d04113b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1501423049}
   m_SourcePrefab: {fileID: 100100000, guid: 72a1e175db5ab64438c9fea8d04113b4, type: 3}
+--- !u!4 &128761106 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 72a1e175db5ab64438c9fea8d04113b4, type: 3}
+  m_PrefabInstance: {fileID: 128761105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &129402103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8837,6 +8851,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &561285941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561285942}
+  m_Layer: 0
+  m_Name: NearPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &561285942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561285941}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0289, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 128761106}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &562090078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18237,9 +18282,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - item: {fileID: 11400000, guid: 2aab4625236ec7d42adeaa8c17bc5b5f, type: 2}
-    amount: 0
+    amount: 1
   - item: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
     amount: 100
+  - item: {fileID: 11400000, guid: 766bf338c92b1fc4296a64a36570b9dc, type: 2}
+    amount: 1
   slots:
   - item: {fileID: 0}
     amount: 0
@@ -24097,6 +24144,27 @@ MonoBehaviour:
   logs:
   - damaged water
   - tank
+--- !u!114 &1501423049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501423041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8d1a65d5a38e142b9f4c01bba341cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearpoint: {fileID: 561285942}
+  mainObj: {fileID: 1501423041}
+  keyID: 204
+  part:
+    item: {fileID: 11400000, guid: 3a2aac8a92e157d419affd2b72be1fcd, type: 2}
+    amount: 1
+  partObj: {fileID: 1555895094}
+  idPickUp: 4427
+  devicesPart: 1
 --- !u!1001 &1502878236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25021,6 +25089,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 1f4f4b608ebba404988b7eb3f0abaf88, type: 3}
+--- !u!1 &1555895094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1555895095}
+  m_Layer: 0
+  m_Name: valve
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1555895095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555895094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0048, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 128761106}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1563427757
 PrefabInstance:
   m_ObjectHideFlags: 0

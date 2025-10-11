@@ -420,7 +420,7 @@ public class PlayerController : MonoBehaviour
                 keyID = item.id;
                 StartCoroutine(InteractAction(baseDoor));
             }
-            OldCar oldCar = _target.GetComponent<OldCar>();
+            Device oldCar = _target.GetComponent<Device>();
             if(oldCar != null)
             {
                 if (currentCoroutine != null)
@@ -848,9 +848,9 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if(usable is OldCar)
+        else if(usable is Device)
         {
-            OldCar oldCar = (OldCar)usable;
+            Device oldCar = (Device)usable;
             Vector3 slot = oldCar.GetNearPoint();
             agent.Warp(slot);
             transform.rotation = Quaternion.LookRotation(usable.GetMainGameObject().transform.position - transform.position);

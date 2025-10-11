@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class OldCar : MonoBehaviour, IUsableObj
+public class Device : MonoBehaviour, IUsableObj
 {
     [SerializeField] private Transform nearpoint;
     [SerializeField] private GameObject mainObj;
     [SerializeField] private int keyID;
-    [SerializeField] private SlotItem carBattery;
-    [SerializeField] private GameObject carBatteryObj;
+    [SerializeField] private SlotItem part;
+    [SerializeField] private GameObject partObj;
     [SerializeField] private int idPickUp;
+    [SerializeField] private DevicesPart devicesPart = DevicesPart.carBattery;
     private bool isLock = true;
     private PlayerController playerController;
     private void Start()
@@ -17,7 +18,7 @@ public class OldCar : MonoBehaviour, IUsableObj
         bool result = PickUpObjList.instance.ExistOnList(idPickUp);
         if (result)
         {
-            Destroy(carBatteryObj);
+            Destroy(partObj);
         }
             
     }
@@ -46,12 +47,21 @@ public class OldCar : MonoBehaviour, IUsableObj
             return;
         }
         
-        if(carBatteryObj != null)
+        if(partObj != null)
         {
-            HUDController.instance.AddConsolelog("You removed the car");
-            HUDController.instance.AddConsolelog("battery");
-            Destroy(carBatteryObj);
-            Inventory.instance.AddItem(carBattery);
+            switch(devicesPart)
+            {
+                case DevicesPart.carBattery:
+                    HUDController.instance.AddConsolelog("You removed the car");
+                    HUDController.instance.AddConsolelog("battery");
+                    break;
+                case DevicesPart.valve:
+                    HUDController.instance.AddConsolelog("You removed the valve");
+                    break;
+            }
+            
+            Destroy(partObj);
+            Inventory.instance.AddItem(part);
             PickUpObjList.instance.AddIdToList(idPickUp);
         }
         else
@@ -75,4 +85,9 @@ public class OldCar : MonoBehaviour, IUsableObj
     {
         return isLock;
     }
+}
+
+public enum DevicesPart
+{
+    carBattery, valve
 }
