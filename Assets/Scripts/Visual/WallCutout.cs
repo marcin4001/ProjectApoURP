@@ -79,7 +79,8 @@ public class WallCutout : MonoBehaviour
                     continue;
                 foreach (Material mat in renderer.materials)
                     mat.SetFloat(cutoutSizeProp, 0f);
-                renderer.gameObject.layer = 7;
+                if (renderer.tag != "Door" && renderer.tag != "Item" && renderer.tag != "Obstacle")
+                    renderer.gameObject.layer = 7;
             }
             renderers.Clear();
         }
