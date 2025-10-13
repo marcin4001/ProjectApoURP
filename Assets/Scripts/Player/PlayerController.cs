@@ -572,6 +572,8 @@ public class PlayerController : MonoBehaviour
         agent.isStopped = false;
         moveTarget = point;
         currentSelectObj = null;
+        keyID = -1;
+        isUsingKey = false;
         currentCoroutine = StartCoroutine(MoveTask());
     }
 
@@ -909,7 +911,7 @@ public class PlayerController : MonoBehaviour
             Trapdoor trapdoor = (Trapdoor)usable;
             if(trapdoor.IsLock() && !isUsingKey)
             {
-                HUDController.instance.AddConsolelog("You need a rope.");
+                trapdoor.ShowConsoleLog();
             }
         }
         isUsingObj = false;

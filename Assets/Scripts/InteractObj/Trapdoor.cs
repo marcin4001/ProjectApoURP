@@ -12,6 +12,7 @@ public class Trapdoor : MonoBehaviour, IUsableObj
     [SerializeField] private string sceneName;
     [SerializeField] private int ropeID;
     [SerializeField] private string doorID;
+    [SerializeField] private bool needKey = false;
     private bool isLock = true;
     private PlayerController playerController;
     void Start()
@@ -52,9 +53,21 @@ public class Trapdoor : MonoBehaviour, IUsableObj
         return ropeID == _ropeID;
     }
 
+    public void ShowConsoleLog()
+    {
+        if(needKey)
+        {
+            HUDController.instance.AddConsolelog("You need a key.");
+            return;
+        }
+        HUDController.instance.AddConsolelog("You need a rope.");
+    }
+
     public void Unlock()
     {
         isLock = false;
+        if(needKey)
+            return;
         HUDController.instance.RemoveCurrentItem();
     }
 
