@@ -1,6 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Device : MonoBehaviour, IUsableObj
 {
@@ -13,6 +13,9 @@ public class Device : MonoBehaviour, IUsableObj
     [SerializeField] private DevicesPart devicesPart = DevicesPart.carBattery;
     [SerializeField] private bool forRepair = false;
     [SerializeField] private int repairPartID;
+    [SerializeField] private List<ActionDialogue> actions = new List<ActionDialogue>();
+    [SerializeField] private bool mustHaveQuest = false;
+    [SerializeField] private int questID;
     private bool isLock = true;
     private PlayerController playerController;
     private AudioSource source;
@@ -46,6 +49,14 @@ public class Device : MonoBehaviour, IUsableObj
     public void Use()
     {
         Debug.Log("isLock = " + isLock);
+        if(mustHaveQuest)
+        {
+            if (!QuestController.instance.HaveQuest(questID) && forRepair)
+            {
+                HUDController.instance.AddConsolelog("It’s broken");
+                return;
+            }
+        }
         if (forRepair && partObj == null)
         {
             HUDController.instance.AddConsolelog("It works correctly");
@@ -124,6 +135,10 @@ public class Device : MonoBehaviour, IUsableObj
             Destroy(partObj);
         }
         playerController.SetBlock(false);
+        foreach(ActionDialogue action in actions)
+        {
+            action?.Execute();
+        }
     }
 
     public IEnumerator RemovePart()
