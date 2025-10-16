@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
     public static Inventory instance;
     [SerializeField] private List<SlotItem> items = new List<SlotItem>();
     [SerializeField] private SlotItem[] slots = new SlotItem[3];
+    [SerializeField] private SlotItem armorSlot;
 
     private void Awake()
     {
@@ -42,6 +43,12 @@ public class Inventory : MonoBehaviour
     public void AddItem(SlotItem item)
     {
         if(item.GetItem() is WeaponItem)
+        {
+            SlotItem newItem = new SlotItem(item.GetItem(), 1);
+            items.Add(newItem);
+            return;
+        }
+        if (item.GetItem() is ArmorItem)
         {
             SlotItem newItem = new SlotItem(item.GetItem(), 1);
             items.Add(newItem);
@@ -87,6 +94,11 @@ public class Inventory : MonoBehaviour
         return slots[index];
     }
 
+    public SlotItem GetArmorItem()
+    {
+        return armorSlot;
+    }
+
     public int GetLengthSlotItem()
     {
         return slots.Length;
@@ -100,12 +112,22 @@ public class Inventory : MonoBehaviour
 
     public void SetNullSlot(int index)
     {
+        if (index == -1)
+        {
+            armorSlot = new SlotItem(null, 0);
+            return;
+        }
         if (index >= 0 && index < slots.Length)
             slots[index] = new SlotItem(null, 0);
     }
 
     public void SetSlot(int index, SlotItem item)
     {
+        if(index == -1)
+        {
+            armorSlot = item;
+            return;
+        }
         if (index >= 0 && index < slots.Length)
             slots[index] = item;
     }

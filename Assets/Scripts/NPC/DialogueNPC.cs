@@ -102,6 +102,11 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
             tradeSlots.Add(item);
             return;
         }
+        if (item.GetItem() is ArmorItem)
+        {
+            tradeSlots.Add(item);
+            return;
+        }
         bool itemExist = tradeSlots.Exists(x => x.GetItem().id == item.GetItem().id);
         if (itemExist)
         {

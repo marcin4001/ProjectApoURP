@@ -81,6 +81,11 @@ public class Cabinet : MonoBehaviour, IUsableObj
             items.Add(item);
             return;
         }
+        if(item.GetItem() is ArmorItem)
+        {
+            items.Add(item);
+            return;
+        }
         bool itemExist = items.Exists(x => x.GetItem().id == item.GetItem().id);
         if(itemExist)
         {

@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 6264082916426772132}
   - component: {fileID: 4125531514500823242}
   - component: {fileID: 5384771014297131912}
+  - component: {fileID: 3523296025220405765}
   m_Layer: 5
   m_Name: SlotArmor
   m_TagString: Untagged
@@ -623,6 +624,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3523296025220405765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213336095516681235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ed2a20eabb85e4fb06829c68d9324a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotIndex: 2
+  positionItem: {x: 114, y: -60}
+  slotItemUI: {fileID: 0}
+  armorSlot: 1
 --- !u!1 &3318024018578829547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,6 +1226,7 @@ MonoBehaviour:
   slotIndex: 2
   positionItem: {x: 114, y: -60}
   slotItemUI: {fileID: 0}
+  armorSlot: 0
 --- !u!1 &4039526674037188412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1320,7 @@ MonoBehaviour:
   slotIndex: 0
   positionItem: {x: 114, y: -60}
   slotItemUI: {fileID: 0}
+  armorSlot: 0
 --- !u!1 &4242981321301900087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,6 +1609,7 @@ MonoBehaviour:
   - {fileID: 1708022289072447196}
   - {fileID: 6956286364367709901}
   - {fileID: 9054867661188908157}
+  armorSlotDrop: {fileID: 3523296025220405765}
   active: 0
   separator: -------------------------------
   scrollListItems: {fileID: 1604164513810970871}
@@ -2698,6 +2718,7 @@ MonoBehaviour:
   slotIndex: 1
   positionItem: {x: 114, y: -60}
   slotItemUI: {fileID: 0}
+  armorSlot: 0
 --- !u!1 &7696510693465141481
 GameObject:
   m_ObjectHideFlags: 0

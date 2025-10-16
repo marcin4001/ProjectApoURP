@@ -13,6 +13,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private Transform content;
     [SerializeField] private GameObject slotPrefab;
     [SerializeField] private SlotDropUI[] slotsDrop;
+    [SerializeField] private SlotDropUI armorSlotDrop;
     [SerializeField] private bool active = false;
     [SerializeField] private string separator = "-------------------------------";
     [SerializeField] private ScrollListController scrollListItems;
@@ -35,6 +36,16 @@ public class InventoryUI : MonoBehaviour
             SlotItemUI slot = Instantiate(slotPrefab, content).GetComponent<SlotItemUI>();
             slot.SetSlot(item);
             slotsDrop[i].AddSlot(slot);
+        }
+        if(armorSlotDrop != null)
+        {
+            SlotItem item = Inventory.instance.GetArmorItem();
+            if(!item.IsEmpty())
+            {
+                SlotItemUI slot = Instantiate(slotPrefab, content).GetComponent<SlotItemUI>();
+                slot.SetSlot(item);
+                armorSlotDrop.AddSlot(slot);
+            }
         }
         canvas.enabled = false;
     }

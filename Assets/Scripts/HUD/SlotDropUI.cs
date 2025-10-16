@@ -6,6 +6,7 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
     [SerializeField] private int slotIndex = 0;
     [SerializeField] private Vector2 positionItem;
     [SerializeField] private SlotItemUI slotItemUI;
+    [SerializeField] private bool armorSlot = false;
     void Start()
     {
         
@@ -15,10 +16,33 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
         
         if(eventData.pointerDrag != null)
         {
+            if(armorSlot)
+            {
+                if (slotItemUI != null)
+                    return;
+                slotItemUI = eventData.pointerDrag.GetComponent<SlotItemUI>();
+                if (slotItemUI != null)
+                {
+                    SlotItem slot = slotItemUI.GetSlot();
+                    if (slot.GetItem() is ArmorItem)
+                    {
+                        slotItemUI.SetSlotDrop(this);
+                        Inventory.instance.RemoveItem(slot);
+                        HUDController.instance.AddItemToSlot(slot, -1);
+                    }
+                    else
+                    {
+                        slotItemUI = null;
+                    }
+                }
+                return;
+            }
             if (slotItemUI != null)
             {
                 SlotItem slot = slotItemUI.GetSlot();
                 if (slot.GetItem() is WeaponItem)
+                    return;
+                if (slot.GetItem() is ArmorItem)
                     return;
                 SlotItemUI slotItemUITemp = eventData.pointerDrag.GetComponent<SlotItemUI>();
                 if(slotItemUITemp != null)
@@ -64,6 +88,12 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
     public void SetEmpty()
     {
         slotItemUI = null;
+        if(armorSlot)
+        {
+            HUDController.instance.AddItemToSlot(new SlotItem(null, 0), -1);
+            return;
+        }
+
         HUDController.instance.AddItemToSlot(new SlotItem(null, 0), slotIndex);
     }
 
