@@ -16,6 +16,8 @@ public class QuestListUI : MonoBehaviour
     [SerializeField] private GameObject cameraPlayerStats;
     [SerializeField] private Image viewPlayerImage;
     [SerializeField] private Sprite[] viewPlayerSprites;
+    [SerializeField] private Sprite[] viewPlayerSpritesDefault;
+    [SerializeField] private ArmorItem armorItem;
     [SerializeField] private RawImage oldImage;
     [SerializeField] private bool active;
     [SerializeField] private string separator = "########################################";
@@ -42,8 +44,16 @@ public class QuestListUI : MonoBehaviour
         canvas.enabled = true;
         player.SetInMenu(true);
         CameraMovement.instance.SetBlock(true);
-        statsText.text = PlayerStats.instance.GetStatsText();
+        statsText.text = PlayerStats.instance.GetStatsText(armorItem);
         //cameraPlayerStats.SetActive(true);
+        if(armorItem != null)
+        {
+            viewPlayerSprites = armorItem.viewPlayerSprites;
+        }
+        else
+        {
+            viewPlayerSprites = viewPlayerSpritesDefault;
+        }
         coroutine = StartCoroutine(ChangePlayerView());
         CreateCurrentQuestList();
     }
@@ -57,6 +67,16 @@ public class QuestListUI : MonoBehaviour
         //cameraPlayerStats.SetActive(false);
         if(coroutine != null)
             StopCoroutine(coroutine);
+    }
+
+    public void SetArmorItem(ArmorItem _armorItem)
+    {
+        armorItem = _armorItem;
+    }
+
+    public void ClearArmorItem()
+    {
+        armorItem = null;
     }
 
     public bool IsActive()

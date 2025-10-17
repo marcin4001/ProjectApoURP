@@ -105,11 +105,17 @@ public class PlayerStats : MonoBehaviour
             healthPoint = healthPointMax;
     }
 
-    public string GetStatsText()
+    public string GetStatsText(ArmorItem armor)
     {
+        int armorDef = 0;
+        if (armor != null)
+        {
+            armorDef = armor.defense;
+        }
         return $"Name: Thomas\nHealth: {healthPoint}/{healthPointMax}\n" +
             $"Radiation level: {radLevel}/{radLevelMax}\nDay: {GameParam.instance.day}\n" +
-            $"Level: {GameParam.instance.level}\nExp: {GameParam.instance.exp}/{GameParam.instance.expToNextLevel}";
+            $"Level: {GameParam.instance.level}\nExp: {GameParam.instance.exp}/{GameParam.instance.expToNextLevel}\n" +
+            $"Armor defense: {armorDef}";
     }
 
     public int GetHP()
