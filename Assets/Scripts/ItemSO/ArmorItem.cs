@@ -7,6 +7,13 @@ public class ArmorItem : Item
     [Header("Clothes Material")]
     public Material clothes_top;
     public Material clothes_bottom;
+    public Headgear headgear = Headgear.None;
     [Header("View Player")]
     public Sprite[] viewPlayerSprites;
+}
+
+public enum Headgear
+{
+    None,
+    Helmet
 }

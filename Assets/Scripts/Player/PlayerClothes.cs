@@ -5,6 +5,7 @@ public class PlayerClothes : MonoBehaviour
     public static PlayerClothes instance;
     [SerializeField] private Renderer top;
     [SerializeField] private Renderer bottom;
+    [SerializeField] private GameObject helmet;
     [SerializeField] private Material defaultTopMaterial;
     [SerializeField] private Material defaultBottomMaterial;
     private void Awake()
@@ -12,6 +13,7 @@ public class PlayerClothes : MonoBehaviour
         instance = this;
         defaultTopMaterial = top.material;
         defaultBottomMaterial = bottom.material;
+        helmet.SetActive(false);
     }
     void Start()
     {
@@ -30,11 +32,16 @@ public class PlayerClothes : MonoBehaviour
         {
             bottom.material = armor.clothes_bottom;
         }
+        if(armor.headgear == Headgear.Helmet)
+        {
+            helmet.SetActive(true);
+        }
     }
 
     public void ResetClothes()
     {
         top.material = defaultTopMaterial;
         bottom.material = defaultBottomMaterial;
+        helmet.SetActive(false);
     }
 }
