@@ -15,5 +15,6 @@ public class ArmorItem : Item
 public enum Headgear
 {
     None,
-    Helmet
+    Helmet,
+    RedCap
 }
