@@ -1360,6 +1360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivotSpawn: {fileID: 151450728}
+  insideSprawnPos: {fileID: 0}
   indexCabinetData: 2
   importantPlace: 1
   mapSignName: Junkyard
@@ -6959,6 +6960,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4676681833439241872, guid: 25cd799c28031124aa7b7c5a29240d1d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7023544570705335442, guid: 25cd799c28031124aa7b7c5a29240d1d, type: 3}
       propertyPath: m_Name
       value: falc_wreck_low (1)
@@ -11083,6 +11088,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4676681833439241872, guid: 25cd799c28031124aa7b7c5a29240d1d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7023544570705335442, guid: 25cd799c28031124aa7b7c5a29240d1d, type: 3}
       propertyPath: m_Name
       value: falc_wreck_low
@@ -11165,13 +11174,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f78b2b90910da40a07826e043ded74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - item: {fileID: 11400000, guid: 89decee1f5f4a2f4099e3c3d2d84ded0, type: 2}
+    amount: 1
   slots:
   - item: {fileID: 0}
     amount: 0
   - item: {fileID: 0}
     amount: 0
   - item: {fileID: 0}
+    amount: 0
+  armorSlot:
+    item: {fileID: 0}
     amount: 0
 --- !u!4 &1179129775
 Transform:
@@ -15417,6 +15431,8 @@ MonoBehaviour:
   amount: 1
   nearPoint: {fileID: 1043335334}
   idPickUp: 28
+  instantReadBook: 0
+  book: {fileID: 0}
 --- !u!65 &1766830729
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16661,6 +16677,7 @@ MonoBehaviour:
   cam: {fileID: 843152229}
   cutoutSize: 0.11
   falloffSize: 0.05
+  lengthRay: 3
   cutoutPositionProp: _Cutout_Position
   cutoutSizeProp: _Cutout_Size
   falloffSizeProp: _Falloff_Size
@@ -18544,6 +18561,7 @@ MonoBehaviour:
   idQuest: 0
   textLog: 
   thxDemoScene: ThxDemoScene
+  inside: 0
 --- !u!65 &2109260961
 BoxCollider:
   m_ObjectHideFlags: 0

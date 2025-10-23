@@ -82,6 +82,11 @@ public class CabinetUI : MonoBehaviour
         List<SlotItem> listItem = cabinet.GetItems();
         foreach(SlotItem item in listItem)
         {
+            if (item.GetItem().questItem && QuestController.instance != null)
+            {
+                if (!QuestController.instance.HaveQuest(item.GetItem().questID))
+                    continue;
+            }
             SlotItemUI slot = Instantiate(slotPrefab, contentCabinet).GetComponent<SlotItemUI>();
             slot.SetSlot(item);
             slot.SetTypeSlot(SlotUIType.cabinet);
