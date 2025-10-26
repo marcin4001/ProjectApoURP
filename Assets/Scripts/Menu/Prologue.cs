@@ -18,8 +18,10 @@ public class Prologue : MonoBehaviour
     [SerializeField] private int indexTheme = 1;
     private MainInputSystem inputSystem;
     private bool activeInput = false;
+    private LoadingPanel loadingPanel;
     void Start()
     {
+        loadingPanel = GetComponent<LoadingPanel>();
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
         MusicManager.instance.SetTheme(indexTheme);
         StartCoroutine(StartPrologue());
@@ -71,6 +73,8 @@ public class Prologue : MonoBehaviour
     {
         fadeAnim.SetBool(fadeIOutParam, false);
         yield return new WaitForSeconds(1.5f);
+        loadingPanel.Show();
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(nextScene);
     }
 

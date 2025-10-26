@@ -34,6 +34,7 @@ public class MapSceneManager : MonoBehaviour
     private float gameTime = 0f;
     private bool blockEnterButton = false;
     private bool blockSetTarget = false;
+    private LoadingPanel loadingPanel;
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class MapSceneManager : MonoBehaviour
     }
     void Start()
     {
+        loadingPanel = GetComponent<LoadingPanel>();
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
         MusicManager.instance.SetTheme(indexTheme);
         cam = FindFirstObjectByType<Camera>();
@@ -80,6 +82,7 @@ public class MapSceneManager : MonoBehaviour
             GameParam.instance.currentTime = gameTime;
             GameParam.instance.mapPosition = playerSign.anchoredPosition;
             //GameParam.instance.SetMapSignState(mapSignName, MapSignState.Explored);
+            loadingPanel.Show();
             SceneManager.LoadScene(nextScene);
         }
     }
