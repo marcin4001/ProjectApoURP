@@ -11600,6 +11600,52 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0095428815, y: 0.0093930075, z: 0.009608868}
   m_Center: {x: 0.00009947644, y: 0.00009538349, z: -0.0009808886}
+--- !u!1 &641813785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641813787}
+  - component: {fileID: 641813786}
+  m_Layer: 0
+  m_Name: TeastActionDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &641813786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641813785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f5c458b54fc114ba9ae88783f7bef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 9d3d8b0093d66ca48aa515e6cf5a3b55, type: 2}
+--- !u!4 &641813787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641813785}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &643189790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 79cd793ddcdda174abbc5d779260b396, type: 3}
@@ -20835,6 +20881,9 @@ MonoBehaviour:
   - item: {fileID: 0}
     amount: 0
   - item: {fileID: 0}
+    amount: 0
+  armorSlot:
+    item: {fileID: 0}
     amount: 0
 --- !u!4 &1179129775
 Transform:
@@ -43158,3 +43207,4 @@ SceneRoots:
   - {fileID: 1832704588}
   - {fileID: 2018536825}
   - {fileID: 73627400}
+  - {fileID: 641813787}
