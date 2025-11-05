@@ -9,6 +9,10 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int healthPointMaxBase = 100;
     [SerializeField] private int radLevel = 0;
     [SerializeField] private int radLevelMax = 5;
+    [SerializeField] private int strength = 5;
+    [SerializeField] private int dexterity = 5;
+    [SerializeField] private int technical = 5;
+    [SerializeField] private int perception = 5;
     private Dictionary<int, float> radHPPercent = new Dictionary<int, float>
     {
         {0, 1f},
@@ -115,7 +119,9 @@ public class PlayerStats : MonoBehaviour
         return $"Name: Thomas\nHealth: {healthPoint}/{healthPointMax}\n" +
             $"Radiation level: {radLevel}/{radLevelMax}\nDay: {GameParam.instance.day}\n" +
             $"Level: {GameParam.instance.level}\nExp: {GameParam.instance.exp}/{GameParam.instance.expToNextLevel}\n" +
-            $"Armor defense: {armorDef}";
+            $"Armor defense: {armorDef}\n" +
+            $"STR:{strength}\tDEX:{dexterity}\n" +
+            $"TEC:{technical}\tPER:{perception}";
     }
 
     public int GetHP()
