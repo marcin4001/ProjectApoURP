@@ -13,6 +13,10 @@ public class GameParam : MonoBehaviour
     public int radLevelMax = 5;
     public int exp = 0;
     public int level = 0;
+    public int strength = 1;
+    public int dexterity = 1;
+    public int technical = 1;
+    public int perception = 1;
     public int expToNextLevel = 500;
     public bool inCombat = false;
     public Vector2 mapPosition = Vector2.zero;
@@ -61,6 +65,7 @@ public class GameParam : MonoBehaviour
             healthPointMaxBase = PlayerStats.instance.GetMaxHPBase();
             radLevel = PlayerStats.instance.GetRadLevel();
             radLevelMax = PlayerStats.instance.GetMaxRadLevel();
+            PlayerStats.instance.UpdateStatsInGameParam();
         }
     }
 
@@ -103,6 +108,16 @@ public class GameParam : MonoBehaviour
         }
         mapSigns[0].state = MapSignState.Explored;
         mapPosition = new Vector2(-227.5f, 227.5f);
+    }
+
+    public void SetStatsStart(int[] stats)
+    {
+        if(stats.Length < 4)
+            return;
+        strength = stats[0];
+        dexterity = stats[1];
+        technical = stats[2];
+        perception = stats[3];
     }
 
     public void AddDay()

@@ -38,6 +38,10 @@ public class PlayerStats : MonoBehaviour
             healthPointMaxBase = GameParam.instance.healthPointMaxBase;
             radLevel = GameParam.instance.radLevel;
             radLevelMax = GameParam.instance.radLevelMax;
+            strength = GameParam.instance.strength;
+            dexterity = GameParam.instance.dexterity;
+            technical = GameParam.instance.technical;
+            perception = GameParam.instance.perception;
         }
         HUDController.instance.UpdateHPBar(healthPoint, healthPointMax);
         HUDController.instance.UpdateRadBar(radLevel, radLevelMax);
@@ -122,6 +126,14 @@ public class PlayerStats : MonoBehaviour
             $"Armor defense: {armorDef}\n" +
             $"STR:{strength}\tDEX:{dexterity}\n" +
             $"TEC:{technical}\tPER:{perception}";
+    }
+
+    public void UpdateStatsInGameParam()
+    {
+        GameParam.instance.strength = strength;
+        GameParam.instance.dexterity = dexterity;
+        GameParam.instance.technical = technical;
+        GameParam.instance.perception = perception;
     }
 
     public int GetHP()

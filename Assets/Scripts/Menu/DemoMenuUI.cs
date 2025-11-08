@@ -14,6 +14,7 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private bool inDemo = false;
     [SerializeField] private string guideURL = "https://drive.google.com/file/d/1cEXWEQmxcKytIYpjPMdWPtfHDkKfMPUp/view?usp=sharing";
     private MainInputSystem inputActions;
+    private StatsPanelMenu statsPanelMenu;
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class DemoMenuUI : MonoBehaviour
 
     void Start()
     {
+        statsPanelMenu = FindFirstObjectByType<StatsPanelMenu>();
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
         MusicManager.instance.SetTheme(indexTheme);
         playButton.onClick.AddListener(OnClickPlay);
@@ -49,9 +51,14 @@ public class DemoMenuUI : MonoBehaviour
 
     private void OnClickPlay()
     {
+        statsPanelMenu.Open();
+    }
+
+    public void LoadNewGame()
+    {
         GameParam.instance.SetStartParam();
         GameParam.instance.inDemo = inDemo;
-        if(Inventory.instance != null)
+        if (Inventory.instance != null)
             Inventory.instance.Clear();
         //PickUpObjList.instance.CopyList();
         PickUpObjList.instance.Clear();

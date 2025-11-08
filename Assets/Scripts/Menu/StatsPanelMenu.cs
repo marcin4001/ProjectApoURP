@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class StatsPanelMenu : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject bg_panel;
     [SerializeField] private Button closeBtn;
+    [SerializeField] private Button applyBtn;
     [SerializeField] private Image viewPlayerImage;
     [SerializeField] private Sprite[] viewPlayerSprites;
     [SerializeField] private TextMeshProUGUI[] values = new TextMeshProUGUI[4];
@@ -16,11 +18,15 @@ public class StatsPanelMenu : MonoBehaviour
     [SerializeField] private int[] stats = new int[4];
     [SerializeField] private int points = 10;
     private Coroutine coroutine;
+    private DemoMenuUI demoMenu;
 
     void Start()
     {
+        demoMenu = FindFirstObjectByType<DemoMenuUI>();
         panel.SetActive(false);
+        bg_panel.SetActive(false);
         closeBtn.onClick.AddListener(Close);
+        applyBtn.onClick.AddListener(ApplyClick);
         for (int i = 0; i < values.Length; i++)
         {
             int index = i;
@@ -29,18 +35,10 @@ public class StatsPanelMenu : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.F6))
-        {
-            Open();
-        }
-    }
-
     public void Open()
     {
         panel.SetActive(true);
+        bg_panel.SetActive(true);
         coroutine = StartCoroutine(ChangePlayerView());
         for (int i = 0; i < stats.Length; i++)
         {
@@ -59,6 +57,7 @@ public class StatsPanelMenu : MonoBehaviour
         }
         
         panel.SetActive(false);
+        bg_panel.SetActive(false);
     }
 
     public void LeftBtnClick(int index)
@@ -80,6 +79,12 @@ public class StatsPanelMenu : MonoBehaviour
         points -= 1;
         pointsValue.text = points.ToString();
         values[index].text = stats[index].ToString();
+    }
+
+    public void ApplyClick()
+    {
+        GameParam.instance.SetStatsStart(stats);
+        demoMenu.LoadNewGame();
     }
 
     private IEnumerator ChangePlayerView()
