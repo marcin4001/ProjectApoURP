@@ -17,6 +17,7 @@ public class StatsPanelMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pointsValue;
     [SerializeField] private int[] stats = new int[4];
     [SerializeField] private int points = 10;
+    [SerializeField, TextArea(1, 3)] private string messageText;
     private Coroutine coroutine;
     private DemoMenuUI demoMenu;
 
@@ -82,6 +83,17 @@ public class StatsPanelMenu : MonoBehaviour
     }
 
     public void ApplyClick()
+    {
+        if(points >  0)
+        {
+            MessagePanel.instance.Open(messageText, YesClick);
+            return;
+        }
+        GameParam.instance.SetStatsStart(stats);
+        demoMenu.LoadNewGame();
+    }
+
+    public void YesClick()
     {
         GameParam.instance.SetStatsStart(stats);
         demoMenu.LoadNewGame();
