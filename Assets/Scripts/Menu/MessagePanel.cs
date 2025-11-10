@@ -11,6 +11,7 @@ public class MessagePanel : MonoBehaviour
     [SerializeField] private Button noBtn;
     [SerializeField] private Button yesBtn;
     [SerializeField] private UnityAction action;
+    [SerializeField] private bool active = false;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class MessagePanel : MonoBehaviour
         panel.SetActive(true);
         textMessage.text = _message;
         action = _action;
+        active = true;
     }
 
     public void ClickYes()
@@ -41,5 +43,11 @@ public class MessagePanel : MonoBehaviour
     {
         action = null;
         panel.SetActive(false);
+        active = false;
+    }
+
+    public bool GetActive()
+    {
+        return active;
     }
 }

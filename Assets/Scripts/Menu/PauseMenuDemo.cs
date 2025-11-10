@@ -8,6 +8,7 @@ public class PauseMenuDemo : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private bool active = false;
+    [SerializeField] private string messageQuit;
     private Canvas canvas;
     private PlayerController player;
 
@@ -54,6 +55,11 @@ public class PauseMenuDemo : MonoBehaviour
     }
 
     private void OnClickQuit()
+    {
+        MessagePanel.instance.Open(messageQuit, Quit);
+    }
+
+    private void Quit()
     {
         Debug.Log("Exit");
         Application.Quit();

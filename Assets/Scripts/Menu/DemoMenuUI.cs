@@ -13,6 +13,7 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private int indexTheme = 0;
     [SerializeField] private bool inDemo = false;
     [SerializeField] private string guideURL = "https://drive.google.com/file/d/1cEXWEQmxcKytIYpjPMdWPtfHDkKfMPUp/view?usp=sharing";
+    [SerializeField] private string messageQuit;
     private MainInputSystem inputActions;
     private StatsPanelMenu statsPanelMenu;
 
@@ -77,8 +78,13 @@ public class DemoMenuUI : MonoBehaviour
 
     private void OnClickQuit()
     {
-        Debug.Log("Exit");
+        MessagePanel.instance.Open(messageQuit, Quit);
+    }
+
+    public void Quit()
+    {
         Application.Quit();
+        Debug.Log("Exit");
     }
 
     public void OnEscClick(InputAction.CallbackContext ctx)
