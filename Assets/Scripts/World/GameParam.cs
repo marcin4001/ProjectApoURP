@@ -13,6 +13,8 @@ public class GameParam : MonoBehaviour
     public int radLevelMax = 5;
     public int exp = 0;
     public int level = 0;
+    public int skillPoints = 0;
+    public bool isLevelUp = false;
     public int strength = 1;
     public int dexterity = 1;
     public int technical = 1;
@@ -100,6 +102,8 @@ public class GameParam : MonoBehaviour
         radLevelMax = 5;
         exp = 0;
         level = 0;
+        skillPoints = 0;
+        isLevelUp = false;
         expToNextLevel = 500;
         prevScene = "";
         foreach(MapSign sign in mapSigns)
@@ -142,7 +146,10 @@ public class GameParam : MonoBehaviour
         exp -= expToNextLevel;
         level += 1;
         expToNextLevel += 500;
+        skillPoints += 1;
+        isLevelUp = true;
         HUDController.instance.AddConsolelog($"Level Up! New level: {level}");
+        HUDController.instance.ShowNewLevelBtn();
     }
 
     public void AddOpenDoor(string idDoor)

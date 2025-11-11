@@ -49,6 +49,8 @@ public class HUDController : MonoBehaviour
     [SerializeField] private GameObject fightPanel;
     [Header("Quest")]
     [SerializeField] private TextMeshProUGUI questText;
+    [Header("Level")]
+    [SerializeField] private Button newLevelBtn;
     private PlayerController player;
     private Canvas canvas;
 
@@ -75,6 +77,11 @@ public class HUDController : MonoBehaviour
             skipButton.onClick.AddListener(OnClickSkip);
         if(fightPanel != null)
             fightPanel.SetActive(false);
+        if(newLevelBtn != null)
+        {
+            newLevelBtn.onClick.AddListener(OnNewLevelClick);
+            newLevelBtn.gameObject.SetActive(GameParam.instance.isLevelUp);
+        }
         consoleText.text = string.Empty;
         slotStateText.text = slotState.ToString();
         if(slotState == SlotState.None)
@@ -483,6 +490,17 @@ public class HUDController : MonoBehaviour
     {
         if (fightPanel != null)
             fightPanel.SetActive(false);
+    }
+
+    public void OnNewLevelClick()
+    {
+        newLevelBtn.gameObject.SetActive(false);
+        GameParam.instance.isLevelUp = false;
+    }
+
+    public void ShowNewLevelBtn()
+    {
+        newLevelBtn.gameObject.SetActive(true);
     }
 
     private IEnumerator UpdateTimer()
