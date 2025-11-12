@@ -494,13 +494,17 @@ public class HUDController : MonoBehaviour
 
     public void OnNewLevelClick()
     {
-        newLevelBtn.gameObject.SetActive(false);
-        GameParam.instance.isLevelUp = false;
+        StatsPanelNewLevel.instance.Open();
     }
 
     public void ShowNewLevelBtn()
     {
         newLevelBtn.gameObject.SetActive(true);
+    }
+
+    public void HideNewLevelBtn()
+    {
+        newLevelBtn.gameObject.SetActive(false);
     }
 
     private IEnumerator UpdateTimer()

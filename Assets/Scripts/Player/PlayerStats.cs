@@ -136,6 +136,26 @@ public class PlayerStats : MonoBehaviour
         GameParam.instance.perception = perception;
     }
 
+    public int[] GetStatsAsArray()
+    {
+        int[] array = new int[4];
+        array[0] = strength; 
+        array[1] = dexterity;  
+        array[2] = technical; 
+        array[3] = perception;
+        return array;
+    }
+
+    public void SetStats(int[] statsArray)
+    {
+        if(statsArray.Length != 4)
+            return;
+        strength = statsArray[0];
+        dexterity = statsArray[1];
+        technical = statsArray[2];
+        perception = statsArray[3];
+    }
+
     public int GetHP()
     {
         return healthPoint;

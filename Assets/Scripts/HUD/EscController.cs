@@ -31,6 +31,12 @@ public class EscController : MonoBehaviour
         if (block)
             return;
 
+        if(StatsPanelNewLevel.instance.GetActive())
+        {
+            StatsPanelNewLevel.instance.Close();
+            return;
+        }
+
         if(BookReader.instance.GetActive())
         {
             BookReader.instance.Hide();
