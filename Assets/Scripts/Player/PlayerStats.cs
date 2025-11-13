@@ -66,10 +66,11 @@ public class PlayerStats : MonoBehaviour
 
     public void SetHealthPointMax(int newMax)
     {
-        healthPointMax = newMax;
-        healthPoint = newMax;
+        int prevHpMax = healthPointMax;
         healthPointMaxBase = newMax;
-        radLevel = 0;
+        UpdateMaxHP();
+        if (healthPoint >= prevHpMax)
+            healthPoint = healthPointMax;
         HUDController.instance.UpdateHPBar(healthPoint, healthPointMax);
     }
 
@@ -154,7 +155,11 @@ public class PlayerStats : MonoBehaviour
         dexterity = statsArray[1];
         technical = statsArray[2];
         perception = statsArray[3];
+        int healthBase = 50;
+        int calculatedHealth = healthBase + (8 * (strength - 1));
+        SetHealthPointMax(calculatedHealth);
     }
+
 
     public int GetHP()
     {

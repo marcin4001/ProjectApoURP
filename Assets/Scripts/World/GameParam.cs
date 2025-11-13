@@ -95,9 +95,7 @@ public class GameParam : MonoBehaviour
         startGame = true;
         currentTime = 6;
         day = 1;
-        healthPoint = 100;
-        healthPointMax = 100;
-        healthPointMaxBase = 100;
+        SetHealth();
         radLevel = 0;
         radLevelMax = 5;
         exp = 0;
@@ -112,6 +110,15 @@ public class GameParam : MonoBehaviour
         }
         mapSigns[0].state = MapSignState.Explored;
         mapPosition = new Vector2(-227.5f, 227.5f);
+    }
+
+    public void SetHealth()
+    {
+        int healthBase = 50;
+        int calculatedHealth = healthBase + (8 * (strength - 1));
+        healthPoint = calculatedHealth;
+        healthPointMax = calculatedHealth;
+        healthPointMaxBase = calculatedHealth;
     }
 
     public void SetStatsStart(int[] stats)
