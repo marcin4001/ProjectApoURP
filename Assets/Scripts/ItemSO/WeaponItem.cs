@@ -8,6 +8,7 @@ public class WeaponItem : Item
     public int idAmmo = 0;
     public WeaponType type;
     public float range = 10f;
+    public int strengthRequired = 1;
     public Vector3 positionInHand = Vector3.zero;
     public Vector3 rotationInHand = Vector3.zero;
     public Vector3 scaleInHand = Vector3.one;

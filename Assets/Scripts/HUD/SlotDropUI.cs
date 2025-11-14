@@ -76,6 +76,19 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
                         return;
                     }
                 }
+                if(slot.GetItem() is WeaponItem)
+                {
+                    WeaponItem weaponItem = (WeaponItem)slot.GetItem();
+                    int strength = PlayerStats.instance.GetStrength();
+                    if(weaponItem.strengthRequired >  strength)
+                    {
+                        slotItemUI = null;
+                        HUDController.instance.AddConsolelog("You don’t have enough");
+                        HUDController.instance.AddConsolelog("Strength to use this");
+                        HUDController.instance.AddConsolelog("weapon!");
+                        return;
+                    }
+                }
                 slotItemUI.SetSlotDrop(this);
                 Inventory.instance.RemoveItem(slot);
                 HUDController.instance.AddItemToSlot(slot, slotIndex);

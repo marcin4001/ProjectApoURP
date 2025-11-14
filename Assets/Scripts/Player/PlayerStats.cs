@@ -147,6 +147,11 @@ public class PlayerStats : MonoBehaviour
         return array;
     }
 
+    public int GetStrength()
+    {
+        return strength;
+    }
+
     public void SetStats(int[] statsArray)
     {
         if(statsArray.Length != 4)

@@ -23,4 +23,8 @@ public class ItemDB : MonoBehaviour
         return items.Find(x => x.id == id);
     }
 
+    public List<Item> GetWeaponItems()
+    {
+        return items.FindAll(x => x is WeaponItem);
+    }
 }
