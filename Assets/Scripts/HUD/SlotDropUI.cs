@@ -32,6 +32,7 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
                         ArmorItem armor = (ArmorItem) slot.GetItem();
                         PlayerClothes.instance.SetClothes(armor);
                         QuestListUI.instance.SetArmorItem(armor);
+                        StatsPanelNewLevel.instance.SetArmorItem(armor);
                     }
                     else
                     {
@@ -109,6 +110,7 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
             HUDController.instance.AddItemToSlot(new SlotItem(null, 0), -1);
             PlayerClothes.instance.ResetClothes();
             QuestListUI.instance.ClearArmorItem();
+            StatsPanelNewLevel.instance.ClearArmorItem();
             return;
         }
 
@@ -149,6 +151,7 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
                 ArmorItem armor = (ArmorItem)slot.GetItem();
                 PlayerClothes.instance.SetClothes(armor);
                 QuestListUI.instance.SetArmorItem(armor);
+                StatsPanelNewLevel.instance.SetArmorItem(armor);
             }
         }
     }

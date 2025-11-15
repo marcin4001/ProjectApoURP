@@ -14,6 +14,8 @@ public class StatsPanelNewLevel : MonoBehaviour
     [SerializeField] private Button applyBtn;
     [SerializeField] private Image viewPlayerImage;
     [SerializeField] private Sprite[] viewPlayerSprites;
+    [SerializeField] private Sprite[] viewPlayerSpritesDefault;
+    [SerializeField] private ArmorItem armorItem;
     [SerializeField] private TextMeshProUGUI[] values = new TextMeshProUGUI[4];
     [SerializeField] private Button[] rightButtons;
     [SerializeField] private TextMeshProUGUI pointsValue;
@@ -50,6 +52,14 @@ public class StatsPanelNewLevel : MonoBehaviour
         bg_panel.SetActive(true);
         player.SetInMenu(true);
         CameraMovement.instance.SetBlock(true);
+        if (armorItem != null)
+        {
+            viewPlayerSprites = armorItem.viewPlayerSprites;
+        }
+        else
+        {
+            viewPlayerSprites = viewPlayerSpritesDefault;
+        }
         coroutine = StartCoroutine(ChangePlayerView());
 
         points = GameParam.instance.skillPoints;
@@ -123,5 +133,15 @@ public class StatsPanelNewLevel : MonoBehaviour
     public bool GetActive()
     {
         return active;
+    }
+
+    public void SetArmorItem(ArmorItem _armorItem)
+    {
+        armorItem = _armorItem;
+    }
+
+    public void ClearArmorItem()
+    {
+        armorItem = null;
     }
 }
