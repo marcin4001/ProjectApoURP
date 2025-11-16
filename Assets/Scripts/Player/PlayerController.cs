@@ -286,7 +286,7 @@ public class PlayerController : MonoBehaviour
             }
             animationPlayer.Punch();
             transform.rotation = Quaternion.LookRotation(point - transform.position);
-            enemy.GetDamage(PlayerStats.instance.GetHandDamage(), true);
+            enemy.GetDamage(PlayerStats.instance.GetHandDamage(), true, false);
             weaponController.StartPlayPunch(); 
             if (GameParam.instance.inCombat)
             {
@@ -338,7 +338,10 @@ public class PlayerController : MonoBehaviour
                 weapon.StartPlayMuzzle();
                 weapon.StartPlayAttack();
             }
-            enemy.GetDamage(weapon.GetDamage());
+            if(weapon.IsMelee())
+                enemy.GetDamage(weapon.GetDamage(), false, true);
+            else
+                enemy.GetDamage(weapon.GetDamage());
             if (GameParam.instance.inCombat)
             {
                 StartCoroutine(AfterUseWeaponInCombat());

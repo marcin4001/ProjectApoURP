@@ -174,6 +174,29 @@ public class CombatController : MonoBehaviour
     {
         isCrit = false;
         int hitChance = Random.Range(0, 100);
+        Debug.Log("Hit Chance: " + PlayerStats.instance.GetHitChance() + " Random Number: " + hitChance);
+        
+        if (hitChance > PlayerStats.instance.GetHitChance())
+        {
+            return 0;
+        }
+        int critChance = Random.Range(0, 100);
+        if (critChance > GameParam.instance.chanceToCrit)
+        {
+            return baseDamage;
+        }
+        else
+        {
+            isCrit = true;
+            return baseDamage * 2;
+        }
+    }
+
+    public int CalculateDamegePlayerMelee(int baseDamage, out bool isCrit)
+    {
+        Debug.Log("Melee Damage");
+        isCrit = false;
+        int hitChance = Random.Range(0, 100);
         if (hitChance > GameParam.instance.chanceToHit)
         {
             return 0;

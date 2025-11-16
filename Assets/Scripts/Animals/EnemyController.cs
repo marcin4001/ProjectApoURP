@@ -240,7 +240,7 @@ public class EnemyController : MonoBehaviour
         while (distance > minDistance)
         {
             CorrectPositionY();
-            Debug.Log($"Name: {name} Time: {timeMoving}");
+            //Debug.Log($"Name: {name} Time: {timeMoving}");
             if(timeMoving >= timeMaxMoving)
                 break;
             distance = Vector3.Distance(transform.position, target);
@@ -273,15 +273,16 @@ public class EnemyController : MonoBehaviour
         if(isHumanoid)
             newPosition.y = -0.07f;
         meshPos.position = newPosition;
-        Debug.Log(meshPos.position.y);
     }
 
-    public void GetDamage(int point, bool rawDamage = false)
+    public void GetDamage(int point, bool rawDamage = false, bool meleeWeapon = false)
     {
         bool isCrit = false;
         int pointDamage = CombatController.instance.CalculateDamegePlayer(point, out isCrit);
         if(rawDamage)
             pointDamage = CombatController.instance.CalculateDamegePlayerOnlyCrit(point, out isCrit);
+        if(meleeWeapon)
+            pointDamage = CombatController.instance.CalculateDamegePlayerMelee(point, out isCrit);
         healthPoint -= pointDamage;
         if(pointDamage <= 0)
         {

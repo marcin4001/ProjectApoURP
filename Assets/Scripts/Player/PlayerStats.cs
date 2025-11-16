@@ -14,6 +14,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int technical = 5;
     [SerializeField] private int perception = 5;
     [SerializeField] private int baseHandDamage = 3;
+    [SerializeField] private int baseHitChance = 20;
     private Dictionary<int, float> radHPPercent = new Dictionary<int, float>
     {
         {0, 1f},
@@ -201,5 +202,10 @@ public class PlayerStats : MonoBehaviour
     public int GetHandDamage()
     {
         return baseHandDamage + (Mathf.FloorToInt(strength/2) * 2);
+    }
+
+    public int GetHitChance()
+    {
+        return baseHitChance + (dexterity - 1) * 7;
     }
 }
