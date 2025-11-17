@@ -150,15 +150,19 @@ public class CombatController : MonoBehaviour
         skipTurnPlayer = false;
     }
 
-    public int CalculateDamege(int baseDamage, int chanceToHit, int chanceToCrit, out bool isCrit)
+    public int CalculateDamage(int baseDamage, int chanceToHit, int chanceToCrit, out bool isCrit)
     {
         isCrit = false;
-        int hitChance = Random.Range(0, 100);
-        if(hitChance > chanceToHit)
+        int hitChance = Random.Range(0, 10000) % 100;
+        float chanceToHitF = chanceToHit;
+        float dodgeChance = PlayerStats.instance.GetDodgeChance();
+        int finalChanceToHit = Mathf.FloorToInt(chanceToHitF * (chanceToHitF/ (chanceToHit + dodgeChance)));
+        Debug.Log("finalChanceToHit: " + finalChanceToHit + " random num: " + hitChance + " DodgeChance: " + PlayerStats.instance.GetDodgeChance());
+        if (hitChance > finalChanceToHit)
         {
             return 0;
         }
-        int critChance = Random.Range(0, 100);
+        int critChance = Random.Range(0, 10000) % 100;
         if (critChance > chanceToCrit)
         {
             return baseDamage;
@@ -170,17 +174,17 @@ public class CombatController : MonoBehaviour
         }
     }
 
-    public int CalculateDamegePlayer(int baseDamage, out bool isCrit)
+    public int CalculateDamagePlayer(int baseDamage, out bool isCrit)
     {
         isCrit = false;
-        int hitChance = Random.Range(0, 100);
+        int hitChance = Random.Range(0, 10000) % 100;
         Debug.Log("Hit Chance: " + PlayerStats.instance.GetHitChance() + " Random Number: " + hitChance);
         
         if (hitChance > PlayerStats.instance.GetHitChance())
         {
             return 0;
         }
-        int critChance = Random.Range(0, 100);
+        int critChance = Random.Range(0, 10000) % 100;
         if (critChance > GameParam.instance.chanceToCrit)
         {
             return baseDamage;
@@ -192,16 +196,16 @@ public class CombatController : MonoBehaviour
         }
     }
 
-    public int CalculateDamegePlayerMelee(int baseDamage, out bool isCrit)
+    public int CalculateDamagePlayerMelee(int baseDamage, out bool isCrit)
     {
         Debug.Log("Melee Damage");
         isCrit = false;
-        int hitChance = Random.Range(0, 100);
+        int hitChance = Random.Range(0, 10000) % 100;
         if (hitChance > GameParam.instance.chanceToHit)
         {
             return 0;
         }
-        int critChance = Random.Range(0, 100);
+        int critChance = Random.Range(0, 10000) % 100;
         if (critChance > GameParam.instance.chanceToCrit)
         {
             return baseDamage;
@@ -213,10 +217,10 @@ public class CombatController : MonoBehaviour
         }
     }
 
-    public int CalculateDamegePlayerOnlyCrit(int baseDamage, out bool isCrit)
+    public int CalculateDamagePlayerOnlyCrit(int baseDamage, out bool isCrit)
     {
         isCrit = false;
-        int critChance = Random.Range(0, 100);
+        int critChance = Random.Range(0, 10000) % 100;
         if (critChance > GameParam.instance.chanceToCrit)
         {
             return baseDamage;

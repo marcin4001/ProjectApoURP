@@ -185,7 +185,7 @@ public class EnemyController : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
         }
         bool isCrit = false;
-        int _damage = CombatController.instance.CalculateDamege(damage, chanceToHit, chanceToCrit, out isCrit);
+        int _damage = CombatController.instance.CalculateDamage(damage, chanceToHit, chanceToCrit, out isCrit);
         if(_damage > 0)
         {
             if(isCrit)
@@ -278,11 +278,11 @@ public class EnemyController : MonoBehaviour
     public void GetDamage(int point, bool rawDamage = false, bool meleeWeapon = false)
     {
         bool isCrit = false;
-        int pointDamage = CombatController.instance.CalculateDamegePlayer(point, out isCrit);
+        int pointDamage = CombatController.instance.CalculateDamagePlayer(point, out isCrit);
         if(rawDamage)
-            pointDamage = CombatController.instance.CalculateDamegePlayerOnlyCrit(point, out isCrit);
+            pointDamage = CombatController.instance.CalculateDamagePlayerOnlyCrit(point, out isCrit);
         if(meleeWeapon)
-            pointDamage = CombatController.instance.CalculateDamegePlayerMelee(point, out isCrit);
+            pointDamage = CombatController.instance.CalculateDamagePlayerMelee(point, out isCrit);
         healthPoint -= pointDamage;
         if(pointDamage <= 0)
         {

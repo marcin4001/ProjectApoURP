@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int perception = 5;
     [SerializeField] private int baseHandDamage = 3;
     [SerializeField] private int baseHitChance = 20;
+    [SerializeField] private int baseDodgeChance = 10;
     private Dictionary<int, float> radHPPercent = new Dictionary<int, float>
     {
         {0, 1f},
@@ -206,6 +208,11 @@ public class PlayerStats : MonoBehaviour
 
     public int GetHitChance()
     {
-        return baseHitChance + (dexterity - 1) * 7;
+        return baseHitChance + (perception - 1) * 7;
+    }
+
+    public int GetDodgeChance()
+    {
+        return baseDodgeChance + (dexterity - 1) * (75 - 10) / 9;
     }
 }
