@@ -1,9 +1,8 @@
 using System.Collections;
-using NUnit.Framework.Internal;
-using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -350,102 +349,155 @@ public class PlayerController : MonoBehaviour
         }
         if(item is MiscItem)
         {
-            Door door = _target.GetComponent<Door>();
             Debug.Log(_target.name);
+            Door door = _target.GetComponent<Door>();
             if(door != null)
             {
-                Debug.Log("Door");
-                if (!door.IsLock())
+                if(!door.IsLock())
                 {
-                    HUDController.instance.AddConsolelog("These doors are not locked.");
+                    HUDController.instance.AddConsolelog("This door is not locked.");
                     return;
                 }
-                if (currentCoroutine != null)
-                    StopCoroutine(currentCoroutine);
-                float distnceToObject = Vector3.Distance(transform.position, _target.transform.position);
-                if (distnceToObject > maxDistance)
-                {
-                    currentSelectObj = door;
-                    agent.isStopped = false;
-                    moveTarget = currentSelectObj.GetNearPoint();
-                    currentCoroutine = StartCoroutine(MoveTask());
-                    isUsingKey = true;
-                    keyID = item.id;
-                    return;
-                }
-                agent.isStopped = true;
-                animationPlayer.SetSpeedLocomotion(0f);
-                isUsingKey = true;
-                keyID = item.id;
-                StartCoroutine(InteractAction(door));
+                UseKeyOnObj(door, item.id);
             }
-            Trapdoor trapdoor = _target.GetComponent<Trapdoor>();
-            if(trapdoor != null)
+
+            Cabinet cabinet = _target.GetComponent<Cabinet>();
+            if(cabinet != null)
             {
-                if (currentCoroutine != null)
-                    StopCoroutine(currentCoroutine);
-                float distnceToObject = Vector3.Distance(transform.position, trapdoor.GetNearPoint());
-                if (distnceToObject > maxDistance)
+                if(!cabinet.IsLock())
                 {
-                    currentSelectObj = trapdoor;
-                    agent.isStopped = false;
-                    moveTarget = currentSelectObj.GetNearPoint();
-                    currentCoroutine = StartCoroutine(MoveTask());
-                    isUsingKey = true;
-                    keyID = item.id;
+                    cabinet.ShowUnlockedMessage();
                     return;
                 }
-                agent.isStopped = true;
-                animationPlayer.SetSpeedLocomotion(0f);
-                isUsingKey = true;
-                keyID = item.id;
-                StartCoroutine(InteractAction(trapdoor));
+                UseKeyOnObj(cabinet, item.id);
             }
-            BaseDoorOutside baseDoor = _target.GetComponent<BaseDoorOutside>();
-            if(baseDoor != null)
+
+            IUsableObj usableObject = _target.GetComponent<IUsableObj>();
+            if(usableObject is Trapdoor or BaseDoorOutside or Device)
             {
-                if (currentCoroutine != null)
-                    StopCoroutine(currentCoroutine);
-                float distnceToObject = Vector3.Distance(transform.position, baseDoor.GetNearPoint());
-                if (distnceToObject > maxDistance)
-                {
-                    currentSelectObj = baseDoor;
-                    agent.isStopped = false;
-                    moveTarget = currentSelectObj.GetNearPoint();
-                    currentCoroutine = StartCoroutine(MoveTask());
-                    isUsingKey = true;
-                    keyID = item.id;
-                    return;
-                }
-                agent.isStopped = true;
-                animationPlayer.SetSpeedLocomotion(0f);
-                isUsingKey = true;
-                keyID = item.id;
-                StartCoroutine(InteractAction(baseDoor));
+                UseKeyOnObj(usableObject, item.id);
+                return;
             }
-            Device oldCar = _target.GetComponent<Device>();
-            if(oldCar != null)
-            {
-                if (currentCoroutine != null)
-                    StopCoroutine(currentCoroutine);
-                float distnceToObject = Vector3.Distance(transform.position, oldCar.GetNearPoint());
-                if (distnceToObject > maxDistance)
-                {
-                    currentSelectObj = oldCar;
-                    agent.isStopped = false;
-                    moveTarget = currentSelectObj.GetNearPoint();
-                    currentCoroutine = StartCoroutine(MoveTask());
-                    isUsingKey = true;
-                    keyID = item.id;
-                    return;
-                }
-                agent.isStopped = true;
-                animationPlayer.SetSpeedLocomotion(0f);
-                isUsingKey = true;
-                keyID = item.id;
-                StartCoroutine(InteractAction(oldCar));
-            }
+            //Door door = _target.GetComponent<Door>();
+            //Debug.Log(_target.name);
+            //if(door != null)
+            //{
+            //    Debug.Log("Door");
+            //    if (!door.IsLock())
+            //    {
+            //        HUDController.instance.AddConsolelog("These doors are not locked.");
+            //        return;
+            //    }
+            //    if (currentCoroutine != null)
+            //        StopCoroutine(currentCoroutine);
+            //    float distnceToObject = Vector3.Distance(transform.position, _target.transform.position);
+            //    if (distnceToObject > maxDistance)
+            //    {
+            //        currentSelectObj = door;
+            //        agent.isStopped = false;
+            //        moveTarget = currentSelectObj.GetNearPoint();
+            //        currentCoroutine = StartCoroutine(MoveTask());
+            //        isUsingKey = true;
+            //        keyID = item.id;
+            //        return;
+            //    }
+            //    agent.isStopped = true;
+            //    animationPlayer.SetSpeedLocomotion(0f);
+            //    isUsingKey = true;
+            //    keyID = item.id;
+            //    StartCoroutine(InteractAction(door));
+            //}
+            //Trapdoor trapdoor = _target.GetComponent<Trapdoor>();
+            //if(trapdoor != null)
+            //{
+            //    if (currentCoroutine != null)
+            //        StopCoroutine(currentCoroutine);
+            //    float distnceToObject = Vector3.Distance(transform.position, trapdoor.GetNearPoint());
+            //    if (distnceToObject > maxDistance)
+            //    {
+            //        currentSelectObj = trapdoor;
+            //        agent.isStopped = false;
+            //        moveTarget = currentSelectObj.GetNearPoint();
+            //        currentCoroutine = StartCoroutine(MoveTask());
+            //        isUsingKey = true;
+            //        keyID = item.id;
+            //        return;
+            //    }
+            //    agent.isStopped = true;
+            //    animationPlayer.SetSpeedLocomotion(0f);
+            //    isUsingKey = true;
+            //    keyID = item.id;
+            //    StartCoroutine(InteractAction(trapdoor));
+            //}
+            //BaseDoorOutside baseDoor = _target.GetComponent<BaseDoorOutside>();
+            //if(baseDoor != null)
+            //{
+            //    if (currentCoroutine != null)
+            //        StopCoroutine(currentCoroutine);
+            //    float distnceToObject = Vector3.Distance(transform.position, baseDoor.GetNearPoint());
+            //    if (distnceToObject > maxDistance)
+            //    {
+            //        currentSelectObj = baseDoor;
+            //        agent.isStopped = false;
+            //        moveTarget = currentSelectObj.GetNearPoint();
+            //        currentCoroutine = StartCoroutine(MoveTask());
+            //        isUsingKey = true;
+            //        keyID = item.id;
+            //        return;
+            //    }
+            //    agent.isStopped = true;
+            //    animationPlayer.SetSpeedLocomotion(0f);
+            //    isUsingKey = true;
+            //    keyID = item.id;
+            //    StartCoroutine(InteractAction(baseDoor));
+            //}
+            //Device oldCar = _target.GetComponent<Device>();
+            //if(oldCar != null)
+            //{
+            //    if (currentCoroutine != null)
+            //        StopCoroutine(currentCoroutine);
+            //    float distnceToObject = Vector3.Distance(transform.position, oldCar.GetNearPoint());
+            //    if (distnceToObject > maxDistance)
+            //    {
+            //        currentSelectObj = oldCar;
+            //        agent.isStopped = false;
+            //        moveTarget = currentSelectObj.GetNearPoint();
+            //        currentCoroutine = StartCoroutine(MoveTask());
+            //        isUsingKey = true;
+            //        keyID = item.id;
+            //        return;
+            //    }
+            //    agent.isStopped = true;
+            //    animationPlayer.SetSpeedLocomotion(0f);
+            //    isUsingKey = true;
+            //    keyID = item.id;
+            //    StartCoroutine(InteractAction(oldCar));
+            //}
         }
+    }
+
+    public void UseKeyOnObj(IUsableObj obj, int keyId)
+    {
+        if (currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+        float distnceToObject = Vector3.Distance(transform.position, obj.GetNearPoint());
+        if (distnceToObject > maxDistance)
+        {
+            currentSelectObj = obj;
+            agent.isStopped = false;
+            moveTarget = currentSelectObj.GetNearPoint();
+            currentCoroutine = StartCoroutine(MoveTask());
+            isUsingKey = true;
+            keyID = keyId;
+            Debug.Log("UseKeyOnObj1");
+            return;
+        }
+        agent.isStopped = true;
+        animationPlayer.SetSpeedLocomotion(0f);
+        isUsingKey = true;
+        keyID = keyId;
+        StartCoroutine(InteractAction(obj));
+        Debug.Log("UseKeyOnObj2");
     }
 
     private IEnumerator AfterUseWeaponInCombat()
@@ -773,15 +825,6 @@ public class PlayerController : MonoBehaviour
         if(isMoving)
         {
             stopFlag = true;
-            //if(currentCoroutine != null)
-            //{
-            //    StopCoroutine(currentCoroutine);
-            //    currentCoroutine = null;
-            //}
-            //isMoving = false;
-            //agent.isStopped = true;
-            //animationPlayer.SetSpeedLocomotion(0f);
-            //currentSelectObj = null;
         }
     }
 
@@ -813,7 +856,27 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    HUDController.instance.AddConsolelog("The key doesn't fit.");
+                    HUDController.instance.AddConsolelog("This item doesn’t fit.");
+                    HUDController.instance.AddConsolelog("Use the correct key.");
+                }
+            }
+        }
+        else if(usable is Cabinet)
+        {
+            Cabinet cabinet = (Cabinet)usable;
+            Vector3 slot = cabinet.GetNearPoint();
+            agent.Warp(slot);
+            transform.rotation = Quaternion.LookRotation(usable.GetNearPoint() - transform.position);
+            if (isUsingKey)
+            {
+                if (cabinet.CheckKey(keyID))
+                {
+                    cabinet.Unlock();
+                }
+                else
+                {
+                    HUDController.instance.AddConsolelog("This item doesn’t fit.");
+                    HUDController.instance.AddConsolelog("Use a lockpick.");
                 }
             }
         }
@@ -915,6 +978,14 @@ public class PlayerController : MonoBehaviour
             if(trapdoor.IsLock() && !isUsingKey)
             {
                 trapdoor.ShowConsoleLog();
+            }
+        }
+        if(usable is Cabinet)
+        {
+            Cabinet cabinet = (Cabinet)usable;
+            if(cabinet.IsLock() && !isUsingKey)
+            {
+                cabinet.ShowLockedMessage();
             }
         }
         isUsingObj = false;

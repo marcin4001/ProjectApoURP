@@ -17,6 +17,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int baseHandDamage = 3;
     [SerializeField] private int baseHitChance = 20;
     [SerializeField] private int baseDodgeChance = 10;
+    [SerializeField] private int baseCritChance = 5;
+    [SerializeField] private int baseLockpickChance = 25;
     private Dictionary<int, float> radHPPercent = new Dictionary<int, float>
     {
         {0, 1f},
@@ -214,5 +216,15 @@ public class PlayerStats : MonoBehaviour
     public int GetDodgeChance()
     {
         return baseDodgeChance + (dexterity - 1) * (75 - 10) / 9;
+    }
+
+    public int GetCritChance()
+    {
+        return Mathf.RoundToInt(baseCritChance + (perception - 1) * (25 - 5) / 9f);
+    }
+
+    public int GetLockpickChance()
+    {
+        return Mathf.RoundToInt(baseLockpickChance + (dexterity - 1) * (95f - 25f) / 9f);
     }
 }

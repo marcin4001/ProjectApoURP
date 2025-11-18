@@ -31,7 +31,6 @@ public class GameParam : MonoBehaviour
     public bool showGrid = false;
     public bool startGame;
     public int chanceToHit = 70;
-    public int chanceToCrit = 20;
     public float maxVolumeTheme = 1f;
     [Range(0f, 1f)] public float mainMusicVolume = 1f;
     [Range(0f, 1f)] public float sfxVolume = 1f;

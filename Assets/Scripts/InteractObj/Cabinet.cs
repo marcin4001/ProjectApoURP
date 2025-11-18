@@ -10,6 +10,8 @@ public class Cabinet : MonoBehaviour, IUsableObj
     [SerializeField] private string cabinetName = "cabinet";
     [SerializeField] private int idCabinet = 0;
     [SerializeField] private List<SlotItem> items = new List<SlotItem>();
+    [SerializeField] private bool isLock = false;
+    private int keyID = 243;
     private Animator animator;
     void Start()
     {
@@ -25,6 +27,10 @@ public class Cabinet : MonoBehaviour, IUsableObj
 
     public void Use()
     {
+        if (isLock)
+        {
+            return;
+        }
         StartCoroutine(Open());
     }
 
@@ -64,9 +70,37 @@ public class Cabinet : MonoBehaviour, IUsableObj
         return true;
     }
 
+    public bool CheckKey(int _keyID)
+    {
+        return keyID == _keyID;
+    }
+
+    public void Unlock()
+    {
+        isLock = false;
+    }
+
+    public bool IsLock()
+    {
+        return isLock;
+    }
+
     public string GetCabinetName()
     {
         return cabinetName;
+    }
+
+    public void ShowLockedMessage()
+    {
+        string newName = char.ToUpper(cabinetName[0]) + cabinetName.Substring(1);
+        HUDController.instance.AddConsolelog($"{newName} is locked.");
+        HUDController.instance.AddConsolelog("Use a lockpick.");
+    }
+
+    public void ShowUnlockedMessage()
+    {
+        string newName = char.ToUpper(cabinetName[0]) + cabinetName.Substring(1);
+        HUDController.instance.AddConsolelog($"{newName} is not locked.");
     }
 
     public List<SlotItem> GetItems()

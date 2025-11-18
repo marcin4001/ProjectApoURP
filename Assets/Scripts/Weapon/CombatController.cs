@@ -185,7 +185,7 @@ public class CombatController : MonoBehaviour
             return 0;
         }
         int critChance = Random.Range(0, 10000) % 100;
-        if (critChance > GameParam.instance.chanceToCrit)
+        if (critChance > PlayerStats.instance.GetCritChance())
         {
             return baseDamage;
         }
@@ -206,7 +206,7 @@ public class CombatController : MonoBehaviour
             return 0;
         }
         int critChance = Random.Range(0, 10000) % 100;
-        if (critChance > GameParam.instance.chanceToCrit)
+        if (critChance > PlayerStats.instance.GetCritChance())
         {
             return baseDamage;
         }
@@ -221,7 +221,7 @@ public class CombatController : MonoBehaviour
     {
         isCrit = false;
         int critChance = Random.Range(0, 10000) % 100;
-        if (critChance > GameParam.instance.chanceToCrit)
+        if (critChance > PlayerStats.instance.GetCritChance())
         {
             return baseDamage;
         }
