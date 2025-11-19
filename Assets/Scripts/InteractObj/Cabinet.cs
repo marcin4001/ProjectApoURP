@@ -11,12 +11,17 @@ public class Cabinet : MonoBehaviour, IUsableObj
     [SerializeField] private int idCabinet = 0;
     [SerializeField] private List<SlotItem> items = new List<SlotItem>();
     [SerializeField] private bool isLock = false;
+    [SerializeField] private string cabinetID;
     private int keyID = 243;
     private Animator animator;
     void Start()
     {
         animator = GetComponent<Animator>();
         StartCoroutine(AfterStart());
+        if(isLock)
+        {
+            isLock = !GameParam.instance.CabinetOnList(cabinetID);
+        }
     }
 
     private IEnumerator AfterStart()
@@ -77,7 +82,18 @@ public class Cabinet : MonoBehaviour, IUsableObj
 
     public void Unlock()
     {
+        int randomNum = Random.Range(0, 10000) % 100;
+        Debug.Log($"Random num: {randomNum} Chance: {PlayerStats.instance.GetLockpickChance()}");
+        if(randomNum > PlayerStats.instance.GetLockpickChance())
+        {
+            HUDController.instance.AddConsolelog("You failed to pick the");
+            HUDController.instance.AddConsolelog("lock.");
+            return;
+        }
         isLock = false;
+        GameParam.instance.AddCabinet(cabinetID);
+        HUDController.instance.AddConsolelog("You successfully picked");
+        HUDController.instance.AddConsolelog("the lock.");
     }
 
     public bool IsLock()

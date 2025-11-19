@@ -42,6 +42,7 @@ public class GameParam : MonoBehaviour
     public bool inDemo = false;
     public bool exitInside = false;
     public List<string> doorsOpened = new List<string>();
+    public List<string> cabinetsUnlocked = new List<string>();
     private void Awake()
     {
         if(instance != null && instance != this)
@@ -109,6 +110,8 @@ public class GameParam : MonoBehaviour
         }
         mapSigns[0].state = MapSignState.Explored;
         mapPosition = new Vector2(-227.5f, 227.5f);
+        doorsOpened.Clear();
+        cabinetsUnlocked.Clear();
     }
 
     public void SetHealth()
@@ -168,5 +171,17 @@ public class GameParam : MonoBehaviour
     public bool DoorOnList(string idDoor)
     {
         return doorsOpened.Contains(idDoor);
+    }
+
+    public void AddCabinet(string idCabinet)
+    {
+        if(cabinetsUnlocked.Contains(idCabinet))
+            return;
+        cabinetsUnlocked.Add(idCabinet);
+    }
+
+    public bool CabinetOnList(string idCabinet)
+    {
+       return cabinetsUnlocked.Contains(idCabinet);
     }
 }
