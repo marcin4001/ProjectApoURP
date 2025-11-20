@@ -133,6 +133,9 @@ public class PlayerController : MonoBehaviour
         if (block || isMoving)
             return;
         isUsingItem = true;
+        actionState = PlayerActionState.Use;
+        layer = layerUseLook;
+        HUDController.instance.SetStateButtons(actionState);
     }
 
     public void Eat(Item item)
@@ -349,6 +352,30 @@ public class PlayerController : MonoBehaviour
         }
         if(item is MiscItem)
         {
+            IUsableObj usable = _target.GetComponent<IUsableObj>();
+            if (usable == null)
+            {
+                Debug.Log("usable is null");
+                if (_target.layer == 10)
+                {
+                    Debug.Log("usable is Wall");
+                    Ray ray = camera.ScreenPointToRay(mousePosition);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 1000f, layerInsideHouse))
+                    {
+                        if (debugObject != null)
+                            debugObject.position = hit.point;
+                        Vector3 playerScreenPosition = camera.WorldToScreenPoint(GetCenterPosition());
+                        float distance = Vector3.Distance(playerScreenPosition, mousePosition);
+                        IUsableObj usableTemp = hit.collider.GetComponent<IUsableObj>();
+                        if (usableTemp != null && distance < radiusPlayerCutWall)
+                        {
+                            _target = hit.collider.gameObject;
+                        }
+                    }
+                }
+            }
+            
             Debug.Log(_target.name);
             Door door = _target.GetComponent<Door>();
             if(door != null)
@@ -866,7 +893,7 @@ public class PlayerController : MonoBehaviour
             Cabinet cabinet = (Cabinet)usable;
             Vector3 slot = cabinet.GetNearPoint();
             agent.Warp(slot);
-            transform.rotation = Quaternion.LookRotation(usable.GetNearPoint() - transform.position);
+            transform.rotation = Quaternion.LookRotation(usable.GetMainGameObject().transform.position - transform.position);
             if (isUsingKey)
             {
                 if (cabinet.CheckKey(keyID))
