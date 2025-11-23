@@ -97,6 +97,7 @@ public class StatsPanelNewLevel : MonoBehaviour
         bg_panel.SetActive(false);
         active = false;
         CameraMovement.instance.SetBlock(false);
+        player.SetInMenu(false);
     }
 
     public void ApplyClick()
@@ -112,6 +113,7 @@ public class StatsPanelNewLevel : MonoBehaviour
         active = false;
         CameraMovement.instance.SetBlock(false);
         PlayerStats.instance.SetStats(stats);
+        player.SetInMenu(false);
         GameParam.instance.skillPoints = points;
         if(points == 0)
         {

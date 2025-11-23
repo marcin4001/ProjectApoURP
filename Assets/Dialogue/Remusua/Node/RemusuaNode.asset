@@ -25,8 +25,8 @@ MonoBehaviour:
     actions: []
   - optionText: Do you need help with anything?
     replyText: "Actually, yes. I have an old slot machine, and it\u2019s missing
-      a key electronic part. If you could find it, I'd appreciate it. I want to get
-      the machine working again."
+      an electronic part. If you can find that part and repair my machine, I\u2019d
+      be very grateful."
     nextNode: 0
     exitOption: 0
     conditionType: 1
@@ -40,25 +40,23 @@ MonoBehaviour:
       pretty easy to find.
     nextNode: 0
     exitOption: 0
-    conditionType: 3
+    conditionType: 10
     questID: 5
-    objectID: 205
-    amountObject: 1
+    objectID: 0
+    amountObject: 0
     actions: []
-  - optionText: I found the integrated circuit.
-    replyText: "Great! Now I can fix the machine. This integrated circuit was exactly
-      what I needed to get it running. Thank you \u2013 here\u2019s $100 for your
-      help!"
+  - optionText: I found the integrated circuit and repaired the machine.
+    replyText: "Great! You really helped me out. The machine is running again here\u2019s
+      $100 as a token of my gratitude!"
     nextNode: 0
     exitOption: 0
-    conditionType: 4
+    conditionType: 11
     questID: 5
-    objectID: 205
-    amountObject: 1
+    objectID: 0
+    amountObject: 0
     actions:
     - {fileID: 11400000, guid: b81a67224e7add44abd5db41e12b5f23, type: 2}
     - {fileID: 11400000, guid: f8aae6c78aa90f24fa102d53fac2d8a0, type: 2}
-    - {fileID: 11400000, guid: 8a2945b859f1c3646b7f49345da5e4ca, type: 2}
   - optionText: Do you sell supplies or know where I can find some?
     replyText: I don't sell supplies myself, but the quartermaster next door might
       have something for you. You should check with him.

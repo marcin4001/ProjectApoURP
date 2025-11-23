@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Device : MonoBehaviour, IUsableObj
 {
@@ -16,7 +17,8 @@ public class Device : MonoBehaviour, IUsableObj
     [SerializeField] private List<ActionDialogue> actions = new List<ActionDialogue>();
     [SerializeField] private bool mustHaveQuest = false;
     [SerializeField] private int questID;
-    private bool isLock = true;
+    [SerializeField] private bool isLock = true;
+    [SerializeField] private UnityEvent afterFixing;
     private PlayerController playerController;
     private AudioSource source;
     private void Start()
@@ -60,6 +62,8 @@ public class Device : MonoBehaviour, IUsableObj
         if (forRepair && partObj == null)
         {
             HUDController.instance.AddConsolelog("It works correctly");
+            if(afterFixing != null)
+                afterFixing.Invoke();
             return;
         }
         if (isLock)
@@ -87,6 +91,10 @@ public class Device : MonoBehaviour, IUsableObj
                         case DevicesPart.valve:
                             HUDController.instance.AddConsolelog("You need a valve");
                             break;
+                        case DevicesPart.integratedCircuit:
+                            HUDController.instance.AddConsolelog("You need an Integrate");
+                            HUDController.instance.AddConsolelog("Circuit");
+                            break;
                     }
                 }
                 isLock = true;
@@ -108,6 +116,13 @@ public class Device : MonoBehaviour, IUsableObj
 
     public void Unlock()
     {
+        if (mustHaveQuest)
+        {
+            if (!QuestController.instance.HaveQuest(questID) && forRepair)
+            {
+                return;
+            }
+        }
         isLock = false;
     }
 
@@ -169,5 +184,5 @@ public class Device : MonoBehaviour, IUsableObj
 
 public enum DevicesPart
 {
-    carBattery, valve
+    carBattery, valve, integratedCircuit
 }
