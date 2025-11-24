@@ -140,19 +140,30 @@ public class Device : MonoBehaviour, IUsableObj
             source.Play();
         }
         yield return new WaitForSeconds(1);
-        Item item = ItemDB.instance.GetItemById(repairPartID);
-        if (item != null)
+        bool canRepair = CanRepair();
+        if (canRepair)
         {
-            SlotItem slot = new SlotItem(item, 1);
-            Inventory.instance.RemoveItem(slot);
-            PickUpObjList.instance.AddIdToList(idPickUp);
-            HUDController.instance.AddConsolelog("You fixed it!");
-            Destroy(partObj);
+            Item item = ItemDB.instance.GetItemById(repairPartID);
+            if (item != null)
+            {
+                SlotItem slot = new SlotItem(item, 1);
+                Inventory.instance.RemoveItem(slot);
+                PickUpObjList.instance.AddIdToList(idPickUp);
+                HUDController.instance.AddConsolelog("You fixed it!");
+                Destroy(partObj);
+            }
+        }
+        else
+        {
+            HUDController.instance.AddConsolelog("You failed to repair it.");
         }
         playerController.SetBlock(false);
-        foreach(ActionDialogue action in actions)
+        if (canRepair)
         {
-            action?.Execute();
+            foreach (ActionDialogue action in actions)
+            {
+                action?.Execute();
+            }
         }
     }
 
@@ -165,20 +176,39 @@ public class Device : MonoBehaviour, IUsableObj
             source.Play();
         }
         yield return new WaitForSeconds(1);
-        switch (devicesPart)
+        if (CanRepair())
         {
-            case DevicesPart.carBattery:
-                HUDController.instance.AddConsolelog("You removed the car");
-                HUDController.instance.AddConsolelog("battery");
-                break;
-            case DevicesPart.valve:
-                HUDController.instance.AddConsolelog("You removed the valve");
-                break;
+            switch (devicesPart)
+            {
+                case DevicesPart.carBattery:
+                    HUDController.instance.AddConsolelog("You removed the car");
+                    HUDController.instance.AddConsolelog("battery");
+                    break;
+                case DevicesPart.valve:
+                    HUDController.instance.AddConsolelog("You removed the valve");
+                    break;
+            }
+            Destroy(partObj);
+            Inventory.instance.AddItem(part);
+            PickUpObjList.instance.AddIdToList(idPickUp);
         }
-        Destroy(partObj);
-        Inventory.instance.AddItem(part);
-        PickUpObjList.instance.AddIdToList(idPickUp);
+        else
+        {
+            HUDController.instance.AddConsolelog("Failed to extract any");
+            HUDController.instance.AddConsolelog("parts");
+        }
         playerController.SetBlock(false);
+    }
+
+    public bool CanRepair()
+    {
+        int hitChance = Random.Range(0, 10000) % 100;
+        Debug.Log($"Hit Chance: {hitChance} Repair Chance: {PlayerStats.instance.GetRepairChance()}");
+        if (hitChance >= PlayerStats.instance.GetRepairChance())
+        {
+            return false;
+        }
+        return true;
     }
 }
 

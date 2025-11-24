@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int baseDodgeChance = 10;
     [SerializeField] private int baseCritChance = 5;
     [SerializeField] private int baseLockpickChance = 25;
+    [SerializeField] private int baseRepairChance = 10;
     private Dictionary<int, float> radHPPercent = new Dictionary<int, float>
     {
         {0, 1f},
@@ -226,5 +227,19 @@ public class PlayerStats : MonoBehaviour
     public int GetLockpickChance()
     {
         return Mathf.RoundToInt(baseLockpickChance + (dexterity - 1) * (95f - 25f) / 9f);
+    }
+
+    public int GetRepairChance()
+    {
+        return baseRepairChance + (technical - 1) * 9;
+    }
+
+    public void AddTechnicalPoint()
+    {
+        if(technical >= 10)
+            return;
+        technical += 1;
+        HUDController.instance.AddConsolelog("You gained +1 Technical");
+        HUDController.instance.AddConsolelog("point");
     }
 }

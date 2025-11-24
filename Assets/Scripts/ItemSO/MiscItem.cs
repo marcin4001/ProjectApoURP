@@ -7,4 +7,5 @@ public class MiscItem : Item
     public bool isKey = false;
     public bool isBook = false;
     public BookProfile bookProfile;
+    public bool addPointTechnical = false;
 }

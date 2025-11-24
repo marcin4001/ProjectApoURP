@@ -151,6 +151,11 @@ public class HUDController : MonoBehaviour
                 BookReader.instance.Show(miscItem.bookProfile);
                 return;
             }
+            if(miscItem.addPointTechnical)
+            {
+                RemoveCurrentItem();
+                PlayerStats.instance.AddTechnicalPoint();
+            }
         }
         if(item == null)
         {
