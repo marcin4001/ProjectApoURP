@@ -151,10 +151,24 @@ public class HUDController : MonoBehaviour
                 BookReader.instance.Show(miscItem.bookProfile);
                 return;
             }
-            if(miscItem.addPointTechnical)
+            if(miscItem.addPointAttribute)
             {
+                switch(miscItem.attribute)
+                {
+                    case PlayerAttributes.strength:
+                        PlayerStats.instance.AddStrengthPoint();
+                        break;
+                    case PlayerAttributes.dexterity:
+                        PlayerStats.instance.AddDexterityPoint();
+                        break;
+                    case PlayerAttributes.technical:
+                        PlayerStats.instance.AddTechnicalPoint();
+                        break;
+                    case PlayerAttributes.perception:
+                        PlayerStats.instance.AddPerceptionPoint();
+                        break;
+                }
                 RemoveCurrentItem();
-                PlayerStats.instance.AddTechnicalPoint();
             }
         }
         if(item == null)

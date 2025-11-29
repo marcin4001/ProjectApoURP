@@ -234,12 +234,42 @@ public class PlayerStats : MonoBehaviour
         return baseRepairChance + (technical - 1) * 9;
     }
 
+    public void AddStrengthPoint()
+    {
+        if (strength >= 10)
+            return;
+        strength += 1;
+        HUDController.instance.AddConsolelog("You gained +1 Strength");
+        HUDController.instance.AddConsolelog("point");
+        int healthBase = 50;
+        int calculatedHealth = healthBase + (8 * (strength - 1));
+        SetHealthPointMax(calculatedHealth);
+    }
+
+    public void AddDexterityPoint()
+    {
+        if (dexterity >= 10)
+            return;
+        dexterity += 1;
+        HUDController.instance.AddConsolelog("You gained +1 Dexterity");
+        HUDController.instance.AddConsolelog("point");
+    }
+
     public void AddTechnicalPoint()
     {
         if(technical >= 10)
             return;
         technical += 1;
         HUDController.instance.AddConsolelog("You gained +1 Technical");
+        HUDController.instance.AddConsolelog("point");
+    }
+
+    public void AddPerceptionPoint()
+    {
+        if (perception >= 10)
+            return;
+        perception += 1;
+        HUDController.instance.AddConsolelog("You gained +1 Perception");
         HUDController.instance.AddConsolelog("point");
     }
 }

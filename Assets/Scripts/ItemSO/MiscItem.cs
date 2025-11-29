@@ -7,5 +7,11 @@ public class MiscItem : Item
     public bool isKey = false;
     public bool isBook = false;
     public BookProfile bookProfile;
-    public bool addPointTechnical = false;
+    public bool addPointAttribute = false;
+    public PlayerAttributes attribute = PlayerAttributes.strength;
+}
+
+public enum PlayerAttributes
+{
+    strength, dexterity, technical, perception
 }
