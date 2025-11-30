@@ -24362,6 +24362,10 @@ MonoBehaviour:
   actions: []
   mustHaveQuest: 0
   questID: 0
+  isLock: 1
+  afterFixing:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &1501423050
 AudioSource:
   m_ObjectHideFlags: 0
@@ -37918,6 +37922,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: roof
   isNPC: 0
+--- !u!1001 &5972899492499307313
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2360593225914246736, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00184
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360593225914246736, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00572
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360593225914246736, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0109
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777410803013651953, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.613
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777410803013651953, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0779
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777410803013651953, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -29.359512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777410803013651953, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.10932493
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777410803013651953, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.10932492
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777410803013651953, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6986045
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777410803013651953, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.6986043
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777410803013651953, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777410803013651953, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777410803013651953, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -197.788
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296785304480274251, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
+      propertyPath: m_Name
+      value: FirstAidMagazine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4823fb213ea0034e90f6cced39ab882, type: 3}
 --- !u!114 &6105260759874176184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39035,3 +39108,4 @@ SceneRoots:
   - {fileID: 1554902697}
   - {fileID: 1348334374}
   - {fileID: 489417974}
+  - {fileID: 5972899492499307313}
