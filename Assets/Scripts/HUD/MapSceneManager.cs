@@ -26,6 +26,7 @@ public class MapSceneManager : MonoBehaviour
     [SerializeField] private string mapSignName;
     [SerializeField] private Sprite playerSignRight;
     [SerializeField] private Sprite playerSignLeft;
+    [SerializeField] private Sprite playerSignWarning;
     [SerializeField] private int indexTheme = 0;
     private Image buttonEnterImage;
     private List<RectTransform> pathList = new List<RectTransform>();
@@ -35,7 +36,7 @@ public class MapSceneManager : MonoBehaviour
     private bool blockEnterButton = false;
     private bool blockSetTarget = false;
     private LoadingPanel loadingPanel;
-
+    [SerializeField] private bool triggerCombat = false;
     private void Awake()
     {
         instance = this;
@@ -87,7 +88,6 @@ public class MapSceneManager : MonoBehaviour
         }
     }
 
-
     public void SetTargetPos()
     {
         if (blockSetTarget)
@@ -106,6 +106,11 @@ public class MapSceneManager : MonoBehaviour
     {
         if (blockSetTarget)
             return;
+        nextScene = _scene;
+    }
+
+    public void SetNextSceneCombat(string _scene)
+    {
         nextScene = _scene;
     }
 
@@ -156,22 +161,50 @@ public class MapSceneManager : MonoBehaviour
             }
             DrawPath();
             MapSignController.instance.UpdateMapSigns();
+            if(MapCombatController.instance != null)
+            {
+                Debug.Log("Jest MapCompat");
+                if (MapCombatController.instance.CheckTriggers())
+                {
+                    triggerCombat = true;
+                    break;
+                }
+            }
             yield return new WaitForEndOfFrame();
             distance = Vector2.Distance(playerPos, targetPos);
         }
-        playerSign.anchoredPosition = targetPos;
         target.gameObject.SetActive(false);
-        blockEnterButton = false;
-        blockSetTarget = false;
-        CursorController.instance.SetIsWait(false);
-        buttonEnterImage.overrideSprite = enterBtnActiveSprite;
+        if (!triggerCombat)
+        {
+            playerSign.anchoredPosition = targetPos;
+            blockEnterButton = false;
+            blockSetTarget = false;
+            CursorController.instance.SetIsWait(false);
+            buttonEnterImage.overrideSprite = enterBtnActiveSprite;
+        }
+        else
+        {
+            ClearPath();
+            StartCoroutine(LoadCombatSccene());
+        }
+    }
+
+    public IEnumerator LoadCombatSccene()
+    {
+        playerSign.GetComponent<Image>().overrideSprite = playerSignWarning;
+        yield return new WaitForSeconds(3);
+        GameParam.instance.currentTime = gameTime;
+        GameParam.instance.mapPosition = playerSign.anchoredPosition;
+        loadingPanel.Show();
+        SceneManager.LoadScene(nextScene);
     }
 
     private void DrawPath()
     {
         foreach(RectTransform path in pathList)
         {
-            Destroy(path.gameObject);
+            if(path != null)
+                Destroy(path.gameObject);
         }
         pathList.Clear();
         Vector2 playerPos = playerSign.anchoredPosition;
@@ -189,6 +222,14 @@ public class MapSceneManager : MonoBehaviour
             newSegment.sizeDelta = new Vector2(segmentLen, 2f);
             float angleSegment = Mathf.Atan2(directionPath.y, directionPath.x) * Mathf.Rad2Deg;
             newSegment.rotation = Quaternion.Euler(0f, 0f, angleSegment);
+        }
+    }
+
+    private void ClearPath()
+    {
+        foreach (RectTransform path in pathList)
+        {
+            Destroy(path.gameObject);
         }
     }
 

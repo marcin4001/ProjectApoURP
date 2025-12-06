@@ -25,4 +25,9 @@ public class MapSignController : MonoBehaviour
                 mapSignObject.SetUnexplored();
         }
     }
+
+    public RectTransform GetPlayerSign()
+    {
+        return playerSign;
+    }
 }

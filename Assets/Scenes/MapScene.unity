@@ -1008,6 +1008,7 @@ GameObject:
   - component: {fileID: 94577861}
   - component: {fileID: 94577860}
   - component: {fileID: 94577859}
+  - component: {fileID: 94577863}
   m_Layer: 5
   m_Name: CellGridMapButton (23)
   m_TagString: Untagged
@@ -1131,6 +1132,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94577857}
   m_CullTransparentMesh: 1
+--- !u!114 &94577863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94577857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c4f20c7dc000147b01c754bde4617c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  isCombatTrigger: 1
+  mapButton: {fileID: 0}
 --- !u!1 &108124265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,6 +1417,7 @@ GameObject:
   - component: {fileID: 135525796}
   - component: {fileID: 135525795}
   - component: {fileID: 135525794}
+  - component: {fileID: 135525798}
   m_Layer: 5
   m_Name: CellGridMapButton (10)
   m_TagString: Untagged
@@ -1524,6 +1541,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135525792}
   m_CullTransparentMesh: 1
+--- !u!114 &135525798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135525792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c4f20c7dc000147b01c754bde4617c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  isCombatTrigger: 1
+  mapButton: {fileID: 0}
 --- !u!1 &165227681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,6 +1750,7 @@ GameObject:
   - component: {fileID: 230067017}
   - component: {fileID: 230067016}
   - component: {fileID: 230067015}
+  - component: {fileID: 230067019}
   m_Layer: 5
   m_Name: CellGridMapButton (20)
   m_TagString: Untagged
@@ -1841,6 +1874,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230067013}
   m_CullTransparentMesh: 1
+--- !u!114 &230067019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230067013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c4f20c7dc000147b01c754bde4617c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  isCombatTrigger: 1
+  mapButton: {fileID: 0}
 --- !u!1 &231476762
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,6 +2567,7 @@ GameObject:
   - component: {fileID: 400339775}
   - component: {fileID: 400339774}
   - component: {fileID: 400339773}
+  - component: {fileID: 400339777}
   m_Layer: 5
   m_Name: CellGridMapButton (4)
   m_TagString: Untagged
@@ -2642,6 +2691,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400339771}
   m_CullTransparentMesh: 1
+--- !u!114 &400339777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400339771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c4f20c7dc000147b01c754bde4617c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  isCombatTrigger: 1
+  mapButton: {fileID: 0}
 --- !u!1 &441083574
 GameObject:
   m_ObjectHideFlags: 0
@@ -5951,6 +6015,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902559858}
   m_CullTransparentMesh: 1
+--- !u!1 &905125814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 905125816}
+  - component: {fileID: 905125815}
+  m_Layer: 0
+  m_Name: MapCombatController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &905125815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905125814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97a29f05c78d1c459911316baec50a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridCombats: []
+--- !u!4 &905125816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905125814}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &914747953
 GameObject:
   m_ObjectHideFlags: 0
@@ -6220,6 +6329,7 @@ GameObject:
   - component: {fileID: 935257607}
   - component: {fileID: 935257606}
   - component: {fileID: 935257605}
+  - component: {fileID: 935257609}
   m_Layer: 5
   m_Name: CellGridMapButton (22)
   m_TagString: Untagged
@@ -6343,6 +6453,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935257603}
   m_CullTransparentMesh: 1
+--- !u!114 &935257609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935257603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c4f20c7dc000147b01c754bde4617c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  isCombatTrigger: 1
+  mapButton: {fileID: 0}
 --- !u!1 &966412212
 GameObject:
   m_ObjectHideFlags: 0
@@ -8677,6 +8802,7 @@ GameObject:
   - component: {fileID: 1214660669}
   - component: {fileID: 1214660668}
   - component: {fileID: 1214660667}
+  - component: {fileID: 1214660671}
   m_Layer: 5
   m_Name: CellGridMapButton (8)
   m_TagString: Untagged
@@ -8800,6 +8926,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214660665}
   m_CullTransparentMesh: 1
+--- !u!114 &1214660671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214660665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c4f20c7dc000147b01c754bde4617c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  isCombatTrigger: 1
+  mapButton: {fileID: 0}
 --- !u!1 &1228485287
 GameObject:
   m_ObjectHideFlags: 0
@@ -10374,6 +10515,7 @@ GameObject:
   - component: {fileID: 1365332426}
   - component: {fileID: 1365332425}
   - component: {fileID: 1365332424}
+  - component: {fileID: 1365332428}
   m_Layer: 5
   m_Name: CellGridMapButton (18)
   m_TagString: Untagged
@@ -10497,6 +10639,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365332422}
   m_CullTransparentMesh: 1
+--- !u!114 &1365332428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365332422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c4f20c7dc000147b01c754bde4617c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  isCombatTrigger: 1
+  mapButton: {fileID: 0}
 --- !u!1 &1372554527
 GameObject:
   m_ObjectHideFlags: 0
@@ -10770,7 +10927,9 @@ MonoBehaviour:
   mapSignName: 
   playerSignRight: {fileID: 21300000, guid: a0fe09a7c0aaa0647abcb35e182e2af9, type: 3}
   playerSignLeft: {fileID: 21300000, guid: ae08f55bb62346244af5b674b139f90a, type: 3}
+  playerSignWarning: {fileID: 21300000, guid: 15ab585a76fc33a43803276e22190865, type: 3}
   indexTheme: 10
+  triggerCombat: 0
 --- !u!114 &1443524568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12535,6 +12694,7 @@ GameObject:
   - component: {fileID: 1690633370}
   - component: {fileID: 1690633369}
   - component: {fileID: 1690633368}
+  - component: {fileID: 1690633372}
   m_Layer: 5
   m_Name: CellGridMapButton (14)
   m_TagString: Untagged
@@ -12658,6 +12818,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690633366}
   m_CullTransparentMesh: 1
+--- !u!114 &1690633372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690633366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c4f20c7dc000147b01c754bde4617c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  isCombatTrigger: 1
+  mapButton: {fileID: 0}
 --- !u!1 &1713114111
 GameObject:
   m_ObjectHideFlags: 0
@@ -15680,3 +15855,4 @@ SceneRoots:
   - {fileID: 1009276038}
   - {fileID: 178871579}
   - {fileID: 1587288074}
+  - {fileID: 905125816}

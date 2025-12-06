@@ -25,4 +25,9 @@ public class CellGridMapButton : MonoBehaviour
         MapSceneManager.instance.SetMapSignText(location);
         MapSceneManager.instance.SetTargetPos();
     }
+
+    public void SetNextScene()
+    {
+        MapSceneManager.instance.SetNextSceneCombat(sceneName);
+    }
 }
