@@ -4,6 +4,8 @@ using UnityEngine;
 public class DialogueNPCTrigger : MonoBehaviour
 {
     [SerializeField] private DialogueNPC npc;
+    [SerializeField] private bool checkIsInitNpc = false;
+    [SerializeField] private string npcName;
     private PlayerController player;
     void Start()
     {
@@ -12,6 +14,12 @@ public class DialogueNPCTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (checkIsInitNpc)
+        {
+            Debug.Log("NPCObjList.instance.isInit(npcName): " + NPCObjList.instance.isInit(npcName));
+            if(NPCObjList.instance.isInit(npcName))
+                return;
+        }
         if(other.tag == "Player")
         {
             StartCoroutine(StartDialogue());

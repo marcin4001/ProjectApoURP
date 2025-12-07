@@ -186,17 +186,32 @@ public class MapSceneManager : MonoBehaviour
         {
             ClearPath();
             StartCoroutine(LoadCombatSccene());
+            StartCoroutine(AnimationWarning());
         }
     }
 
     public IEnumerator LoadCombatSccene()
     {
-        playerSign.GetComponent<Image>().overrideSprite = playerSignWarning;
         yield return new WaitForSeconds(3);
         GameParam.instance.currentTime = gameTime;
         GameParam.instance.mapPosition = playerSign.anchoredPosition;
         loadingPanel.Show();
         SceneManager.LoadScene(nextScene);
+    }
+
+    public IEnumerator AnimationWarning()
+    {
+        Sprite startSign = playerSign.GetComponent<Image>().overrideSprite;
+        int indexFrame = 0;
+        while (true)
+        {
+            if (indexFrame % 2 == 0)
+                playerSign.GetComponent<Image>().overrideSprite = playerSignWarning;
+            else
+                playerSign.GetComponent<Image>().overrideSprite = startSign;
+            indexFrame++;
+            yield return new WaitForSeconds(0.3f);
+        }
     }
 
     private void DrawPath()
