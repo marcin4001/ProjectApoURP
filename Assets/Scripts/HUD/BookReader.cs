@@ -34,8 +34,8 @@ public class BookReader : MonoBehaviour
     {
         active = true;
         panel.SetActive(true);
-        player.SetInMenu(true);
-        CameraMovement.instance.SetBlock(true);
+        player?.SetInMenu(true);
+        CameraMovement.instance?.SetBlock(true);
         book = profile;
         if(book != null)
         {
@@ -51,16 +51,16 @@ public class BookReader : MonoBehaviour
     {
         active = false;
         panel.SetActive(false);
-        player.SetInMenu(false);
-        CameraMovement.instance.SetBlock(false);
+        player?.SetInMenu(false);
+        CameraMovement.instance?.SetBlock(false);
         book = null;
     }
 
     //void Update()
     //{
-    //    if(!active && Input.GetKeyDown(KeyCode.B))
+    //    if (!active && Input.GetKeyDown(KeyCode.B))
     //    {
-    //        Show();
+    //        Show(book);
     //    }
     //}
 

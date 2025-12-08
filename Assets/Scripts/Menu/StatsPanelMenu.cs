@@ -18,6 +18,8 @@ public class StatsPanelMenu : MonoBehaviour
     [SerializeField] private int[] stats = new int[4];
     [SerializeField] private int points = 10;
     [SerializeField, TextArea(1, 3)] private string messageText;
+    [SerializeField] public Button helpBtn;
+    [SerializeField] public BookProfile book;
     private Coroutine coroutine;
     private DemoMenuUI demoMenu;
 
@@ -28,6 +30,7 @@ public class StatsPanelMenu : MonoBehaviour
         bg_panel.SetActive(false);
         closeBtn.onClick.AddListener(Close);
         applyBtn.onClick.AddListener(ApplyClick);
+        helpBtn.onClick.AddListener(HelpClick);
         for (int i = 0; i < values.Length; i++)
         {
             int index = i;
@@ -97,6 +100,11 @@ public class StatsPanelMenu : MonoBehaviour
     {
         GameParam.instance.SetStatsStart(stats);
         demoMenu.LoadNewGame();
+    }
+
+    public void HelpClick()
+    {
+        BookReader.instance.Show(book);
     }
 
     private IEnumerator ChangePlayerView()
