@@ -167,6 +167,15 @@ public class PlayerController : MonoBehaviour
             playerStats.RemoveOneRadLevel();
             playerStats.RemoveOneRadLevel();
         }
+        if(food.returnObj)
+        {
+            Item returnObj = ItemDB.instance.GetItemById(food.idObj);
+            if(returnObj != null)
+            {
+                SlotItem returnItemSlot = new SlotItem(returnObj, 1);
+                Inventory.instance.AddItem(returnItemSlot);
+            }
+        }
         HUDController.instance.RemoveCurrentItem();
         HUDController.instance.SetActiveInventoryBtn(true);
         CursorController.instance.SetIsWait(false);
@@ -199,6 +208,15 @@ public class PlayerController : MonoBehaviour
         {
             playerStats.RemoveOneRadLevel();
             playerStats.RemoveOneRadLevel();
+        }
+        if (food.returnObj)
+        {
+            Item returnObj = ItemDB.instance.GetItemById(food.idObj);
+            if (returnObj != null)
+            {
+                SlotItem returnItemSlot = new SlotItem(returnObj, 1);
+                Inventory.instance.AddItem(returnItemSlot);
+            }
         }
         HUDController.instance.RemoveCurrentItem();
         HUDController.instance.SetActiveInventoryBtn(true);

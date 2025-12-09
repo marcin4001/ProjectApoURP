@@ -11,4 +11,6 @@ public class FoodItem : Item
     public bool isDrink = false;
     public bool isSpicy = false;
     public GameObject spawnObj;
+    public bool returnObj;
+    public int idObj;
 }
