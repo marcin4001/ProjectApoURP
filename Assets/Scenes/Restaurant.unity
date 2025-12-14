@@ -6178,11 +6178,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
       propertyPath: strength
-      value: 8
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: dexterity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: technical
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
       propertyPath: perception
-      value: 10
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: healthPoint
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
       propertyPath: mapPosition.x
@@ -6191,6 +6203,14 @@ PrefabInstance:
     - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
       propertyPath: mapPosition.y
       value: -96.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: healthPointMax
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: healthPointMaxBase
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8406120896648320716, guid: c687b121b8de238478ea541a8369157b, type: 3}
       propertyPath: m_Name
@@ -9638,12 +9658,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - item: {fileID: 11400000, guid: 2aab4625236ec7d42adeaa8c17bc5b5f, type: 2}
+  - item: {fileID: 11400000, guid: 1a8e4c8dd2a5ec248944f9acfcf5303b, type: 2}
     amount: 1
-  - item: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
-    amount: 100
-  - item: {fileID: 11400000, guid: 766bf338c92b1fc4296a64a36570b9dc, type: 2}
-    amount: 1
+  - item: {fileID: 11400000, guid: d7aa1eeedf30b0b4eaea3dc6a138d3aa, type: 2}
+    amount: 2
   slots:
   - item: {fileID: 0}
     amount: 0
