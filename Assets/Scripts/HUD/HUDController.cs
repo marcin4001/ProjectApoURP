@@ -51,6 +51,8 @@ public class HUDController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI questText;
     [Header("Level")]
     [SerializeField] private Button newLevelBtn;
+    [SerializeField] private Sprite newLevelNormal;
+    [SerializeField] private Sprite newLevelActive;
     private PlayerController player;
     private Canvas canvas;
 
@@ -80,7 +82,10 @@ public class HUDController : MonoBehaviour
         if(newLevelBtn != null)
         {
             newLevelBtn.onClick.AddListener(OnNewLevelClick);
-            newLevelBtn.gameObject.SetActive(GameParam.instance.isLevelUp);
+            if(GameParam.instance.isLevelUp)
+                newLevelBtn.GetComponent<Image>().overrideSprite = newLevelActive;
+            else
+                newLevelBtn.GetComponent<Image>().overrideSprite = newLevelNormal;
         }
         consoleText.text = string.Empty;
         slotStateText.text = slotState.ToString();
@@ -513,17 +518,18 @@ public class HUDController : MonoBehaviour
 
     public void OnNewLevelClick()
     {
-        StatsPanelNewLevel.instance.Open();
+        if(GameParam.instance.isLevelUp)
+            StatsPanelNewLevel.instance.Open();
     }
 
-    public void ShowNewLevelBtn()
+    public void ActiveNewLevelBtn()
     {
-        newLevelBtn.gameObject.SetActive(true);
+        newLevelBtn.GetComponent<Image>().overrideSprite = newLevelActive;
     }
 
-    public void HideNewLevelBtn()
+    public void DeactiveNewLevelBtn()
     {
-        newLevelBtn.gameObject.SetActive(false);
+        newLevelBtn.GetComponent<Image>().overrideSprite = newLevelNormal;
     }
 
     private IEnumerator UpdateTimer()

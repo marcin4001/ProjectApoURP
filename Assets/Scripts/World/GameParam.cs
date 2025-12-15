@@ -158,7 +158,7 @@ public class GameParam : MonoBehaviour
         skillPoints += 1;
         isLevelUp = true;
         HUDController.instance.AddConsolelog($"Level Up! New level: {level}");
-        HUDController.instance.ShowNewLevelBtn();
+        HUDController.instance.ActiveNewLevelBtn();
     }
 
     public void AddOpenDoor(string idDoor)

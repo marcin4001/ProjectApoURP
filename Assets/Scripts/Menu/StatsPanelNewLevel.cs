@@ -118,7 +118,7 @@ public class StatsPanelNewLevel : MonoBehaviour
         if(points == 0)
         {
             GameParam.instance.isLevelUp = false;
-            HUDController.instance.HideNewLevelBtn();
+            HUDController.instance.DeactiveNewLevelBtn();
         }
     }
 
