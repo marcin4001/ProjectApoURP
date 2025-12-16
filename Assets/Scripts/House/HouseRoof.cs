@@ -8,9 +8,20 @@ public class HouseRoof : MonoBehaviour
     [SerializeField] private bool playerInTrigger = false;
     [SerializeField] private bool openOnStart = false;
     [SerializeField] private bool withoutDoors = false;
+    [SerializeField] private Light[] lights;
     private void Start()
     {
-        if(withoutDoors)
+        if(lights == null)
+            lights = new Light[0];
+        if (lights.Length > 0)
+        {
+            foreach (Light light in lights)
+            {
+                if (light != null)
+                    light.shadows = LightShadows.None;
+            }
+        }
+        if (withoutDoors)
             return;
         doors = GetComponentsInChildren<Door>();
     }
@@ -20,8 +31,18 @@ public class HouseRoof : MonoBehaviour
         if (other.tag == "Player")
         {
             playerInTrigger = true;
-            if(HouseIsOpen())
+            if (HouseIsOpen())
+            {
                 roof.SetActive(false);
+                if (lights.Length > 0)
+                {
+                    foreach (Light light in lights)
+                    {
+                        if (light != null)
+                            light.shadows = LightShadows.Soft;
+                    }
+                }
+            }
         }
     }
 
@@ -31,6 +52,15 @@ public class HouseRoof : MonoBehaviour
         {
             playerInTrigger = false;
             roof.SetActive(true);
+
+            if (lights.Length > 0)
+            {
+                foreach (Light light in lights)
+                {
+                    if (light != null)
+                        light.shadows = LightShadows.None;
+                }
+            }
         }
     }
 
