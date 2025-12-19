@@ -127,6 +127,11 @@ public class CursorController : MonoBehaviour
         }
     }
 
+    public bool IsWait()
+    {
+        return isWait;
+    }
+
     public void SetIsWait(bool _isWait)
     {
         isWait = _isWait;

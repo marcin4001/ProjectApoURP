@@ -210,6 +210,8 @@ public class HUDController : MonoBehaviour
 
     public void OnClickRigtButton()
     {
+        if(CursorController.instance.IsWait())
+            return;
         currentSlotIndex++;
         if(currentSlotIndex == Inventory.instance.GetLengthSlotItem())
             currentSlotIndex = 0;
@@ -218,6 +220,8 @@ public class HUDController : MonoBehaviour
     
     public void OnClickLeftButton()
     {
+        if (CursorController.instance.IsWait())
+            return;
         currentSlotIndex--;
         if(currentSlotIndex < 0)
             currentSlotIndex = Inventory.instance.GetLengthSlotItem() - 1;

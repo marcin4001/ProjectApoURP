@@ -5469,14 +5469,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CursorCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2857226213691652582, guid: 459683d34f71b3741b2304016346ab4a, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -6.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2857226213691652582, guid: 459683d34f71b3741b2304016346ab4a, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 3.7
-      objectReference: {fileID: 0}
     - target: {fileID: 8586460406155793861, guid: 459683d34f71b3741b2304016346ab4a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5555,6 +5547,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8586460406155793861, guid: 459683d34f71b3741b2304016346ab4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8706409883387982347, guid: 459683d34f71b3741b2304016346ab4a, type: 3}
+      propertyPath: m_UiScaleMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6074,6 +6070,7 @@ GameObject:
   - component: {fileID: 933539730}
   - component: {fileID: 933539729}
   - component: {fileID: 933539731}
+  - component: {fileID: 933539732}
   m_Layer: 5
   m_Name: EnterButton
   m_TagString: Untagged
@@ -6182,6 +6179,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &933539732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933539727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d875c38925e554e91d50d68b9522e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: Enter
+  showAfterTime: 1
 --- !u!1 &935257603
 GameObject:
   m_ObjectHideFlags: 0
@@ -9706,6 +9717,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -9759,6 +9771,7 @@ GameObject:
   - component: {fileID: 1310260050}
   - component: {fileID: 1310260049}
   - component: {fileID: 1310260051}
+  - component: {fileID: 1310260052}
   m_Layer: 5
   m_Name: GridButton
   m_TagString: Untagged
@@ -9867,6 +9880,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1310260052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310260047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d875c38925e554e91d50d68b9522e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: Show Grid
+  showAfterTime: 1
 --- !u!1 &1312309334
 GameObject:
   m_ObjectHideFlags: 0
@@ -10847,7 +10874,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 23d7b4e9601f6734b992bc12a2eddfea, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 23d7b4e9601f6734b992bc12a2eddfea, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -12503,6 +12530,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: -11.3
   m_lineSpacingMax: 0
@@ -15386,6 +15414,7 @@ MonoBehaviour:
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -15478,6 +15507,7 @@ GameObject:
   - component: {fileID: 8990708169143049001}
   - component: {fileID: 1500884267456841692}
   - component: {fileID: 3093248317698763304}
+  - component: {fileID: 8990708169143049002}
   m_Layer: 5
   m_Name: TimeText
   m_TagString: Untagged
@@ -15561,6 +15591,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 123, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8990708169143049002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095741891042898605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d875c38925e554e91d50d68b9522e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: Game Time
+  showAfterTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
