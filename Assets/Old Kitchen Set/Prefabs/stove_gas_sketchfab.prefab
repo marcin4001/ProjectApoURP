@@ -103,6 +103,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 2d16f64bb60a04041b5d5a3873f3510c, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 0ff9721d97e81f1408e25374690934e1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1907963181307167240, guid: 2ccb9cb333e7d6442a2e2c0c99b2d35d, type: 3}
     - target: {fileID: 919132149155446097, guid: 0ff9721d97e81f1408e25374690934e1, type: 3}
       propertyPath: m_Name
       value: stove_gas_sketchfab
@@ -124,6 +128,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0ff9721d97e81f1408e25374690934e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7482729077073203718}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0ff9721d97e81f1408e25374690934e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9101446069720801077}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ff9721d97e81f1408e25374690934e1, type: 3}
       insertIndex: -1
@@ -193,7 +200,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1bf1628dfcd85464a8b030b3232a9ad5, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1bf1628dfcd85464a8b030b3232a9ad5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -479,4 +486,78 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 847d6b8fd4a9f75459ddd5e95adc6615, type: 3}
   m_PrefabInstance: {fileID: 7067083544024993226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8774258404482365662
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1993044318378018123}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100.33468
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100.33468
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100.33468
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5225382
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.502
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.453
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_Name
+      value: MiniReactor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+--- !u!4 &9101446069720801077 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+  m_PrefabInstance: {fileID: 8774258404482365662}
   m_PrefabAsset: {fileID: 0}
