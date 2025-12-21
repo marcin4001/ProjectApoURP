@@ -31,7 +31,6 @@ public class EnemyGroup : MonoBehaviour
                 temp.Add(enemies[i]);
             }
         }
-        Debug.Log(temp.Count);
         enemies = temp.ToArray();
         if (gameObject.activeSelf)
             StartCoroutine(Trigger());

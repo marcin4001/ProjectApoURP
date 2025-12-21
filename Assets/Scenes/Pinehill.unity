@@ -2086,6 +2086,7 @@ MonoBehaviour:
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -12136,6 +12137,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9079013135381372139, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
   m_PrefabInstance: {fileID: 559756231}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &654971871 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5989082077215374051, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
+  m_PrefabInstance: {fileID: 559756231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &673537500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a5a77cb7eb6ae1f4eb6ba84f33a38270, type: 3}
@@ -12212,6 +12218,11 @@ Transform:
 --- !u!4 &721269576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9079013135381372139, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
+  m_PrefabInstance: {fileID: 1679558377}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &721269578 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5989082077215374051, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
   m_PrefabInstance: {fileID: 1679558377}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &730101684 stripped
@@ -12789,6 +12800,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2097817081271024522, guid: 060bff7687e8a2c4fa96d2b207d6de32, type: 3}
+      propertyPath: lights.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097817081271024522, guid: 060bff7687e8a2c4fa96d2b207d6de32, type: 3}
+      propertyPath: 'lights.Array.data[0]'
+      value: 
+      objectReference: {fileID: 721269578}
+    - target: {fileID: 2097817081271024522, guid: 060bff7687e8a2c4fa96d2b207d6de32, type: 3}
+      propertyPath: 'lights.Array.data[1]'
+      value: 
+      objectReference: {fileID: 654971871}
     - target: {fileID: 2493830609218595796, guid: 060bff7687e8a2c4fa96d2b207d6de32, type: 3}
       propertyPath: m_Size.x
       value: 0.12228152
@@ -15434,6 +15457,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2661945587105645114, guid: e6e750d2e61ca2844943ea5b190c0391, type: 3}
+      propertyPath: lights.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661945587105645114, guid: e6e750d2e61ca2844943ea5b190c0391, type: 3}
+      propertyPath: 'lights.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1749342973}
     - target: {fileID: 2824288227661357413, guid: e6e750d2e61ca2844943ea5b190c0391, type: 3}
       propertyPath: m_Name
       value: BrickHouseType1
@@ -22514,7 +22545,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1bf1628dfcd85464a8b030b3232a9ad5, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1bf1628dfcd85464a8b030b3232a9ad5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -25690,6 +25721,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2097817081271024522, guid: 060bff7687e8a2c4fa96d2b207d6de32, type: 3}
+      propertyPath: lights.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2097817081271024522, guid: 060bff7687e8a2c4fa96d2b207d6de32, type: 3}
+      propertyPath: 'lights.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1767146755}
     - target: {fileID: 2493830609218595796, guid: 060bff7687e8a2c4fa96d2b207d6de32, type: 3}
       propertyPath: m_Size.x
       value: 0.12559359
@@ -25754,6 +25793,11 @@ PrefabInstance:
 --- !u!4 &1355170630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9079013135381372139, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
+  m_PrefabInstance: {fileID: 1417700604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1355170632 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5989082077215374051, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
   m_PrefabInstance: {fileID: 1417700604}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1361475200 stripped
@@ -26624,6 +26668,7 @@ MonoBehaviour:
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -27604,7 +27649,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1bf1628dfcd85464a8b030b3232a9ad5, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1bf1628dfcd85464a8b030b3232a9ad5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -28249,6 +28294,7 @@ MonoBehaviour:
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -28525,6 +28571,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8924084585558876653, guid: f0d8e2054a0e9e846993670ee9a29da0, type: 3}
+      propertyPath: lights.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924084585558876653, guid: f0d8e2054a0e9e846993670ee9a29da0, type: 3}
+      propertyPath: 'lights.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1355170632}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30716,6 +30770,7 @@ MonoBehaviour:
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -30876,6 +30931,11 @@ PrefabInstance:
 --- !u!4 &1749342971 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9079013135381372139, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
+  m_PrefabInstance: {fileID: 1014925770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1749342973 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5989082077215374051, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
   m_PrefabInstance: {fileID: 1014925770}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1755453666
@@ -31042,6 +31102,11 @@ Transform:
 --- !u!4 &1767146753 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9079013135381372139, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
+  m_PrefabInstance: {fileID: 1842665233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1767146755 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 5989082077215374051, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
   m_PrefabInstance: {fileID: 1842665233}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1769259005 stripped
@@ -32698,6 +32763,7 @@ MonoBehaviour:
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -44824,7 +44890,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1bf1628dfcd85464a8b030b3232a9ad5, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1bf1628dfcd85464a8b030b3232a9ad5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -75474,6 +75540,7 @@ MonoBehaviour:
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -75649,6 +75716,7 @@ MonoBehaviour:
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -81104,6 +81172,7 @@ MonoBehaviour:
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
