@@ -49,6 +49,7 @@ public class StatsPanelMenu : MonoBehaviour
             stats[i] = 1;
             values[i].text = stats[i].ToString();
         }
+        points = 10;
         pointsValue.text = points.ToString();
     }
 
