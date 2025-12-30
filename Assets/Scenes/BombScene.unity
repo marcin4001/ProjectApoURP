@@ -12990,6 +12990,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2274650259402097363, guid: cf855d99d2aa4d84b8c82cd3b5ea1008, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3009347669411232424, guid: cf855d99d2aa4d84b8c82cd3b5ea1008, type: 3}
       propertyPath: m_Name
       value: BuzzNPC
@@ -13018,7 +13022,8 @@ PrefabInstance:
       propertyPath: nameObject
       value: Buzz
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3047129745789679400, guid: cf855d99d2aa4d84b8c82cd3b5ea1008, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5650465924092994326, guid: cf855d99d2aa4d84b8c82cd3b5ea1008, type: 3}
     m_AddedGameObjects:
@@ -13026,10 +13031,23 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1798319857}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3009347669411232424, guid: cf855d99d2aa4d84b8c82cd3b5ea1008, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2096735128}
     - targetCorrespondingSourceObject: {fileID: 2274650259402097363, guid: cf855d99d2aa4d84b8c82cd3b5ea1008, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cf855d99d2aa4d84b8c82cd3b5ea1008, type: 3}
+--- !u!1 &1782349518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3009347669411232424, guid: cf855d99d2aa4d84b8c82cd3b5ea1008, type: 3}
+  m_PrefabInstance: {fileID: 1782349517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1782349519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 793094953678590304, guid: cf855d99d2aa4d84b8c82cd3b5ea1008, type: 3}
+  m_PrefabInstance: {fileID: 1782349517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1788273503
 GameObject:
   m_ObjectHideFlags: 0
@@ -15466,6 +15484,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1542994131937707157, guid: cf855d99d2aa4d84b8c82cd3b5ea1008, type: 3}
   m_PrefabInstance: {fileID: 1782349517}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2096735128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782349518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: ca8e47a97e075d74e97f95b79b865a7c, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 1782349519}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1 &2109260959
 GameObject:
   m_ObjectHideFlags: 0
