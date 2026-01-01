@@ -19,6 +19,7 @@ public class Device : MonoBehaviour, IUsableObj
     [SerializeField] private int questID;
     [SerializeField] private bool isLock = true;
     [SerializeField] private UnityEvent afterFixing;
+    [SerializeField] private bool isBomb = false;
     private PlayerController playerController;
     private AudioSource source;
     private void Start()
@@ -58,6 +59,18 @@ public class Device : MonoBehaviour, IUsableObj
                 HUDController.instance.AddConsolelog("It’s broken");
                 return;
             }
+
+            if (!QuestController.instance.HaveQuest(questID) && isBomb)
+            {
+                HUDController.instance.AddConsolelog("You can’t do anything with");
+                HUDController.instance.AddConsolelog("this right now");
+                return;
+            }
+        }
+        if (isBomb && partObj == null)
+        {
+            HUDController.instance.AddConsolelog("The bomb has been disarmed");
+            return;
         }
         if (forRepair && partObj == null)
         {
@@ -74,6 +87,11 @@ public class Device : MonoBehaviour, IUsableObj
         
         if(partObj != null)
         {
+            if(isBomb)
+            {
+                StartCoroutine(DisarmBomb());
+                return;
+            }
             if(forRepair)
             {
                 if(Inventory.instance.PlayerHaveItem(repairPartID))
@@ -119,6 +137,10 @@ public class Device : MonoBehaviour, IUsableObj
         if (mustHaveQuest)
         {
             if (!QuestController.instance.HaveQuest(questID) && forRepair)
+            {
+                return;
+            }
+            if (!QuestController.instance.HaveQuest(questID) && isBomb)
             {
                 return;
             }
@@ -196,6 +218,31 @@ public class Device : MonoBehaviour, IUsableObj
         {
             HUDController.instance.AddConsolelog("Failed to extract any");
             HUDController.instance.AddConsolelog("parts");
+        }
+        playerController.SetBlock(false);
+    }
+
+    public IEnumerator DisarmBomb()
+    {
+        yield return new WaitForEndOfFrame();
+        playerController.SetBlock(true);
+        if (source != null)
+        {
+            source.Play();
+        }
+        yield return new WaitForSeconds(1);
+        if(PlayerStats.instance.GetTechnical() > 6)
+        {
+            HUDController.instance.AddConsolelog("The bomb has been disarmed");
+            HUDController.instance.AddConsolelog("You added a Nuclear");
+            HUDController.instance.AddConsolelog("Battery");
+            Destroy(partObj);
+            Inventory.instance.AddItem(part);
+            PickUpObjList.instance.AddIdToList(idPickUp);
+        }
+        else
+        {
+            HUDController.instance.AddConsolelog("Disarm attempt failed");
         }
         playerController.SetBlock(false);
     }
