@@ -239,6 +239,10 @@ public class Device : MonoBehaviour, IUsableObj
             Destroy(partObj);
             Inventory.instance.AddItem(part);
             PickUpObjList.instance.AddIdToList(idPickUp);
+            foreach (ActionDialogue action in actions)
+            {
+                action?.Execute();
+            }
         }
         else
         {
