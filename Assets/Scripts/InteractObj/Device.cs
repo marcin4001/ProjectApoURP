@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Device : MonoBehaviour, IUsableObj
 {
@@ -20,6 +21,7 @@ public class Device : MonoBehaviour, IUsableObj
     [SerializeField] private bool isLock = true;
     [SerializeField] private UnityEvent afterFixing;
     [SerializeField] private bool isBomb = false;
+    [SerializeField] private string explosionScene;
     private PlayerController playerController;
     private AudioSource source;
     private void Start()
@@ -246,7 +248,9 @@ public class Device : MonoBehaviour, IUsableObj
         }
         else
         {
-            HUDController.instance.AddConsolelog("Disarm attempt failed");
+            //HUDController.instance.AddConsolelog("Disarm attempt failed");
+            SceneManager.LoadScene(explosionScene);
+            yield break;
         }
         playerController.SetBlock(false);
     }
