@@ -4602,6 +4602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivotSpawn: {fileID: 551729650}
+  insideSprawnPos: {fileID: 0}
   indexCabinetData: 0
   importantPlace: 0
   mapSignName: 
@@ -6152,6 +6153,9 @@ MonoBehaviour:
   - item: {fileID: 0}
     amount: 0
   - item: {fileID: 0}
+    amount: 0
+  armorSlot:
+    item: {fileID: 0}
     amount: 0
 --- !u!4 &1179129775
 Transform:
@@ -8321,6 +8325,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 960875389597889558, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 960875389597889558, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 960875389597889558, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 960875389597889558, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185297787458492547, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185297787458492547, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185297787458492547, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185297787458492547, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3465235884170448235, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -8401,9 +8437,73 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4052036978352346572, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052036978352346572, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052036978352346572, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052036978352346572, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4195655895465936803, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
       propertyPath: m_Name
       value: HUDCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088778081803082007, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088778081803082007, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088778081803082007, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088778081803082007, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974060267074128133, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974060267074128133, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974060267074128133, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974060267074128133, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106558250393307652, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106558250393307652, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106558250393307652, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8106558250393307652, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9947,6 +10047,7 @@ MonoBehaviour:
   cam: {fileID: 843152229}
   cutoutSize: 0.11
   falloffSize: 0.05
+  lengthRay: 3
   cutoutPositionProp: _Cutout_Position
   cutoutSizeProp: _Cutout_Size
   falloffSizeProp: _Falloff_Size
@@ -10537,7 +10638,9 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: f0b7794822ae14b49a22874291bcbb60, type: 2}
   amount: 1
   nearPoint: {fileID: 1570197151}
-  idPickUp: 1001
+  idPickUp: 6829
+  instantReadBook: 0
+  book: {fileID: 0}
 --- !u!114 &1981607083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11202,8 +11305,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: MapScene
   startQuest: 0
+  endDemo: 0
   idQuest: 0
   textLog: 
+  thxDemoScene: ThxDemoScene
+  inside: 0
 --- !u!65 &2109260961
 BoxCollider:
   m_ObjectHideFlags: 0
