@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: GenRowanNode
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: "What exactly is this camp\u2019s mission?"
+    replyText: "Our mission is to secure pre-war technology and deliver it to President
+      Vardell\u2019s bunker, nothing more."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Who exactly do you serve?
+    replyText: We serve President Vardell, who lives with his administration in a
+      bunker beneath the ruins of the White House, issuing all orders from there.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: ae0453301a5e4384f8aac02fddcd8c28, type: 2}
+  - optionText: How long have you been stationed here?
+    replyText: "Only for about a month. We have food supplies for another three,
+      so we\u2019ll be staying here a while longer."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: What happened to the pre-war president?
+    replyText: "His name was Donald, I don\u2019t recall the last name. After the
+      war he was supposed to stay in a bunker in Arkansas, but he escaped. Our orders
+      are to find him and transport him to Washington."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 1010
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Is there anything I can do for you?
+    replyText: If you find any highly specialized pre-war device, bring it to us,
+      it will always help us, and for a good find we can give you solid compensation.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: "That\u2019s all, General. See you around."
+    replyText: 
+    nextNode: 0
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []

@@ -2956,6 +2956,31 @@ Transform:
   - {fileID: 142751725}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!1 &269575389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4205658648783682589, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
+  m_PrefabInstance: {fileID: 1971521376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &269575390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269575389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 2754fd0bce5536f4ea24944442c2e77d, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 607349008}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1001 &271443991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5473,6 +5498,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36094ad09063e7646b2c936829fa1b11, type: 3}
+--- !u!4 &607349008 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 371032605030963627, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
+  m_PrefabInstance: {fileID: 1971521376}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &607836531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19168,6 +19198,10 @@ PrefabInstance:
       propertyPath: 'texts.Array.data[2]'
       value: "We\u2019re here to keep you safe."
       objectReference: {fileID: 0}
+    - target: {fileID: 1198551089072858602, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4205658648783682589, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
       propertyPath: m_Name
       value: GenRowanNPC
@@ -19216,13 +19250,17 @@ PrefabInstance:
       propertyPath: nameObject
       value: Gen. Rowan
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114710793004322159, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6825344969957506251, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
       insertIndex: -1
       addedObject: {fileID: 441421603}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4205658648783682589, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 269575390}
     - targetCorrespondingSourceObject: {fileID: 1198551089072858602, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
