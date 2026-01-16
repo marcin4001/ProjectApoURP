@@ -1719,7 +1719,7 @@ Transform:
   m_GameObject: {fileID: 176419480}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -12.7}
+  m_LocalPosition: {x: 0, y: 0, z: -8.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2828,11 +2828,11 @@ GameObject:
   - component: {fileID: 265613665}
   - component: {fileID: 265613664}
   - component: {fileID: 265613663}
-  - component: {fileID: 265613662}
   - component: {fileID: 265613661}
   - component: {fileID: 265613660}
+  - component: {fileID: 265613666}
   m_Layer: 7
-  m_Name: Soldier1NPC (2)
+  m_Name: TroyNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2868,31 +2868,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: Pvt. Troy
   isNPC: 1
---- !u!114 &265613662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265613659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 1863358673}
-  nearPoint: {fileID: 142751725}
-  timeToHide: 3
-  texts:
-  - Keeping watch.
-  - The heat is killing me.
-  - Keeping watch.
-  - We should keep moving.
-  - "I\u2019m getting tired of this sand."
-  haveRifle: 1
-  rifleLayer: Rifle
-  textPos: {x: 0, y: 1.8, z: 0}
-  isAngry: 0
 --- !u!195 &265613663
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2956,6 +2931,26 @@ Transform:
   - {fileID: 142751725}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &265613666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265613659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 9aed762303e17b1449211dc2f3e931ed, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 142751725}
+  haveRifle: 1
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1 &269575389 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4205658648783682589, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
@@ -8130,6 +8125,75 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1515671335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &841217308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841217311}
+  - component: {fileID: 841217310}
+  - component: {fileID: 841217309}
+  m_Layer: 8
+  m_Name: DialogueNPCTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &841217309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841217308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a5d8b69779a3e4bb4ed42bd72e792b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 265613666}
+  checkIsInitNpc: 1
+  npcName: Pvt. Troy
+--- !u!65 &841217310
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841217308}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.902471, y: 2.8224201, z: 6.363288}
+  m_Center: {x: -0.1483407, y: 1.4112101, z: 1.9571824}
+--- !u!4 &841217311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841217308}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.14, y: -0.0000121593475, z: -5.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &843152227
 GameObject:
@@ -18053,7 +18117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1863358673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19261,9 +19325,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4205658648783682589, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
       insertIndex: -1
       addedObject: {fileID: 269575390}
-    - targetCorrespondingSourceObject: {fileID: 1198551089072858602, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 36e5ecd97997b6c48912b4ca14510e55, type: 3}
 --- !u!1001 &1982224201
 PrefabInstance:
@@ -22394,6 +22455,7 @@ SceneRoots:
   - {fileID: 7738841978794583988}
   - {fileID: 1971521376}
   - {fileID: 7873468491955906742}
+  - {fileID: 841217311}
   - {fileID: 265613665}
   - {fileID: 717192341}
   - {fileID: 1598321809}
