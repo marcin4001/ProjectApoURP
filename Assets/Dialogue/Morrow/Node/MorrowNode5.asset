@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: MorrowNode5
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: "Water isn\u2019t just for zombies, it\u2019s also for wandering
+      travelers."
+    replyText: "People are afraid to come here. You\u2019re the first person to show
+      up in months. You didn\u2019t convince me."
+    nextNode: 4
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: I see you grow vegetables. They need clean water to grow properly
+      and be good to eat.
+    replyText: "Hm. That\u2019s a good argument. Fine. Show me the contract, I\u2019ll
+      sign it without hesitation."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: ad1992feb0a05f64fbbde580c6ea35c2, type: 2}
+    - {fileID: 11400000, guid: 0e3a000d1e53b6b4f88c72def569e6f6, type: 2}
+  - optionText: I have no idea how to convince you.
+    replyText: Alright. Go back to Martin or come back if you think of something
+      sensible.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []

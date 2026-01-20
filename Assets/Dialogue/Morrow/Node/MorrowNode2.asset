@@ -13,20 +13,29 @@ MonoBehaviour:
   m_Name: MorrowNode2
   m_EditorClassIdentifier: 
   options:
-  - optionText: "Sure, I\u2019ll check it out. Maybe it\u2019s just rats..."
-    replyText: "Great. Once you check it out, come back and report what you saw.
-      I\u2019ll pay well for every bit of info.\n\n"
-    nextNode: 0
+  - optionText: Are there any non-zombies living in the village?
+    replyText: No, this village is only for zombies who survived Little Rock. Basically,
+      everyone who made it ended up a zombie. There was no chance to avoid it - the
+      bomb hit the city center directly.
+    nextNode: 1
     exitOption: 0
     conditionType: 0
     questID: 0
     objectID: 0
     amountObject: 0
-    actions:
-    - {fileID: 11400000, guid: 6455ef3d43bb90140a7f0184bbcd5ad6, type: 2}
-  - optionText: "I don\u2019t have time for that nonsense."
-    replyText: "Shame. But I get it... you probably have more important things to
-      do than deal with our village\u2019s problems."
+    actions: []
+  - optionText: Is there anything interesting to see here?
+    replyText: "Not really. There\u2019s just my house, Private Ryan\u2019s house,
+      a zombie dormitory and the cafeteria. As you can see - nothing exciting."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: "Let\u2019s talk about something else."
+    replyText: Alright. What else do you want to know from me?
     nextNode: 0
     exitOption: 0
     conditionType: 0

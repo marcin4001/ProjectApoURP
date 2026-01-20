@@ -17,28 +17,7 @@ MonoBehaviour:
     replyText: The village was founded in 2110 on the site of a survivor camp built
       by soldiers. All the zombies who were here helped build it. Nothing has changed
       since 2110.
-    nextNode: 0
-    exitOption: 0
-    conditionType: 0
-    questID: 0
-    objectID: 0
-    amountObject: 0
-    actions: []
-  - optionText: Are there any non-zombies living in the village?
-    replyText: No, this village is only for zombies who survived Little Rock. Basically,
-      everyone who made it ended up a zombie. There was no chance to avoid it - the
-      bomb hit the city center directly.
-    nextNode: 0
-    exitOption: 0
-    conditionType: 0
-    questID: 0
-    objectID: 0
-    amountObject: 0
-    actions: []
-  - optionText: Is there anything interesting to see here?
-    replyText: "Not really. There\u2019s just my house, Private Ryan\u2019s house,
-      a zombie dormitory and the cafeteria. As you can see - nothing exciting."
-    nextNode: 0
+    nextNode: 1
     exitOption: 0
     conditionType: 0
     questID: 0
@@ -60,7 +39,7 @@ MonoBehaviour:
       supermarket east of the village for a few days. I don\u2019t know if it\u2019s
       people or some kind of mutated creatures, but it could be a threat to the village.
       Could you go there and check it out?"
-    nextNode: 1
+    nextNode: 2
     exitOption: 0
     conditionType: 1
     questID: 28
@@ -90,6 +69,18 @@ MonoBehaviour:
     actions:
     - {fileID: 11400000, guid: e49e055ddcceffb4dbe19501d5cc4212, type: 2}
     - {fileID: 11400000, guid: 8ee7aecc44d700449ab9d7ed59f3eeb4, type: 2}
+  - optionText: Martin sent me. He wants to sign a contract for the supply of clean
+      water.
+    replyText: "That\u2019s very kind of him, but we zombies don\u2019t need clean
+      water. We drink dirty water and it doesn\u2019t affect us. You can pass that
+      on to Martin."
+    nextNode: 3
+    exitOption: 0
+    conditionType: 4
+    questID: 18
+    objectID: 223
+    amountObject: 1
+    actions: []
   - optionText: I need to keep moving.
     replyText: 
     nextNode: 0
