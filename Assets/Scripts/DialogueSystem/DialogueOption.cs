@@ -42,6 +42,8 @@ public class DialogueOption
                 return CanNotComplete();
             case ConditionDialogueType.CanComplete:
                 return CanComplete();
+            case ConditionDialogueType.HaveTechnicalSkill:
+                return HaveTechnicalSkill();
         }
         return true;
     }
@@ -172,6 +174,15 @@ public class DialogueOption
         Quest quest = QuestController.instance.GetQuest(questID);
         return quest.CanComplete();
     }
+
+    private bool HaveTechnicalSkill()
+    {
+        int technicalSkill = PlayerStats.instance.GetTechnical();
+        if(technicalSkill >= amountObject)
+            return true;
+        else 
+            return false;
+    }
 }
 
 public enum ConditionDialogueType
@@ -187,5 +198,6 @@ public enum ConditionDialogueType
     EnemiesNotKilled,
     EnemiesKilled,
     CanNotComplete,
-    CanComplete
+    CanComplete,
+    HaveTechnicalSkill
 }
