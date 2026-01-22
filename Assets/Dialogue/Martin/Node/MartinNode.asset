@@ -13,6 +13,19 @@ MonoBehaviour:
   m_Name: MartinNode
   m_EditorClassIdentifier: 
   options:
+  - optionText: "I\u2019m back from Little Rock. Here\u2019s the signed contract."
+    replyText: "That\u2019s great. I didn\u2019t think anyone would manage to convince
+      them. Here\u2019s your payment, 200 dollars, just like we agreed."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 18
+    objectID: 224
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 75e4765b599a1224a90a1c8ac03c4462, type: 2}
+    - {fileID: 11400000, guid: d8e51d465778d5a4f812ca34c1f85525, type: 2}
+    - {fileID: 11400000, guid: 9db913514a3a95e4c97ad46ef9e38f70, type: 2}
   - optionText: "The problem with the bandits is solved. They won\u2019t be raiding
       you anymore."
     replyText: "Really? I don\u2019t even know how to thank you\u2026 We\u2019ve
@@ -88,7 +101,7 @@ MonoBehaviour:
     amountObject: 0
     actions: []
   - optionText: Can I help you with something?
-    replyText: Yes, I have a job my employees refuse to do. I tried to make a deal
+    replyText: Yes, I have a job my employees refuse to do. I try to make a deal
       with the sentient zombies from the Little Rock ruins to the northeast. They
       disgust my people, so I need someone else. Can you help me with this?
     nextNode: 1
@@ -103,10 +116,10 @@ MonoBehaviour:
       bring back the signed contract.
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 18
-    objectID: 0
-    amountObject: 0
+    objectID: 224
+    amountObject: 1
     actions: []
   - optionText: Catch you later.
     replyText: 
