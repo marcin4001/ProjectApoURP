@@ -50,6 +50,7 @@ public class CombatController : MonoBehaviour
             actionPoint = actionPointMax;
             foreach(EnemyController enemy in enemies)
                 enemy.SetActiveAgent(false);
+            HUDController.instance.AddConsolelogWarning("It’s your turn");
         }
         else
         {
@@ -107,6 +108,7 @@ public class CombatController : MonoBehaviour
                 enemy.SetActiveAgent(false);
             player.SetBlock(false);
             actionPoint = actionPointMax;
+            HUDController.instance.AddConsolelogWarning("It’s your turn");
         }
         else
         {
@@ -129,7 +131,7 @@ public class CombatController : MonoBehaviour
         }
         if(actionPoint <= 0)
         {
-            //HUDController.instance.AddConsolelog("Your turn is over.");
+            HUDController.instance.AddConsolelogWarning("Your turn has ended.");
             actionPoint = 0;
             NextTurn();
         }

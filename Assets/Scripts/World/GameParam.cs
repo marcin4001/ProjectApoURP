@@ -157,7 +157,7 @@ public class GameParam : MonoBehaviour
         expToNextLevel += 500;
         skillPoints += 1;
         isLevelUp = true;
-        HUDController.instance.AddConsolelog($"Level Up! New level: {level}");
+        HUDController.instance.AddConsolelogWarning($"Level Up! New level: {level}");
         HUDController.instance.ActiveNewLevelBtn();
     }
 

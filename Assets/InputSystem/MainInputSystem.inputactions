@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "MainInputSystem",
     "maps": [
         {
@@ -90,6 +91,15 @@
                     "name": "Enter",
                     "type": "Button",
                     "id": "600b744b-2b97-4597-9bfe-b3a664db9628",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DoubleClick",
+                    "type": "Button",
+                    "id": "097fe249-a645-43ab-89fc-df632524eb36",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -325,6 +335,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "960174ae-8770-46cc-90b6-ccd8e77896d8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "MultiTap(tapTime=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DoubleClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

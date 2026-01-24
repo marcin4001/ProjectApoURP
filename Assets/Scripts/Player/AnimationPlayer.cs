@@ -3,6 +3,7 @@ using UnityEngine;
 public class AnimationPlayer : MonoBehaviour
 {
     [SerializeField] private string speedParam = "Speed";
+    [SerializeField] private string isRunParam = "isRun";
     [SerializeField] private string doorInteractParam = "DoorInteract";
     [SerializeField] private string shotParam = "Shot";
     [SerializeField] private string reloadParam = "Reload";
@@ -26,6 +27,11 @@ public class AnimationPlayer : MonoBehaviour
     public void SetSpeedLocomotion(float speed)
     {
         animator.SetFloat(speedParam, speed);
+    }
+
+    public void SetIsRun(bool isRun)
+    {
+        animator.SetBool(isRunParam, isRun);
     }
 
     public void DoorInteract()

@@ -472,6 +472,29 @@ public class HUDController : MonoBehaviour
         }
     }
 
+    public void AddConsolelogWarning(string log)
+    {
+        if (string.IsNullOrEmpty(log))
+            return;
+        string logNew = $"<color=#FFB000>{log}</color>";
+        consoleLogs.Add(logNew);
+        List<string> displayedLogs;
+        if (consoleLogs.Count > 7)
+        {
+            displayedLogs = consoleLogs.GetRange(consoleLogs.Count - 7, 7);
+            indexConsoleLog = consoleLogs.Count - 7;
+        }
+        else
+        {
+            displayedLogs = new List<string>(consoleLogs);
+        }
+        consoleText.text = string.Empty;
+        foreach (string newLog in displayedLogs)
+        {
+            consoleText.text += $"{newLog}\n";
+        }
+    }
+
     public void OnClickButtonUpConsole()
     {
         if (consoleLogs.Count <= 7)

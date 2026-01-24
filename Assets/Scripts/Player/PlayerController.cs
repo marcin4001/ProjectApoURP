@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask layerUseLook;
     [SerializeField] private LayerMask layerInsideHouse;
     [SerializeField] private PlayerActionState actionState = PlayerActionState.Move;
+    [SerializeField] private bool isRun = false;
     [SerializeField] private bool isUsingItem = false;
     [SerializeField] private bool isMoving = false;
     [SerializeField] private bool isUsingObj = false;
@@ -43,12 +44,15 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveTarget;
     private Vector3 lastPos;
     private float blockTime = 0;
+    private float moveSpeed = 2.5f;
+    private float runSpeed = 4f;
     void Awake()
     {
         inputSystem = new MainInputSystem();
         inputSystem.Enable();
         inputSystem.Player.MousePos.performed += SetMousePosition;
         inputSystem.Player.PlayerAction.performed += PlayerAction;
+        inputSystem.Player.DoubleClick.performed += DoubleClick;
         inputSystem.Player.ChangeStateAction.performed += ChangeActionState;
         inputSystem.Player.Test.performed += TestClick;
         weaponController = GetComponent<WeaponController>();
@@ -62,6 +66,7 @@ public class PlayerController : MonoBehaviour
         inputSystem.Enable();
         inputSystem.Player.MousePos.performed += SetMousePosition;
         inputSystem.Player.PlayerAction.performed += PlayerAction;
+        inputSystem.Player.DoubleClick.performed += DoubleClick;
         inputSystem.Player.ChangeStateAction.performed += ChangeActionState;
         inputSystem.Player.Test.performed += TestClick;
     }
@@ -69,6 +74,7 @@ public class PlayerController : MonoBehaviour
     void OnDisable()
     {
         inputSystem.Player.PlayerAction.performed -= PlayerAction;
+        inputSystem.Player.DoubleClick.performed -= DoubleClick;
         inputSystem.Player.MousePos.performed -= SetMousePosition;
         inputSystem.Player.ChangeStateAction.performed -= ChangeActionState;
         inputSystem.Player.Test.performed -= TestClick;
@@ -126,6 +132,19 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void DoubleClick(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("Double Click");
+        if (block || inMenu)
+            return;
+        if (HUDController.instance.PointerOnHUD())
+            return;
+        if(GameParam.instance.inCombat)
+            return;
+        if(!agent.isStopped)
+            isRun = true;
     }
 
     public void StartUsingItem()
@@ -804,6 +823,11 @@ public class PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(currentPath.corners[indexCorner] - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
             animationPlayer.SetSpeedLocomotion(agent.velocity.magnitude);
+            if(isRun)
+            {
+                animationPlayer.SetIsRun(true);
+                agent.speed = runSpeed;
+            }
             yield return new WaitForEndOfFrame();
             if (currentSelectObj is BackgroundNPC && agent.remainingDistance < 0.7f)
                 break;
@@ -835,7 +859,10 @@ public class PlayerController : MonoBehaviour
         }
         agent.isStopped = true;
         animationPlayer.SetSpeedLocomotion(0f);
+        animationPlayer.SetIsRun(false);
+        agent.speed = moveSpeed;
         isMoving = false;
+        isRun = false;
         if (GameParam.instance.inCombat)
         {
             CombatController.instance.RemoveAP(2);
