@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1605911104658272127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3780843963475179805}
+  m_Layer: 7
+  m_Name: NearPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3780843963475179805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605911104658272127}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.876, y: -0.823, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4392219171986465461}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &60727680930447751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -412,7 +443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.49
+      value: 18.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -420,7 +451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.97
+      value: -18.86
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -515,6 +546,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2768431109062071306}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3780843963475179805}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
       insertIndex: -1
@@ -525,6 +559,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7596961958739812840}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7882330128330235625}
   m_SourcePrefab: {fileID: 100100000, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
 --- !u!1 &4017101725975033871 stripped
 GameObject:
@@ -582,6 +619,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: shelf
   isNPC: 0
+--- !u!114 &7882330128330235625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017101725975033871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbeba9c590984e64098723938ef17936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpenParam: isOpen
+  isOpen: 0
+  nearPoint: {fileID: 3780843963475179805}
+  cabinetName: shelf
+  idCabinet: 0
+  items: []
+  isLock: 0
+  cabinetID: 
 --- !u!4 &4392219171986465461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e74537169de76c940ae31d40abd94f8e, type: 3}
