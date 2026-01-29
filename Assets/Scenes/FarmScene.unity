@@ -8659,6 +8659,14 @@ PrefabInstance:
       propertyPath: needKey
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8059177364400327786, guid: aaacb762271fb5a41afcdd34b7eba5bd, type: 3}
+      propertyPath: sceneName
+      value: BunkerMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059177364400327786, guid: aaacb762271fb5a41afcdd34b7eba5bd, type: 3}
+      propertyPath: withOutLoadScene
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8164204266091253840, guid: aaacb762271fb5a41afcdd34b7eba5bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.844
@@ -8836,6 +8844,8 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
     amount: 40
   - item: {fileID: 11400000, guid: 01de86c43b4252644b503a4240b602c9, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 0ef3a70484d60f24982c99f70a0f0dec, type: 2}
     amount: 1
   slots:
   - item: {fileID: 0}
@@ -9195,7 +9205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPivotSpawn: {fileID: 239534824}
-  insideSprawnPos: {fileID: 0}
+  insideSprawnPos: {fileID: 1609763299}
   indexCabinetData: 12
   importantPlace: 1
   mapSignName: Farm
@@ -10897,6 +10907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedParam: Speed
+  isRunParam: isRun
   doorInteractParam: DoorInteract
   shotParam: Shot
   reloadParam: Reload
@@ -12968,6 +12979,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+--- !u!1 &1609763298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1609763299}
+  m_Layer: 0
+  m_Name: SpawnPointInside
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1609763299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609763298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -10.916, y: 0.073, z: 18.857}
+  m_LocalScale: {x: 0.22, y: 0.22, z: 0.22}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1625549495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17381,6 +17423,7 @@ SceneRoots:
   - {fileID: 1100233616}
   - {fileID: 1422592448}
   - {fileID: 1202489642}
+  - {fileID: 1609763299}
   - {fileID: 1143535603}
   - {fileID: 95874537}
   - {fileID: 316931470}
