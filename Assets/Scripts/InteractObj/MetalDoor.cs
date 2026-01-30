@@ -38,6 +38,12 @@ public class MetalDoor : MonoBehaviour, IUsableObj
 
     public void Use()
     {
+        if(isLock)
+        {
+            HUDController.instance.AddConsolelog("The door is locked because");
+            HUDController.instance.AddConsolelog("there’s no power.");
+            return;
+        }
         if(animatorDoor != null)
             StartCoroutine(OpenDoor());
     }
@@ -53,4 +59,8 @@ public class MetalDoor : MonoBehaviour, IUsableObj
         Destroy(this);
     }
 
+    public void Unlock()
+    {
+        isLock = false;
+    }
 }
