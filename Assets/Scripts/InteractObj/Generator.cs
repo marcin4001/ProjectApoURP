@@ -1,3 +1,4 @@
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 public class Generator : MonoBehaviour, IUsableObj
@@ -7,6 +8,7 @@ public class Generator : MonoBehaviour, IUsableObj
     [SerializeField] private Transform nearPoint;
     [SerializeField] private bool works = false;
     [SerializeField] private int idPickUp;
+    [SerializeField] private int idQuest;
 
     void Start()
     {
@@ -52,6 +54,7 @@ public class Generator : MonoBehaviour, IUsableObj
         if(metalDoor != null)
             metalDoor.Unlock();
         works = true;
+        QuestController.instance.SetComplete(idQuest);
         HUDController.instance.AddConsolelog("The generator is working");
     }
 
