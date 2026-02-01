@@ -973,6 +973,79 @@ Transform:
   - {fileID: 2049031415}
   m_Father: {fileID: 1808345545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &164880378
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 21.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 21.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 21.75
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.09
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.141
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.46362433
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.46362433
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5339031
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5339031
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 8.06
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
+      propertyPath: m_Name
+      value: wheat
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 47bdd2a8cc8fb9a41b0a433a4c1b02fb, type: 3}
 --- !u!1 &168145885
 GameObject:
   m_ObjectHideFlags: 0
@@ -8438,6 +8511,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MilkBottle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 46226bd1439985545b87e09ff916f1f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12362,6 +12439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedParam: Speed
+  isRunParam: isRun
   doorInteractParam: DoorInteract
   shotParam: Shot
   reloadParam: Reload
@@ -13888,6 +13966,10 @@ PrefabInstance:
     - target: {fileID: 621869146041947700, guid: 8f1ab641efee9f14591683191962191c, type: 3}
       propertyPath: m_Name
       value: Radiotelegraph1
+      objectReference: {fileID: 0}
+    - target: {fileID: 621869146041947700, guid: 8f1ab641efee9f14591683191962191c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19848,7 +19930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7353325512405273892
 Transform:
   m_ObjectHideFlags: 0
@@ -22790,3 +22872,4 @@ SceneRoots:
   - {fileID: 7068310091103929552}
   - {fileID: 2005305672}
   - {fileID: 2129436315232634704}
+  - {fileID: 164880378}

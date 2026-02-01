@@ -31,13 +31,15 @@ public class GasPump : MonoBehaviour, IUsableObj
         if (!Inventory.instance.PlayerHaveItem(jerryCanEmptyItem.id))
         {
             HUDController.instance.AddConsolelog("You don't have an empty");
-            HUDController.instance.AddConsolelog("jerry can.");
+            HUDController.instance.AddConsolelog("jerry can");
             return;
         }
         SlotItem jerryCanEmpty = new SlotItem(jerryCanEmptyItem, 1);
         Inventory.instance.RemoveItem(jerryCanEmpty);
         SlotItem jerryCanFull = new SlotItem(jerryCanFullItem, 1);
         Inventory.instance.AddItem(jerryCanFull);
+        HUDController.instance.AddConsolelog("You filled the canister");
+        HUDController.instance.AddConsolelog("with diesel");
         //StartCoroutine(Refueling());
     }
 
