@@ -48,6 +48,13 @@ public class MetalDoor : MonoBehaviour, IUsableObj
             StartCoroutine(OpenDoor());
     }
 
+    public void OpenDoorTerminal()
+    {
+        isLock = false;
+        if (animatorDoor != null)
+            StartCoroutine(OpenDoor());
+    }
+
     private IEnumerator OpenDoor()
     {
         playerController.SetBlock(true);
