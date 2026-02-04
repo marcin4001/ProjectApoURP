@@ -25,45 +25,18 @@ MonoBehaviour:
     objectID: 0
     amountObject: 0
     actions: []
-  - optionText: Is there something I can do for you?
-    replyText: "Yes, I\u2019ve got something for you. My men lost a valuable radio
-      transmitter - a tool that would allow us to stay in contact with other settlements.
-      Start by talking to the Black Eagles at the bar. They might know what happened
-      to it."
-    nextNode: 1
+  - optionText: Can I join the Black Eagles?
+    replyText: "Yes, we\u2019re always looking for new members. But we don\u2019t
+      take just anyone. Do something useful for us, and I\u2019ll let you in. You\u2019ll
+      get a jacket and a bed in this room."
+    nextNode: 2
     exitOption: 0
-    conditionType: 1
-    questID: 11
+    conditionType: 0
+    questID: 0
     objectID: 0
     amountObject: 0
     actions:
-    - {fileID: 11400000, guid: 62df7ef3b9cf299449420e340d4352bd, type: 2}
-  - optionText: Where should I start looking for the transmitter?
-    replyText: "Go talk to the Black Eagles at the bar. They were the last ones to
-      have it, so they might know where it ended up. If anyone has a clue, it\u2019s
-      them."
-    nextNode: 1
-    exitOption: 0
-    conditionType: 3
-    questID: 11
-    objectID: 210
-    amountObject: 1
-    actions: []
-  - optionText: I got the transmitter. Kane sold it in Clearwater, cost me 100 dollars
-      to get it back.
-    replyText: "Figures. That bastard would sell his own boots for a drink. But you
-      got it back, and that\u2019s what matters. Here\u2019s 150 dollars - consider
-      it a little extra for your trouble."
-    nextNode: 1
-    exitOption: 0
-    conditionType: 4
-    questID: 11
-    objectID: 210
-    amountObject: 1
-    actions:
-    - {fileID: 11400000, guid: ef07597431b22704eb70f1b512a3ccb3, type: 2}
-    - {fileID: 11400000, guid: bfa49e1cacfabee418170db2bd06399d, type: 2}
-    - {fileID: 11400000, guid: 183bc57f4854d5344a3ff61a4d3337de, type: 2}
+    - {fileID: 11400000, guid: a5182f693c921584db1ee71599831942, type: 2}
   - optionText: "Alright, that\u2019s it for now. Goodbye."
     replyText: 
     nextNode: 1
