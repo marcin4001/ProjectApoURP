@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
-  m_Name: BaxtonNode2
+  m_Name: BaxtonNode4
   m_EditorClassIdentifier: 
   options:
   - optionText: What exactly do the Black Eagles do?
@@ -18,29 +18,46 @@ MonoBehaviour:
       that this city runs the way it should. Without us, this region would\u2019ve
       fallen apart. Two years ago, we helped the president take power and restore
       order."
-    nextNode: 1
+    nextNode: 3
     exitOption: 0
     conditionType: 0
     questID: 0
     objectID: 0
     amountObject: 0
     actions: []
-  - optionText: Can I join the Black Eagles?
-    replyText: "Yes, we\u2019re always looking for new members. But we don\u2019t
-      take just anyone. Do something useful for us, and I\u2019ll let you in. You\u2019ll
-      get a jacket and a bed in this room."
-    nextNode: 2
+  - optionText: Can I join the Black Eagles now?
+    replyText: "Not yet. If you really want to join us, you\u2019ll need to prove
+      yourself."
+    nextNode: 3
     exitOption: 0
     conditionType: 0
     questID: 0
     objectID: 0
     amountObject: 0
-    actions:
-    - {fileID: 11400000, guid: a5182f693c921584db1ee71599831942, type: 2}
-    - {fileID: 11400000, guid: 7e96eee3644556144895ae6454acf8ad, type: 2}
+    actions: []
+  - optionText: What should I find out in that military camp?
+    replyText: What matters most to me is the purpose of their military mission and
+      who they are working for. I do not need anything else.
+    nextNode: 3
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Where exactly is that military camp?
+    replyText: In the former state of Mississippi, not far from the border of our
+      republic. It is to the southeast from here.
+    nextNode: 3
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
   - optionText: "Alright, that\u2019s it for now. Goodbye."
     replyText: 
-    nextNode: 1
+    nextNode: 3
     exitOption: 1
     conditionType: 0
     questID: 0
