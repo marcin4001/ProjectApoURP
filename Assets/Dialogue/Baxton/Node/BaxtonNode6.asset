@@ -10,24 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
-  m_Name: BaxtonNode4
+  m_Name: BaxtonNode6
   m_EditorClassIdentifier: 
   options:
-  - optionText: "I\u2019m back from the military camp."
-    replyText: Good. Tell me what you found out.
-    nextNode: 4
-    exitOption: 0
-    conditionType: 5
-    questID: 1011
-    objectID: 0
-    amountObject: 0
-    actions: []
   - optionText: What exactly do the Black Eagles do?
     replyText: "We protect the farmers, caravans heading to Pinehill, and ensure
       that this city runs the way it should. Without us, this region would\u2019ve
       fallen apart. Two years ago, we helped the president take power and restore
       order."
-    nextNode: 3
+    nextNode: 5
     exitOption: 0
     conditionType: 0
     questID: 0
@@ -35,38 +26,21 @@ MonoBehaviour:
     amountObject: 0
     actions: []
   - optionText: Can I join the Black Eagles now?
-    replyText: "Not yet. If you really want to join us, you\u2019ll need to prove
-      yourself."
-    nextNode: 3
+    replyText: "Yes, you can join now. Here\u2019s your jacket. You can also sleep
+      in this room from now on. We don\u2019t have any tasks for you at the moment.
+      Come back after some time."
+    nextNode: 5
     exitOption: 0
-    conditionType: 0
-    questID: 0
+    conditionType: 6
+    questID: 38
     objectID: 0
     amountObject: 0
-    actions: []
-  - optionText: What should I find out in that military camp?
-    replyText: What matters most to me is the purpose of their military mission and
-      who they are working for. I do not need anything else.
-    nextNode: 3
-    exitOption: 0
-    conditionType: 1
-    questID: 1011
-    objectID: 0
-    amountObject: 0
-    actions: []
-  - optionText: Where exactly is that military camp?
-    replyText: In the former state of Mississippi, not far from the border of our
-      republic. It is to the southeast from here.
-    nextNode: 3
-    exitOption: 0
-    conditionType: 1
-    questID: 1011
-    objectID: 0
-    amountObject: 0
-    actions: []
+    actions:
+    - {fileID: 11400000, guid: 1a148f6596725824392d43d0a8b38911, type: 2}
+    - {fileID: 11400000, guid: f874a22cf89bba44d84580b0743755b7, type: 2}
   - optionText: "Alright, that\u2019s it for now. Goodbye."
     replyText: 
-    nextNode: 3
+    nextNode: 5
     exitOption: 1
     conditionType: 0
     questID: 0
