@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: LeviNode2
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: "I managed to get it. I\u2019ve got Vip Cola Zero for you."
+    replyText: "Vip Cola Zero\u2026 you have no idea what this means to me. That
+      taste reminds me of times when people still had choices, not just survival.
+      Thank you. Truly."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 4
+    questID: 40
+    objectID: 123
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 3002afec4abc1334199006c8be0a3279, type: 2}
+    - {fileID: 11400000, guid: f65932a08fe672c4d86363761c44c082, type: 2}
+  - optionText: Do you need anything else?
+    replyText: "If you\u2019re asking\u2026 you could bring me another can of Vip
+      Cola, but the Zero version. I remember there used to be one. I liked that one
+      too."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 1
+    questID: 40
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: e474f39d51a79824e8b7de1f79ee81b5, type: 2}
+  - optionText: "You look like you\u2019ve had a rough day. What keeps you going
+      in a place like this?"
+    replyText: "A rough day? Hah, every day\u2019s rough when you live here. But
+      you didn\u2019t come to cheer me up, did you? What do you want?"
+    nextNode: 1
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Do you always greet people like this, or is this just special for
+      me?
+    replyText: "Special treatment? Hah! Everyone here is special because we\u2019re
+      all equally worthless. But you look like someone who doesn\u2019t know what
+      it\u2019s like to lose everything. So, what do you want?"
+    nextNode: 1
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: I should go now. Take care.
+    replyText: 
+    nextNode: 1
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
