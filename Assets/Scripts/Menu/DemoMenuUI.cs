@@ -8,12 +8,14 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private string sceneStartName = "MainScene";
     [SerializeField] private Button playButton;
     [SerializeField] private Button settingsButton;
+    [SerializeField] private Button creditsButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private Button guideButton;
     [SerializeField] private int indexTheme = 0;
     [SerializeField] private bool inDemo = false;
     [SerializeField] private string guideURL = "https://drive.google.com/file/d/1cEXWEQmxcKytIYpjPMdWPtfHDkKfMPUp/view?usp=sharing";
     [SerializeField] private string messageQuit;
+    [SerializeField] public BookProfile book;
     private MainInputSystem inputActions;
     private StatsPanelMenu statsPanelMenu;
 
@@ -43,6 +45,7 @@ public class DemoMenuUI : MonoBehaviour
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
         MusicManager.instance.SetTheme(indexTheme);
         playButton.onClick.AddListener(OnClickPlay);
+        creditsButton.onClick.AddListener(OnClickCredits);
         settingsButton.onClick.AddListener(OnClickSettings);
         quitButton.onClick.AddListener(OnClickQuit);
         guideButton.onClick.AddListener(OnClickGuide);
@@ -69,6 +72,11 @@ public class DemoMenuUI : MonoBehaviour
         ListOffers.instance.CopyList();
         QuestController.instance.ClearList();
         SceneManager.LoadScene(sceneStartName);
+    }
+
+    private void OnClickCredits()
+    {
+        BookReader.instance.Show(book);
     }
 
     private void OnClickSettings()
