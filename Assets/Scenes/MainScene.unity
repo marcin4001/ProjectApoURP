@@ -2438,6 +2438,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4068924054966880093, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068924054966880093, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068924054966880093, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068924054966880093, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4198707132733630481, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2495,6 +2511,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6702235028859107153, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978949754366430040, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978949754366430040, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978949754366430040, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978949754366430040, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -9446,7 +9478,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f78b2b90910da40a07826e043ded74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - item: {fileID: 11400000, guid: 0ef3a70484d60f24982c99f70a0f0dec, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 5acd59adbb5d3524b856616e707fc344, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 1c8852a74ca30a84ba5811b7dff375e7, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: c0d9b03cadde07041875aacf1a761d2e, type: 2}
+    amount: 1
   slots:
   - item: {fileID: 0}
     amount: 0
@@ -11324,6 +11364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedParam: Speed
+  isRunParam: isRun
   doorInteractParam: DoorInteract
   shotParam: Shot
   reloadParam: Reload
