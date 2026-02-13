@@ -376,7 +376,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            bloodPos = blood.transform.position + bloodOffset;
+            bloodPos = blood.transform.position + transform.TransformDirection(bloodOffset);
             bloodPos.y = 0;
         }
         blood.transform.position = bloodPos;
