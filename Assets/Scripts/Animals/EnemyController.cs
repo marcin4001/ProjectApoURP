@@ -107,8 +107,7 @@ public class EnemyController : MonoBehaviour
         timeMoving = 0f;
         if(distance > minDistance)
         {
-            if (!CameraMovement.instance.ObjectInFov(transform))
-                CameraMovement.instance.CenterCameraTo(transform);
+            
             MoveTo(playerPos);
         }
         else
@@ -222,6 +221,9 @@ public class EnemyController : MonoBehaviour
 
     public IEnumerator Moving()
     {
+        yield return new WaitForSeconds(0.5f);
+        if (!CameraMovement.instance.ObjectInFov(transform))
+            CameraMovement.instance.CenterCameraTo(transform);
         CombatController.instance.UnsetSkipTurnPlayer();
         while(CombatController.instance.IsGetDamge())
             yield return new WaitForEndOfFrame();
