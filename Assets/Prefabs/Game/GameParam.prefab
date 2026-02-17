@@ -53,6 +53,12 @@ MonoBehaviour:
   radLevelMax: 5
   exp: 0
   level: 0
+  skillPoints: 0
+  isLevelUp: 0
+  strength: 1
+  dexterity: 1
+  technical: 1
+  perception: 1
   expToNextLevel: 500
   inCombat: 0
   mapPosition: {x: -227.5, y: 227.5}
@@ -88,14 +94,13 @@ MonoBehaviour:
     state: 0
   - name: Farm
     state: 0
-  cameraPivotRot: {x: 30, y: 35, z: 0}
+  cameraPivotRot: {x: 30, y: 45, z: 0}
   nearClip: -2
   cutoutSize: 0.14
   posCamera: {x: 0, y: 0, z: -20}
   showGrid: 0
   startGame: 0
   chanceToHit: 80
-  chanceToCrit: 50
   maxVolumeTheme: 0.3
   mainMusicVolume: 1
   sfxVolume: 1
@@ -116,3 +121,4 @@ MonoBehaviour:
   inDemo: 0
   exitInside: 0
   doorsOpened: []
+  cabinetsUnlocked: []
