@@ -159,7 +159,7 @@ public class CombatController : MonoBehaviour
         float chanceToHitF = chanceToHit;
         float dodgeChance = PlayerStats.instance.GetDodgeChance();
         int finalChanceToHit = Mathf.FloorToInt(chanceToHitF * (chanceToHitF/ (chanceToHit + dodgeChance)));
-        Debug.Log("finalChanceToHit: " + finalChanceToHit + " random num: " + hitChance + " DodgeChance: " + PlayerStats.instance.GetDodgeChance());
+        
         if (hitChance > finalChanceToHit)
         {
             return 0;
@@ -167,12 +167,16 @@ public class CombatController : MonoBehaviour
         int critChance = Random.Range(0, 10000) % 100;
         if (critChance > chanceToCrit)
         {
-            return baseDamage;
+            int defenceDamage = Mathf.FloorToInt(baseDamage * (PlayerClothes.instance.GetDefence() / 100f));
+            Debug.Log("Defence Damage: " +  defenceDamage);
+            return baseDamage - defenceDamage;
         }
         else
         {
+            int defenceDamage = Mathf.FloorToInt((baseDamage * 2) * (PlayerClothes.instance.GetDefence() / 100f));
+            Debug.Log("Defence Damage: " + defenceDamage);
             isCrit = true;
-            return baseDamage * 2;
+            return (baseDamage * 2) - defenceDamage;
         }
     }
 

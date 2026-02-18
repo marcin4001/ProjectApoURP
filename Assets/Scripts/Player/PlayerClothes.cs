@@ -9,6 +9,7 @@ public class PlayerClothes : MonoBehaviour
     [SerializeField] private GameObject redCap;
     [SerializeField] private Material defaultTopMaterial;
     [SerializeField] private Material defaultBottomMaterial;
+    [SerializeField] private ArmorItem armorItem;
     private void Awake()
     {
         instance = this;
@@ -26,6 +27,7 @@ public class PlayerClothes : MonoBehaviour
     {
         if(armor == null)
             return;
+        armorItem = armor;
         if (armor.clothes_top != null)
         {
             top.material = armor.clothes_top;
@@ -50,5 +52,13 @@ public class PlayerClothes : MonoBehaviour
         bottom.material = defaultBottomMaterial;
         helmet.SetActive(false);
         redCap.SetActive(false);
+        armorItem = null;
+    }
+
+    public int GetDefence()
+    {
+        if(armorItem == null)
+            return 0;
+        return armorItem.defense;
     }
 }
