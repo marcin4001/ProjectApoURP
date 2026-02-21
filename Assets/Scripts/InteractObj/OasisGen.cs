@@ -28,8 +28,8 @@ public class OasisGen : MonoBehaviour, IUsableObj
 
     public void Use()
     {
-        HUDController.instance.AddConsolelog("I can’t take the oasis");
-        HUDController.instance.AddConsolelog("generator. It’s");
+        HUDController.instance.AddConsolelog("I can’t take the Farm");
+        HUDController.instance.AddConsolelog("Restorer. It’s");
         HUDController.instance.AddConsolelog("incomplete.");
     }
 }
