@@ -15,6 +15,13 @@ public class ChangeIndexNodeTrigger : MonoBehaviour
                 Destroy(gameObject);
                 return;
             }
+            int index = NPCObjList.instance.GetIndexNode(nameNPC);
+            if (index >= newIndex)
+            {
+                Debug.Log("index");
+                Destroy(gameObject);
+                return;
+            }
             if (QuestController.instance.HaveQuest(questID))
             {
                 NPCObjList.instance.SetIndexNode(nameNPC, newIndex);
