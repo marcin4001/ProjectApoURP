@@ -14,6 +14,11 @@ public class DialogueNPCTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(npc == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         if (checkIsInitNpc)
         {
             Debug.Log("NPCObjList.instance.isInit(npcName): " + NPCObjList.instance.isInit(npcName));
@@ -30,9 +35,12 @@ public class DialogueNPCTrigger : MonoBehaviour
     {
         player.StopMove();
         yield return new WaitForSeconds(0.05f);
-        GameObject usableObj = npc.GetMainGameObject();
-        player.transform.rotation = Quaternion.LookRotation(usableObj.transform.position - player.transform.position);
-        npc.Use();
+        if (npc != null)
+        {
+            GameObject usableObj = npc.GetMainGameObject();
+            player.transform.rotation = Quaternion.LookRotation(usableObj.transform.position - player.transform.position);
+            npc.Use();
+        }
         Destroy(gameObject); 
     }
 }
