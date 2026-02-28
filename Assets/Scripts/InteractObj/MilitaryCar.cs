@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class MilitaryCar : MonoBehaviour, IUsableObj
 {
     [SerializeField] private SlotItem repairKit;
+    [SerializeField] private SlotItem map;
     [SerializeField] private Transform nearPoint;
     [SerializeField] private bool isRepair = false;
     [SerializeField] private AudioClip repairClip;
@@ -51,6 +52,13 @@ public class MilitaryCar : MonoBehaviour, IUsableObj
         }
         else
         {
+            bool haveMap = Inventory.instance.PlayerHaveItem(map.GetItem().id);
+            if (!haveMap)
+            {
+                HUDController.instance.AddConsolelog("You need a map to know");
+                HUDController.instance.AddConsolelog("where to go");
+                return;
+            }
             StartCoroutine(StartEngine());
         }
     }
