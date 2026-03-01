@@ -12,6 +12,8 @@ public class MilitaryCar : MonoBehaviour, IUsableObj
     [SerializeField] private AudioClip jeepClip;
     [SerializeField] private int idPickUp;
     [SerializeField] private string nextScene;
+    [SerializeField] private Vector2 posOnMap;
+    [SerializeField] private ActionDialogue actionDialogue;
     private AudioSource source;
     private PlayerController playerController;
 
@@ -92,6 +94,8 @@ public class MilitaryCar : MonoBehaviour, IUsableObj
             source.clip = jeepClip;
             source.Play();
         }
+        GameParam.instance.mapPosition = posOnMap;
+        actionDialogue.Execute();
         yield return new WaitForSeconds(3.4f);
         SceneManager.LoadScene(nextScene);
     }
