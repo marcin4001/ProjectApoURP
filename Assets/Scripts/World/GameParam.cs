@@ -43,6 +43,9 @@ public class GameParam : MonoBehaviour
     public bool exitInside = false;
     public List<string> doorsOpened = new List<string>();
     public List<string> cabinetsUnlocked = new List<string>();
+    public bool farmRestorerHaveCarBattery = false;
+    public bool playerHaveFarmRestorer = false;
+
     private void Awake()
     {
         if(instance != null && instance != this)
@@ -112,6 +115,8 @@ public class GameParam : MonoBehaviour
         mapPosition = new Vector2(-227.5f, 227.5f);
         doorsOpened.Clear();
         cabinetsUnlocked.Clear();
+        farmRestorerHaveCarBattery = false;
+        playerHaveFarmRestorer = false;
     }
 
     public void SetHealth()

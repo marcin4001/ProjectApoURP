@@ -1211,6 +1211,18 @@ PrefabInstance:
       propertyPath: carBattery
       value: 
       objectReference: {fileID: 3865305750392708367}
+    - target: {fileID: 8091439699522002042, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
+      propertyPath: capsuleItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 220e3d735f8e9eb40a835af394513d50, type: 2}
+    - target: {fileID: 8091439699522002042, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
+      propertyPath: carBatteryItem
+      value: 
+      objectReference: {fileID: 11400000, guid: fa636063093373443897c88c9db7cac8, type: 2}
+    - target: {fileID: 8091439699522002042, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
+      propertyPath: farmRestorerItem
+      value: 
+      objectReference: {fileID: 11400000, guid: b3d6153c6fdff154ba4db3f28a142685, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3558,6 +3570,53 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1585463182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &675705746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 675705748}
+  - component: {fileID: 675705747}
+  m_Layer: 0
+  m_Name: AddItem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &675705747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675705746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8ffec23627cfc4fae019edd2a76e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: fa636063093373443897c88c9db7cac8, type: 2}
+  - {fileID: 11400000, guid: 220e3d735f8e9eb40a835af394513d50, type: 2}
+--- !u!4 &675705748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675705746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &701547570
 PrefabInstance:
@@ -11993,3 +12052,4 @@ SceneRoots:
   - {fileID: 701547570}
   - {fileID: 889004185}
   - {fileID: 155084643}
+  - {fileID: 675705748}
