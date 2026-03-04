@@ -97,6 +97,11 @@ public class MilitaryCar : MonoBehaviour, IUsableObj
         GameParam.instance.mapPosition = posOnMap;
         actionDialogue.Execute();
         yield return new WaitForSeconds(3.4f);
+        GameParam.instance.UpdateParam();
+        if (ListCabinet.instance != null)
+            ListCabinet.instance.SaveCabinets();
+        if (ListOffers.instance != null)
+            ListOffers.instance.SaveOffers();
         SceneManager.LoadScene(nextScene);
     }
 }
