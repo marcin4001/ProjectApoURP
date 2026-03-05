@@ -8,6 +8,7 @@ public class QuestOnItemsCollected : MonoBehaviour
     [SerializeField] private int prevQuest;
     [SerializeField] private int questID;
     [SerializeField] private ActionDialogue actionDialogue;
+    [SerializeField] private string playerDialogue;
     void Start()
     {
         if(actionDialogue == null)
@@ -31,5 +32,8 @@ public class QuestOnItemsCollected : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         actionDialogue.Execute();
+        yield return new WaitForSeconds(0.5f);
+        if(!string.IsNullOrEmpty(playerDialogue))
+            PlayerDialogues.instance.SetText(playerDialogue);
     }
 }

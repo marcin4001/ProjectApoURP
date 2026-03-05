@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class QuestCompleteTrigger : MonoBehaviour
 {
-    public int idQuest;
+    [SerializeField] private int idQuest;
+    [SerializeField] private string playerDialogue;
 
     private void Start()
     {
@@ -18,6 +19,8 @@ public class QuestCompleteTrigger : MonoBehaviour
             Quest quest = QuestController.instance.GetQuest(idQuest);
             if (quest != null)
                 HUDController.instance.SetQuestCompleteText(quest);
+            if (!string.IsNullOrEmpty(playerDialogue))
+                PlayerDialogues.instance.SetText(playerDialogue);
             Destroy(gameObject);
         }
     }
