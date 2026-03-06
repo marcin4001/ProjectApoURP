@@ -40,6 +40,7 @@ public class GameParam : MonoBehaviour
     public Color angryDialogueTag;
     public bool inDev = false;
     public bool inDemo = false;
+    public bool pacifistMode = false;
     public bool exitInside = false;
     public List<string> doorsOpened = new List<string>();
     public List<string> cabinetsUnlocked = new List<string>();

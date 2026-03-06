@@ -32,6 +32,8 @@ public class CombatController : MonoBehaviour
 
     public void StartCombat(bool firstPlayer)
     {
+        if (GameParam.instance.pacifistMode)
+            return;
         Debug.Log("StartCombat");
         if (enemies.Length == 0)
             return;
@@ -139,6 +141,8 @@ public class CombatController : MonoBehaviour
 
     public void SetGroup(EnemyGroup group)
     {
+        if(GameParam.instance.pacifistMode)
+            return;
         enemies = group.GetEnemies();
     }
 

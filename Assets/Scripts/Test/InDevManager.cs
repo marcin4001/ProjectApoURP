@@ -10,5 +10,9 @@ public class InDevManager : MonoBehaviour
         {
             GameParam.instance.inDev = !GameParam.instance.inDev;
         }
+        if(Input.GetKeyUp(KeyCode.P))
+        {
+            GameParam.instance.pacifistMode = !GameParam.instance.pacifistMode;
+        }
     }
 }
