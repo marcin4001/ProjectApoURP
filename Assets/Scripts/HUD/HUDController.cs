@@ -104,12 +104,16 @@ public class HUDController : MonoBehaviour
 
     public void Show()
     {
+        if (CursorController.instance.IsWait())
+            return;
         background.gameObject.SetActive(true);
         showButton.gameObject.SetActive(false);
     }
 
     public void Hide()
     {
+        if (CursorController.instance.IsWait())
+            return;
         background.gameObject.SetActive(false);
         showButton.gameObject.SetActive(true);
     }
@@ -232,6 +236,8 @@ public class HUDController : MonoBehaviour
 
     public void OpenInventory()
     {
+        if (CursorController.instance.IsWait())
+            return; 
         InventoryUI.instance.Show();
         player.StopMove();
     }
@@ -243,6 +249,8 @@ public class HUDController : MonoBehaviour
 
     public void OpenQuestList()
     {
+        if (CursorController.instance.IsWait())
+            return;
         QuestListUI.instance.Show();
     }
 
@@ -545,7 +553,9 @@ public class HUDController : MonoBehaviour
 
     public void OnNewLevelClick()
     {
-        if(GameParam.instance.isLevelUp)
+        if (CursorController.instance.IsWait())
+            return;
+        if (GameParam.instance.isLevelUp)
             StatsPanelNewLevel.instance.Open();
     }
 
