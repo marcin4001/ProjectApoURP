@@ -18,8 +18,12 @@ public class QuestCompleteTrigger : MonoBehaviour
         {
             QuestController.instance.SetComplete(idQuest);
             Quest quest = QuestController.instance.GetQuest(idQuest);
-            if (quest != null)
-                HUDController.instance.SetQuestCompleteText(quest);
+            if (quest == null)
+            {
+                Destroy(gameObject);
+                return;
+            }    
+            HUDController.instance.SetQuestCompleteText(quest);
             if(dialoguesList != null)
             {
                 dialoguesList.SpawnText();
