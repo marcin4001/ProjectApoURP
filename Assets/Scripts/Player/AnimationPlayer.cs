@@ -13,9 +13,11 @@ public class AnimationPlayer : MonoBehaviour
     [SerializeField] private string takeDamageParam = "TakeDamage";
     [SerializeField] private string isDeathParam = "isDeath";
     [SerializeField] private string punchParam = "Punch";
+    [SerializeField] private string pickUpBodyParam = "PickUpBody";
     [SerializeField] private string handGunLayer = "HandGun";
     [SerializeField] private string rifleLayer = "Rifle";
     [SerializeField] private float doorInteractTime = 2.5f;
+    [SerializeField] private float pickUpBodyTime = 3f;
     [SerializeField] private float eatingTime = 2.16f;
     [SerializeField] private float drinkingTime = 2;
     private Animator animator;
@@ -79,6 +81,11 @@ public class AnimationPlayer : MonoBehaviour
         animator.SetTrigger(punchParam);
     }
 
+    public void PickUpBody()
+    {
+        animator.SetTrigger(pickUpBodyParam);
+    }
+
     public void ActiveBaseLayer()
     {
         int handGunIndex = animator.GetLayerIndex(handGunLayer);
@@ -106,6 +113,11 @@ public class AnimationPlayer : MonoBehaviour
     public float GetDoorInteractTime()
     {
         return doorInteractTime;
+    }
+
+    public float GetPickupBodyTime()
+    {
+        return pickUpBodyTime;
     }
 
     public float GetEatingTime()

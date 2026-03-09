@@ -1020,6 +1020,13 @@ public class PlayerController : MonoBehaviour
             weaponController.ShowCurrentWeapon(true);
             yield return null;
         }
+        else if(usable is EnemyInventory)
+        {
+            animationPlayer.PickUpBody();
+            yield return new WaitForSeconds(animationPlayer.GetPickupBodyTime());
+            weaponController.ShowCurrentWeapon(true);
+            yield return new WaitForSeconds(0.5f);
+        }
         else
         {
             animationPlayer.DoorInteract();
