@@ -7,6 +7,7 @@ public class ExitMapTrigger : MonoBehaviour
     [SerializeField] private string sceneName = "DemoMenu";
     [SerializeField] private bool startQuest = false;
     [SerializeField] private bool endDemo = false;
+    [SerializeField] private bool endGame = false;
     [SerializeField] private int idQuest = 0;
     [SerializeField] private string textLog = "";
     [SerializeField] private string thxDemoScene = "ThxDemoScene";
@@ -30,6 +31,14 @@ public class ExitMapTrigger : MonoBehaviour
         if(GameParam.instance.inDemo && endDemo)
         {
             if(QuestController.instance.HaveQuest(idQuest))
+            {
+                StartCoroutine(EndDemoLoadScene());
+                return;
+            }
+        }
+        if(endGame)
+        {
+            if (QuestController.instance.Complete(idQuest))
             {
                 StartCoroutine(EndDemoLoadScene());
                 return;

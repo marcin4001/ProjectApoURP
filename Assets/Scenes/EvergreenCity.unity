@@ -3169,7 +3169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 712af2eefb080ec4c94e099c803ab464, type: 2}
+  - {fileID: 11400000, guid: fa8b80231623c7a4599664197d9f7758, type: 2}
 --- !u!4 &129044658
 Transform:
   m_ObjectHideFlags: 0
@@ -33241,9 +33241,11 @@ MonoBehaviour:
   takeDamageParam: TakeDamage
   isDeathParam: isDeath
   punchParam: Punch
+  pickUpBodyParam: PickUpBody
   handGunLayer: HandGun
   rifleLayer: Rifle
   doorInteractTime: 1
+  pickUpBodyTime: 3
   eatingTime: 1.5
   drinkingTime: 2
 --- !u!95 &1378639991
@@ -41568,9 +41570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: cc7995a4e5e77f84391685e0ce60ede6, type: 2}
-  - {fileID: 11400000, guid: 58d1db6ac0fd68c49ad89eee17378bfd, type: 2}
-  - {fileID: 11400000, guid: 9e4d7ee8b40ae0f469dd184b5dc3e2d5, type: 2}
+  - {fileID: 11400000, guid: b3d6153c6fdff154ba4db3f28a142685, type: 2}
 --- !u!4 &1751277049
 Transform:
   m_ObjectHideFlags: 0
@@ -50027,7 +50027,8 @@ MonoBehaviour:
   sceneName: MapScene
   startQuest: 0
   endDemo: 0
-  idQuest: 0
+  endGame: 1
+  idQuest: 43
   textLog: 
   thxDemoScene: ThxDemoScene
   inside: 0
