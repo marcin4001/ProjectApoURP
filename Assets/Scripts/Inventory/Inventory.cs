@@ -2,6 +2,15 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
+
+[System.Serializable]
+public class InventorySave
+{
+    public List<SlotItemLite> items;
+    public SlotItemLite[] slots;
+    public SlotItemLite armorSlot;
+}
 
 public class Inventory : MonoBehaviour
 {
@@ -9,6 +18,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<SlotItem> items = new List<SlotItem>();
     [SerializeField] private SlotItem[] slots = new SlotItem[3];
     [SerializeField] private SlotItem armorSlot;
+    [SerializeField] private InventorySave inventorySave;
 
     private void Awake()
     {
@@ -181,5 +191,110 @@ public class Inventory : MonoBehaviour
         items.Clear();
         for (int i = 0; i < slots.Length; i++)
             SetNullSlot(i);
+    }
+
+    public void Save()
+    {
+        inventorySave = new InventorySave();
+        List<SlotItemLite> itemsLite = new List<SlotItemLite>();
+        foreach(SlotItem item in items)
+        {
+            if(item.GetItem() != null)
+            {
+                SlotItemLite itemLite = new SlotItemLite();
+                itemLite.idItem = item.GetItem().id;
+                itemLite.amount = item.GetAmount();
+                itemsLite.Add(itemLite);
+            }
+        }
+
+        inventorySave.items = itemsLite;
+        SlotItemLite[] slotsLite = new SlotItemLite[3];
+        for (int i = 0;i < slots.Length;i++)
+        {
+            if(slots[i] != null && slots[i].GetItem() != null)
+            {
+                SlotItemLite itemLite = new SlotItemLite();
+                itemLite.idItem = slots[i].GetItem().id;
+                itemLite.amount = slots[i].GetAmount();
+                slotsLite[i] = itemLite;
+            }
+            else
+            {
+                SlotItemLite itemLite = new SlotItemLite();
+                itemLite.idItem = -1;
+                itemLite.amount = 0;
+                slotsLite[i] = itemLite;
+            }
+        }
+        inventorySave.slots = slotsLite;
+        if(armorSlot != null && armorSlot.GetItem() != null)
+        {
+            SlotItemLite armorSlotLite = new SlotItemLite();
+            armorSlotLite.idItem = armorSlot.GetItem().id;
+            armorSlotLite.amount = armorSlot.GetAmount();
+            inventorySave.armorSlot = armorSlotLite;
+        }
+        else
+        {
+            SlotItemLite armorSlotLite = new SlotItemLite();
+            armorSlotLite.idItem = -1;
+            armorSlotLite.amount = 0;
+            inventorySave.armorSlot = armorSlotLite;
+        }
+
+        string textSave = JsonUtility.ToJson(inventorySave, true);
+        Debug.Log(textSave);
+    }
+
+    public void Load()
+    {
+        items = new List<SlotItem>();
+        foreach(SlotItemLite item in inventorySave.items)
+        {
+            Item itemObj = ItemDB.instance.GetItemById(item.idItem);
+            if(itemObj != null)
+            {
+                SlotItem slot = new SlotItem(itemObj, item.amount);
+                items.Add(slot);
+            }
+        }
+
+        slots = new SlotItem[3];
+        for(int i = 0; i < slots.Length; i++)
+        {
+            Item itemObj = ItemDB.instance.GetItemById(inventorySave.slots[i].idItem);
+            if(itemObj != null)
+            {
+                SlotItem slot = new SlotItem(itemObj, inventorySave.slots[i].amount);
+                slots[i] = slot;
+            }
+            else
+            {
+                slots[i] = new SlotItem(null, 0);
+            }
+        }
+        Item itemObjArmor = ItemDB.instance.GetItemById(inventorySave.armorSlot.idItem);
+        if(itemObjArmor != null)
+        {
+            armorSlot = new SlotItem(itemObjArmor, inventorySave.armorSlot.amount);
+        }
+        else
+        {
+            armorSlot = new SlotItem(null, 0);
+        }
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            Save();
+        }
+
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+            Load();
+        }
     }
 }
