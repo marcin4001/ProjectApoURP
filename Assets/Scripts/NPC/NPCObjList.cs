@@ -1,6 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class NPCObjListSave
+{
+    public List<NPCObject> list = new List<NPCObject>();
+}
 public class NPCObjList : MonoBehaviour
 {
     public static NPCObjList instance;
@@ -67,5 +72,18 @@ public class NPCObjList : MonoBehaviour
     public void ClearList()
     {
         list.Clear();
+    }
+
+    public NPCObjListSave GetSaveObj()
+    {
+        NPCObjListSave obj = new NPCObjListSave();
+        obj.list = list;
+        return obj;
+    }
+
+    public void Load(NPCObjListSave save)
+    {
+        list.Clear();
+        list = save.list;
     }
 }

@@ -193,7 +193,7 @@ public class Inventory : MonoBehaviour
             SetNullSlot(i);
     }
 
-    public void Save()
+    public InventorySave Save()
     {
         inventorySave = new InventorySave();
         List<SlotItemLite> itemsLite = new List<SlotItemLite>();
@@ -243,8 +243,7 @@ public class Inventory : MonoBehaviour
             inventorySave.armorSlot = armorSlotLite;
         }
 
-        string textSave = JsonUtility.ToJson(inventorySave, true);
-        Debug.Log(textSave);
+        return inventorySave;
     }
 
     public void Load()
@@ -285,16 +284,5 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            Save();
-        }
-
-        if(Input.GetKeyDown(KeyCode.J))
-        {
-            Load();
-        }
-    }
+    
 }

@@ -1,6 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class ListOffersSave
+{
+    public List<CabinetItemList> list = new List<CabinetItemList>();
+}
+
 public class ListOffers : MonoBehaviour
 {
     public static ListOffers instance;
@@ -74,5 +79,18 @@ public class ListOffers : MonoBehaviour
     public void CopyList()
     {
         list = initOffers.Copy();
+    }
+
+    public ListOffersSave GetSaveObj()
+    {
+        ListOffersSave obj = new ListOffersSave();
+        obj.list = list;
+        return obj;
+    }
+
+    public void Load(ListOffersSave save)
+    {
+        list.Clear();
+        list = save.list;
     }
 }

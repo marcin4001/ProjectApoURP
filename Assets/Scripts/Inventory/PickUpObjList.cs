@@ -1,5 +1,12 @@
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
+
+[System.Serializable]
+public class PickUpObjListSave
+{
+    public List<int> objectIDs = new List<int>();
+}
 
 public class PickUpObjList : MonoBehaviour
 {
@@ -56,5 +63,18 @@ public class PickUpObjList : MonoBehaviour
     public bool ExistOnList(int _id)
     {
         return objectIDs.Contains(_id);
+    }
+
+    public PickUpObjListSave GetSaveObj()
+    {
+        PickUpObjListSave obj = new PickUpObjListSave();
+        obj.objectIDs = objectIDs;
+        return obj;
+    }
+
+    public void Load(PickUpObjListSave save)
+    {
+        objectIDs.Clear();
+        objectIDs = save.objectIDs;
     }
 }

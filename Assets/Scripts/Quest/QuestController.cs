@@ -1,5 +1,12 @@
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
+
+[System.Serializable]
+public class QuestListSave
+{
+    public List<Quest> quests = new List<Quest>();
+}
 
 public class QuestController : MonoBehaviour
 {
@@ -73,5 +80,18 @@ public class QuestController : MonoBehaviour
     public void ClearList()
     {
         quests.Clear();
+    }
+
+    public QuestListSave GetSaveObj()
+    {
+        QuestListSave obj = new QuestListSave();
+        obj.quests = quests;
+        return obj;
+    }
+
+    public void Load(QuestListSave save)
+    {
+        quests.Clear();
+        quests = save.quests;
     }
 }

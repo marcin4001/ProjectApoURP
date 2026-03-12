@@ -1,6 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class ListCabinetSave
+{
+    public List<ListCabinetData> cabinetsList = new List<ListCabinetData>();
+}
+
 public class ListCabinet : MonoBehaviour
 {
     public static ListCabinet instance;
@@ -89,5 +95,18 @@ public class ListCabinet : MonoBehaviour
             data.list = cabinetData.Copy();
             cabinetsList.Add(data);
         }
+    }
+
+    public ListCabinetSave GetSaveObj()
+    {
+        ListCabinetSave obj = new ListCabinetSave();
+        obj.cabinetsList = cabinetsList;
+        return obj;
+    }
+
+    public void Load(ListCabinetSave save)
+    {
+        cabinetsList.Clear();
+        cabinetsList = save.cabinetsList;
     }
 }

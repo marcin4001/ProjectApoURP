@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class GameParam : MonoBehaviour
 {
     public static GameParam instance;
@@ -28,6 +29,8 @@ public class GameParam : MonoBehaviour
     public float nearClip = -15f;
     public float cutoutSize = 0.2f;
     public Vector3 posCamera = new Vector3(0f, 0f, -20f);
+    public Vector3 playerPositionSave;
+    public Vector3 playerRotationSave;
     public bool showGrid = false;
     public bool startGame;
     public int chanceToHit = 70;

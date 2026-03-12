@@ -1,6 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class KilledEnemiesListSave
+{
+    public List<int> list = new List<int>();
+}
+
 public class KilledEnemiesList : MonoBehaviour
 {
     public static KilledEnemiesList instance;
@@ -50,12 +56,17 @@ public class KilledEnemiesList : MonoBehaviour
         list.Clear();
     }
 
-    private void Update()
+    public KilledEnemiesListSave GetSaveObj()
     {
-        if (Input.GetKeyUp(KeyCode.K))
-        {
-            Debug.Log($"IsGroupDefeated(17): {IsGroupDefeated(17)}");
-        }
+        KilledEnemiesListSave obj = new KilledEnemiesListSave();
+        obj.list = list;
+        return obj;
+    }
+
+    public void Load(KilledEnemiesListSave save)
+    {
+        list.Clear();
+        list = save.list;
     }
 }
 
