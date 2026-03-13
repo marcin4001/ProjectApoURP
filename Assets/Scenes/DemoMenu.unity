@@ -339,6 +339,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2199023511109401324, guid: 3efd18a7003fb5342a8fe51e90144160, type: 3}
+      propertyPath: inMenu
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2493838251587730204, guid: 3efd18a7003fb5342a8fe51e90144160, type: 3}
       propertyPath: m_Name
       value: CabinetList
@@ -3634,6 +3638,12 @@ MonoBehaviour:
   armorSlot:
     item: {fileID: 0}
     amount: 0
+  inventorySave:
+    items: []
+    slots: []
+    armorSlot:
+      idItem: 0
+      amount: 0
 --- !u!4 &1050818116
 Transform:
   m_ObjectHideFlags: 0
@@ -7359,6 +7369,10 @@ PrefabInstance:
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
+      propertyPath: loadButton
+      value: 
+      objectReference: {fileID: 1491375915}
+    - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
       propertyPath: guideButton
       value: 
       objectReference: {fileID: 1115750622}
@@ -7601,6 +7615,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7497408563422789795, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2778083828606994667}
+    - targetCorrespondingSourceObject: {fileID: 7497408563422789795, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2778083828606994672}
     - targetCorrespondingSourceObject: {fileID: 4703062645948829942, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2778083828606994659}
@@ -7775,6 +7792,18 @@ MonoBehaviour:
   screenText: {fileID: 7253482966495019916}
   pageText: {fileID: 5539526969507987705}
   book: {fileID: 11400000, guid: 7048b29ec1d2d7546a5880aa8488a2e1, type: 2}
+--- !u!114 &2778083828606994672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2778083828606994660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc13063551a6c542ae6234ce2764ecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2876441059042326478
 MonoBehaviour:
   m_ObjectHideFlags: 0

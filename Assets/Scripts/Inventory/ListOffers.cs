@@ -20,7 +20,6 @@ public class ListOffers : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        list = initOffers.Copy();
     }
 
     public List<SlotItem> GetListItem(int id)

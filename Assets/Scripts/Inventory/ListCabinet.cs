@@ -14,6 +14,7 @@ public class ListCabinet : MonoBehaviour
     public CabinetPlaceData[] cabinetData;
     public List<ListCabinetData> cabinetsList = new List<ListCabinetData>();
     public int indexCabinetData = 0;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -23,14 +24,9 @@ public class ListCabinet : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        foreach(CabinetPlaceData cabinetData in cabinetData)
-        {
-            ListCabinetData data = new ListCabinetData();
-            data.list = cabinetData.Copy();
-            cabinetsList.Add(data);
-        }
+ 
+        
     }
-
 
     public List<SlotItem> GetListItem(int id)
     {

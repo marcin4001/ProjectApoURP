@@ -15,14 +15,6 @@ public class SaveManager : MonoBehaviour
         playerController = FindFirstObjectByType<PlayerController>();
     }
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            Save();
-        }
-    }
-
     public void Save()
     {
         string folderPath = Application.persistentDataPath + "/Save";
@@ -47,8 +39,8 @@ public class SaveManager : MonoBehaviour
         //ListCabinet
         ListCabinet.instance.SaveCabinets();
         ListCabinetSave listCabinetSave = ListCabinet.instance.GetSaveObj();
-        string caninetSave = JsonUtility.ToJson(listCabinetSave, true);
-        File.WriteAllText(folderPath + "/CabinetList.json", caninetSave);
+        string cabinetSave = JsonUtility.ToJson(listCabinetSave, true);
+        File.WriteAllText(folderPath + "/CabinetList.json", cabinetSave);
 
         //PickUpObjList
         PickUpObjListSave pickUpObjListSave = PickUpObjList.instance.GetSaveObj();
@@ -75,5 +67,55 @@ public class SaveManager : MonoBehaviour
         InventorySave inventorySave = Inventory.instance.Save();
         string invSave = JsonUtility.ToJson(inventorySave, true);
         File.WriteAllText(folderPath + "/Inventory.json", invSave);
+    }
+
+    public void Load()
+    {
+        string folderPath = Application.persistentDataPath + "/Save";
+        if (!Directory.Exists(folderPath))
+        {
+            Debug.Log("Save file not found.");
+        }
+        //GameParam
+        string gameParamSave = File.ReadAllText(folderPath + "/GameParam.json");
+        JsonUtility.FromJsonOverwrite(gameParamSave, GameParam.instance);
+
+        //NPCList
+        string npcSave = File.ReadAllText(folderPath + "/NPCList.json");
+        NPCObjListSave nPCObjListSave = JsonUtility.FromJson<NPCObjListSave>(npcSave);
+        NPCObjList.instance.Load(nPCObjListSave);
+
+        //ListCabinet
+        string cabinetSave = File.ReadAllText(folderPath + "/CabinetList.json");
+        ListCabinetSave listCabinetSave = JsonUtility.FromJson<ListCabinetSave>(cabinetSave);
+        ListCabinet.instance.Load(listCabinetSave);
+
+        //PickUpObjList
+        string pickUpObjSave = File.ReadAllText(folderPath + "/PickUpObjList.json");
+        PickUpObjListSave pickUpObjListSave = JsonUtility.FromJson<PickUpObjListSave>(pickUpObjSave);
+        PickUpObjList.instance.Load(pickUpObjListSave);
+
+        //ListOffers
+        string offersSave = File.ReadAllText(folderPath + "/ListOffers.json");
+        ListOffersSave listOffersSave = JsonUtility.FromJson<ListOffersSave>(offersSave);
+        ListOffers.instance.Load(listOffersSave);
+
+        //QuestController
+        string questsSave = File.ReadAllText(folderPath + "/QuestList.json");
+        QuestListSave questListSave = JsonUtility.FromJson<QuestListSave>(questsSave);
+        QuestController.instance.Load(questListSave);
+
+        //KilledEnemiesList
+        string killedEnemiesSave = File.ReadAllText(folderPath + "/KilledEnemiesList.json");
+        KilledEnemiesListSave killedEnemiesListSave = JsonUtility.FromJson<KilledEnemiesListSave>(killedEnemiesSave);
+        KilledEnemiesList.instance.Load(killedEnemiesListSave);
+
+        //Inventory
+        string invSave = File.ReadAllText(folderPath + "/Inventory.json");
+        InventorySave inventorySave = JsonUtility.FromJson<InventorySave>(invSave);
+        Inventory.instance.Load(inventorySave);
+        GameParam.instance.loadSave = true;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(GameParam.instance.prevScene);
     }
 }

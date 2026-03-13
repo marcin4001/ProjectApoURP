@@ -45,6 +45,14 @@ public class SpawnPlayer : MonoBehaviour
             return;
         }
         CameraMovement.instance.transform.position = cameraPivotSpawn.position;
-        
+        if(GameParam.instance.loadSave)
+        {
+            controller.GetAgent().Warp(GameParam.instance.playerPositionSave);
+            controller.transform.eulerAngles = GameParam.instance.playerRotationSave;
+            CameraMovement.instance.transform.position = GameParam.instance.playerPositionSave;
+            GameParam.instance.loadSave = false;
+        }
     }
+
+
 }

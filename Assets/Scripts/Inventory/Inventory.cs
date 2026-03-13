@@ -246,8 +246,9 @@ public class Inventory : MonoBehaviour
         return inventorySave;
     }
 
-    public void Load()
+    public void Load(InventorySave save)
     {
+        inventorySave = save;
         items = new List<SlotItem>();
         foreach(SlotItemLite item in inventorySave.items)
         {

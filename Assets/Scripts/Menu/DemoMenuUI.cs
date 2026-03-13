@@ -7,6 +7,7 @@ public class DemoMenuUI : MonoBehaviour
 {
     [SerializeField] private string sceneStartName = "MainScene";
     [SerializeField] private Button playButton;
+    [SerializeField] private Button loadButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button creditsButton;
     [SerializeField] private Button quitButton;
@@ -45,6 +46,7 @@ public class DemoMenuUI : MonoBehaviour
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
         MusicManager.instance.SetTheme(indexTheme);
         playButton.onClick.AddListener(OnClickPlay);
+        loadButton.onClick.AddListener(OnClickLoad);
         creditsButton.onClick.AddListener(OnClickCredits);
         settingsButton.onClick.AddListener(OnClickSettings);
         quitButton.onClick.AddListener(OnClickQuit);
@@ -72,6 +74,11 @@ public class DemoMenuUI : MonoBehaviour
         ListOffers.instance.CopyList();
         QuestController.instance.ClearList();
         SceneManager.LoadScene(sceneStartName);
+    }
+
+    private void OnClickLoad()
+    {
+        SaveManager.instance.Load();
     }
 
     private void OnClickCredits()
