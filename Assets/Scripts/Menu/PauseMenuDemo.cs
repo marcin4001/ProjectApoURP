@@ -55,11 +55,23 @@ public class PauseMenuDemo : MonoBehaviour
 
     private void OnClickLoad()
     {
+        if (GameParam.instance.inDemo)
+            return;
         SaveManager.instance.Load();
     }
 
     private void OnClickSave()
     {
+        if (GameParam.instance.inDemo)
+            return;
+        if (SpawnPlayer.instance != null && SpawnPlayer.instance.GetNoSaveArea())
+        {
+            return;
+        }
+        if(GameParam.instance.inCombat)
+        {
+            return;
+        }
         SaveManager.instance.Save();
     }
 

@@ -1408,6 +1408,7 @@ MonoBehaviour:
   importantPlace: 1
   mapSignName: Restaurant
   indexTheme: 7
+  noSaveArea: 1
 --- !u!4 &176419482
 Transform:
   m_ObjectHideFlags: 0
@@ -7045,7 +7046,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1492379285774239235, guid: 1556d7883522dc04a8ed949d5fccd7bb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1556d7883522dc04a8ed949d5fccd7bb, type: 3}
 --- !u!4 &920188518 stripped
 Transform:
@@ -9692,6 +9696,12 @@ MonoBehaviour:
   armorSlot:
     item: {fileID: 0}
     amount: 0
+  inventorySave:
+    items: []
+    slots: []
+    armorSlot:
+      idItem: 0
+      amount: 0
 --- !u!4 &1179129775
 Transform:
   m_ObjectHideFlags: 0
@@ -10782,6 +10792,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4068924054966880093, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068924054966880093, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068924054966880093, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068924054966880093, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4198707132733630481, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10839,6 +10865,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6702235028859107153, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978949754366430040, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978949754366430040, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978949754366430040, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978949754366430040, guid: bf973db6cd3a5f9448bb212354a19dea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -11394,9 +11436,11 @@ MonoBehaviour:
   takeDamageParam: TakeDamage
   isDeathParam: isDeath
   punchParam: Punch
+  pickUpBodyParam: PickUpBody
   handGunLayer: HandGun
   rifleLayer: Rifle
   doorInteractTime: 1
+  pickUpBodyTime: 3
   eatingTime: 1.5
   drinkingTime: 2
 --- !u!95 &1378639991
@@ -16558,6 +16602,7 @@ MonoBehaviour:
   sceneName: MapScene
   startQuest: 0
   endDemo: 0
+  endGame: 0
   idQuest: 0
   textLog: 
   thxDemoScene: ThxDemoScene

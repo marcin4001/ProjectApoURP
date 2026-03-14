@@ -31,6 +31,10 @@ public class ListCabinet : MonoBehaviour
     public List<SlotItem> GetListItem(int id)
     {
         List<SlotItem> newList = new List<SlotItem>();
+        if(cabinetsList.Count == 0)
+        {
+            CopyList();
+        }
         CabinetItemList listItemLite = cabinetsList[indexCabinetData].list.Find(x => x.idCabinet == id);
         if(listItemLite != null)
         {

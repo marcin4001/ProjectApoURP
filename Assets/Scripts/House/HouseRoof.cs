@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HouseRoof : MonoBehaviour
@@ -11,6 +13,7 @@ public class HouseRoof : MonoBehaviour
     [SerializeField] private Light[] lights;
     private void Start()
     {
+        StartCoroutine(CheckInInsidePlayer());
         if(lights == null)
             lights = new Light[0];
         if (lights.Length > 0)
@@ -24,6 +27,25 @@ public class HouseRoof : MonoBehaviour
         if (withoutDoors)
             return;
         doors = GetComponentsInChildren<Door>();
+    }
+
+    private IEnumerator CheckInInsidePlayer()
+    {
+        yield return new WaitForEndOfFrame();
+        if (inHouseTrigger != null && inHouseTrigger.GetPlayerInTrigger())
+        {
+            if (lights == null)
+                lights = new Light[0];
+            roof.SetActive(false);
+            if (lights.Length > 0)
+            {
+                foreach (Light light in lights)
+                {
+                    if (light != null)
+                        light.shadows = LightShadows.Soft;
+                }
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)

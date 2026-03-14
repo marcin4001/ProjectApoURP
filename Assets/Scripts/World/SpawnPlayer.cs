@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class SpawnPlayer : MonoBehaviour
 {
+    public static SpawnPlayer instance;
     [SerializeField] private Transform cameraPivotSpawn;
     [SerializeField] private Transform insideSprawnPos;
     [SerializeField] private int indexCabinetData = 0;
     [SerializeField] private bool importantPlace;
     [SerializeField] private string mapSignName;
     [SerializeField] private int indexTheme = 0;
+    [SerializeField] private bool noSaveArea = false;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -39,20 +46,26 @@ public class SpawnPlayer : MonoBehaviour
             GameParam.instance.exitInside = false;
             return;
         }
-        if (cameraPivotSpawn == null)
-        {
-            CameraMovement.instance.transform.position = transform.position;
-            return;
-        }
-        CameraMovement.instance.transform.position = cameraPivotSpawn.position;
+        
         if(GameParam.instance.loadSave)
         {
             controller.GetAgent().Warp(GameParam.instance.playerPositionSave);
             controller.transform.eulerAngles = GameParam.instance.playerRotationSave;
             CameraMovement.instance.transform.position = GameParam.instance.playerPositionSave;
             GameParam.instance.loadSave = false;
+            return;
         }
+        if (cameraPivotSpawn == null)
+        {
+            CameraMovement.instance.transform.position = transform.position;
+            return;
+        }
+        CameraMovement.instance.transform.position = cameraPivotSpawn.position;
     }
 
+    public bool GetNoSaveArea()
+    {
+        return noSaveArea;
+    }
 
 }

@@ -25,6 +25,10 @@ public class ListOffers : MonoBehaviour
     public List<SlotItem> GetListItem(int id)
     {
         List<SlotItem> newList = new List<SlotItem>();
+        if(list.Count == 0)
+        {
+            CopyList();
+        }
         CabinetItemList listItemLite = list.Find(x => x.idCabinet == id);
         if (listItemLite != null)
         {

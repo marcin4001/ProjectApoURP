@@ -12112,6 +12112,7 @@ MonoBehaviour:
   importantPlace: 1
   mapSignName: Evergreen City
   indexTheme: 4
+  noSaveArea: 0
 --- !u!4 &507370221
 Transform:
   m_ObjectHideFlags: 0
@@ -38512,6 +38513,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 55ff1c8ee81fb844ab09adbd80a65070, type: 2}
     - target: {fileID: 6859440539248195743, guid: 99e0b96eba4021c48916764b73086979, type: 3}
+      propertyPath: inHouseTrigger
+      value: 
+      objectReference: {fileID: 1615515857}
+    - target: {fileID: 6859440539248195743, guid: 99e0b96eba4021c48916764b73086979, type: 3}
       propertyPath: lights.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -38530,6 +38535,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5021660050002612048, guid: 99e0b96eba4021c48916764b73086979, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1615515856}
     - targetCorrespondingSourceObject: {fileID: 5021660050002612048, guid: 99e0b96eba4021c48916764b73086979, type: 3}
       insertIndex: -1
       addedObject: {fileID: 699572756}
@@ -39034,6 +39042,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: pillar
   isNPC: 0
+--- !u!1 &1615515855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1615515856}
+  - component: {fileID: 1615515858}
+  - component: {fileID: 1615515857}
+  m_Layer: 8
+  m_Name: InHomeTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1615515856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615515855}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0.00006384426, y: 0.0044, z: 0.003564391}
+  m_LocalScale: {x: 4.166558, y: 4.353721, z: 3.8322616}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 846974276}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1615515857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615515855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f1bc49d36dd5e4fad45705d462bb94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInTrigger: 0
+--- !u!65 &1615515858
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615515855}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.018727034, y: 0.018250084, z: 0.0006446452}
+  m_Center: {x: -0.000038565307, y: 0.00001230667, z: -0.00032232364}
 --- !u!1001 &1617653294
 PrefabInstance:
   m_ObjectHideFlags: 0

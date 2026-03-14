@@ -78,6 +78,8 @@ public class DemoMenuUI : MonoBehaviour
 
     private void OnClickLoad()
     {
+        if(inDemo)
+            return;
         SaveManager.instance.Load();
     }
 

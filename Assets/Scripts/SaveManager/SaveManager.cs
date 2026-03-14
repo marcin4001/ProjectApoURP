@@ -67,6 +67,7 @@ public class SaveManager : MonoBehaviour
         InventorySave inventorySave = Inventory.instance.Save();
         string invSave = JsonUtility.ToJson(inventorySave, true);
         File.WriteAllText(folderPath + "/Inventory.json", invSave);
+        Debug.Log("The game has been saved");
     }
 
     public void Load()
