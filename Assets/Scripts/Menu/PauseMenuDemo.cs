@@ -11,6 +11,8 @@ public class PauseMenuDemo : MonoBehaviour
     [SerializeField] private Button quitButton;
     [SerializeField] private bool active = false;
     [SerializeField] private string messageQuit;
+    [SerializeField] private string messageNoSaveCombat;
+    [SerializeField] private string messageNoSaveArea;
     private Canvas canvas;
     private PlayerController player;
 
@@ -66,10 +68,12 @@ public class PauseMenuDemo : MonoBehaviour
             return;
         if (SpawnPlayer.instance != null && SpawnPlayer.instance.GetNoSaveArea())
         {
+            MessagePanelOk.instance.Open(messageNoSaveArea);
             return;
         }
         if(GameParam.instance.inCombat)
         {
+            MessagePanelOk.instance.Open(messageNoSaveCombat);
             return;
         }
         SaveManager.instance.Save();

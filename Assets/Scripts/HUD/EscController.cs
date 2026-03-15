@@ -83,6 +83,8 @@ public class EscController : MonoBehaviour
         {
             if(MessagePanel.instance.GetActive())
                 return;
+            if(MessagePanelOk.instance != null && MessagePanelOk.instance.GetActive())
+                return;
             PauseMenuDemo.instance.Hide();
         }
         else
