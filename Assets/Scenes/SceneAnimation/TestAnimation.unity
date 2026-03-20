@@ -1990,7 +1990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bcc8017487f12344e8df633146436e50, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4467,7 +4467,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
-  m_Antialiasing: 0
+  m_Antialiasing: 3
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -9083,13 +9083,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2788731346274506248, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788731346274506248, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3251393405959677614, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
       propertyPath: m_Name
       value: Farm Restorer
       objectReference: {fileID: 0}
     - target: {fileID: 3251393405959677614, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422362225680823187, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12268,9 +12280,11 @@ MonoBehaviour:
   takeDamageParam: TakeDamage
   isDeathParam: isDeath
   punchParam: Punch
+  pickUpBodyParam: PickUpBody
   handGunLayer: HandGun
   rifleLayer: Rifle
   doorInteractTime: 1
+  pickUpBodyTime: 3
   eatingTime: 1.5
   drinkingTime: 2
 --- !u!4 &2225770269156484988

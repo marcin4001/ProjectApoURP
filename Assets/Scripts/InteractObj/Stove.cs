@@ -8,6 +8,8 @@ public class Stove : MonoBehaviour, IUsableObj
     [SerializeField] private Item porkChop;
     [SerializeField] private GameObject pan;
     [SerializeField] private float cookingTime = 2f;
+    [SerializeField] private bool withoutbattery = false;
+    [SerializeField] private GameObject batteryObj;
     private PlayerController player;
     private AudioSource source;
     void Start()
@@ -15,6 +17,10 @@ public class Stove : MonoBehaviour, IUsableObj
         player = FindFirstObjectByType<PlayerController>();
         source = GetComponent<AudioSource>();
         pan.SetActive(false);
+        if(withoutbattery && batteryObj != null)
+        {
+            batteryObj.SetActive(false);
+        }
     }
 
     public bool CanUse()
@@ -34,6 +40,11 @@ public class Stove : MonoBehaviour, IUsableObj
 
     public void Use()
     {
+        if (withoutbattery)
+        {
+            HUDController.instance.AddConsolelog("The stove has no power.");
+            return;
+        }
         if (!Inventory.instance.PlayerHaveItem(rawMeatItem.id))
         {
             HUDController.instance.AddConsolelog("You don't have any raw");
@@ -60,5 +71,12 @@ public class Stove : MonoBehaviour, IUsableObj
         player.SetBlock(false);
         if(source != null)
             source.Stop();
+    }
+
+    public void InsertBattery()
+    {
+        withoutbattery = false;
+        if(batteryObj != null)
+            batteryObj.SetActive(true);
     }
 }

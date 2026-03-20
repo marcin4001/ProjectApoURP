@@ -318,6 +318,8 @@ MonoBehaviour:
   porkChop: {fileID: 11400000, guid: ca20e902159cbf64ab7aa77bc08b8f96, type: 2}
   pan: {fileID: 7826181791397382332}
   cookingTime: 2
+  withoutbattery: 0
+  batteryObj: {fileID: 2899327964674959427}
 --- !u!4 &1993044318378018123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0ff9721d97e81f1408e25374690934e1, type: 3}
@@ -547,6 +549,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3316875923572748131, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
       propertyPath: m_Name
       value: MiniReactor
@@ -556,6 +562,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+--- !u!1 &2899327964674959427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3316875923572748131, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
+  m_PrefabInstance: {fileID: 8774258404482365662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9101446069720801077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4d4c06b5e07f23a418ed98170fbbd625, type: 3}
