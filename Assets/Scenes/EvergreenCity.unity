@@ -29463,9 +29463,9 @@ GameObject:
   - component: {fileID: 1225467217}
   - component: {fileID: 1225467216}
   - component: {fileID: 1225467215}
-  - component: {fileID: 1225467214}
   - component: {fileID: 1225467218}
   - component: {fileID: 1225467219}
+  - component: {fileID: 1225467220}
   m_Layer: 7
   m_Name: MabelNPC
   m_TagString: Untagged
@@ -29473,29 +29473,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1225467214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225467213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 1741612262}
-  nearPoint: {fileID: 108592982}
-  timeToHide: 3
-  texts:
-  - "You\u2019re welcome to rest here for a bit."
-  - "Life\u2019s hard, but kindness costs nothing."
-  - "Oh, you\u2019re looking for Caleb? He\u2019s out in the fields."
-  haveRifle: 0
-  rifleLayer: Rifle
-  textPos: {x: 0, y: 1.8, z: 0}
-  isAngry: 0
 --- !u!195 &1225467215
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -29589,6 +29566,26 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.79, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1225467220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225467213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 403bf10c557a5634a927c378b6c2c5d6, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 108592982}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!114 &1227265928 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5493064475792468431, guid: 5ae5e61bef7f0fa4495caf9019ef2e95, type: 3}
@@ -41205,7 +41202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1741612262
 MonoBehaviour:
   m_ObjectHideFlags: 0
