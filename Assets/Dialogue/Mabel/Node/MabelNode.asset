@@ -52,11 +52,27 @@ MonoBehaviour:
       bomb\u2026 or from a wandering trader."
     nextNode: 0
     exitOption: 0
-    conditionType: 5
+    conditionType: 3
     questID: 44
-    objectID: 0
-    amountObject: 0
+    objectID: 250
+    amountObject: 1
     actions: []
+  - optionText: "It wasn\u2019t easy, but I got you the nuclear battery."
+    replyText: "Really? That\u2019s wonderful! I can finally cook on my stove again
+      instead of over a fire like some cave dweller. Here, take this, my old revolver
+      and a few rounds I still have left. It should come in handy."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 44
+    objectID: 250
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 4bfe646bdb19f854ea0672476af9e404, type: 2}
+    - {fileID: 11400000, guid: 0dd5deeb0f84c704898333d3dd902332, type: 2}
+    - {fileID: 11400000, guid: 7f2e2e0f5d7a73a4fb5b63ace3f01d31, type: 2}
+    - {fileID: 11400000, guid: 6c0da2218e4e18f4896a61030a4c945c, type: 2}
+    - {fileID: 11400000, guid: 06d5cf1d31355314697ccb3f1fc32a57, type: 2}
   - optionText: Take care!
     replyText: 
     nextNode: 0

@@ -10,6 +10,7 @@ public class Stove : MonoBehaviour, IUsableObj
     [SerializeField] private float cookingTime = 2f;
     [SerializeField] private bool withoutbattery = false;
     [SerializeField] private GameObject batteryObj;
+    [SerializeField] private int questID;
     private PlayerController player;
     private AudioSource source;
     void Start()
@@ -17,8 +18,13 @@ public class Stove : MonoBehaviour, IUsableObj
         player = FindFirstObjectByType<PlayerController>();
         source = GetComponent<AudioSource>();
         pan.SetActive(false);
-        if(withoutbattery && batteryObj != null)
+        if (withoutbattery && QuestController.instance.Complete(questID))
         {
+            withoutbattery = false;
+            return;
+        }
+        if (withoutbattery && batteryObj != null)
+        {           
             batteryObj.SetActive(false);
         }
     }

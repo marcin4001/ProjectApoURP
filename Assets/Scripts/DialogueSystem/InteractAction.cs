@@ -12,6 +12,8 @@ public class InteractAction : ActionDialogue
                 OpenGrate(); break;
             case InteractActionType.SwitchOnTV:
                 SwitchOnTV(); break;
+            case InteractActionType.ActiveStove:
+                ActiveStove(); break;
             default:
                 break;
         }
@@ -34,11 +36,20 @@ public class InteractAction : ActionDialogue
             screen.SwitchOnTV();
         }
     }
+
+    public void ActiveStove()
+    {
+        InactiveStove inactiveStove = FindFirstObjectByType<InactiveStove>();
+        if (inactiveStove != null)
+        {
+            inactiveStove.ActiveStove();
+        }
+    }
 }
 
 public enum InteractActionType
 {
-    OpenGrate, SwitchOnTV
+    OpenGrate, SwitchOnTV, ActiveStove
 }
 
 

@@ -5385,6 +5385,10 @@ PrefabInstance:
       value: 0.31666666
       objectReference: {fileID: 0}
     - target: {fileID: 6980603118166489489, guid: bd5fb55057e54d440ab5a19cbd188c1b, type: 3}
+      propertyPath: questID
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980603118166489489, guid: bd5fb55057e54d440ab5a19cbd188c1b, type: 3}
       propertyPath: withoutbattery
       value: 1
       objectReference: {fileID: 0}
@@ -5399,8 +5403,27 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1216930209139793905, guid: bd5fb55057e54d440ab5a19cbd188c1b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 420082682}
   m_SourcePrefab: {fileID: 100100000, guid: bd5fb55057e54d440ab5a19cbd188c1b, type: 3}
+--- !u!1 &228804975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1216930209139793905, guid: bd5fb55057e54d440ab5a19cbd188c1b, type: 3}
+  m_PrefabInstance: {fileID: 228804974}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &228804976 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6980603118166489489, guid: bd5fb55057e54d440ab5a19cbd188c1b, type: 3}
+  m_PrefabInstance: {fileID: 228804974}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228804975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b41e12b3ec41e449922a5cd5dd46108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &229071083
 GameObject:
   m_ObjectHideFlags: 0
@@ -10821,6 +10844,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1993044318378018123, guid: bd5fb55057e54d440ab5a19cbd188c1b, type: 3}
   m_PrefabInstance: {fileID: 228804974}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &420082682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228804975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bd48ae80de75448b9db5411316e658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stove: {fileID: 228804976}
 --- !u!4 &426165929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8621945009110442272, guid: 68cb7287158a4e54b986d7050a31e50e, type: 3}
@@ -41678,7 +41714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: b3d6153c6fdff154ba4db3f28a142685, type: 2}
+  - {fileID: 11400000, guid: 3df3064ca7a0b2345b9d1bf921afadaa, type: 2}
 --- !u!4 &1751277049
 Transform:
   m_ObjectHideFlags: 0
