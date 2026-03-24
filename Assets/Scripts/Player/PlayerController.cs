@@ -900,6 +900,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void StopRunning()
+    {
+        isRun = false;
+        animationPlayer.SetIsRun(false);
+    }
+
     public bool IsNearPlayer(Vector3 position, float maxDistance)
     {
         float distance = Vector3.Distance(position, transform.position);
@@ -1019,6 +1025,7 @@ public class PlayerController : MonoBehaviour
         {
             weaponController.ShowCurrentWeapon(true);
             yield return null;
+            StopRunning();
         }
         else if(usable is EnemyInventory)
         {

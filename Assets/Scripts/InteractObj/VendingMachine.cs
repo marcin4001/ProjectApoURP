@@ -8,6 +8,7 @@ public class VendingMachine : MonoBehaviour, IUsableObj
     [SerializeField] private int idCabinet;
     [SerializeField] private List<SlotItem> items = new List<SlotItem>();
     [SerializeField] private SlotItem vendedProduct;
+    [SerializeField] private SlotItem money;
     private AudioSource source;
 
     private void Start()
@@ -42,7 +43,14 @@ public class VendingMachine : MonoBehaviour, IUsableObj
         bool itemExist = items.Exists(x => x.GetItem().id == vendedProduct.GetItem().id);
         if (itemExist)
         {
+            if(!Inventory.instance.PlayerHaveItem(money))
+            {
+                HUDController.instance.AddConsolelog("You don’t have enough");
+                HUDController.instance.AddConsolelog("money.");
+                return;
+            }
             Inventory.instance.AddItem(vendedProduct);
+            Inventory.instance.RemoveItem(money);
             HUDController.instance.AddConsolelog("You added 1x VIP Cola");
             if(source != null)
                 source.Play();
