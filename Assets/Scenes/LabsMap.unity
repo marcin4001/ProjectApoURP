@@ -3138,6 +3138,7 @@ MonoBehaviour:
   sceneName: MilitaryBaseEnter
   startQuest: 0
   endDemo: 0
+  endGame: 0
   idQuest: 0
   textLog: 
   thxDemoScene: ThxDemoScene
@@ -7149,6 +7150,7 @@ MonoBehaviour:
   importantPlace: 0
   mapSignName: 
   indexTheme: 4
+  noSaveArea: 0
 --- !u!4 &922206874
 Transform:
   m_ObjectHideFlags: 0
@@ -9255,6 +9257,12 @@ MonoBehaviour:
   armorSlot:
     item: {fileID: 0}
     amount: 0
+  inventorySave:
+    items: []
+    slots: []
+    armorSlot:
+      idItem: 0
+      amount: 0
 --- !u!4 &1179129775
 Transform:
   m_ObjectHideFlags: 0
@@ -10397,9 +10405,11 @@ MonoBehaviour:
   takeDamageParam: TakeDamage
   isDeathParam: isDeath
   punchParam: Punch
+  pickUpBodyParam: PickUpBody
   handGunLayer: HandGun
   rifleLayer: Rifle
   doorInteractTime: 1
+  pickUpBodyTime: 3
   eatingTime: 1.5
   drinkingTime: 2
 --- !u!95 &1378639991
@@ -18964,6 +18974,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2761997122847276052, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788731346274506248, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
+      propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251393405959677614, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}

@@ -1191,6 +1191,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2788731346274506248, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3223635745842256799, guid: a65f9b8223494c243ab10d0a488e2e35, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -5256,6 +5260,7 @@ MonoBehaviour:
   importantPlace: 0
   mapSignName: 
   indexTheme: 11
+  noSaveArea: 0
 --- !u!4 &922206874
 Transform:
   m_ObjectHideFlags: 0
@@ -6649,6 +6654,12 @@ MonoBehaviour:
   armorSlot:
     item: {fileID: 0}
     amount: 0
+  inventorySave:
+    items: []
+    slots: []
+    armorSlot:
+      idItem: 0
+      amount: 0
 --- !u!4 &1179129775
 Transform:
   m_ObjectHideFlags: 0
@@ -7807,9 +7818,11 @@ MonoBehaviour:
   takeDamageParam: TakeDamage
   isDeathParam: isDeath
   punchParam: Punch
+  pickUpBodyParam: PickUpBody
   handGunLayer: HandGun
   rifleLayer: Rifle
   doorInteractTime: 1
+  pickUpBodyTime: 3
   eatingTime: 1.5
   drinkingTime: 2
 --- !u!95 &1378639991
@@ -7985,7 +7998,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1492379285774239235, guid: 1556d7883522dc04a8ed949d5fccd7bb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1556d7883522dc04a8ed949d5fccd7bb, type: 3}
 --- !u!1001 &1418927009
 PrefabInstance:
@@ -11890,6 +11906,7 @@ MonoBehaviour:
   sceneName: MapScene
   startQuest: 0
   endDemo: 0
+  endGame: 0
   idQuest: 0
   textLog: 
   thxDemoScene: ThxDemoScene
@@ -12642,9 +12659,11 @@ MonoBehaviour:
   takeDamageParam: TakeDamage
   isDeathParam: isDeath
   punchParam: Punch
+  pickUpBodyParam: PickUpBody
   handGunLayer: HandGun
   rifleLayer: Rifle
   doorInteractTime: 1
+  pickUpBodyTime: 3
   eatingTime: 1.5
   drinkingTime: 2
 --- !u!114 &7544070109416294475
