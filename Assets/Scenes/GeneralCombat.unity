@@ -6644,6 +6644,8 @@ MonoBehaviour:
     amount: 1
   - item: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
     amount: 100
+  - item: {fileID: 11400000, guid: ca20e902159cbf64ab7aa77bc08b8f96, type: 2}
+    amount: 10
   slots:
   - item: {fileID: 0}
     amount: 0
@@ -7339,6 +7341,14 @@ PrefabInstance:
       objectReference: {fileID: 1487048210}
     - target: {fileID: 7007194150354597549, guid: 94dfb4f297ff636488923c92269bfcf7, type: 3}
       propertyPath: idEnemy
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007194150354597549, guid: 94dfb4f297ff636488923c92269bfcf7, type: 3}
+      propertyPath: healthPoint
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007194150354597549, guid: 94dfb4f297ff636488923c92269bfcf7, type: 3}
+      propertyPath: chanceToCrit
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7007194150354597549, guid: 94dfb4f297ff636488923c92269bfcf7, type: 3}
@@ -12737,8 +12747,8 @@ MonoBehaviour:
   debugTarget: {fileID: 0}
   damage: 6
   chanceToHit: 90
-  chanceToCrit: 8
-  healthPoint: 40
+  chanceToCrit: 15
+  healthPoint: 80
   minDistance: 5
   indexSlot: 0
   timeMaxMoving: 5
