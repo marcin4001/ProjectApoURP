@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool stopFlag = false;
     [SerializeField] private float counterMoving = 0;
     [SerializeField] private float counterMovingMax = 5;
+    [SerializeField] private bool multishot = false;
     private int keyID = 0;
     private int indexCorner = 1;
     private LayerMask layer;
@@ -155,6 +156,11 @@ public class PlayerController : MonoBehaviour
         actionState = PlayerActionState.Use;
         layer = layerUseLook;
         HUDController.instance.SetStateButtons(actionState);
+    }
+
+    public void SetMultishot(bool value)
+    {
+        multishot = value;
     }
 
     public void Eat(Item item)
@@ -339,8 +345,16 @@ public class PlayerController : MonoBehaviour
             if (weapon == null)
                 return;
             EnemyController enemy = _target.GetComponent<EnemyController>();
-            if (enemy == null) return;
-            if (enemy.IsDeath()) return;
+            if (enemy == null)
+            {
+                multishot = false;
+                return;
+            }
+            if (enemy.IsDeath()) 
+            {
+                multishot = false;
+                return; 
+            }
             float distanceToPoint = Vector3.Distance(center.position, point);
             if(distanceToPoint > weapon.GetRange())
             {
@@ -366,6 +380,17 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                if(multishot)
+                {
+                    if (weapon.OutOfAmmoMultishot())
+                    {
+                        multishot = false;
+                        return;
+                    }
+                    transform.rotation = Quaternion.LookRotation(point - transform.position);
+                    StartCoroutine(Multishot(enemy));
+                    return;
+                }
                 if (weapon.OutOfAmmo())
                     return;
                 animationPlayer.Shot();
@@ -442,101 +467,33 @@ public class PlayerController : MonoBehaviour
                 UseKeyOnObj(usableObject, item.id);
                 return;
             }
-            //Door door = _target.GetComponent<Door>();
-            //Debug.Log(_target.name);
-            //if(door != null)
-            //{
-            //    Debug.Log("Door");
-            //    if (!door.IsLock())
-            //    {
-            //        HUDController.instance.AddConsolelog("These doors are not locked.");
-            //        return;
-            //    }
-            //    if (currentCoroutine != null)
-            //        StopCoroutine(currentCoroutine);
-            //    float distnceToObject = Vector3.Distance(transform.position, _target.transform.position);
-            //    if (distnceToObject > maxDistance)
-            //    {
-            //        currentSelectObj = door;
-            //        agent.isStopped = false;
-            //        moveTarget = currentSelectObj.GetNearPoint();
-            //        currentCoroutine = StartCoroutine(MoveTask());
-            //        isUsingKey = true;
-            //        keyID = item.id;
-            //        return;
-            //    }
-            //    agent.isStopped = true;
-            //    animationPlayer.SetSpeedLocomotion(0f);
-            //    isUsingKey = true;
-            //    keyID = item.id;
-            //    StartCoroutine(InteractAction(door));
-            //}
-            //Trapdoor trapdoor = _target.GetComponent<Trapdoor>();
-            //if(trapdoor != null)
-            //{
-            //    if (currentCoroutine != null)
-            //        StopCoroutine(currentCoroutine);
-            //    float distnceToObject = Vector3.Distance(transform.position, trapdoor.GetNearPoint());
-            //    if (distnceToObject > maxDistance)
-            //    {
-            //        currentSelectObj = trapdoor;
-            //        agent.isStopped = false;
-            //        moveTarget = currentSelectObj.GetNearPoint();
-            //        currentCoroutine = StartCoroutine(MoveTask());
-            //        isUsingKey = true;
-            //        keyID = item.id;
-            //        return;
-            //    }
-            //    agent.isStopped = true;
-            //    animationPlayer.SetSpeedLocomotion(0f);
-            //    isUsingKey = true;
-            //    keyID = item.id;
-            //    StartCoroutine(InteractAction(trapdoor));
-            //}
-            //BaseDoorOutside baseDoor = _target.GetComponent<BaseDoorOutside>();
-            //if(baseDoor != null)
-            //{
-            //    if (currentCoroutine != null)
-            //        StopCoroutine(currentCoroutine);
-            //    float distnceToObject = Vector3.Distance(transform.position, baseDoor.GetNearPoint());
-            //    if (distnceToObject > maxDistance)
-            //    {
-            //        currentSelectObj = baseDoor;
-            //        agent.isStopped = false;
-            //        moveTarget = currentSelectObj.GetNearPoint();
-            //        currentCoroutine = StartCoroutine(MoveTask());
-            //        isUsingKey = true;
-            //        keyID = item.id;
-            //        return;
-            //    }
-            //    agent.isStopped = true;
-            //    animationPlayer.SetSpeedLocomotion(0f);
-            //    isUsingKey = true;
-            //    keyID = item.id;
-            //    StartCoroutine(InteractAction(baseDoor));
-            //}
-            //Device oldCar = _target.GetComponent<Device>();
-            //if(oldCar != null)
-            //{
-            //    if (currentCoroutine != null)
-            //        StopCoroutine(currentCoroutine);
-            //    float distnceToObject = Vector3.Distance(transform.position, oldCar.GetNearPoint());
-            //    if (distnceToObject > maxDistance)
-            //    {
-            //        currentSelectObj = oldCar;
-            //        agent.isStopped = false;
-            //        moveTarget = currentSelectObj.GetNearPoint();
-            //        currentCoroutine = StartCoroutine(MoveTask());
-            //        isUsingKey = true;
-            //        keyID = item.id;
-            //        return;
-            //    }
-            //    agent.isStopped = true;
-            //    animationPlayer.SetSpeedLocomotion(0f);
-            //    isUsingKey = true;
-            //    keyID = item.id;
-            //    StartCoroutine(InteractAction(oldCar));
-            //}
+        }
+    }
+
+    private IEnumerator Multishot(EnemyController enemy)
+    {
+        WeaponObject weapon = weaponController.GetCurrentWeapon();
+        
+        for(int i = 0; i < 5; i++)
+        {
+            animationPlayer.Shot();
+            if (i == 0)
+            {
+                yield return new WaitForSeconds(weapon.GetStartPlayAudio());
+            }
+            weapon.PlayOneAttack();
+            weapon.PlayOneMuzzle();
+            yield return new WaitForSeconds(0.09f);
+        }
+        yield return new WaitForSeconds(0.09f);
+        weapon.PlayOneAttack();
+        weapon.PlayOneMuzzle();
+        weapon.RemoveAmmo(3);
+        enemy.GetDamage(weapon.GetDamage());
+        multishot = false;
+        if (GameParam.instance.inCombat)
+        {
+            StartCoroutine(AfterUseWeaponInCombat());
         }
     }
 

@@ -127,6 +127,11 @@ public class HUDController : MonoBehaviour
             switch (slotState)
             {
                 case SlotState.Use:
+                    player.SetMultishot(false);
+                    player.StartUsingItem();
+                    break;
+                case SlotState.MultiShot:
+                    player.SetMultishot(true);
                     player.StartUsingItem();
                     break;
                 case SlotState.Reload:
@@ -198,6 +203,12 @@ public class HUDController : MonoBehaviour
             switch (slotState)
             {
                 case SlotState.Use:
+                    if(weaponItem.multiShot)
+                        slotState = SlotState.MultiShot;
+                    else
+                        slotState = SlotState.Reload;
+                    break;
+                case SlotState.MultiShot:
                     slotState = SlotState.Reload;
                     break;
                 case SlotState.Reload:
@@ -597,5 +608,5 @@ public class HUDController : MonoBehaviour
 
 public enum SlotState
 {
-    Use, Reload, None
+    Use, Reload, None, MultiShot
 }

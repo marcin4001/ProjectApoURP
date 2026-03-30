@@ -146,6 +146,11 @@ public class WeaponObject : MonoBehaviour
         return currentAmmoInGun <= 0;
     }
 
+    public bool OutOfAmmoMultishot()
+    {
+        return currentAmmoInGun <= 2;
+    }
+
     public bool IsFull()
     {
         if(weapon == null) return false;
@@ -162,6 +167,18 @@ public class WeaponObject : MonoBehaviour
         yield return new WaitForSeconds(startPlayMuzzle);
         if(muzzle != null)
             muzzle.Play();
+    }
+
+    public void PlayOneMuzzle()
+    {
+        if (muzzle != null)
+            muzzle.Play();
+    }
+
+    public void PlayOneAttack()
+    {
+        if (source != null)
+            source.PlayOneShot(attackClip);
     }
 
     public void StartPlayAttack()
@@ -223,5 +240,10 @@ public class WeaponObject : MonoBehaviour
         //HUDController.instance.AddConsolelog($"Ammo: {currentAmmoInGun}/{ammoOutGun}");
         if(WeaponController.instance.GetCurrentWeapon() == this)
             HUDController.instance.UpdateAmmoText($"{currentAmmoInGun}/{ammoOutGun}");
+    }
+
+    public float GetStartPlayAudio()
+    {
+        return startPlayAudio;
     }
 }

@@ -9,6 +9,7 @@ public class WeaponItem : Item
     public WeaponType type;
     public float range = 10f;
     public int strengthRequired = 1;
+    public bool multiShot = false;
     public Vector3 positionInHand = Vector3.zero;
     public Vector3 rotationInHand = Vector3.zero;
     public Vector3 scaleInHand = Vector3.one;
