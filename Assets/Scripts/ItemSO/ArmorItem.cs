@@ -16,5 +16,6 @@ public enum Headgear
 {
     None,
     Helmet,
-    RedCap
+    RedCap,
+    CowboyHat
 }

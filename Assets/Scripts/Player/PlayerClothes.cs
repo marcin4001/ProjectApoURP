@@ -7,6 +7,7 @@ public class PlayerClothes : MonoBehaviour
     [SerializeField] private Renderer bottom;
     [SerializeField] private GameObject helmet;
     [SerializeField] private GameObject redCap;
+    [SerializeField] private GameObject cowboyHat;
     [SerializeField] private Material defaultTopMaterial;
     [SerializeField] private Material defaultBottomMaterial;
     [SerializeField] private ArmorItem armorItem;
@@ -17,6 +18,7 @@ public class PlayerClothes : MonoBehaviour
         defaultBottomMaterial = bottom.material;
         helmet.SetActive(false);
         redCap.SetActive(false);
+        cowboyHat.SetActive(false);
     }
     void Start()
     {
@@ -44,6 +46,10 @@ public class PlayerClothes : MonoBehaviour
         {
             redCap.SetActive(true);
         }
+        if(armor.headgear == Headgear.CowboyHat)
+        {
+            cowboyHat.SetActive(true);
+        }
     }
 
     public void ResetClothes()
@@ -52,6 +58,7 @@ public class PlayerClothes : MonoBehaviour
         bottom.material = defaultBottomMaterial;
         helmet.SetActive(false);
         redCap.SetActive(false);
+        cowboyHat.SetActive(false);
         armorItem = null;
     }
 
