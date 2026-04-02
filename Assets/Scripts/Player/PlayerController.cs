@@ -991,6 +991,22 @@ public class PlayerController : MonoBehaviour
             weaponController.ShowCurrentWeapon(true);
             yield return new WaitForSeconds(0.5f);
         }
+        else if(usable is PickupItem)
+        {
+            PickupItem pickupItem = (PickupItem)usable;
+            if(pickupItem.OnTheFloor())
+            {
+                animationPlayer.PickUpBody();
+                yield return new WaitForSeconds(animationPlayer.GetPickupBodyTime());
+                weaponController.ShowCurrentWeapon(true);
+            }
+            else
+            {
+                animationPlayer.DoorInteract();
+                yield return new WaitForSeconds(animationPlayer.GetDoorInteractTime());
+                weaponController.ShowCurrentWeapon(true);
+            }
+        }
         else
         {
             animationPlayer.DoorInteract();

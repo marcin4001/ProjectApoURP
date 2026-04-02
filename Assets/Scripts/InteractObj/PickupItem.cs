@@ -8,6 +8,7 @@ public class PickupItem : MonoBehaviour, IUsableObj
     [SerializeField] private int idPickUp;
     [SerializeField] private bool instantReadBook = false;
     [SerializeField] private BookProfile book;
+    [SerializeField] private bool onTheFloor = false;
     private OutlineList outlines;
     private void Start()
     {
@@ -73,5 +74,10 @@ public class PickupItem : MonoBehaviour, IUsableObj
         if (outlines == null)
             return;
         outlines.Show(false);
+    }
+
+    public bool OnTheFloor()
+    {
+        return onTheFloor;
     }
 }
