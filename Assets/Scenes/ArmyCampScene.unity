@@ -1876,8 +1876,8 @@ MonoBehaviour:
   cameraPivotSpawn: {fileID: 0}
   insideSprawnPos: {fileID: 0}
   indexCabinetData: 14
-  importantPlace: 0
-  mapSignName: 
+  importantPlace: 1
+  mapSignName: Army Camp
   indexTheme: 8
   noSaveArea: 0
 --- !u!4 &176419482
@@ -8172,6 +8172,10 @@ PrefabInstance:
     - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
       propertyPath: perception
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: mapPosition.x
+      value: 227.5
       objectReference: {fileID: 0}
     - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
       propertyPath: mapPosition.y
@@ -15476,6 +15480,7 @@ MonoBehaviour:
   idPickUp: 3107
   instantReadBook: 0
   book: {fileID: 0}
+  onTheFloor: 0
 --- !u!4 &1533101230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0a89346f56a6b414699324e0b798c69a, type: 3}
