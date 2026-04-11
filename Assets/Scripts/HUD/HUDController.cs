@@ -604,6 +604,12 @@ public class HUDController : MonoBehaviour
         yield return new WaitForSeconds(5f);
         questText.text = "";
     }
+
+    void OnGUI()
+    {
+        float fps = 1f / Time.unscaledDeltaTime;
+        GUI.Label(new Rect(10, 10, 100, 20), ((int)fps) + " FPS");
+    }
 }
 
 public enum SlotState

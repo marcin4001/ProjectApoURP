@@ -15,11 +15,15 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private Button leftArrowFullscreen;
     [SerializeField] private Button rightArrowFullscreen;
     [SerializeField] private TextMeshProUGUI fullscreenText;
+    [SerializeField] private Button leftArrowVsync;
+    [SerializeField] private Button rightArrowVsync;
+    [SerializeField] private TextMeshProUGUI vSyncText;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Button applyButton;
     [SerializeField] private int currentResolutionIndex;
     [SerializeField] private bool fullscreen = true;
+    [SerializeField] private bool vSync = true;
     [SerializeField] private bool active = false;
     private void Awake()
     {
@@ -33,6 +37,8 @@ public class SettingsUI : MonoBehaviour
         rightArrowResolution.onClick.AddListener(OnClickRightRes);
         leftArrowFullscreen.onClick.AddListener(ChangeFullscreen);
         rightArrowFullscreen.onClick.AddListener(ChangeFullscreen);
+        leftArrowVsync.onClick.AddListener(ChangeVSync);
+        rightArrowVsync.onClick.AddListener(ChangeVSync);
         applyButton.onClick.AddListener(Apply);
         ValidResolution();
         backgroud.SetActive(false);
@@ -42,6 +48,7 @@ public class SettingsUI : MonoBehaviour
     public void Show()
     {
         fullscreen = Screen.fullScreen;
+        vSync = QualitySettings.vSyncCount > 0;
         Vector2Int currentResolution = GameParam.instance.resolutions[currentResolutionIndex];
         SetTextResolution(currentResolution);
         if (fullscreen)
@@ -51,6 +58,14 @@ public class SettingsUI : MonoBehaviour
         else
         {
             fullscreenText.text = "OFF";
+        }
+        if(vSync)
+        {
+            vSyncText.text = "ON";
+        }
+        else
+        {
+            vSyncText.text = "OFF";
         }
         musicSlider.value = GameParam.instance.mainMusicVolume;
         sfxSlider.value = GameParam.instance.sfxVolume;
@@ -103,6 +118,19 @@ public class SettingsUI : MonoBehaviour
         }
     }
 
+    public void ChangeVSync()
+    {
+        vSync = !vSync;
+        if (vSync)
+        {
+            vSyncText.text = "ON";
+        }
+        else
+        {
+            vSyncText.text = "OFF";
+        }
+    }
+
     public void Apply()
     {
         Vector2Int currentResolution = GameParam.instance.resolutions[currentResolutionIndex];
@@ -112,6 +140,14 @@ public class SettingsUI : MonoBehaviour
         GameParam.instance.sfxVolume = sfxSlider.value;
         MusicManager.instance.SetVolumeMainMusic(musicSlider.value);
         MusicManager.instance.SetVolumeSFX(sfxSlider.value);
+        if(vSync)
+        {
+            QualitySettings.vSyncCount = 1;
+        }
+        else
+        {
+            QualitySettings.vSyncCount = 0;
+        }
 
         PlayerPrefs.SetFloat("mainMusicVolume", GameParam.instance.mainMusicVolume);
         PlayerPrefs.SetFloat("sfxVolume", GameParam.instance.sfxVolume);

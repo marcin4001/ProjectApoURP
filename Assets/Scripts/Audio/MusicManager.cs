@@ -52,7 +52,8 @@ public class MusicManager : MonoBehaviour
         {
             if(sourceSfx == source)
                 continue;
-            sourceSfx.volume = volume;
+            if(sourceSfx != null)
+                sourceSfx.volume = volume;
         }
     }
 }
