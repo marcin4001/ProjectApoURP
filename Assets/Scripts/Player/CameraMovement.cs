@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.Rendering.DebugUI;
+using UnityEngine.UI;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private bool block = false;
     private MainInputSystem inputSystem;
     private PlayerController playerController;
-    private Vector2 mousePosition;
+    [SerializeField] private Vector2 mousePosition;
     private Vector2 inputMove;
 
     void Awake()
@@ -125,28 +126,43 @@ public class CameraMovement : MonoBehaviour
 
     private void MoveCameraBorder()
     {
-        Vector3 cameraPos = transform.position;
+        if(IsMouseOverButton())
+            return;
+        Vector3 forwardCam = transform.forward;
+        Vector3 rightCam = transform.right;
 
+        forwardCam.y = 0;
+        rightCam.y = 0;
+
+        forwardCam.Normalize();
+        rightCam.Normalize();
+
+        Vector3 dir = new Vector3(0f, 0f, 0f);
         if (mousePosition.y >= Screen.height - borderThickness)
-            cameraPos.z += speedMovingCamera * Time.deltaTime;
-        if (mousePosition.y < borderThickness)
-            cameraPos.z -= speedMovingCamera * Time.deltaTime;
+            dir += forwardCam;
+        if(mousePosition.y < borderThickness)
+            dir -= forwardCam;
         if (mousePosition.x >= Screen.width - borderThickness)
-            cameraPos.x += speedMovingCamera * Time.deltaTime;
-        if (mousePosition.x < borderThickness)
-            cameraPos.x -= speedMovingCamera * Time.deltaTime;
+            dir += rightCam;
+        if(mousePosition.x < borderThickness)
+            dir -= rightCam;
 
-        transform.position = cameraPos;
+        transform.position += dir * speedMovingCamera * Time.deltaTime;
     }
 
     private void MoveCameraInput()
     {
-        Vector3 cameraPos = transform.position;
+        Vector3 forwardCam = transform.forward;
+        Vector3 rightCam = transform.right;
 
-        cameraPos.x += inputMove.x * speedMovingCamera * Time.deltaTime;
-        cameraPos.z += inputMove.y * speedMovingCamera * Time.deltaTime;
+        forwardCam.y = 0;
+        rightCam.y = 0;
 
-        transform.position = cameraPos;
+        forwardCam.Normalize();
+        rightCam.Normalize();
+
+        Vector3 dir = forwardCam * inputMove.y + rightCam * inputMove.x;
+        transform.position += dir * speedMovingCamera * Time.deltaTime;
     }
 
     private void ClampPosCamera()
@@ -181,5 +197,25 @@ public class CameraMovement : MonoBehaviour
         return (pointInFov.z > 0 
                 && pointInFov.x >= 0 && pointInFov.x <= 1
                 && pointInFov.y >= 0 && pointInFov.y <= 1);
+    }
+
+    private bool IsMouseOverButton()
+    {
+        PointerEventData data = new PointerEventData(EventSystem.current);
+        data.position = mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(data, results);
+
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject.GetComponent<Button>() != null)
+            {
+                //Debug.Log(result.gameObject.name);
+                return true;
+            }
+        }
+
+        return false;
     }
 }
