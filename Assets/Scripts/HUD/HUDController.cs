@@ -605,11 +605,11 @@ public class HUDController : MonoBehaviour
         questText.text = "";
     }
 
-    void OnGUI()
-    {
-        float fps = 1f / Time.unscaledDeltaTime;
-        GUI.Label(new Rect(10, 10, 100, 20), ((int)fps) + " FPS");
-    }
+    //void OnGUI()
+    //{
+    //    float fps = 1f / Time.unscaledDeltaTime;
+    //    GUI.Label(new Rect(10, 10, 100, 20), ((int)fps) + " FPS");
+    //}
 }
 
 public enum SlotState
