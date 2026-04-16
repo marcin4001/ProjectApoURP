@@ -11,6 +11,7 @@ public class HouseRoof : MonoBehaviour
     [SerializeField] private bool openOnStart = false;
     [SerializeField] private bool withoutDoors = false;
     [SerializeField] private Light[] lights;
+    private bool hardHide = false;
     private void Start()
     {
         StartCoroutine(CheckInInsidePlayer());
@@ -73,6 +74,8 @@ public class HouseRoof : MonoBehaviour
         if(other.tag == "Player")
         {
             playerInTrigger = false;
+            if(hardHide)
+                return;
             roof.SetActive(true);
 
             if (lights.Length > 0)
@@ -105,6 +108,37 @@ public class HouseRoof : MonoBehaviour
             }
             if (!inHouseTrigger.GetPlayerInTrigger())
                 roof.SetActive(true);
+        }
+    }
+
+    public void HardHide()
+    {
+        roof.SetActive(false);
+        hardHide = true;
+        if (lights.Length > 0)
+        {
+            foreach (Light light in lights)
+            {
+                if (light != null)
+                    light.shadows = LightShadows.Soft;
+            }
+        }
+    }
+
+    public void StopHardHide()
+    {
+        hardHide = false;
+        if (!playerInTrigger)
+        {
+            roof.SetActive(true);
+            if (lights.Length > 0)
+            {
+                foreach (Light light in lights)
+                {
+                    if (light != null)
+                        light.shadows = LightShadows.None;
+                }
+            }
         }
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class CombatController : MonoBehaviour
@@ -16,6 +17,8 @@ public class CombatController : MonoBehaviour
     [SerializeField] private string deathSceneName = "DeathScene";
     [SerializeField] private GameObject slotDebug;
     [SerializeField] private bool skipTurnPlayer = false;
+    [SerializeField] private UnityEvent OnStartCombat;
+    [SerializeField] private UnityEvent OnStopCombat;
     private PlayerController player;
     private List<GameObject> debugSlots = new List<GameObject>();
     private bool getDamage;
@@ -42,6 +45,7 @@ public class CombatController : MonoBehaviour
             enemies[i].SetIndexSlot(i);
         }
         GameParam.instance.inCombat = true;
+        OnStartCombat?.Invoke();
         HUDController.instance.ShowFightPanel();
         if(firstPlayer)
         {
@@ -70,6 +74,7 @@ public class CombatController : MonoBehaviour
         Debug.Log("StopCombat");
         GameParam.instance.inCombat = false;
         HUDController.instance.HideFightPanel();
+        OnStopCombat?.Invoke();
     }
 
     public void SkipTurnPlayer()
@@ -94,6 +99,7 @@ public class CombatController : MonoBehaviour
         if (isEndCombat())
         {
             GameParam.instance.inCombat = false;
+            OnStopCombat?.Invoke();
             HUDController.instance.HideFightPanel();
             player.SetBlock(false);
             enemies = new EnemyController[0];

@@ -24,6 +24,8 @@ public class PickUpWeapon : MonoBehaviour, IUsableObj
         }
         //PickUpObjList.instance.DestroyOnList(gameObject.name);
         PickUpObjList.instance.AddIdToList(idPickUp);
+        HUDController.instance.AddConsolelog("You picked up:");
+        HUDController.instance.AddConsolelog($"{item.nameItem}");
         Destroy(gameObject);
         return;
     }

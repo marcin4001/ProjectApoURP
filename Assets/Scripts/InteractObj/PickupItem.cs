@@ -42,6 +42,8 @@ public class PickupItem : MonoBehaviour, IUsableObj
             book.Execute();
         }
         PickUpObjList.instance.AddIdToList(idPickUp);
+        HUDController.instance.AddConsolelog("You picked up:");
+        HUDController.instance.AddConsolelog($"{item.nameItem} x{amount}");
         Destroy(gameObject);
     }
 

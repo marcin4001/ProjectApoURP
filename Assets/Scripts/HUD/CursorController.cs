@@ -9,6 +9,7 @@ public class CursorController : MonoBehaviour
 {
     public static CursorController instance;
     [SerializeField] private Texture2D defaultCursor;
+    [SerializeField] private Texture2D crosshairCursor;
     [SerializeField] private Texture2D reachableCursor;
     [SerializeField] private Texture2D unreachableCursor;
     [SerializeField] private Texture2D useCursor;
@@ -90,6 +91,11 @@ public class CursorController : MonoBehaviour
             StartCoroutine(UpdateCursor());
     }
 
+    public void SetCrossHairCursor()
+    {
+        cursorImage.texture = crosshairCursor;
+    }
+
     public void UpdateMousePos(InputAction.CallbackContext ctx)
     {
         mousePosition = ctx.ReadValue<Vector2>();
@@ -102,12 +108,19 @@ public class CursorController : MonoBehaviour
 
         if (HUDController.instance.PointerOnHUD() || player.IsUsingItem() || player.InMenu())
         {
-            if (HUDController.instance.PointerOnUpButtonConsole() && !player.InMenu())
-                cursorImage.texture = upCursor;
-            else if(HUDController.instance.PointerOnDownButtonConsole() && !player.InMenu())
-                cursorImage.texture = downCursor;
+            if (!player.IsUsingItem())
+            {
+                if (HUDController.instance.PointerOnUpButtonConsole() && !player.InMenu())
+                    cursorImage.texture = upCursor;
+                else if (HUDController.instance.PointerOnDownButtonConsole() && !player.InMenu())
+                    cursorImage.texture = downCursor;
+                else
+                    cursorImage.texture = defaultCursor;
+            }
             else
-                cursorImage.texture = defaultCursor;
+            {
+                cursorImage.texture = crosshairCursor;
+            }
         }
         else
         {

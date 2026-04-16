@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour
         if (block || isMoving)
             return;
         isUsingItem = true;
+        CursorController.instance.SetCrossHairCursor();
         actionState = PlayerActionState.Use;
         layer = layerUseLook;
         HUDController.instance.SetStateButtons(actionState);
