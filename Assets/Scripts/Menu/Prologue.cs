@@ -16,6 +16,7 @@ public class Prologue : MonoBehaviour
     [SerializeField] private int currentIndex;
     [SerializeField] private string nextScene;
     [SerializeField] private int indexTheme = 1;
+    [SerializeField] private bool witoutLoadingScreen;
     private MainInputSystem inputSystem;
     private bool activeInput = false;
     private LoadingPanel loadingPanel;
@@ -73,8 +74,11 @@ public class Prologue : MonoBehaviour
     {
         fadeAnim.SetBool(fadeIOutParam, false);
         yield return new WaitForSeconds(1.5f);
-        loadingPanel.Show();
-        yield return new WaitForSeconds(1f);
+        if (!witoutLoadingScreen)
+        {
+            loadingPanel.Show();
+            yield return new WaitForSeconds(1f);
+        }
         SceneManager.LoadScene(nextScene);
     }
 
