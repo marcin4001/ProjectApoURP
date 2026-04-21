@@ -10,6 +10,7 @@ public class FoodItem : Item
     public bool healRadioactiveDuo = false;
     public bool isDrink = false;
     public bool isSpicy = false;
+    public bool isDrugs = false;
     public GameObject spawnObj;
     public bool returnObj;
     public int idObj;

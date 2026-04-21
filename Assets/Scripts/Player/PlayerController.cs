@@ -210,6 +210,11 @@ public class PlayerController : MonoBehaviour
             HUDController.instance.AddConsolelog("The spicy taste scorches");
             HUDController.instance.AddConsolelog("your throat!");
         }
+        if(food.isDrugs)
+        {
+            DrugsFX drugsFX = GetComponent<DrugsFX>();
+            drugsFX?.StartEffect();
+        }
         if (GameParam.instance.inCombat)
         {
             CombatController.instance.RemoveAP(1);
