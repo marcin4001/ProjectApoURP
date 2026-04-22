@@ -159,6 +159,12 @@ public class PlayerController : MonoBehaviour
         HUDController.instance.SetStateButtons(actionState);
     }
 
+    public void StopUsingItem()
+    {
+        isUsingItem = false;
+        CursorController.instance.SetDeafultCursor();
+    }
+
     public void SetMultishot(bool value)
     {
         multishot = value;
@@ -489,9 +495,9 @@ public class PlayerController : MonoBehaviour
             }
             weapon.PlayOneAttack();
             weapon.PlayOneMuzzle();
-            yield return new WaitForSeconds(0.09f);
+            yield return new WaitForSeconds(0.1f);
         }
-        yield return new WaitForSeconds(0.09f);
+        yield return new WaitForSeconds(0.1f);
         weapon.PlayOneAttack();
         weapon.PlayOneMuzzle();
         weapon.RemoveAmmo(3);

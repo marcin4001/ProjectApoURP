@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class HUDController : MonoBehaviour
 {
@@ -55,11 +56,34 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Sprite newLevelActive;
     private PlayerController player;
     private Canvas canvas;
+    private MainInputSystem inputSystem;
 
     private void Awake()
     {
         instance = this;
+        inputSystem = new MainInputSystem();
+        inputSystem.Player.Slot1.performed += Slot1Click;
+        inputSystem.Player.Slot2.performed += Slot2Click;
+        inputSystem.Player.Slot3.performed += Slot3Click;
+        inputSystem.Enable();
     }
+
+    private void OnEnable()
+    {
+        inputSystem.Player.Slot1.performed += Slot1Click;
+        inputSystem.Player.Slot2.performed += Slot2Click;
+        inputSystem.Player.Slot3.performed += Slot3Click;
+        inputSystem.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputSystem.Player.Slot1.performed -= Slot1Click;
+        inputSystem.Player.Slot2.performed -= Slot2Click;
+        inputSystem.Player.Slot3.performed -= Slot3Click;
+        inputSystem.Disable();
+    }
+
     void Start()
     {
         player = FindFirstObjectByType<PlayerController>();
@@ -114,9 +138,11 @@ public class HUDController : MonoBehaviour
     {
         if (CursorController.instance.IsWait())
             return;
+        player.StopUsingItem();
         background.gameObject.SetActive(false);
         showButton.gameObject.SetActive(true);
     }
+
 
     public void OnClickSlot()
     {
@@ -193,6 +219,7 @@ public class HUDController : MonoBehaviour
 
     public void ChangeStateSlot()
     {
+        player.StopUsingItem();
         SlotItem slotItem = GetCurrentItem();
         Item item = slotItem.GetItem();
         if (item is WeaponItem)
@@ -225,8 +252,9 @@ public class HUDController : MonoBehaviour
 
     public void OnClickRigtButton()
     {
-        if(CursorController.instance.IsWait())
+        if (CursorController.instance.IsWait())
             return;
+        player.StopUsingItem();
         currentSlotIndex++;
         if(currentSlotIndex == Inventory.instance.GetLengthSlotItem())
             currentSlotIndex = 0;
@@ -237,24 +265,52 @@ public class HUDController : MonoBehaviour
     {
         if (CursorController.instance.IsWait())
             return;
+        player.StopUsingItem();
         currentSlotIndex--;
         if(currentSlotIndex < 0)
             currentSlotIndex = Inventory.instance.GetLengthSlotItem() - 1;
         SetItemSlot();
     }
 
+    private void Slot1Click(InputAction.CallbackContext ctx)
+    {
+        if (CursorController.instance.IsWait())
+            return;
+        player.StopUsingItem();
+        currentSlotIndex = 0;
+        SetItemSlot();
+    }
 
+    private void Slot2Click(InputAction.CallbackContext ctx)
+    {
+        if (CursorController.instance.IsWait())
+            return;
+        player.StopUsingItem();
+        currentSlotIndex = 1;
+        SetItemSlot();
+    }
+
+    private void Slot3Click(InputAction.CallbackContext ctx)
+    {
+        if (CursorController.instance.IsWait())
+            return;
+        player.StopUsingItem();
+        currentSlotIndex = 2;
+        SetItemSlot();
+    }
 
     public void OpenInventory()
     {
         if (CursorController.instance.IsWait())
-            return; 
+            return;
+        player.StopUsingItem();
         InventoryUI.instance.Show();
         player.StopMove();
     }
 
     public void OpenPauseMenu()
     {
+        player.StopUsingItem();
         PauseMenuDemo.instance.Show();
     }
 
@@ -262,6 +318,7 @@ public class HUDController : MonoBehaviour
     {
         if (CursorController.instance.IsWait())
             return;
+        player.StopUsingItem();
         QuestListUI.instance.Show();
     }
 
@@ -364,6 +421,9 @@ public class HUDController : MonoBehaviour
 
     public void SetStatePlayer(PlayerActionState state)
     {
+        if (CursorController.instance.IsWait())
+            return;
+        player.StopUsingItem();
         player.SetState(state);
         SetStateButtons(state);
     }
@@ -547,7 +607,10 @@ public class HUDController : MonoBehaviour
     public void OnClickSkip()
     {
         if (GameParam.instance.inCombat)
+        {
+            player.StopUsingItem();
             CombatController.instance.SkipTurnPlayer();
+        }
     }
 
     public void ShowFightPanel()
@@ -566,6 +629,7 @@ public class HUDController : MonoBehaviour
     {
         if (CursorController.instance.IsWait())
             return;
+        player.StopUsingItem();
         if (GameParam.instance.isLevelUp)
             StatsPanelNewLevel.instance.Open();
     }

@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour
 {
     public static CameraMovement instance;
     [SerializeField] private float borderThickness = 10f;
-    [SerializeField] private float speedMovingCamera = 10f;
+    private float speed = 6f;
     [SerializeField] private Transform limitPointA;
     [SerializeField] private Transform limitPointB;
     [SerializeField] private Vector3 minLimitVector = Vector3.zero;
@@ -147,7 +147,7 @@ public class CameraMovement : MonoBehaviour
         if(mousePosition.x < borderThickness)
             dir -= rightCam;
 
-        transform.position += dir * speedMovingCamera * Time.deltaTime;
+        transform.position += dir * speed * Time.deltaTime;
     }
 
     private void MoveCameraInput()
@@ -162,7 +162,7 @@ public class CameraMovement : MonoBehaviour
         rightCam.Normalize();
 
         Vector3 dir = forwardCam * inputMove.y + rightCam * inputMove.x;
-        transform.position += dir * speedMovingCamera * Time.deltaTime;
+        transform.position += dir * speed * Time.deltaTime;
     }
 
     private void ClampPosCamera()

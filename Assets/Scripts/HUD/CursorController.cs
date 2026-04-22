@@ -96,6 +96,11 @@ public class CursorController : MonoBehaviour
         cursorImage.texture = crosshairCursor;
     }
 
+    public void SetDeafultCursor()
+    {
+        cursorImage.texture = defaultCursor;
+    }
+
     public void UpdateMousePos(InputAction.CallbackContext ctx)
     {
         mousePosition = ctx.ReadValue<Vector2>();

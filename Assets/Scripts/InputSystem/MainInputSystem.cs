@@ -190,6 +190,33 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot1"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d44f5a7-75de-44a8-bc01-a2fa70fd31f7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot2"",
+                    ""type"": ""Button"",
+                    ""id"": ""210c8c5e-528e-4521-8cae-f78339e92fff"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot3"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a660124-3814-441c-a7de-327f7417f160"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -434,6 +461,39 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""DoubleClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c989ce7-3b96-4a43-b44d-c652036d2d34"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdb5e4a5-c883-4a0f-96e3-95ff0b07096d"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e15f6e0a-18ec-4abd-a140-07d499dcccde"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -453,6 +513,9 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         m_Player_AnyKey = m_Player.FindAction("AnyKey", throwIfNotFound: true);
         m_Player_Enter = m_Player.FindAction("Enter", throwIfNotFound: true);
         m_Player_DoubleClick = m_Player.FindAction("DoubleClick", throwIfNotFound: true);
+        m_Player_Slot1 = m_Player.FindAction("Slot1", throwIfNotFound: true);
+        m_Player_Slot2 = m_Player.FindAction("Slot2", throwIfNotFound: true);
+        m_Player_Slot3 = m_Player.FindAction("Slot3", throwIfNotFound: true);
     }
 
     ~@MainInputSystem()
@@ -544,6 +607,9 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AnyKey;
     private readonly InputAction m_Player_Enter;
     private readonly InputAction m_Player_DoubleClick;
+    private readonly InputAction m_Player_Slot1;
+    private readonly InputAction m_Player_Slot2;
+    private readonly InputAction m_Player_Slot3;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -599,6 +665,18 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/DoubleClick".
         /// </summary>
         public InputAction @DoubleClick => m_Wrapper.m_Player_DoubleClick;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Slot1".
+        /// </summary>
+        public InputAction @Slot1 => m_Wrapper.m_Player_Slot1;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Slot2".
+        /// </summary>
+        public InputAction @Slot2 => m_Wrapper.m_Player_Slot2;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Slot3".
+        /// </summary>
+        public InputAction @Slot3 => m_Wrapper.m_Player_Slot3;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -658,6 +736,15 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
             @DoubleClick.started += instance.OnDoubleClick;
             @DoubleClick.performed += instance.OnDoubleClick;
             @DoubleClick.canceled += instance.OnDoubleClick;
+            @Slot1.started += instance.OnSlot1;
+            @Slot1.performed += instance.OnSlot1;
+            @Slot1.canceled += instance.OnSlot1;
+            @Slot2.started += instance.OnSlot2;
+            @Slot2.performed += instance.OnSlot2;
+            @Slot2.canceled += instance.OnSlot2;
+            @Slot3.started += instance.OnSlot3;
+            @Slot3.performed += instance.OnSlot3;
+            @Slot3.canceled += instance.OnSlot3;
         }
 
         /// <summary>
@@ -702,6 +789,15 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
             @DoubleClick.started -= instance.OnDoubleClick;
             @DoubleClick.performed -= instance.OnDoubleClick;
             @DoubleClick.canceled -= instance.OnDoubleClick;
+            @Slot1.started -= instance.OnSlot1;
+            @Slot1.performed -= instance.OnSlot1;
+            @Slot1.canceled -= instance.OnSlot1;
+            @Slot2.started -= instance.OnSlot2;
+            @Slot2.performed -= instance.OnSlot2;
+            @Slot2.canceled -= instance.OnSlot2;
+            @Slot3.started -= instance.OnSlot3;
+            @Slot3.performed -= instance.OnSlot3;
+            @Slot3.canceled -= instance.OnSlot3;
         }
 
         /// <summary>
@@ -819,5 +915,26 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDoubleClick(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Slot1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSlot1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Slot2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSlot2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Slot3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSlot3(InputAction.CallbackContext context);
     }
 }

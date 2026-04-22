@@ -13,17 +13,6 @@ MonoBehaviour:
   m_Name: EthanNode
   m_EditorClassIdentifier: 
   options:
-  - optionText: I'm just passing through, looking for supplies.
-    replyText: "Supplies? We don\u2019t have much, but you can speak to Marcus, our
-      quartermaster. He lives in the house to the right of the big one in the center
-      of the village. He might have something left, but don\u2019t expect much."
-    nextNode: 0
-    exitOption: 0
-    conditionType: 0
-    questID: 0
-    objectID: 0
-    amountObject: 0
-    actions: []
   - optionText: "I\u2019ve come here to find something called the Farm Restorer.
       Do you know anything about it?"
     replyText: "The Farm Restorer, huh? You\u2019ll want to speak to Elder Barnabas
@@ -36,10 +25,21 @@ MonoBehaviour:
     objectID: 0
     amountObject: 0
     actions: []
+  - optionText: "I\u2019m just passing through and looking for supplies"
+    replyText: "Supplies? We don\u2019t have much, but you can speak to Marcus, our
+      quartermaster. He lives in the house to the right of the big one in the center
+      of the village. He might have something left, but don\u2019t expect much."
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
   - optionText: "I\u2019ve heard this is a safe place to rest. Can I enter?"
-    replyText: "Safe enough, for now. You\u2019re free to rest, just keep your head
-      down and don\u2019t cause any trouble. If you need supplies, go see Marcus
-      - he lives in the house to the right of Elder Barnabas\u2019s big house."
+    replyText: "Go on in. Clearwater is one of the safer places in the wasteland.
+      Just don\u2019t cause any trouble. If you need supplies, go see Marcus. He
+      lives in the house to the right of Elder Barnabas\u2019s big house."
     nextNode: 0
     exitOption: 0
     conditionType: 0
