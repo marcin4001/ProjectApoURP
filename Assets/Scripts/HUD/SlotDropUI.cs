@@ -54,6 +54,10 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
                     SlotItem slot2 = slotItemUITemp.GetSlot();
                     if(slot.GetItem() == slot2.GetItem())
                     {
+                        if (slotItemUI == slotItemUITemp)
+                        {
+                            return;
+                        }
                         int newAmount = slot.GetAmount() + slot2.GetAmount();
                         slot.SetAmount(newAmount);
                         slotItemUI.UpdateAmountText();

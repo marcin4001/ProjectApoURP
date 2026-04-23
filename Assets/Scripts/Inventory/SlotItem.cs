@@ -18,7 +18,7 @@ public class SlotItem
     }
 
     public int GetAmount() 
-    { 
+    {
         return amount;
     }
 
