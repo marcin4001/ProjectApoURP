@@ -6,13 +6,13 @@ public class InDevManager : MonoBehaviour
     {
         if(GameParam.instance.inDemo)
             return;
-        if(Input.GetKeyDown(KeyCode.End))
-        {
-            GameParam.instance.inDev = !GameParam.instance.inDev;
-        }
-        if(Input.GetKeyUp(KeyCode.P))
-        {
-            GameParam.instance.pacifistMode = !GameParam.instance.pacifistMode;
-        }
+        //if(Input.GetKeyDown(KeyCode.End))
+        //{
+        //    GameParam.instance.inDev = !GameParam.instance.inDev;
+        //}
+        //if(Input.GetKeyUp(KeyCode.P))
+        //{
+        //    GameParam.instance.pacifistMode = !GameParam.instance.pacifistMode;
+        //}
     }
 }
