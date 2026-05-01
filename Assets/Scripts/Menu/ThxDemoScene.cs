@@ -2,35 +2,41 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ThxDemoScene : MonoBehaviour
 {
     [SerializeField] private Animator fadeAnim;
     [SerializeField] private string fadeOutParam = "FadeIOut";
     [SerializeField] private bool activeInput = false;
+    [SerializeField] private Button steamBtn;
+    [SerializeField] private string steamURL = "https://store.steampowered.com/app/4546490/Arkansas_2125/";
     private MainInputSystem inputSystem;
 
     private void Awake()
     {
         inputSystem = new MainInputSystem();
-        inputSystem.Player.AnyKey.performed += ExitInput;
+        inputSystem.Player.Enter.performed += ExitInput;
         inputSystem.Enable();
     }
 
     void OnEnable()
     {
-        inputSystem.Player.AnyKey.performed += ExitInput;
+        inputSystem.Player.Enter.performed += ExitInput;
         inputSystem.Enable();
     }
 
     void OnDisable()
     {
-        inputSystem.Player.AnyKey.performed -= ExitInput;
+        inputSystem.Player.Enter.performed -= ExitInput;
         inputSystem.Disable();
     }
     void Start()
     {
         StartCoroutine(Enter());
+        steamBtn?.onClick.AddListener(OnClickSteam);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private IEnumerator Enter()
@@ -53,5 +59,10 @@ public class ThxDemoScene : MonoBehaviour
             return;
         activeInput = false;
         StartCoroutine(Exit());
+    }
+
+    public void OnClickSteam()
+    {
+        Application.OpenURL(steamURL);
     }
 }

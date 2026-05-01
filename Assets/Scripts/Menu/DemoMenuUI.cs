@@ -12,9 +12,11 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private Button creditsButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private Button guideButton;
+    [SerializeField] private Button steamButton;
     [SerializeField] private int indexTheme = 0;
     [SerializeField] private bool inDemo = false;
     [SerializeField] private string guideURL = "https://drive.google.com/file/d/1cEXWEQmxcKytIYpjPMdWPtfHDkKfMPUp/view?usp=sharing";
+    [SerializeField] private string steamURL = "https://store.steampowered.com/app/4546490/Arkansas_2125/";
     [SerializeField] private string messageQuit;
     [SerializeField] public BookProfile book;
     private MainInputSystem inputActions;
@@ -53,6 +55,7 @@ public class DemoMenuUI : MonoBehaviour
         guideButton.onClick.AddListener(OnClickGuide);
         GameParam.instance.mainMusicVolume = PlayerPrefs.GetFloat("mainMusicVolume", 1f);
         GameParam.instance.sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
+        steamButton.onClick.AddListener(OnClickSteam);
     }
 
     private void OnClickPlay()
@@ -116,5 +119,10 @@ public class DemoMenuUI : MonoBehaviour
     public void OnClickGuide()
     {
         Application.OpenURL(guideURL);
+    }
+
+    public void OnClickSteam()
+    {
+        Application.OpenURL(steamURL);
     }
 }
