@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
@@ -17,12 +18,29 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private bool active = false;
     [SerializeField] private string separator = "-------------------------------";
     [SerializeField] private ScrollListController scrollListItems;
+    private MainInputSystem inputSystem;
     private Canvas canvas;
     private PlayerController player;
     private void Awake()
     {
         instance = this;
+        inputSystem = new MainInputSystem();
+        inputSystem.Player.Inventory.performed += ShowByKey;
+        inputSystem.Enable();
     }
+
+    private void OnEnable()
+    {
+        inputSystem.Player.Inventory.performed += ShowByKey;
+        inputSystem.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputSystem.Player.Inventory.performed -= ShowByKey;
+        inputSystem.Disable();
+    }
+
     void Start()
     {
         canvas = GetComponent<Canvas>();
@@ -53,6 +71,19 @@ public class InventoryUI : MonoBehaviour
     public bool GetActive()
     {
         return active;
+    }
+
+    private void ShowByKey(InputAction.CallbackContext ctx)
+    {
+        if (!active)
+        {
+            if(!player.InMenu()) Show();
+        }
+        else
+        {
+            Hide();
+        }
+
     }
 
     public void Show()

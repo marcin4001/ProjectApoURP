@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class QuestListUI : MonoBehaviour
@@ -24,9 +25,13 @@ public class QuestListUI : MonoBehaviour
     private Canvas canvas;
     private PlayerController player;
     private Coroutine coroutine;
+    private MainInputSystem inputSystem;
     private void Awake()
     {
         instance = this;
+        inputSystem = new MainInputSystem();
+        inputSystem.Player.QuestPanel.performed += ShowByKey;
+        inputSystem.Enable();
         canvas = GetComponent<Canvas>();
         player = FindFirstObjectByType<PlayerController>();
         cameraPlayerStats.SetActive(false);
@@ -36,6 +41,31 @@ public class QuestListUI : MonoBehaviour
         completeButton.onClick.AddListener(CreateCompleteQuestList);
         if (oldImage != null)
             oldImage.gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        inputSystem.Player.QuestPanel.performed += ShowByKey;
+        inputSystem.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputSystem.Player.QuestPanel.performed -= ShowByKey;
+        inputSystem.Disable();
+    }
+
+    private void ShowByKey(InputAction.CallbackContext ctx)
+    {
+        if (!active)
+        {
+            if (!player.InMenu()) Show();
+        }
+        else
+        {
+            Hide();
+        }
+
     }
 
     public void Show()
