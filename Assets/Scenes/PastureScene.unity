@@ -5061,6 +5061,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: strength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: dexterity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: technical
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: perception
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8406120896648320716, guid: c687b121b8de238478ea541a8369157b, type: 3}
       propertyPath: m_Name
       value: GameParam
@@ -7192,7 +7208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   borderThickness: 20
-  speedMovingCamera: 5
   limitPointA: {fileID: 760376421}
   limitPointB: {fileID: 1113985370}
   minLimitVector: {x: 0, y: 0, z: 0}
@@ -7202,6 +7217,7 @@ MonoBehaviour:
   minZoom: 3.5
   speedZoom: 20
   block: 0
+  mousePosition: {x: 0, y: 0}
 --- !u!81 &1143535605
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7781,7 +7797,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f78b2b90910da40a07826e043ded74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - item: {fileID: 11400000, guid: 2aab4625236ec7d42adeaa8c17bc5b5f, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 6f136a9dbf172794c8dc3c06d1a31cd2, type: 2}
+    amount: 100
   slots:
   - item: {fileID: 0}
     amount: 0
