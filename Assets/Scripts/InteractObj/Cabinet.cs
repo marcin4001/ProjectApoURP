@@ -169,6 +169,11 @@ public class Cabinet : MonoBehaviour, IUsableObj
         }
     }
 
+    public void RemoveAllItems()
+    {
+        items.Clear();
+    }
+
     public void SaveItems()
     {
         ListCabinet.instance.SetListItem(idCabinet, items);

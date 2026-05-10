@@ -8,6 +8,7 @@ public class CabinetUI : MonoBehaviour
 {
     public static CabinetUI instance;
     [SerializeField] private Button closeButton;
+    [SerializeField] private Button takeAll;
     [SerializeField] private TextMeshProUGUI consoleText;
     [SerializeField] private TextMeshProUGUI cabinetNameText;
     [SerializeField] private Transform contentCabinet;
@@ -32,6 +33,7 @@ public class CabinetUI : MonoBehaviour
         player = FindFirstObjectByType<PlayerController>();
         canvas.enabled = false;
         closeButton.onClick.AddListener(Hide);
+        takeAll.onClick.AddListener(TakeAll);
     }
 
     public bool GetActive()
@@ -136,6 +138,30 @@ public class CabinetUI : MonoBehaviour
                 return;
             }
             slotsEnemy.Remove(foundItem);
+        }
+    }
+
+    public void TakeAll()
+    {
+        if(cabinet != null)
+        {
+            foreach(SlotItem item in cabinet.GetItems())
+            {
+                Inventory.instance.AddItem(item);
+            }
+            cabinet.RemoveAllItems();
+            ReCreateList();
+        }
+        else
+        {
+            if(slotsEnemy == null)
+                return;
+            foreach(SlotItem item in slotsEnemy)
+            {
+                Inventory.instance.AddItem(item);
+            }
+            slotsEnemy.Clear();
+            ReCreateList();
         }
     }
 
