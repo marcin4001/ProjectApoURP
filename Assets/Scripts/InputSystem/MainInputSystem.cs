@@ -235,6 +235,15 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TakeAll"",
+                    ""type"": ""Button"",
+                    ""id"": ""4d152465-9c6f-473b-82af-57f38abdea3c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -534,6 +543,17 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""QuestPanel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51de52d0-ebb6-4ff5-9ebd-ba9e6e1b05fe"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TakeAll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -558,6 +578,7 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         m_Player_Slot3 = m_Player.FindAction("Slot3", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_QuestPanel = m_Player.FindAction("QuestPanel", throwIfNotFound: true);
+        m_Player_TakeAll = m_Player.FindAction("TakeAll", throwIfNotFound: true);
     }
 
     ~@MainInputSystem()
@@ -654,6 +675,7 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Slot3;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_QuestPanel;
+    private readonly InputAction m_Player_TakeAll;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -730,6 +752,10 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @QuestPanel => m_Wrapper.m_Player_QuestPanel;
         /// <summary>
+        /// Provides access to the underlying input action "Player/TakeAll".
+        /// </summary>
+        public InputAction @TakeAll => m_Wrapper.m_Player_TakeAll;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -803,6 +829,9 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
             @QuestPanel.started += instance.OnQuestPanel;
             @QuestPanel.performed += instance.OnQuestPanel;
             @QuestPanel.canceled += instance.OnQuestPanel;
+            @TakeAll.started += instance.OnTakeAll;
+            @TakeAll.performed += instance.OnTakeAll;
+            @TakeAll.canceled += instance.OnTakeAll;
         }
 
         /// <summary>
@@ -862,6 +891,9 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
             @QuestPanel.started -= instance.OnQuestPanel;
             @QuestPanel.performed -= instance.OnQuestPanel;
             @QuestPanel.canceled -= instance.OnQuestPanel;
+            @TakeAll.started -= instance.OnTakeAll;
+            @TakeAll.performed -= instance.OnTakeAll;
+            @TakeAll.canceled -= instance.OnTakeAll;
         }
 
         /// <summary>
@@ -1014,5 +1046,12 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnQuestPanel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TakeAll" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTakeAll(InputAction.CallbackContext context);
     }
 }

@@ -30,6 +30,9 @@ public class PlayerClothes : MonoBehaviour
         if(armor == null)
             return;
         armorItem = armor;
+        helmet.SetActive(false);
+        redCap.SetActive(false);
+        cowboyHat.SetActive(false);
         if (armor.clothes_top != null)
         {
             top.material = armor.clothes_top;

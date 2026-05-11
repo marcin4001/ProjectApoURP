@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class CabinetUI : MonoBehaviour
@@ -22,9 +23,25 @@ public class CabinetUI : MonoBehaviour
     private PlayerController player;
     private Cabinet cabinet;
     private List<SlotItem> slotsEnemy = new List<SlotItem>();
+    private MainInputSystem inputSystem;
     private void Awake()
     {
         instance = this;
+        inputSystem = new MainInputSystem();
+        inputSystem.Player.TakeAll.performed += TakeAllByKey;
+        inputSystem.Enable();
+    }
+
+    private void OnEnable()
+    {
+        inputSystem.Player.TakeAll.performed += TakeAllByKey;
+        inputSystem.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputSystem.Player.TakeAll.performed -= TakeAllByKey;
+        inputSystem.Disable();
     }
 
     void Start()
@@ -73,6 +90,13 @@ public class CabinetUI : MonoBehaviour
         cabinetNameText.text = nameEnemy;
         CameraMovement.instance.SetBlock(true);
         slotsEnemy = items;
+    }
+
+    private void TakeAllByKey(InputAction.CallbackContext ctx)
+    {
+        if(!active) return;
+        TakeAll();
+        Debug.Log("TakeAll");
     }
 
     public void CreateListCabinet()
