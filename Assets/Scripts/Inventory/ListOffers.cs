@@ -84,6 +84,19 @@ public class ListOffers : MonoBehaviour
         list = initOffers.Copy();
     }
 
+    public void ResetTrade()
+    {
+        CopyList();
+        DialogueNPC[] nPCs = FindObjectsByType<DialogueNPC>(FindObjectsSortMode.None);
+        if(nPCs.Length > 0)
+        {
+            foreach (DialogueNPC npc in nPCs)
+            {
+                npc.UpdateTradeSlot();
+            }
+        }
+    }
+
     public ListOffersSave GetSaveObj()
     {
         ListOffersSave obj = new ListOffersSave();
@@ -96,4 +109,12 @@ public class ListOffers : MonoBehaviour
         list.Clear();
         list = save.list;
     }
+
+    //private void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.V))
+    //    {
+    //        ResetTrade();
+    //    }
+    //}
 }

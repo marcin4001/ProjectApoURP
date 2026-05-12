@@ -118,6 +118,14 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
         tradeSlots.Add(item);
     }
 
+    public void UpdateTradeSlot()
+    {
+        if (seller && ListOffers.instance != null)
+        {
+            tradeSlots = ListOffers.instance.GetListItem(idOffer);
+        }
+    }
+
     public void SaveItems()
     {
         if(!seller)

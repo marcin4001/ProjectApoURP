@@ -14,6 +14,8 @@ public class InteractAction : ActionDialogue
                 SwitchOnTV(); break;
             case InteractActionType.ActiveStove:
                 ActiveStove(); break;
+            case InteractActionType.ResetTrade:
+                ResetTrade(); break;
             default:
                 break;
         }
@@ -45,11 +47,18 @@ public class InteractAction : ActionDialogue
             inactiveStove.ActiveStove();
         }
     }
+
+    public void ResetTrade()
+    {
+        if(ListOffers.instance == null)
+            return;
+        ListOffers.instance.ResetTrade();
+    }
 }
 
 public enum InteractActionType
 {
-    OpenGrate, SwitchOnTV, ActiveStove
+    OpenGrate, SwitchOnTV, ActiveStove, ResetTrade
 }
 
 
