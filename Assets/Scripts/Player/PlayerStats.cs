@@ -63,6 +63,12 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+    public void AddHalfHP()
+    {
+        int halfHP = healthPointMax / 2;
+        AddHealthPoint(halfHP);
+    }
+
     public void RemoveHealthPoint(int point)
     {
         healthPoint -= point;
