@@ -11,7 +11,7 @@ public class ScrollListController : MonoBehaviour
     [SerializeField] private bool clickDown = false;
     private ScrollRect listItems;
     private Coroutine currentCoroutine;
-    private float scrollSpeed = 700f;
+    private float scrollSpeed = 250f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,23 +59,36 @@ public class ScrollListController : MonoBehaviour
         listItems.normalizedPosition = new Vector2(0, 1f);
     }
 
+    //private IEnumerator Scroll()
+    //{
+    //    while (clickDown)
+    //    {
+    //        Vector2 pos = listItems.normalizedPosition;
+    //        pos.y -= scrollSpeed * Time.deltaTime;
+    //        listItems.normalizedPosition = pos;
+    //        yield return new WaitForEndOfFrame();
+    //    }
+
+    //    while (clickUp)
+    //    {
+    //        Vector2 pos = listItems.normalizedPosition;
+    //        pos.y += scrollSpeed * Time.deltaTime;
+    //        listItems.normalizedPosition = pos;
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //}
+
     private IEnumerator Scroll()
     {
-        float speedFactor = 1f / listItems.content.sizeDelta.y;
-        while (clickDown)
+        while (clickDown || clickUp)
         {
-            Vector2 pos = listItems.normalizedPosition;
-            pos.y -= scrollSpeed * Time.deltaTime / listItems.content.sizeDelta.y;
-            listItems.normalizedPosition = pos;
-            yield return new WaitForEndOfFrame();
-        }
+            float direction = clickDown ? 1f : -1f;
 
-        while (clickUp)
-        {
-            Vector2 pos = listItems.normalizedPosition;
-            pos.y += scrollSpeed * Time.deltaTime / listItems.content.sizeDelta.y;
-            listItems.normalizedPosition = pos;
-            yield return new WaitForEndOfFrame();
+            Vector2 pos = listItems.content.anchoredPosition;
+            pos.y += direction * scrollSpeed * Time.deltaTime;
+            listItems.content.anchoredPosition = pos;
+
+            yield return null;
         }
     }
 }

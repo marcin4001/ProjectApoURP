@@ -12,5 +12,6 @@ public abstract class Item : ScriptableObject
     public bool questItem;
     public int questID;
     public bool questMustBeComplete;
+    public bool noForSale;
 }
 

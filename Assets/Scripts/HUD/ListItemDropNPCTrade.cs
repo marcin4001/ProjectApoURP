@@ -21,6 +21,8 @@ public class ListItemDropNPCTrade : MonoBehaviour, IDropHandler
             SlotItem slotItem = slotItemUI.GetSlot();
             if (slotItem == null || slotItem.IsEmpty())
                 return;
+            if(slotItem.GetItem().noForSale)
+                return;
             if (slotItem.GetAmount() == 1)
             {
                 if(slotItem.GetItem().value > TradeUI.instance.GetMoneyNPC())
