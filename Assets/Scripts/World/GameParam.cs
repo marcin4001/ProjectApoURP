@@ -50,6 +50,7 @@ public class GameParam : MonoBehaviour
     public List<string> cabinetsUnlocked = new List<string>();
     public bool farmRestorerHaveCarBattery = false;
     public bool playerHaveFarmRestorer = false;
+    public string location;
 
     private void Awake()
     {

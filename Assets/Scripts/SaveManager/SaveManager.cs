@@ -2,6 +2,21 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+public class SaveInfo
+{
+    public int saveIndex;
+    public int level = 0;
+    public string location;
+    public string date;
+}
+
+[System.Serializable]
+public class SaveInfoList
+{
+    public SaveInfo[] saveInfos;
+}
+
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;

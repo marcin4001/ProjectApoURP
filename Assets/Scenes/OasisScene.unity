@@ -6365,7 +6365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   borderThickness: 20
-  speedMovingCamera: 5
   limitPointA: {fileID: 760376421}
   limitPointB: {fileID: 1113985370}
   minLimitVector: {x: 0, y: 0, z: 0}
@@ -6375,6 +6374,7 @@ MonoBehaviour:
   minZoom: 3.5
   speedZoom: 20
   block: 0
+  mousePosition: {x: 0, y: 0}
 --- !u!81 &1143535605
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6833,6 +6833,12 @@ MonoBehaviour:
   armorSlot:
     item: {fileID: 0}
     amount: 0
+  inventorySave:
+    items: []
+    slots: []
+    armorSlot:
+      idItem: 0
+      amount: 0
 --- !u!4 &1179129775
 Transform:
   m_ObjectHideFlags: 0
@@ -7072,6 +7078,8 @@ MonoBehaviour:
   importantPlace: 1
   mapSignName: Oasis
   indexTheme: 8
+  noSaveArea: 0
+  location: Oasis
 --- !u!4 &1202489642
 Transform:
   m_ObjectHideFlags: 0
@@ -8336,9 +8344,11 @@ MonoBehaviour:
   takeDamageParam: TakeDamage
   isDeathParam: isDeath
   punchParam: Punch
+  pickUpBodyParam: PickUpBody
   handGunLayer: HandGun
   rifleLayer: Rifle
   doorInteractTime: 1
+  pickUpBodyTime: 3
   eatingTime: 1.5
   drinkingTime: 2
 --- !u!95 &1378639991
@@ -12789,6 +12799,7 @@ MonoBehaviour:
   sceneName: MapScene
   startQuest: 0
   endDemo: 0
+  endGame: 0
   idQuest: 0
   textLog: 
   thxDemoScene: ThxDemoScene

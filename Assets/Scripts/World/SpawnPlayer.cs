@@ -10,6 +10,7 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private string mapSignName;
     [SerializeField] private int indexTheme = 0;
     [SerializeField] private bool noSaveArea = false;
+    [SerializeField] private string location;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class SpawnPlayer : MonoBehaviour
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
         MusicManager.instance.SetTheme(indexTheme);
         ListCabinet.instance.indexCabinetData = indexCabinetData;
+        GameParam.instance.location = location;
         if (GameParam.instance.startGame)
         {
             GameParam.instance.startGame = false;
