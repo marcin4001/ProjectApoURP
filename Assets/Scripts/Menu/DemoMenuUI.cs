@@ -83,7 +83,7 @@ public class DemoMenuUI : MonoBehaviour
     {
         if(inDemo)
             return;
-        SaveManager.instance.Load();
+        LoadPanelUI.instance.Show();
     }
 
     private void OnClickCredits()
@@ -112,6 +112,12 @@ public class DemoMenuUI : MonoBehaviour
         if (SettingsUI.instance.GetActive())
         {
             SettingsUI.instance.Close();
+            return;
+        }
+
+        if (LoadPanelUI.instance.GetActive())
+        {
+            LoadPanelUI.instance.Close();
             return;
         }
     }

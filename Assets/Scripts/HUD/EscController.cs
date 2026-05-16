@@ -67,6 +67,18 @@ public class EscController : MonoBehaviour
             return;
         }
 
+        if(SavePanelUI.instance.GetActive())
+        {
+            SavePanelUI.instance.Close();
+            return;
+        }
+
+        if(LoadPanelUI.instance.GetActive())
+        {
+            LoadPanelUI.instance.Close();
+            return;
+        }
+
         if(QuestListUI.instance.IsActive())
         {
             QuestListUI.instance.Hide();

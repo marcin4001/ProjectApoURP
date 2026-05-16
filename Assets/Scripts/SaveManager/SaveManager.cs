@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,6 +21,7 @@ public class SaveInfoList
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
+    [SerializeField] private SaveInfoList saveInfoList;
     private PlayerController playerController;
     private void Awake()
     {
@@ -28,11 +30,32 @@ public class SaveManager : MonoBehaviour
     void Start()
     {
         playerController = FindFirstObjectByType<PlayerController>();
+        saveInfoList = new SaveInfoList();
+        string filePath = Application.persistentDataPath + "/SavesList.json";
+        if (File.Exists(filePath))
+        {
+            string data = File.ReadAllText(filePath);
+            JsonUtility.FromJsonOverwrite(data, saveInfoList);
+        }
+        else
+        {
+            saveInfoList.saveInfos = new SaveInfo[5];
+            for(int i = 0; i < 5;  i++)
+            {
+                saveInfoList.saveInfos[i] = new SaveInfo();
+                saveInfoList.saveInfos[i].saveIndex = i + 1;
+                saveInfoList.saveInfos[i].level = -1;
+                saveInfoList.saveInfos[i].location = "none";
+                saveInfoList.saveInfos[i].date = "none";
+            }
+            string data = JsonUtility.ToJson(saveInfoList, true);
+            File.WriteAllText(filePath, data);
+        }
     }
 
-    public void Save()
+    public void Save(int indexSave)
     {
-        string folderPath = Application.persistentDataPath + "/Save";
+        string folderPath = Application.persistentDataPath + "/Saves" + "/Save" + (indexSave + 1);
         
         if(!Directory.Exists(folderPath))
         {
@@ -82,15 +105,24 @@ public class SaveManager : MonoBehaviour
         InventorySave inventorySave = Inventory.instance.Save();
         string invSave = JsonUtility.ToJson(inventorySave, true);
         File.WriteAllText(folderPath + "/Inventory.json", invSave);
+        SaveInfo saveInfo = new SaveInfo();
+        saveInfo.saveIndex = indexSave + 1;
+        saveInfo.level = GameParam.instance.level;
+        saveInfo.location = GameParam.instance.location;
+        saveInfo.date = DateTime.Now.ToString("MMMM dd, yyyy hh:mm tt");
+        saveInfoList.saveInfos[indexSave] = saveInfo;
+        string data = JsonUtility.ToJson(saveInfoList, true);
+        File.WriteAllText(Application.persistentDataPath + "/SavesList.json", data);
         Debug.Log("The game has been saved");
     }
 
-    public void Load()
+    public void Load(int indexSave)
     {
-        string folderPath = Application.persistentDataPath + "/Save";
+        string folderPath = Application.persistentDataPath + "/Saves" + "/Save" + (indexSave + 1);
         if (!Directory.Exists(folderPath))
         {
             Debug.Log("Save file not found.");
+            return;
         }
         //GameParam
         string gameParamSave = File.ReadAllText(folderPath + "/GameParam.json");
@@ -133,5 +165,18 @@ public class SaveManager : MonoBehaviour
         GameParam.instance.loadSave = true;
         Time.timeScale = 1f;
         SceneManager.LoadScene(GameParam.instance.prevScene);
+    }
+
+    public string GetSaveInfo(int indexSave)
+    {
+        if (saveInfoList.saveInfos[indexSave].level < 0)
+        {
+            return "None";
+        }
+        string result = $"Save {saveInfoList.saveInfos[indexSave].saveIndex}\n";
+        result += $"Level {saveInfoList.saveInfos[indexSave].level}\n";
+        result += $"Date: {saveInfoList.saveInfos[indexSave].date}\n";
+        result += $"Location: {saveInfoList.saveInfos[indexSave].location}";
+        return result;
     }
 }

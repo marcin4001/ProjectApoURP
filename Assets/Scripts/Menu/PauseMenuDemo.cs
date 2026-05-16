@@ -59,7 +59,8 @@ public class PauseMenuDemo : MonoBehaviour
     {
         if (GameParam.instance.inDemo)
             return;
-        SaveManager.instance.Load();
+        LoadPanelUI.instance.Show();
+        //SaveManager.instance.Load();
     }
 
     private void OnClickSave()
@@ -76,7 +77,8 @@ public class PauseMenuDemo : MonoBehaviour
             MessagePanelOk.instance.Open(messageNoSaveCombat);
             return;
         }
-        SaveManager.instance.Save();
+        //SaveManager.instance.Save();
+        SavePanelUI.instance.Show();
     }
 
     private void OnClickSettings()
