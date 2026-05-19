@@ -337,6 +337,32 @@ public class HUDController : MonoBehaviour
         return Inventory.instance.GetSlotItem(currentSlotIndex);
     }
 
+    public bool IsWeaponCurrentItem()
+    {
+        if(Inventory.instance.GetSlotItem(currentSlotIndex) != null)
+        {
+            Item currentItem = Inventory.instance.GetSlotItem(currentSlotIndex).GetItem();
+            if(currentItem != null)
+                return currentItem is WeaponItem;
+            else
+                return true;
+        }
+        return true;
+    }
+
+    public bool IsMeleeCurrentItem()
+    {
+        if(Inventory.instance.GetSlotItem(currentSlotIndex) != null)
+        {
+            Item currentItem = Inventory.instance.GetSlotItem(currentSlotIndex).GetItem();
+            if (currentItem != null)
+                return false;
+            else
+                return true;
+        }
+        return true;
+    }
+
     public void RemoveCurrentItem()
     {
         SlotItem slotItem = GetCurrentItem();

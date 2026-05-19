@@ -1,5 +1,6 @@
 using System.CodeDom.Compiler;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -28,6 +29,7 @@ public class CursorController : MonoBehaviour
     [SerializeField] private float scaleFactorSmallRes = 0.75f;
     [SerializeField] private bool inMenu = false;
     [SerializeField] private Vector2 mousePosition;
+    [SerializeField] private TextMeshProUGUI chanceText;
     private RectTransform cursorRect;
     private PlayerController player;
     private Camera cam;
@@ -58,6 +60,8 @@ public class CursorController : MonoBehaviour
             cursorImage.texture = defaultCursor;
         if(player != null)
             radiusPlayerCutWall = player.GetRadiusPlayerCutWall();
+        chanceText = cursorImage.transform.Find("ChanceText").GetComponent<TextMeshProUGUI>();
+        if(chanceText != null) chanceText.text = "";
     }
 
     private void OnEnable()
@@ -110,7 +114,7 @@ public class CursorController : MonoBehaviour
     private IEnumerator UpdateCursor()
     {
         yield return new WaitForEndOfFrame();
-
+        chanceText.text = "";
         if (HUDController.instance.PointerOnHUD() || player.IsUsingItem() || player.InMenu())
         {
             if (!player.IsUsingItem())
@@ -125,6 +129,7 @@ public class CursorController : MonoBehaviour
             else
             {
                 cursorImage.texture = crosshairCursor;
+                SetChanceText();
             }
         }
         else
@@ -153,7 +158,8 @@ public class CursorController : MonoBehaviour
     public void SetIsWait(bool _isWait)
     {
         isWait = _isWait;
-        if(isWait)
+        chanceText.text = "";
+        if (isWait)
         {
             if(waitCoroutine == null)
                 waitCoroutine = StartCoroutine(AnimateWaitCursor());
@@ -378,6 +384,51 @@ public class CursorController : MonoBehaviour
         if(poster != null)
         {
             poster.ShowOutline();
+        }
+    }
+
+    public void SetChanceText()
+    {
+        //if(!GameParam.instance.inCombat)
+        //{
+        //    chanceText.text = "";
+        //    return;
+        //}
+        Ray ray = cam.ScreenPointToRay(mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 1000f, layerUse))
+        {
+            EnemyController enemy = hit.collider.GetComponent<EnemyController>();
+            if(enemy != null)
+            {
+                if (!enemy.IsDeath())
+                {
+                    if(HUDController.instance.IsMeleeCurrentItem())
+                    {
+                        chanceText.text = "100%";
+                    }
+                    else
+                    {
+                        if(HUDController.instance.IsWeaponCurrentItem())
+                            chanceText.text = PlayerStats.instance.GetHitChance() + "%";
+                        else
+                            chanceText.text = "";
+                    }
+                    
+                }
+                else
+                {
+                    chanceText.text = "";
+                }
+            }
+            else
+            {
+                chanceText.text = "";
+            }
+        }
+        else
+        {
+            chanceText.text = "";
         }
     }
 }
