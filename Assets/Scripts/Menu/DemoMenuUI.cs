@@ -1,3 +1,4 @@
+using Steamworks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -56,6 +57,11 @@ public class DemoMenuUI : MonoBehaviour
         GameParam.instance.mainMusicVolume = PlayerPrefs.GetFloat("mainMusicVolume", 1f);
         GameParam.instance.sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
         steamButton.onClick.AddListener(OnClickSteam);
+        if (SteamManager.Initialized)
+        {
+            string name = SteamFriends.GetPersonaName();
+            Debug.Log(name);
+        }
     }
 
     private void OnClickPlay()
