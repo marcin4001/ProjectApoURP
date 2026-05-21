@@ -77,6 +77,7 @@ public class Stove : MonoBehaviour, IUsableObj
         player.SetBlock(false);
         if(source != null)
             source.Stop();
+        SteamAchievements.Add("NEW_ACHIEVEMENT_1_2");
     }
 
     public void InsertBattery()

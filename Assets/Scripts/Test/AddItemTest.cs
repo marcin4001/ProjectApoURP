@@ -14,7 +14,7 @@ public class AddItemTest : MonoBehaviour
     {
         if (!GameParam.instance.inDev)
             return;
-        if(Input.GetKeyUp(KeyCode.I))
+        if(Input.GetKeyUp(KeyCode.O))
         {
             foreach(Item item in items)
             {

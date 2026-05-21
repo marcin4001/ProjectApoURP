@@ -17,6 +17,8 @@ public class Prologue : MonoBehaviour
     [SerializeField] private string nextScene;
     [SerializeField] private int indexTheme = 1;
     [SerializeField] private bool witoutLoadingScreen;
+    [SerializeField] private bool startAchievement = false;
+    [SerializeField] private string idAchievement;
     private MainInputSystem inputSystem;
     private bool activeInput = false;
     private LoadingPanel loadingPanel;
@@ -26,6 +28,8 @@ public class Prologue : MonoBehaviour
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
         MusicManager.instance.SetTheme(indexTheme);
         StartCoroutine(StartPrologue());
+        if (startAchievement)
+            SteamAchievements.Add(idAchievement);
     }
 
     private void Awake()

@@ -11,6 +11,8 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private int indexTheme = 0;
     [SerializeField] private bool noSaveArea = false;
     [SerializeField] private string location;
+    [SerializeField] private bool startAchievement = false;
+    [SerializeField] private string idAchievement;
 
     private void Awake()
     {
@@ -23,6 +25,8 @@ public class SpawnPlayer : MonoBehaviour
         MusicManager.instance.SetTheme(indexTheme);
         ListCabinet.instance.indexCabinetData = indexCabinetData;
         GameParam.instance.location = location;
+        if(startAchievement)
+            SteamAchievements.Add(idAchievement);
         if (GameParam.instance.startGame)
         {
             GameParam.instance.startGame = false;

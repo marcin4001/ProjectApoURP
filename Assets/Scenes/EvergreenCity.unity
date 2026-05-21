@@ -3010,7 +3010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 319959015c52c1a48b07ef9989b90b43, type: 2}
+  - {fileID: 11400000, guid: fa8b80231623c7a4599664197d9f7758, type: 2}
 --- !u!4 &129044658
 Transform:
   m_ObjectHideFlags: 0
@@ -12216,6 +12216,8 @@ MonoBehaviour:
   indexTheme: 4
   noSaveArea: 0
   location: Evergreen City
+  startAchievement: 0
+  idAchievement: 
 --- !u!4 &507370221
 Transform:
   m_ObjectHideFlags: 0
@@ -26716,6 +26718,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8d90c5eb6a69b6945b8d68ad8ed7dddd, type: 3}
   m_PrefabInstance: {fileID: 454395717}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1123211734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1123211737}
+  - component: {fileID: 1123211736}
+  - component: {fileID: 1123211735}
+  m_Layer: 8
+  m_Name: AchievementTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1123211735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123211734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b405ba9db3c26443923c012ddeffc61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idAchievement: NEW_ACHIEVEMENT_1_3
+--- !u!65 &1123211736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123211734}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.989998, y: 2.569956, z: 1}
+  m_Center: {x: -0, y: 0.78497934, z: -0}
+--- !u!4 &1123211737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123211734}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -4.01, y: 0.494, z: -8.54}
+  m_LocalScale: {x: 0.97, y: 0.97, z: 0.97}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1126479143
 GameObject:
   m_ObjectHideFlags: 0
@@ -53147,6 +53216,7 @@ SceneRoots:
   - {fileID: 1793039570}
   - {fileID: 926121477}
   - {fileID: 1758207808}
+  - {fileID: 1123211737}
   - {fileID: 1817998600}
   - {fileID: 1425392492}
   - {fileID: 316400385}
