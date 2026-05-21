@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [System.Serializable]
 public class GameParam : MonoBehaviour
@@ -51,6 +52,8 @@ public class GameParam : MonoBehaviour
     public bool farmRestorerHaveCarBattery = false;
     public bool playerHaveFarmRestorer = false;
     public string location;
+    public int wolvesKilled = 0;
+    public int scorpionsKilled = 0;
 
     private void Awake()
     {
@@ -123,6 +126,8 @@ public class GameParam : MonoBehaviour
         cabinetsUnlocked.Clear();
         farmRestorerHaveCarBattery = false;
         playerHaveFarmRestorer = false;
+        wolvesKilled = 0;
+        scorpionsKilled = 0;
     }
 
     public void SetHealth()
@@ -194,5 +199,23 @@ public class GameParam : MonoBehaviour
     public bool CabinetOnList(string idCabinet)
     {
        return cabinetsUnlocked.Contains(idCabinet);
+    }
+
+    public void AddWolfKill()
+    {
+        wolvesKilled += 1;
+        if(wolvesKilled > 9)
+        {
+            SteamAchievements.Add("NEW_ACHIEVEMENT_1_0");
+        }
+    }
+
+    public void AddScorpionKill()
+    {
+        scorpionsKilled += 1;
+        if (scorpionsKilled > 9)
+        {
+            SteamAchievements.Add("NEW_ACHIEVEMENT_1_1");
+        }
     }
 }

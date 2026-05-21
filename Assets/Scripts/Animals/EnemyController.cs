@@ -32,6 +32,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private List<SlotItem> slots = new List<SlotItem>();
     [SerializeField] private Transform nearPoint;
     [SerializeField] private int exp = 30;
+    [SerializeField] private bool isWolf = false;
+    [SerializeField] private bool isScorpion = false;
     private Vector3 target;
     private NavMeshAgent agent;
     private EnemyAnim anim;
@@ -316,6 +318,14 @@ public class EnemyController : MonoBehaviour
             if(!isDeath && KilledEnemiesList.instance != null)
             {
                 KilledEnemiesList.instance.AddToList(idEnemy);
+                if(isWolf)
+                {
+                    GameParam.instance.AddWolfKill();
+                }
+                if(isScorpion)
+                {
+                    GameParam.instance.AddScorpionKill();
+                }
             }
             isDeath = true;
             if(!isHuman)
