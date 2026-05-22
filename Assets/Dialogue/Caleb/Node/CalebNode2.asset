@@ -10,16 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
-  m_Name: CalebNode
+  m_Name: CalebNode2
   m_EditorClassIdentifier: 
   options:
+  - optionText: "It wasn\u2019t easy\u2026 but I got the venom for you."
+    replyText: "Heh, I can believe that. Those Goldrax bastards don\u2019t die easy.
+      Thanks\u2026 now I can finally get rid of those hellish bugs. Here\u2019s 270
+      dollars for your trouble."
+    nextNode: 1
+    exitOption: 0
+    conditionType: 4
+    questID: 45
+    objectID: 255
+    amountObject: 5
+    actions:
+    - {fileID: 11400000, guid: 24aaf09396fe0444d8b00cb333eda2d5, type: 2}
+    - {fileID: 11400000, guid: aa313caeba89a64438952e344d2c8a14, type: 2}
+    - {fileID: 11400000, guid: e7da411a3b6752246a19e3e72488ed7a, type: 2}
   - optionText: "Looks like you\u2019ve got a lot of work here. How are you managing?"
     replyText: "Barely. Corn needs water, and my watering can\u2019s falling apart.
       Most of it leaks out before I even reach the field. Every day\u2019s a fight
       against weeds, heat, and busted tools. It\u2019s not easy, but at least my
       wife makes sure there\u2019s always a meal waiting for me at home. That\u2019s
       something, I guess."
-    nextNode: 0
+    nextNode: 1
     exitOption: 0
     conditionType: 0
     questID: 0
@@ -31,50 +45,26 @@ MonoBehaviour:
       the bakery next door makes bread. But the road there is always a gamble - bandits
       or a broken wagon can delay everything. Luckily, they pay well once I deliver
       the goods.
-    nextNode: 0
+    nextNode: 1
     exitOption: 0
     conditionType: 0
     questID: 0
     objectID: 0
     amountObject: 0
     actions: []
-  - optionText: Do you have any problems I could help with?
-    replyText: "Actually, yes. My watering can is completely useless now. It leaks
-      like a sieve, and without it my corn is going to dry out. If you have the time,
-      find me a new watering can. I\u2019ll pay you well for it."
-    nextNode: 0
+  - optionText: Can I do anything else for you?
+    replyText: "Actually\u2026 yeah. Corn beetles have been tearing through my field.
+      I need to make a pesticide from Goldrax venom, but I\u2019m out of it. If you
+      bring me 5 bottles, I\u2019d be grateful. I\u2019ll make sure you get paid
+      well for it."
+    nextNode: 1
     exitOption: 0
     conditionType: 1
-    questID: 7
+    questID: 45
     objectID: 0
     amountObject: 0
     actions:
-    - {fileID: 11400000, guid: 955e48ba2eaf81b4db1740b39b04acdf, type: 2}
-  - optionText: Where the hell am I supposed to find a watering can out here?
-    replyText: "Try looking in Clearwater or Pinehill. If I knew exactly where one
-      was, I would\u2019ve gotten it myself already."
-    nextNode: 0
-    exitOption: 0
-    conditionType: 3
-    questID: 7
-    objectID: 209
-    amountObject: 1
-    actions: []
-  - optionText: Found a watering can for you. Looks sturdy.
-    replyText: "No way\u2026 You actually found one? Let me see. Now I\u2019ll finally
-      be able to water my field properly again. Here\u2019s the 80 dollars I promised.
-      You earned it."
-    nextNode: 1
-    exitOption: 0
-    conditionType: 4
-    questID: 7
-    objectID: 209
-    amountObject: 1
-    actions:
-    - {fileID: 11400000, guid: 7bfee1c3e3a2e3847a07a555ce6548ed, type: 2}
-    - {fileID: 11400000, guid: 1b82f15d4428b19449e31e51564c29b3, type: 2}
-    - {fileID: 11400000, guid: cc7ff761099300e4396d41f0e032763a, type: 2}
-    - {fileID: 11400000, guid: 4d1999b184a185c4c85f8e9f90557e75, type: 2}
+    - {fileID: 11400000, guid: 693c6fb866bf06742aca36700cf2bbbc, type: 2}
   - optionText: Goodbye. Stay safe out there.
     replyText: 
     nextNode: 0
