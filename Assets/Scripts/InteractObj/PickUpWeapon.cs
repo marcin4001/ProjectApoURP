@@ -6,6 +6,7 @@ public class PickUpWeapon : MonoBehaviour, IUsableObj
     [SerializeField] private SlotItem ammoSlot;
     [SerializeField] private Transform nearPoint;
     [SerializeField] private int idPickUp;
+    [SerializeField] private bool onTheFloor = false;
     private OutlineList outlines;
     private void Start()
     {
@@ -59,5 +60,10 @@ public class PickUpWeapon : MonoBehaviour, IUsableObj
         if (outlines == null)
             return;
         outlines.Show(false);
+    }
+
+    public bool OnTheFloor()
+    {
+        return onTheFloor;
     }
 }

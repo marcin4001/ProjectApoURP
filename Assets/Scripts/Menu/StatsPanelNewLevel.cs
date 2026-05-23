@@ -68,6 +68,7 @@ public class StatsPanelNewLevel : MonoBehaviour
         {
             values[i].text = stats[i].ToString();
         }
+        player.StopMove();
     }
 
     private IEnumerator ChangePlayerView()

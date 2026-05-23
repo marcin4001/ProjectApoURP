@@ -1,3 +1,4 @@
+using System.IO;
 using Steamworks;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +15,7 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private Button quitButton;
     [SerializeField] private Button guideButton;
     [SerializeField] private Button steamButton;
+    [SerializeField] private Button loadOldSave;
     [SerializeField] private int indexTheme = 0;
     [SerializeField] private bool inDemo = false;
     [SerializeField] private string guideURL = "https://drive.google.com/file/d/1cEXWEQmxcKytIYpjPMdWPtfHDkKfMPUp/view?usp=sharing";
@@ -54,6 +56,7 @@ public class DemoMenuUI : MonoBehaviour
         settingsButton.onClick.AddListener(OnClickSettings);
         quitButton.onClick.AddListener(OnClickQuit);
         guideButton.onClick.AddListener(OnClickGuide);
+        loadOldSave.onClick.AddListener(OnClickLoadOld);
         GameParam.instance.mainMusicVolume = PlayerPrefs.GetFloat("mainMusicVolume", 1f);
         GameParam.instance.sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
         steamButton.onClick.AddListener(OnClickSteam);
@@ -62,6 +65,7 @@ public class DemoMenuUI : MonoBehaviour
             string name = SteamFriends.GetPersonaName();
             Debug.Log(name);
         }
+        HideLoadOldSave();
     }
 
     private void OnClickPlay()
@@ -90,6 +94,11 @@ public class DemoMenuUI : MonoBehaviour
         if(inDemo)
             return;
         LoadPanelUI.instance.Show();
+    }
+
+    private void OnClickLoadOld()
+    {
+        SaveManager.instance.LoadOld();
     }
 
     private void OnClickCredits()
@@ -136,5 +145,14 @@ public class DemoMenuUI : MonoBehaviour
     public void OnClickSteam()
     {
         Application.OpenURL(steamURL);
+    }
+
+    public void HideLoadOldSave()
+    {
+        string folderPath = Application.persistentDataPath + "/Save";
+        if (!Directory.Exists(folderPath))
+        {
+            Destroy(loadOldSave.gameObject);
+        }
     }
 }

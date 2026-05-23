@@ -167,6 +167,57 @@ public class SaveManager : MonoBehaviour
         SceneManager.LoadScene(GameParam.instance.prevScene);
     }
 
+    public void LoadOld()
+    {
+        string folderPath = Application.persistentDataPath + "/Save";
+        if (!Directory.Exists(folderPath))
+        {
+            Debug.Log("Save file not found.");
+            return;
+        }
+        //GameParam
+        string gameParamSave = File.ReadAllText(folderPath + "/GameParam.json");
+        JsonUtility.FromJsonOverwrite(gameParamSave, GameParam.instance);
+
+        //NPCList
+        string npcSave = File.ReadAllText(folderPath + "/NPCList.json");
+        NPCObjListSave nPCObjListSave = JsonUtility.FromJson<NPCObjListSave>(npcSave);
+        NPCObjList.instance.Load(nPCObjListSave);
+
+        //ListCabinet
+        string cabinetSave = File.ReadAllText(folderPath + "/CabinetList.json");
+        ListCabinetSave listCabinetSave = JsonUtility.FromJson<ListCabinetSave>(cabinetSave);
+        ListCabinet.instance.Load(listCabinetSave);
+
+        //PickUpObjList
+        string pickUpObjSave = File.ReadAllText(folderPath + "/PickUpObjList.json");
+        PickUpObjListSave pickUpObjListSave = JsonUtility.FromJson<PickUpObjListSave>(pickUpObjSave);
+        PickUpObjList.instance.Load(pickUpObjListSave);
+
+        //ListOffers
+        string offersSave = File.ReadAllText(folderPath + "/ListOffers.json");
+        ListOffersSave listOffersSave = JsonUtility.FromJson<ListOffersSave>(offersSave);
+        ListOffers.instance.Load(listOffersSave);
+
+        //QuestController
+        string questsSave = File.ReadAllText(folderPath + "/QuestList.json");
+        QuestListSave questListSave = JsonUtility.FromJson<QuestListSave>(questsSave);
+        QuestController.instance.Load(questListSave);
+
+        //KilledEnemiesList
+        string killedEnemiesSave = File.ReadAllText(folderPath + "/KilledEnemiesList.json");
+        KilledEnemiesListSave killedEnemiesListSave = JsonUtility.FromJson<KilledEnemiesListSave>(killedEnemiesSave);
+        KilledEnemiesList.instance.Load(killedEnemiesListSave);
+
+        //Inventory
+        string invSave = File.ReadAllText(folderPath + "/Inventory.json");
+        InventorySave inventorySave = JsonUtility.FromJson<InventorySave>(invSave);
+        Inventory.instance.Load(inventorySave);
+        GameParam.instance.loadSave = true;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(GameParam.instance.prevScene);
+    }
+
     public string GetSaveInfo(int indexSave)
     {
         if (saveInfoList.saveInfos[indexSave].level < 0)

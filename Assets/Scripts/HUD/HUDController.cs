@@ -305,7 +305,6 @@ public class HUDController : MonoBehaviour
             return;
         player.StopUsingItem();
         InventoryUI.instance.Show();
-        player.StopMove();
     }
 
     public void OpenPauseMenu()

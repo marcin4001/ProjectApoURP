@@ -57,6 +57,8 @@ public class QuestListUI : MonoBehaviour
 
     private void ShowByKey(InputAction.CallbackContext ctx)
     {
+        if (CursorController.instance.IsWait())
+            return;
         if (!active)
         {
             if (!player.InMenu()) Show();
@@ -86,6 +88,7 @@ public class QuestListUI : MonoBehaviour
         }
         coroutine = StartCoroutine(ChangePlayerView());
         CreateCurrentQuestList();
+        player.StopMove();
     }
 
     public void Hide()

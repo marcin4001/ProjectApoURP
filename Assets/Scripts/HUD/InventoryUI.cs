@@ -75,6 +75,8 @@ public class InventoryUI : MonoBehaviour
 
     private void ShowByKey(InputAction.CallbackContext ctx)
     {
+        if (CursorController.instance.IsWait())
+            return;
         if (!active)
         {
             if(!player.InMenu()) Show();
@@ -97,6 +99,7 @@ public class InventoryUI : MonoBehaviour
         consoleText.text = string.Empty;
         active = true;
         CameraMovement.instance.SetBlock(true);
+        player.StopMove();
     }
 
     public void Hide()
