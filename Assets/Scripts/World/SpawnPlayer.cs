@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpawnPlayer : MonoBehaviour
@@ -44,7 +45,7 @@ public class SpawnPlayer : MonoBehaviour
         if (importantPlace && GameParam.instance.GetMapSignState(mapSignName) != MapSignState.Explored)
         {
             GameParam.instance.SetMapSignState(mapSignName, MapSignState.Explored);
-            GameParam.instance.AddExp(100);
+            StartCoroutine(AddExpAfterTime());
         }
         if (GameParam.instance.exitInside && insideSprawnPos != null)
         {
@@ -74,4 +75,9 @@ public class SpawnPlayer : MonoBehaviour
         return noSaveArea;
     }
 
+    private IEnumerator AddExpAfterTime()
+    {
+        yield return new WaitForEndOfFrame();
+        GameParam.instance.AddExp(100);
+    }
 }

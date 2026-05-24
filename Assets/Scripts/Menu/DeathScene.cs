@@ -6,6 +6,8 @@ public class DeathScene : MonoBehaviour
 {
     [SerializeField] private float timeLoadScene = 4f;
     [SerializeField] private bool anyKeyTrigger = false;
+    [SerializeField] private bool startAchievement = false;
+    [SerializeField] private string idAchievement;
     void Start()
     {
         if (anyKeyTrigger)
@@ -16,6 +18,8 @@ public class DeathScene : MonoBehaviour
         {
             StartCoroutine(LoadMenuScene());
         }
+        if (startAchievement)
+            SteamAchievements.Add(idAchievement);
     }
 
     private IEnumerator LoadMenuScene()

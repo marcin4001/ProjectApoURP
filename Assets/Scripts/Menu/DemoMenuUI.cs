@@ -64,6 +64,8 @@ public class DemoMenuUI : MonoBehaviour
         {
             string name = SteamFriends.GetPersonaName();
             Debug.Log(name);
+            //SteamUserStats.ResetAllStats(true);
+            //SteamUserStats.StoreStats();
         }
         HideLoadOldSave();
     }

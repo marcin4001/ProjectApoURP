@@ -67,7 +67,7 @@ public class CameraMovement : MonoBehaviour
             maxLimitVector.z = Mathf.Max(limitPointA.position.z, limitPointB.position.z);
         }
         transform.eulerAngles = GameParam.instance.cameraPivotRot;
-        m_Camera.nearClipPlane = GameParam.instance.nearClip;
+        m_Camera.nearClipPlane = -5f;
         m_Camera.transform.localPosition = GameParam.instance.posCamera;
     }
 
