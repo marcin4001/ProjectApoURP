@@ -62,6 +62,7 @@ public class Stove : MonoBehaviour, IUsableObj
 
     private IEnumerator Cooking()
     {
+        yield return new WaitForEndOfFrame();
         pan.SetActive(true);
         CameraMovement.instance.SetBlock(true);
         player.SetBlock(true);
