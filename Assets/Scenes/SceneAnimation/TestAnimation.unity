@@ -1592,6 +1592,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowKnife (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0f2ba772d31b5264f954e5fe0d5896ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9251,6 +9255,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46226bd1439985545b87e09ff916f1f6, type: 3}
+--- !u!4 &2022008812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+  m_PrefabInstance: {fileID: 4945078560166528657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2039831787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11705,6 +11714,10 @@ PrefabInstance:
     - target: {fileID: 6192275625470872634, guid: 933f8b2202b08694ca94478492ddb1cf, type: 3}
       propertyPath: m_Name
       value: LowKnife
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192275625470872634, guid: 933f8b2202b08694ca94478492ddb1cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6819770843580601984, guid: 933f8b2202b08694ca94478492ddb1cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16527,6 +16540,63 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.058474366, y: 0.81270736, z: 0.01628095}
     m_Extent: {x: 0.14939925, y: 0.18233728, z: 0.2036109}
   m_DirtyAABB: 0
+--- !u!1001 &4945078560166528657
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5347395451485701760}
+    m_Modifications:
+    - target: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.097
+      objectReference: {fileID: 0}
+    - target: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.3441067
+      objectReference: {fileID: 0}
+    - target: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.6824426
+      objectReference: {fileID: 0}
+    - target: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.47584853
+      objectReference: {fileID: 0}
+    - target: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.43523648
+      objectReference: {fileID: 0}
+    - target: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 3.179
+      objectReference: {fileID: 0}
+    - target: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -112.638
+      objectReference: {fileID: 0}
+    - target: {fileID: 371964095652558708, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -108.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036579925825531342, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
+      propertyPath: m_Name
+      value: Axe_low
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c6f5adf074e9a2459435d111df12c20, type: 3}
 --- !u!1 &4945339227774077286
 GameObject:
   m_ObjectHideFlags: 0
@@ -17033,6 +17103,7 @@ Transform:
   - {fileID: 652841035074998575}
   - {fileID: 8454658058211452230}
   - {fileID: 1514192747}
+  - {fileID: 2022008812}
   - {fileID: 1298561912}
   - {fileID: 1377860059}
   - {fileID: 4074450703674902795}
