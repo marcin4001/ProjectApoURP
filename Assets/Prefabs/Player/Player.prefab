@@ -5668,6 +5668,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7549504923425503713}
     m_Modifications:
+    - target: {fileID: 4435315851122676600, guid: 5afe09de4d6b4074a979ebf842d822fa, type: 3}
+      propertyPath: attackClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34e0a60e486fd934cb630c9774b8ae63, type: 3}
+    - target: {fileID: 4435315851122676600, guid: 5afe09de4d6b4074a979ebf842d822fa, type: 3}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d8c066e35feaeeb4597836fa65eee41e, type: 3}
     - target: {fileID: 5981800878341935243, guid: 5afe09de4d6b4074a979ebf842d822fa, type: 3}
       propertyPath: m_Name
       value: m4a1
@@ -5749,7 +5757,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
