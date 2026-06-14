@@ -3164,6 +3164,8 @@ MonoBehaviour:
   indexTheme: 7
   noSaveArea: 0
   location: Little Rock
+  startAchievement: 0
+  idAchievement: 
 --- !u!4 &176419482
 Transform:
   m_ObjectHideFlags: 0
@@ -14654,6 +14656,52 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.14400001, y: -0.18, z: -0.078}
   m_TimeToStationary: 0.5
+--- !u!1 &916676383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 916676385}
+  - component: {fileID: 916676384}
+  m_Layer: 0
+  m_Name: AddItemTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &916676384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916676383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8ffec23627cfc4fae019edd2a76e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: e63b03778aadf4c4ba5a199e38a04d42, type: 2}
+--- !u!4 &916676385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916676383}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &918619477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18941,11 +18989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - item: {fileID: 11400000, guid: c4753aeeb16298f48a278837c3c587c8, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: 7514f3baa309a024994edc86d1be8e76, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: e63b03778aadf4c4ba5a199e38a04d42, type: 2}
+  - item: {fileID: 11400000, guid: 2aab4625236ec7d42adeaa8c17bc5b5f, type: 2}
     amount: 1
   slots:
   - item: {fileID: 0}
@@ -34001,6 +34045,7 @@ MonoBehaviour:
     amount: 0
   nearPoint: {fileID: 506342184}
   idPickUp: 5514
+  onTheFloor: 0
 --- !u!4 &2534761693234299156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1fc6e19e0e3f8024b8ccd72a6538bebd, type: 3}
@@ -34688,3 +34733,4 @@ SceneRoots:
   - {fileID: 114262372}
   - {fileID: 560872147}
   - {fileID: 393538296}
+  - {fileID: 916676385}
