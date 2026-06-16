@@ -66,6 +66,18 @@ public class WeaponObject : MonoBehaviour
         PlayReloadSound();
     }
 
+    public void InitAmmoCombat()
+    {
+        Debug.Log("InitAmmoCombat");
+        if (weapon.type == WeaponType.Melee)
+            return;
+        if (ammoSlot != null && !ammoSlot.IsEmpty())
+            return;
+        ammoSlot = Inventory.instance.GetSlot(weapon.idAmmo);
+        currentAmmoInGun = 0;
+        ammoOutGun = ammoSlot.GetAmount();
+    }
+
     public void UpdateAmmoOutGun()
     {
         if (ammoSlot == null && ammoSlot.IsEmpty())

@@ -57,7 +57,10 @@ public class WeaponController : MonoBehaviour
     public void SetCurrentWeapon(Item item)
     {
         currentWeapon = GetWeapon(item.id);
-        currentWeapon.InitAmmo();
+        if (!GameParam.instance.inCombat)
+            currentWeapon.InitAmmo();
+        else
+            currentWeapon.InitAmmoCombat();
         if (currentWeapon != null && !currentWeapon.IsMelee())
         {
             currentWeapon.ShowAmmoInConsole();

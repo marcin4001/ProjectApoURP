@@ -552,7 +552,18 @@ public class PlayerController : MonoBehaviour
         animationPlayer.Reload();
         weapon.Reload();
         weapon.PlayReloadSound();
+        if (GameParam.instance.inCombat)
+        {
+            CombatController.instance.RemoveAP(1);
+        }
     }
+
+    //private IEnumerator AfterReloadInCombat()
+    //{
+    //    SetBlock(true);
+    //    yield return new WaitForSeconds(0.3f);
+    //    CombatController.instance.RemoveAP(2);
+    //}
 
     public PlayerActionState GetState()
     {
