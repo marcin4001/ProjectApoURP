@@ -347,7 +347,7 @@ public class PlayerController : MonoBehaviour
             weaponController.StartPlayPunch(); 
             if (GameParam.instance.inCombat)
             {
-                StartCoroutine(AfterUseWeaponInCombat());
+                StartCoroutine(AfterUseWeaponInCombat(2));
             }
             return;
         }
@@ -420,7 +420,7 @@ public class PlayerController : MonoBehaviour
                 enemy.GetDamage(weapon.GetDamage());
             if (GameParam.instance.inCombat)
             {
-                StartCoroutine(AfterUseWeaponInCombat());
+                StartCoroutine(AfterUseWeaponInCombat(2));
             }
             
         }
@@ -505,7 +505,7 @@ public class PlayerController : MonoBehaviour
         multishot = false;
         if (GameParam.instance.inCombat)
         {
-            StartCoroutine(AfterUseWeaponInCombat());
+            StartCoroutine(AfterUseWeaponInCombat(3));
         }
     }
 
@@ -533,11 +533,13 @@ public class PlayerController : MonoBehaviour
         Debug.Log("UseKeyOnObj2");
     }
 
-    private IEnumerator AfterUseWeaponInCombat()
+    private IEnumerator AfterUseWeaponInCombat(int ap)
     {
         SetBlock(true);
         yield return new WaitForSeconds(0.3f);
-        CombatController.instance.RemoveAP(2);
+        CombatController.instance.RemoveAP(ap);
+        if(CombatController.instance.PlayerHaveAP())
+            SetBlock(false);
     }
 
     public void ReloadGun()
@@ -554,16 +556,18 @@ public class PlayerController : MonoBehaviour
         weapon.PlayReloadSound();
         if (GameParam.instance.inCombat)
         {
-            CombatController.instance.RemoveAP(1);
+            StartCoroutine(AfterReloadInCombat());
         }
     }
 
-    //private IEnumerator AfterReloadInCombat()
-    //{
-    //    SetBlock(true);
-    //    yield return new WaitForSeconds(0.3f);
-    //    CombatController.instance.RemoveAP(2);
-    //}
+    private IEnumerator AfterReloadInCombat()
+    {
+        SetBlock(true);
+        yield return new WaitForSeconds(1f);
+        CombatController.instance.RemoveAP(1);
+        if (CombatController.instance.PlayerHaveAP())
+            SetBlock(false);
+    }
 
     public PlayerActionState GetState()
     {
@@ -846,6 +850,8 @@ public class PlayerController : MonoBehaviour
         if (GameParam.instance.inCombat)
         {
             CombatController.instance.RemoveAP(2);
+            if(CombatController.instance.PlayerHaveAP())
+                SetBlock(false);
         }
         if (currentSelectObj != null)
         {

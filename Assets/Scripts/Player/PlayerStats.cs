@@ -30,6 +30,20 @@ public class PlayerStats : MonoBehaviour
         {5, 0.6f},
     };
 
+    private Dictionary<int, int> actionPoint = new Dictionary<int, int>
+    {
+        {0, 0},
+        {1, 3},
+        {2, 3},
+        {3, 4},
+        {4, 4},
+        {5, 4},
+        {6, 5},
+        {7, 5},
+        {8, 5},
+        {9, 6},
+        {10, 6},
+    };
 
     private void Awake()
     {
@@ -243,6 +257,11 @@ public class PlayerStats : MonoBehaviour
     public int GetRepairChance()
     {
         return baseRepairChance + (technical - 1) * 9;
+    }
+
+    public int GetMaxAP()
+    {
+        return actionPoint[dexterity];
     }
 
     public void AddStrengthPoint()

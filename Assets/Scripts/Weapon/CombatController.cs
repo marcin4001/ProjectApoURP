@@ -11,7 +11,6 @@ public class CombatController : MonoBehaviour
     [SerializeField] private EnemyController[] enemies;
     [SerializeField] private int currentIndex = 0;
     [SerializeField] private int actionPoint = 2;
-    [SerializeField] private int actionPointMax = 2;
     [SerializeField] private GameObject bloodPrefab;
     [SerializeField] private Vector3[] slots;
     [SerializeField] private string deathSceneName = "DeathScene";
@@ -53,7 +52,7 @@ public class CombatController : MonoBehaviour
             if (!CameraMovement.instance.ObjectInFov(player.transform))
                 CameraMovement.instance.CenterCameraToPlayer();
             currentIndex = -1;
-            actionPoint = actionPointMax;
+            actionPoint = PlayerStats.instance.GetMaxAP();
             foreach(EnemyController enemy in enemies)
                 enemy.SetActiveAgent(false);
             HUDController.instance.AddConsolelogWarning("It’s your turn");
@@ -115,7 +114,7 @@ public class CombatController : MonoBehaviour
             foreach (EnemyController enemy in enemies)
                 enemy.SetActiveAgent(false);
             player.SetBlock(false);
-            actionPoint = actionPointMax;
+            actionPoint = PlayerStats.instance.GetMaxAP();
             HUDController.instance.AddConsolelogWarning("It’s your turn");
         }
         else
@@ -143,6 +142,13 @@ public class CombatController : MonoBehaviour
             actionPoint = 0;
             NextTurn();
         }
+    }
+    
+    public bool PlayerHaveAP()
+    {
+        if(actionPoint <= 0)
+            return false;
+        else return true;
     }
 
     public void SetGroup(EnemyGroup group)
