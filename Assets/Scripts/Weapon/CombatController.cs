@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -55,7 +55,8 @@ public class CombatController : MonoBehaviour
             actionPoint = PlayerStats.instance.GetMaxAP();
             foreach(EnemyController enemy in enemies)
                 enemy.SetActiveAgent(false);
-            HUDController.instance.AddConsolelogWarning("It�s your turn");
+            HUDController.instance.AddConsolelogWarning("It’s your turn");
+            ShowAp();
         }
         else
         {
@@ -115,7 +116,8 @@ public class CombatController : MonoBehaviour
                 enemy.SetActiveAgent(false);
             player.SetBlock(false);
             actionPoint = PlayerStats.instance.GetMaxAP();
-            HUDController.instance.AddConsolelogWarning("It�s your turn");
+            HUDController.instance.AddConsolelogWarning("It’s your turn");
+            ShowAp();
         }
         else
         {
@@ -131,10 +133,9 @@ public class CombatController : MonoBehaviour
     public void RemoveAP(int point)
     {
         actionPoint -= point;
-        if (actionPoint == 1)
+        if (actionPoint > 0)
         {
-            HUDController.instance.AddConsolelog("You have one action point");
-            HUDController.instance.AddConsolelog("left.");
+            ShowAp();
         }
         if(actionPoint <= 0)
         {
@@ -142,6 +143,17 @@ public class CombatController : MonoBehaviour
             actionPoint = 0;
             NextTurn();
         }
+        
+    }
+
+    public void ShowAp()
+    {
+        string result = "AP: ";
+        for (int i = 0; i < actionPoint; i++)
+        {
+            result += "■ ";
+        }
+        HUDController.instance.AddConsolelogWarning(result);
     }
     
     public bool PlayerHaveAP()
@@ -149,6 +161,19 @@ public class CombatController : MonoBehaviour
         if(actionPoint <= 0)
             return false;
         else return true;
+    }
+
+    public bool PlayerHaveAp(int _point)
+    {
+        if (actionPoint >= _point)
+        {
+            return true;
+        }
+        else
+        {
+            HUDController.instance.AddConsolelog("You don't have enough AP");
+            return false; 
+        }
     }
 
     public void SetGroup(EnemyGroup group)

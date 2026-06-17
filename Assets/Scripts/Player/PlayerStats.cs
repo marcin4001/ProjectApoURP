@@ -32,17 +32,17 @@ public class PlayerStats : MonoBehaviour
 
     private Dictionary<int, int> actionPoint = new Dictionary<int, int>
     {
-        {0, 0},
+        {0, 3},
         {1, 3},
         {2, 3},
-        {3, 4},
+        {3, 3},
         {4, 4},
         {5, 4},
-        {6, 5},
-        {7, 5},
+        {6, 4},
+        {7, 4},
         {8, 5},
-        {9, 6},
-        {10, 6},
+        {9, 5},
+        {10, 5},
     };
 
     private void Awake()

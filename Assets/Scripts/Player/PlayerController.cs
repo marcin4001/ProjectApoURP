@@ -388,6 +388,13 @@ public class PlayerController : MonoBehaviour
 
             if (weapon.IsMelee())
             {
+                if (GameParam.instance.inCombat)
+                {
+                    if (!CombatController.instance.PlayerHaveAp(2))
+                    {
+                        return;
+                    }
+                }
                 animationPlayer.Attack();
             }
             else
@@ -399,12 +406,26 @@ public class PlayerController : MonoBehaviour
                         multishot = false;
                         return;
                     }
+                    if(GameParam.instance.inCombat)
+                    {
+                        if(!CombatController.instance.PlayerHaveAp(3))
+                        {
+                            return;
+                        }
+                    }
                     transform.rotation = Quaternion.LookRotation(point - transform.position);
                     StartCoroutine(Multishot(enemy));
                     return;
                 }
                 if (weapon.OutOfAmmo())
                     return;
+                if (GameParam.instance.inCombat)
+                {
+                    if (!CombatController.instance.PlayerHaveAp(2))
+                    {
+                        return;
+                    }
+                }
                 animationPlayer.Shot();
                 weapon.RemoveAmmo(1);
             }
@@ -664,6 +685,13 @@ public class PlayerController : MonoBehaviour
     {
         if (isUsingObj)
             return;
+        if (GameParam.instance.inCombat)
+        {
+            if (!CombatController.instance.PlayerHaveAp(2))
+            {
+                return;
+            }
+        }
         float distanceToPlayer = Vector3.Distance(transform.position, point);
         if (distanceToPlayer < 0.5f)
             return;
