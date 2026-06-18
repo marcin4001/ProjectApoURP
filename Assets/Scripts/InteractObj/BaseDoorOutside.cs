@@ -14,6 +14,8 @@ public class BaseDoorOutside : MonoBehaviour, IUsableObj
     [SerializeField] private bool inOutside = false;
     [SerializeField] private bool saveOpened = false;
     [SerializeField] private string doorID;
+    [SerializeField] private AudioClip openClip;
+    private AudioSource source;
     private bool isLock = true;
     private Animator anim;
     private Collider col;
@@ -22,6 +24,7 @@ public class BaseDoorOutside : MonoBehaviour, IUsableObj
     {
         anim = GetComponent<Animator>();
         col = GetComponent<Collider>();
+        source = GetComponent<AudioSource>();
         playerController = FindFirstObjectByType<PlayerController>();
         if(saveOpened)
         {
@@ -56,6 +59,11 @@ public class BaseDoorOutside : MonoBehaviour, IUsableObj
         if (isLock)
             return;
         anim.SetTrigger(openParam);
+        if(source != null)
+        {
+            source.clip = openClip;
+            source.Play();
+        }
         col.enabled = false;
         if (inOutside)
             StartCoroutine(LoadScene());
@@ -73,7 +81,7 @@ public class BaseDoorOutside : MonoBehaviour, IUsableObj
             CombatController.instance.StopCombat();
         }
         playerController.SetBlock(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.3f);
         if (GameParam.instance != null)
         {
             GameParam.instance.UpdateParam();

@@ -13,10 +13,13 @@ public class Trapdoor : MonoBehaviour, IUsableObj
     [SerializeField] private int ropeID;
     [SerializeField] private string doorID;
     [SerializeField] private bool needKey = false;
+    [SerializeField] private AudioClip openClip;
+    private AudioSource source;
     private bool isLock = true;
     private PlayerController playerController;
     void Start()
     {
+        source = GetComponent<AudioSource>();
         playerController = FindFirstObjectByType<PlayerController>();
         if (GameParam.instance.DoorOnList(doorID))
         {
@@ -43,6 +46,11 @@ public class Trapdoor : MonoBehaviour, IUsableObj
         if(isLock)
             return;
         anim.SetTrigger(openParam);
+        if(source != null)
+        {
+            source.clip = openClip;
+            source.Play();
+        }
         if(!withOutLoadScene)
             StartCoroutine(LoadScene());
         GameParam.instance.AddOpenDoor(doorID);
