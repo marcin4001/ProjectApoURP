@@ -16,16 +16,20 @@ public class Door : MonoBehaviour, IUsableObj
     [SerializeField] private bool isLock = false;
     [SerializeField] private bool isPermanentlyLocked = false;
     [SerializeField] private int keyID = 0;
+    [SerializeField] private AudioClip openClip;
+    [SerializeField] private AudioClip closeClip;
     private PlayerController player;
     private NavMeshObstacle obstacle;
     private Coroutine currentCoroutine;
     private float alpha = 0f;
     private bool active = true;
+    private AudioSource source;
 
     void Start()
     {
         player = FindAnyObjectByType<PlayerController>();
         obstacle = GetComponent<NavMeshObstacle>();
+        source = GetComponent<AudioSource>();
     }
 
     public void Use()
@@ -89,6 +93,11 @@ public class Door : MonoBehaviour, IUsableObj
     private IEnumerator OpenTask()
     {
         obstacle.enabled = false;
+        if(source != null)
+        {
+            source.clip = openClip;
+            source.Play();
+        }
         while(alpha <= 1f)
         {
             alpha += Time.deltaTime;
@@ -102,13 +111,23 @@ public class Door : MonoBehaviour, IUsableObj
     private IEnumerator CloseTask()
     {
         obstacle.enabled = false;
-        while(alpha >= 0f)
+        if (source != null)
+        {
+            source.clip = openClip;
+            source.Play();
+        }
+        while (alpha >= 0f)
         {
             alpha -= Time.deltaTime;
             Vector3 doorRotation = transform.localEulerAngles;
             doorRotation.y = Mathf.Lerp(closeAngle, openAngle, alpha);
             transform.localEulerAngles = doorRotation;
             yield return new WaitForEndOfFrame();
+        }
+        if (source != null)
+        {
+            source.clip = closeClip;
+            source.Play();
         }
         obstacle.enabled = true;
     }

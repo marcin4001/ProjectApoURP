@@ -810,6 +810,7 @@ public class PlayerController : MonoBehaviour
             counterMoving = 0;
             SetBlock(true);
         }
+        bool inCombat = GameParam.instance.inCombat;
         isMoving = true;
         agent.SetDestination(moveTarget);
         while(agent.pathPending)
@@ -875,7 +876,7 @@ public class PlayerController : MonoBehaviour
         agent.speed = moveSpeed;
         isMoving = false;
         isRun = false;
-        if (GameParam.instance.inCombat)
+        if (inCombat)
         {
             CombatController.instance.RemoveAP(2);
             if(CombatController.instance.PlayerHaveAP())

@@ -56,6 +56,8 @@ public class Bed : MonoBehaviour, IUsableObj
         FadeController.instance.SetFadeIn(true);
         player.SetBlock(true);
         yield return new WaitForSeconds(2f);
+        SleepingSound.instance.PlaySleepingClip();
+        yield return new WaitForSeconds(3.6f);
         TimeGame.instance.AddHours(6);
         FadeController.instance.SetFadeIn(false);
         PlayerStats.instance.AddHalfHP();
@@ -70,6 +72,8 @@ public class Bed : MonoBehaviour, IUsableObj
         FadeController.instance.SetFadeIn(true);
         player.SetBlock(true);
         yield return new WaitForSeconds(2f);
+        SleepingSound.instance.PlaySleepingClip();
+        yield return new WaitForSeconds(3.6f);
         TimeGame.instance.AddHours(12);
         FadeController.instance.SetFadeIn(false);
         PlayerStats.instance.AddHealthPoint(200);

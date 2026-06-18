@@ -12,11 +12,15 @@ public class Cabinet : MonoBehaviour, IUsableObj
     [SerializeField] private List<SlotItem> items = new List<SlotItem>();
     [SerializeField] private bool isLock = false;
     [SerializeField] private string cabinetID;
+    [SerializeField] private AudioClip openClip;
+    [SerializeField] private AudioClip closeClip;
+    private AudioSource source;
     private int keyID = 243;
     private Animator animator;
     void Start()
     {
         animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         StartCoroutine(AfterStart());
         if(isLock)
         {
@@ -45,6 +49,11 @@ public class Cabinet : MonoBehaviour, IUsableObj
         if (animator != null)
         {
             animator.SetBool(isOpenParam, isOpen);
+            if(source != null)
+            {
+                source.clip = openClip;
+                source.Play();
+            }
             yield return new WaitForSeconds(0.5f);
         }
         yield return null;
@@ -56,6 +65,11 @@ public class Cabinet : MonoBehaviour, IUsableObj
         isOpen = false;
         if(animator != null)
             animator.SetBool(isOpenParam, isOpen);
+        if (source != null)
+        {
+            source.clip = closeClip;
+            source.Play();
+        }
     }
 
     public Vector3 GetNearPoint()

@@ -57,7 +57,7 @@ public class EnemyGroup : MonoBehaviour
         }
         Debug.Log("Player is near");
         player.StopMove();
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.1f);
         CombatController.instance.SetGroup(this);
         CombatController.instance.StartCombat(true);
     }
