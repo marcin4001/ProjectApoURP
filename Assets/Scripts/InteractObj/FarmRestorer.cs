@@ -11,7 +11,9 @@ public class FarmRestorer : MonoBehaviour, IUsableObj
     [SerializeField] private Item carBatteryItem;
     [SerializeField] private Item capsuleItem;
     [SerializeField] private Item farmRestorerItem;
+    [SerializeField] private AudioClip chargingPower;
     private PlayerController player;
+    private AudioSource source;
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class FarmRestorer : MonoBehaviour, IUsableObj
         if(inLab)
             return;
         player = FindFirstObjectByType<PlayerController>();
+        source = GetComponent<AudioSource>();
         if(carBattery != null && !haveCarBattery)
         {
             carBattery.SetActive(false);
@@ -94,7 +97,12 @@ public class FarmRestorer : MonoBehaviour, IUsableObj
         {
             carBattery.SetActive(true);
         }
-        yield return new WaitForSeconds(3);
+        if(source != null)
+        {
+            source.clip = chargingPower;
+            source.Play();
+        }
+        yield return new WaitForSeconds(4.2f);
         haveCarBattery = true;
         player.SetBlock(false);
         HUDController.instance.AddConsolelog("The Farm Restorer has");

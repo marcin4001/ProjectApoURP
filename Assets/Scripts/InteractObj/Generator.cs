@@ -9,13 +9,20 @@ public class Generator : MonoBehaviour, IUsableObj
     [SerializeField] private bool works = false;
     [SerializeField] private int idPickUp;
     [SerializeField] private int idQuest;
+    private AudioSource source;
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
         works = PickUpObjList.instance.ExistOnList(idPickUp);
         if(works && metalDoor != null)
         {
             metalDoor.Unlock();
+        }
+        if(works && source != null)
+        {
+            source.Play();
+            source.loop = true;
         }
     }
 
@@ -54,6 +61,11 @@ public class Generator : MonoBehaviour, IUsableObj
         if(metalDoor != null)
             metalDoor.Unlock();
         works = true;
+        if (source != null)
+        {
+            source.Play();
+            source.loop = true;
+        }
         QuestController.instance.SetComplete(idQuest);
         HUDController.instance.AddConsolelog("The generator is working");
     }

@@ -8,12 +8,15 @@ public class MetalDoor : MonoBehaviour, IUsableObj
     [SerializeField] private string openParam = "Open";
     [SerializeField] private string openStartParam = "OpenStart";
     [SerializeField] private string doorID;
+    [SerializeField] private AudioClip openClip;
+    private AudioSource source;
     private PlayerController playerController;
     private bool isLock = true;
 
     private void Start()
     {
         playerController = FindFirstObjectByType<PlayerController>();
+        source = GetComponent<AudioSource>();
         if (GameParam.instance.DoorOnList(doorID))
         {
             animatorDoor.SetTrigger(openStartParam);
@@ -57,6 +60,11 @@ public class MetalDoor : MonoBehaviour, IUsableObj
 
     private IEnumerator OpenDoor()
     {
+        if(source != null)
+        {
+            source.clip = openClip;
+            source.Play();
+        }
         playerController.SetBlock(true);
         animatorDoor.SetTrigger(openParam);
         yield return new WaitForSeconds(1);
