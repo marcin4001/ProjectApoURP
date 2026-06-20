@@ -12,7 +12,7 @@ public class SunController : MonoBehaviour
     private TimeGame gameTime;
     private ColorAdjustments colorAdjustments;
     private Volume volume;
-    private float nightPostExposure = -1.2f;
+    private float nightPostExposure = -0.7f;
     private float dayPostExposure = 0f;
     void Start()
     {
