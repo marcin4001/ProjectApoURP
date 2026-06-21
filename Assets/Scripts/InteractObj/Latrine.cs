@@ -4,11 +4,15 @@ public class Latrine : MonoBehaviour, IUsableObj
 {
     [SerializeField] private bool isOpen = false;
     [SerializeField] private Transform nearPoint;
+    [SerializeField] private AudioClip openClip;
+    [SerializeField] private AudioClip closeClip;
     private Animator animator;
+    private AudioSource source;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
     }
 
     public bool CanUse()
@@ -30,6 +34,18 @@ public class Latrine : MonoBehaviour, IUsableObj
     {
         isOpen = !isOpen;
         animator.SetBool("isOpen", isOpen);
+        if(source != null )
+        {
+            if(isOpen)
+            {
+                source.clip = openClip;
+            }
+            else
+            {
+                source.clip= closeClip;
+            }
+            source.Play();
+        }
     }
     
 }
