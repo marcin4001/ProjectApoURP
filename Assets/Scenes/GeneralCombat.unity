@@ -4507,6 +4507,10 @@ PrefabInstance:
       propertyPath: strength
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7383663899141697863, guid: c687b121b8de238478ea541a8369157b, type: 3}
+      propertyPath: perception
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8406120896648320716, guid: c687b121b8de238478ea541a8369157b, type: 3}
       propertyPath: m_Name
       value: GameParam
@@ -8765,6 +8769,8 @@ MonoBehaviour:
   - {fileID: 8011844012438247148}
   - {fileID: 1279264472}
   player: {fileID: 0}
+  noTrigger: 1
+  npc: {fileID: 8011844012438247150}
 --- !u!4 &1487048211
 Transform:
   m_ObjectHideFlags: 0
@@ -11713,6 +11719,37 @@ Transform:
   - {fileID: 197936711}
   m_Father: {fileID: 1195671225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2019512630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2019512631}
+  m_Layer: 7
+  m_Name: NearPointD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2019512631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019512630}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8011844012438247146}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2042283069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12724,6 +12761,7 @@ GameObject:
   - component: {fileID: 8011844012438247149}
   - component: {fileID: 8011844012438247148}
   - component: {fileID: 8011844012438247147}
+  - component: {fileID: 8011844012438247150}
   m_Layer: 7
   m_Name: GenRowanNPC
   m_TagString: Untagged
@@ -12812,6 +12850,7 @@ Transform:
   m_Children:
   - {fileID: 3399566112881356154}
   - {fileID: 3196515055401973038}
+  - {fileID: 2019512631}
   m_Father: {fileID: 1487048211}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &8011844012438247147
@@ -12897,6 +12936,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2791479, y: 0.5364708, z: 1.7789278}
   m_Center: {x: -0.09724597, y: 0.23176281, z: -1.0932742}
+--- !u!114 &8011844012438247150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4546724111408970027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 486e4d7f0c597bc42bc1f3d9f1e0d1f3, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 2019512631}
+  haveRifle: 0
+  rifleLayer: Rifle
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

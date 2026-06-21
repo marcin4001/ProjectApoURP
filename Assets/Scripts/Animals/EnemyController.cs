@@ -335,6 +335,9 @@ public class EnemyController : MonoBehaviour
             Destroy(agent);
             StartCoroutine(SpawnBlood());
             gameObject.AddComponent<EnemyInventory>();
+            DialogueNPC npc = GetComponent<DialogueNPC>();
+            if(npc != null)
+                Destroy(npc);
             if(isHuman || isHumanoid)
             {
                 GetComponent<BoxCollider>().enabled = true;

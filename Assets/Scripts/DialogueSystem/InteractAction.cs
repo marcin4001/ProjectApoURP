@@ -16,6 +16,8 @@ public class InteractAction : ActionDialogue
                 ActiveStove(); break;
             case InteractActionType.ResetTrade:
                 ResetTrade(); break;
+            case InteractActionType.Combat:
+                StartCombat(); break;
             default:
                 break;
         }
@@ -54,11 +56,21 @@ public class InteractAction : ActionDialogue
             return;
         ListOffers.instance.ResetTrade();
     }
+
+    public void StartCombat()
+    {
+        EnemyGroup group = FindFirstObjectByType<EnemyGroup>();
+        if(group != null)
+        {
+            DialogueUI.instance.Hide();
+            group.StartCombat();
+        }
+    }
 }
 
 public enum InteractActionType
 {
-    OpenGrate, SwitchOnTV, ActiveStove, ResetTrade
+    OpenGrate, SwitchOnTV, ActiveStove, ResetTrade, Combat
 }
 
 

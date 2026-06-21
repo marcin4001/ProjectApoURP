@@ -6,6 +6,8 @@ public class EnemyGroup : MonoBehaviour
 {
     [SerializeField] private EnemyController[] enemies;
     [SerializeField] private PlayerController player;
+    [SerializeField] private bool noTrigger = false;
+    [SerializeField] private DialogueNPC npc;
     private float minDistance = 4f;
 
     //private void Start()
@@ -39,6 +41,8 @@ public class EnemyGroup : MonoBehaviour
 
     private IEnumerator Trigger()
     {
+        if(noTrigger)
+            yield break;
         bool stop = false;
         while (!stop)
         {
@@ -65,5 +69,15 @@ public class EnemyGroup : MonoBehaviour
     public EnemyController[] GetEnemies()
     {
         return enemies;
+    }
+
+    public void StartCombat()
+    {
+        if(npc != null)
+        {
+            Destroy(npc);
+        }
+        CombatController.instance.SetGroup(this);
+        CombatController.instance.StartCombat(true);
     }
 }
