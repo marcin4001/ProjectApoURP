@@ -43,11 +43,13 @@ public class DialogueUI : MonoBehaviour
 
     public void Hide()
     {
+        exitButton.gameObject.SetActive(true);
         canvas.enabled = false;
         active = false;
         player.SetInMenu(false);
         if(coroutineTime != null)
             StopCoroutine(coroutineTime);
+        
         CameraMovement.instance.SetBlock(false);
     }
 
@@ -77,6 +79,11 @@ public class DialogueUI : MonoBehaviour
     public bool GetActive()
     {
         return active;
+    }
+
+    public void HideExitBtn()
+    {
+        exitButton.gameObject.SetActive(false);
     }
 
     private IEnumerator UpdateTimer()

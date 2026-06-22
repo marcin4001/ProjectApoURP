@@ -8,6 +8,7 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
     [SerializeField] private Transform nearPoint;
     [SerializeField] private bool haveRifle = false;
     [SerializeField] private string rifleLayer = "Rifle";
+    [SerializeField] private bool hideExitBtn = false;
     [SerializeField] private bool seller = false;
     [SerializeField] private int idOffer = 0;
     [SerializeField] private List<SlotItem> tradeSlots = new List<SlotItem>();
@@ -70,6 +71,7 @@ public class DialogueNPC : MonoBehaviour, IUsableObj
         string npcName = profile.npcName;
         indexNode = NPCObjList.instance.GetIndexNode(npcName);
         bool init = NPCObjList.instance.isInit(npcName);
+        DialogueController.instance.SetHideExitBtn(hideExitBtn);
         DialogueController.instance.SetInit(init);
         DialogueController.instance.SetIndexNode(indexNode);
         DialogueController.instance.SetProfile(profile);

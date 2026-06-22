@@ -7,6 +7,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private DialogueProfile profile;
     [SerializeField] private int indexNode = 0;
     [SerializeField] private bool init = false;
+    [SerializeField] private bool hideExitBtn;
     private void Awake()
     {
         instance = this;
@@ -27,11 +28,20 @@ public class DialogueController : MonoBehaviour
         init = _init;
     }
 
+    public void SetHideExitBtn(bool _hideExitBtn)
+    {
+        hideExitBtn = _hideExitBtn;
+    }
+
     public void ShowFirstDialogue()
     {
         if (profile == null)
             return;
         DialogueUI.instance.Show();
+        if(hideExitBtn)
+        {
+            DialogueUI.instance.HideExitBtn();
+        }
         DialogueUI.instance.SetNPCLabel(profile.npcName, profile.job, profile.location);
         if(!init)
             DialogueUI.instance.SetReply(profile.firstReply);
