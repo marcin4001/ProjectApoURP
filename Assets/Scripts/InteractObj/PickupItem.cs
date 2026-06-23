@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PickupItem : MonoBehaviour, IUsableObj
 {
@@ -43,7 +43,7 @@ public class PickupItem : MonoBehaviour, IUsableObj
         }
         PickUpObjList.instance.AddIdToList(idPickUp);
         HUDController.instance.AddConsolelog("You picked up:");
-        HUDController.instance.AddConsolelog($"{item.nameItem} x{amount}");
+        HUDController.instance.AddConsolelog($"■ {item.nameItem} x{amount}");
         Destroy(gameObject);
     }
 

@@ -171,6 +171,18 @@ public class Inventory : MonoBehaviour
         return new SlotItem(null, 0);
     }
 
+    public int GetMoneyAmount()
+    {
+        SlotItem moneyInInv = GetSlot(202);
+        int slotAmount = moneyInInv.GetAmount();
+        foreach (SlotItem item in slots)
+        {
+            if (item != null && item.GetItem() != null && item.GetItem().id == 202)
+                slotAmount += item.GetAmount();
+        }
+        return slotAmount;
+    }
+
     public bool PlayerHaveItem(int _id)
     {
         bool exist = items.Exists(x => x.GetItem().id == _id);

@@ -11,6 +11,7 @@ public class InventoryUI : MonoBehaviour
     public static InventoryUI instance;
     [SerializeField] private Button closeButton;
     [SerializeField] private TextMeshProUGUI consoleText;
+    [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private Transform content;
     [SerializeField] private GameObject slotPrefab;
     [SerializeField] private SlotDropUI[] slotsDrop;
@@ -99,6 +100,10 @@ public class InventoryUI : MonoBehaviour
         consoleText.text = string.Empty;
         active = true;
         CameraMovement.instance.SetBlock(true);
+        if(moneyText != null)
+        {
+            moneyText.text = $"{Inventory.instance.GetMoneyAmount()}$";
+        }
         player.StopMove();
     }
 
