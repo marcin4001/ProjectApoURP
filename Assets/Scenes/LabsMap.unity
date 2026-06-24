@@ -752,6 +752,7 @@ MonoBehaviour:
   profile: {fileID: 0}
   indexNode: 0
   init: 0
+  hideExitBtn: 0
 --- !u!4 &95874537
 Transform:
   m_ObjectHideFlags: 0
@@ -8577,6 +8578,18 @@ PrefabInstance:
       propertyPath: chanceToCrit
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1110428815689226332, guid: 6a532929f74c0754c986c29ac00acdc1, type: 3}
+      propertyPath: slots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110428815689226332, guid: 6a532929f74c0754c986c29ac00acdc1, type: 3}
+      propertyPath: slots.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: d8d352c53710d0e449af7b5891a10e95, type: 2}
+    - target: {fileID: 1110428815689226332, guid: 6a532929f74c0754c986c29ac00acdc1, type: 3}
+      propertyPath: slots.Array.data[0].amount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3416884536129473455, guid: 6a532929f74c0754c986c29ac00acdc1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.37
@@ -10188,6 +10201,8 @@ MonoBehaviour:
   - {fileID: 526525325}
   - {fileID: 2035611774}
   player: {fileID: 1395664788}
+  noTrigger: 0
+  npc: {fileID: 0}
 --- !u!4 &1228445586
 Transform:
   m_ObjectHideFlags: 0

@@ -221,6 +221,12 @@ public class CombatController : MonoBehaviour
         }
     }
 
+    public bool AddRadAttack(int chanceToRad)
+    {
+        int radChance = Random.Range(0, 10000) % 100;
+        return radChance <= chanceToRad;
+    }
+
     public int CalculateDamagePlayer(int baseDamage, out bool isCrit)
     {
         isCrit = false;

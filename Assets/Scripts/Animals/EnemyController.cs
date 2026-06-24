@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int damage = 5;
     [SerializeField] private int chanceToHit = 100;
     [SerializeField] private int chanceToCrit = 20;
+    [SerializeField] private int chanceToRad = 0;
     [SerializeField] private int healthPoint = 10;
     [SerializeField] private float minDistance = 0.7f;
     [SerializeField] private int indexSlot = 0;
@@ -198,6 +199,11 @@ public class EnemyController : MonoBehaviour
             {
                 HUDController.instance.AddConsolelog($"You're hit! You lose {_damage}");
                 HUDController.instance.AddConsolelog("point(s).");
+            }
+            if(chanceToRad > 0)
+            {
+                if (CombatController.instance.AddRadAttack(chanceToRad))
+                    PlayerStats.instance.AddOneRadLevel();
             }
         }
         else
