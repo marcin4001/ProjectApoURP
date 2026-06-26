@@ -285,7 +285,7 @@ public class EnemyController : MonoBehaviour
         meshPos.position = newPosition;
     }
 
-    public void GetDamage(int point, bool rawDamage = false, bool meleeWeapon = false)
+    public void GetDamage(int point, bool rawDamage = false, bool meleeWeapon = false, bool multishot = false)
     {
         bool isCrit = false;
         int pointDamage = CombatController.instance.CalculateDamagePlayer(point, out isCrit);
@@ -293,6 +293,8 @@ public class EnemyController : MonoBehaviour
             pointDamage = CombatController.instance.CalculateDamagePlayerOnlyCrit(point, out isCrit);
         if(meleeWeapon)
             pointDamage = CombatController.instance.CalculateDamagePlayerMelee(point, out isCrit);
+        if(multishot)
+            pointDamage = CombatController.instance.CalculateDamageMultiPlayer(point, out isCrit);
         healthPoint -= pointDamage;
         if(pointDamage <= 0)
         {

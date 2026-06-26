@@ -522,7 +522,7 @@ public class PlayerController : MonoBehaviour
         weapon.PlayOneAttack();
         weapon.PlayOneMuzzle();
         weapon.RemoveAmmo(3);
-        enemy.GetDamage(weapon.GetDamage());
+        enemy.GetDamage(weapon.GetDamage(), false, false, true);
         multishot = false;
         if (GameParam.instance.inCombat)
         {
