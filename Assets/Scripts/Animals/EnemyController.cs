@@ -355,27 +355,29 @@ public class EnemyController : MonoBehaviour
         }
         if(healthPoint > 0 && isHuman)
         {
-            StartCoroutine(GetDamageAnim());
+            StartCoroutine(GetDamageAnim(pointDamage));
         }
         if (healthPoint > 0 && isHumanoid)
         {
-            StartCoroutine(GetDamageAnimHumanoid());
+            StartCoroutine(GetDamageAnimHumanoid(pointDamage));
         }
     }
 
-    private IEnumerator GetDamageAnim()
+    private IEnumerator GetDamageAnim(int pointDmg)
     {
         CombatController.instance.SetGetDamage(true);
         yield return new WaitForSeconds(0.2f);
-        animHuman.TakeDamage();
+        if(pointDmg > 0)
+            animHuman.TakeDamage();
         yield return new WaitForSeconds(0.5f);
         CombatController.instance.SetGetDamage(false);
     }
-    private IEnumerator GetDamageAnimHumanoid()
+    private IEnumerator GetDamageAnimHumanoid(int pointDmg)
     {
         CombatController.instance.SetGetDamage(true);
         yield return new WaitForSeconds(0.2f);
-        anim.TakeDamage();
+        if (pointDmg > 0)
+            anim.TakeDamage();
         yield return new WaitForSeconds(0.5f);
         CombatController.instance.SetGetDamage(false);
     }
