@@ -135,6 +135,15 @@ public class CombatController : MonoBehaviour
         actionPoint -= point;
         if (actionPoint > 0)
         {
+            if (isEndCombat())
+            {
+                GameParam.instance.inCombat = false;
+                OnStopCombat?.Invoke();
+                HUDController.instance.HideFightPanel();
+                player.SetBlock(false);
+                enemies = new EnemyController[0];
+                return;
+            }
             ShowAp();
         }
         if(actionPoint <= 0)
