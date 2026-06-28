@@ -43,7 +43,10 @@ public class PickupItem : MonoBehaviour, IUsableObj
         }
         PickUpObjList.instance.AddIdToList(idPickUp);
         HUDController.instance.AddConsolelog("You picked up:");
-        HUDController.instance.AddConsolelog($"■ {item.nameItem} x{amount}");
+        if(amount > 1) 
+            HUDController.instance.AddConsolelog($"■ {item.nameItem} x{amount}");
+        else
+            HUDController.instance.AddConsolelog($"■ {item.nameItem}");
         Destroy(gameObject);
     }
 

@@ -43,7 +43,7 @@ public class ListItemDropPlayer : MonoBehaviour, IDropHandler
                         WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(item.id);
                         if (weapon != null)
                         {
-                            weapon.UpdateAmmoSlot();//weapon.UpdateAmmoOutGun();
+                            weapon.UpdateAmmoSlot();
                         }
                     }
                 }

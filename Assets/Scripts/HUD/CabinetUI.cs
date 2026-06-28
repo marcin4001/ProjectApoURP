@@ -172,6 +172,19 @@ public class CabinetUI : MonoBehaviour
             foreach(SlotItem item in cabinet.GetItems())
             {
                 Inventory.instance.AddItem(item);
+                Item itemObj = item.GetItem();
+                if (itemObj is MiscItem)
+                {
+                    MiscItem miscItem = (MiscItem)itemObj;
+                    if (miscItem.isAmmo)
+                    {
+                        WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(itemObj.id);
+                        if (weapon != null)
+                        {
+                            weapon.UpdateAmmoSlot();
+                        }
+                    }
+                }
             }
             cabinet.RemoveAllItems();
             ReCreateList();
@@ -183,6 +196,19 @@ public class CabinetUI : MonoBehaviour
             foreach(SlotItem item in slotsEnemy)
             {
                 Inventory.instance.AddItem(item);
+                Item itemObj = item.GetItem();
+                if (itemObj is MiscItem)
+                {
+                    MiscItem miscItem = (MiscItem)itemObj;
+                    if (miscItem.isAmmo)
+                    {
+                        WeaponObject weapon = WeaponController.instance.GetWeaponByAmmo(itemObj.id);
+                        if (weapon != null)
+                        {
+                            weapon.UpdateAmmoSlot();
+                        }
+                    }
+                }
             }
             slotsEnemy.Clear();
             ReCreateList();

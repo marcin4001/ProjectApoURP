@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
     public void AddNonStackableItem(Item item)
     {
         SlotItem newSlot = new SlotItem(item, 1);
-        items.Add(newSlot);
+        items.Insert(0, newSlot);
     }
 
     public void AddItem(Item item, int amount = 1)
@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
             return;
         }
         SlotItem newSlot = new SlotItem(item, amount);
-        items.Add(newSlot);
+        items.Insert(0, newSlot);
     }
 
     public void AddItem(SlotItem item)
@@ -54,13 +54,13 @@ public class Inventory : MonoBehaviour
         if(item.GetItem() is WeaponItem)
         {
             SlotItem newItem = new SlotItem(item.GetItem(), 1);
-            items.Add(newItem);
+            items.Insert(0, newItem);
             return;
         }
         if (item.GetItem() is ArmorItem)
         {
             SlotItem newItem = new SlotItem(item.GetItem(), 1);
-            items.Add(newItem);
+            items.Insert(0, newItem);
             return;
         }
         bool itemExist = items.Exists(x => x.GetItem().id == item.GetItem().id);
@@ -72,7 +72,7 @@ public class Inventory : MonoBehaviour
             return;
         }
         SlotItem newItem2 = new SlotItem(item.GetItem(), item.GetAmount());
-        items.Add(newItem2);
+        items.Insert(0, newItem2);
     }
 
     public void RemoveItem(SlotItem slot) 
