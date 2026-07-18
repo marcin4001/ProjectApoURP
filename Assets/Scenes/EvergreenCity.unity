@@ -23395,9 +23395,9 @@ GameObject:
   - component: {fileID: 781574180}
   - component: {fileID: 781574185}
   - component: {fileID: 781574184}
-  - component: {fileID: 781574183}
   - component: {fileID: 781574182}
   - component: {fileID: 781574181}
+  - component: {fileID: 781574186}
   m_Layer: 7
   m_Name: WitoldNPC
   m_TagString: Untagged
@@ -23454,28 +23454,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: Witold
   isNPC: 1
---- !u!114 &781574183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781574179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 846195257}
-  nearPoint: {fileID: 1974852493}
-  timeToHide: 3
-  texts:
-  - How are you?
-  - My name is Witold
-  haveRifle: 0
-  rifleLayer: Rifle
-  textPos: {x: 0, y: 1.8, z: 0}
-  isAngry: 0
 --- !u!195 &781574184
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -23521,6 +23499,27 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.79, z: 0}
+--- !u!114 &781574186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781574179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 256bee1b00099e747b03a443b0892649, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 1974852493}
+  haveRifle: 0
+  rifleLayer: Rifle
+  hideExitBtn: 0
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1001 &782203384
 PrefabInstance:
   m_ObjectHideFlags: 0
