@@ -46,6 +46,43 @@ MonoBehaviour:
     objectID: 0
     amountObject: 0
     actions: []
+  - optionText: Can I help you with anything?
+    replyText: Yeah. I could really use some pre-war fertilizer. It would help me
+      grow much healthier and more productive trees. If you happen to find any, bring
+      it to me. I'll make it worth your while.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 46
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 21c389764ec63154baf646a213ed4c91, type: 2}
+  - optionText: Do you know where I could find some pre-war fertilizer?
+    replyText: I'm afraid not. Maybe in an old abandoned warehouse or on one of the
+      old farms somewhere in Arkansas. Keep looking. You might find at least one
+      bag.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 3
+    questID: 46
+    objectID: 258
+    amountObject: 1
+    actions: []
+  - optionText: I managed to find a whole bag of fertilizer.
+    replyText: No way. Let me see it. You're right, it's real pre-war fertilizer,
+      and it's a high quality brand too. I'll definitely use it the next time I plant
+      new trees. As a reward, I'll give you half of my salary. That's 240 dollars.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 46
+    objectID: 258
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 3b677eab59ce10f4a984e907bbbac319, type: 2}
+    - {fileID: 11400000, guid: 95243539d0f40344c9d13c103a28fdb1, type: 2}
+    - {fileID: 11400000, guid: 54b20f8fdacb4ae4fbb09bb6d614db3b, type: 2}
   - optionText: Take care
     replyText: 
     nextNode: 0
