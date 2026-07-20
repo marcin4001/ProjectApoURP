@@ -14,6 +14,7 @@ public class Trapdoor : MonoBehaviour, IUsableObj
     [SerializeField] private string doorID;
     [SerializeField] private bool needKey = false;
     [SerializeField] private AudioClip openClip;
+    [SerializeField] private DialogueTagTrigger dialogueTagTrigger;
     private AudioSource source;
     private bool isLock = true;
     private PlayerController playerController;
@@ -43,6 +44,8 @@ public class Trapdoor : MonoBehaviour, IUsableObj
 
     public void Use()
     {
+        if(dialogueTagTrigger != null)
+            dialogueTagTrigger.Show();
         if(isLock)
             return;
         anim.SetTrigger(openParam);
