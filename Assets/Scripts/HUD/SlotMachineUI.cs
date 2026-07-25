@@ -28,7 +28,7 @@ public class SlotMachineUI : MonoBehaviour
         int index2 = 0;
         int index3 = 0;
         int randomNumWin = Random.Range(0, 101);
-        if (randomNumWin <= 50)
+        if (randomNumWin <= 40)
         {
             int randomIndex = Random.Range(0, slotSprites.Length);
             index1 = randomIndex;
@@ -42,7 +42,8 @@ public class SlotMachineUI : MonoBehaviour
             index1 = Random.Range(0, slotSprites.Length);
             index2 = Random.Range(0, slotSprites.Length);
             index3 = Random.Range(0, slotSprites.Length);
-            index3 += 1;
+            if(index3 == index1)
+                index3 += 1;
             if (index3 >= slotSprites.Length)
                 index3 = 0;
             HUDController.instance.AddConsolelog("You lost 5 dollars.");
