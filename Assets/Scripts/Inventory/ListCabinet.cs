@@ -51,6 +51,23 @@ public class ListCabinet : MonoBehaviour
         else
         {
             Debug.Log("No on list");
+            PathCabinet pathCabinet = FindFirstObjectByType<PathCabinet>();
+            if (pathCabinet != null)
+            {
+                listItemLite = pathCabinet.GetList().Find(x => x.idCabinet == id);
+                if (listItemLite != null)
+                {
+                    foreach (SlotItemLite slot in listItemLite.slots)
+                    {
+                        Item item = ItemDB.instance.GetItemById(slot.idItem);
+                        if (item != null)
+                        {
+                            SlotItem slotItem = new SlotItem(item, slot.amount);
+                            newList.Add(slotItem);
+                        }
+                    }
+                }
+            }
         }
         return newList;
     }

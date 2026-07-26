@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
             if(isUsingItem)
             {
                 UseItem(hit.point, hit.collider.gameObject);
-                isUsingItem = false;
+                //isUsingItem = false;
                 return;
             }
             switch(actionState)
@@ -161,8 +161,14 @@ public class PlayerController : MonoBehaviour
 
     public void StopUsingItem()
     {
-        isUsingItem = false;
+        EndUsingItem();
         CursorController.instance.SetDeafultCursor();
+    }
+
+    public void EndUsingItem()
+    {
+        isUsingItem = false;
+        multishot = false;
     }
 
     public void SetMultishot(bool value)
@@ -359,12 +365,12 @@ public class PlayerController : MonoBehaviour
             EnemyController enemy = _target.GetComponent<EnemyController>();
             if (enemy == null)
             {
-                multishot = false;
+                //multishot = false;
                 return;
             }
             if (enemy.IsDeath()) 
             {
-                multishot = false;
+                //multishot = false;
                 return; 
             }
             float distanceToPoint = Vector3.Distance(center.position, point);
@@ -403,7 +409,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (weapon.OutOfAmmoMultishot())
                     {
-                        multishot = false;
+                        EndUsingItem();
                         return;
                     }
                     if(GameParam.instance.inCombat)
@@ -418,7 +424,10 @@ public class PlayerController : MonoBehaviour
                     return;
                 }
                 if (weapon.OutOfAmmo())
+                {
+                    EndUsingItem();
                     return;
+                }
                 if (GameParam.instance.inCombat)
                 {
                     if (!CombatController.instance.PlayerHaveAp(2))
@@ -447,6 +456,7 @@ public class PlayerController : MonoBehaviour
         }
         if(item is MiscItem)
         {
+            EndUsingItem();
             IUsableObj usable = _target.GetComponent<IUsableObj>();
             if (usable == null)
             {
@@ -523,7 +533,7 @@ public class PlayerController : MonoBehaviour
         weapon.PlayOneMuzzle();
         weapon.RemoveAmmo(3);
         enemy.GetDamage(weapon.GetDamage(), false, false, true);
-        multishot = false;
+        //multishot = false;
         if (GameParam.instance.inCombat)
         {
             StartCoroutine(AfterUseWeaponInCombat(3));
@@ -649,7 +659,7 @@ public class PlayerController : MonoBehaviour
             return;
         if(isUsingItem)
         {
-            isUsingItem = false;
+            EndUsingItem();
             return;
         }
         if (HUDController.instance.PointerOnHUD())
