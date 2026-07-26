@@ -941,6 +941,7 @@ MonoBehaviour:
   profile: {fileID: 0}
   indexNode: 0
   init: 0
+  hideExitBtn: 0
 --- !u!4 &95874537
 Transform:
   m_ObjectHideFlags: 0
@@ -4207,6 +4208,8 @@ MonoBehaviour:
   - {fileID: 890372273}
   - {fileID: 1378720757}
   player: {fileID: 1406333844}
+  noTrigger: 0
+  npc: {fileID: 0}
 --- !u!4 &839478846
 Transform:
   m_ObjectHideFlags: 0
@@ -4894,6 +4897,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 839478845}
     - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
+      propertyPath: damage
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
       propertyPath: weapon
       value: 
       objectReference: {fileID: 2639675178374330664}
@@ -4904,6 +4911,10 @@ PrefabInstance:
     - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
       propertyPath: weaponType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
+      propertyPath: healthPoint
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
       propertyPath: slots.Array.size
@@ -7404,6 +7415,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 839478845}
     - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
+      propertyPath: damage
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1985575881}
@@ -7414,6 +7429,10 @@ PrefabInstance:
     - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
       propertyPath: weaponType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
+      propertyPath: healthPoint
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3619067849328822757, guid: 44207e18d11c52c47bc6a1c703221e90, type: 3}
       propertyPath: slots.Array.size
