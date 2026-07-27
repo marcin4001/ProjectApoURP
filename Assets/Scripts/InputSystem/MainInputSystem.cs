@@ -244,6 +244,15 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkipCombat"",
+                    ""type"": ""Button"",
+                    ""id"": ""5bd76728-cadc-4c08-a3e1-51a025153d96"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -554,6 +563,17 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""TakeAll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4660d9c-2d4c-44db-bb1c-20b7f1c90381"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkipCombat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -579,6 +599,7 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_QuestPanel = m_Player.FindAction("QuestPanel", throwIfNotFound: true);
         m_Player_TakeAll = m_Player.FindAction("TakeAll", throwIfNotFound: true);
+        m_Player_SkipCombat = m_Player.FindAction("SkipCombat", throwIfNotFound: true);
     }
 
     ~@MainInputSystem()
@@ -676,6 +697,7 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_QuestPanel;
     private readonly InputAction m_Player_TakeAll;
+    private readonly InputAction m_Player_SkipCombat;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -756,6 +778,10 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @TakeAll => m_Wrapper.m_Player_TakeAll;
         /// <summary>
+        /// Provides access to the underlying input action "Player/SkipCombat".
+        /// </summary>
+        public InputAction @SkipCombat => m_Wrapper.m_Player_SkipCombat;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -832,6 +858,9 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
             @TakeAll.started += instance.OnTakeAll;
             @TakeAll.performed += instance.OnTakeAll;
             @TakeAll.canceled += instance.OnTakeAll;
+            @SkipCombat.started += instance.OnSkipCombat;
+            @SkipCombat.performed += instance.OnSkipCombat;
+            @SkipCombat.canceled += instance.OnSkipCombat;
         }
 
         /// <summary>
@@ -894,6 +923,9 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
             @TakeAll.started -= instance.OnTakeAll;
             @TakeAll.performed -= instance.OnTakeAll;
             @TakeAll.canceled -= instance.OnTakeAll;
+            @SkipCombat.started -= instance.OnSkipCombat;
+            @SkipCombat.performed -= instance.OnSkipCombat;
+            @SkipCombat.canceled -= instance.OnSkipCombat;
         }
 
         /// <summary>
@@ -1053,5 +1085,12 @@ public partial class @MainInputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTakeAll(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SkipCombat" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSkipCombat(InputAction.CallbackContext context);
     }
 }

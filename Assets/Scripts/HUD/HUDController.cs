@@ -65,6 +65,7 @@ public class HUDController : MonoBehaviour
         inputSystem.Player.Slot1.performed += Slot1Click;
         inputSystem.Player.Slot2.performed += Slot2Click;
         inputSystem.Player.Slot3.performed += Slot3Click;
+        inputSystem.Player.SkipCombat.performed += SkipCombat;
         inputSystem.Enable();
     }
 
@@ -73,6 +74,7 @@ public class HUDController : MonoBehaviour
         inputSystem.Player.Slot1.performed += Slot1Click;
         inputSystem.Player.Slot2.performed += Slot2Click;
         inputSystem.Player.Slot3.performed += Slot3Click;
+        inputSystem.Player.SkipCombat.performed += SkipCombat;
         inputSystem.Enable();
     }
 
@@ -81,6 +83,7 @@ public class HUDController : MonoBehaviour
         inputSystem.Player.Slot1.performed -= Slot1Click;
         inputSystem.Player.Slot2.performed -= Slot2Click;
         inputSystem.Player.Slot3.performed -= Slot3Click;
+        inputSystem.Player.SkipCombat.performed -= SkipCombat;
         inputSystem.Disable();
     }
 
@@ -629,11 +632,16 @@ public class HUDController : MonoBehaviour
         }
     }
 
+    public void SkipCombat(InputAction.CallbackContext ctx)
+    {
+        OnClickSkip();
+    }
+
     public void OnClickSkip()
     {
         if (GameParam.instance.inCombat)
         {
-            player.StopUsingItem();
+            //player.StopUsingItem();
             CombatController.instance.SkipTurnPlayer();
         }
     }
