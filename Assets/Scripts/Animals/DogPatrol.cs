@@ -49,6 +49,15 @@ public class DogPatrol : MonoBehaviour
                 counter += Time.deltaTime;
                 if(counter >= patrolTime) break;
                 distance = Vector3.Distance(transform.position, target);
+
+                if (agent.velocity.magnitude > 0.05f)
+                {
+                    anim.SetWalk(true);
+                }
+                else
+                {
+                    anim.SetWalk(false);
+                }
             }
             agent.isStopped = true;
             counter = 0;
