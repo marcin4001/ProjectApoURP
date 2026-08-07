@@ -2409,11 +2409,11 @@ GameObject:
   - component: {fileID: 227327498}
   - component: {fileID: 227327497}
   - component: {fileID: 227327496}
-  - component: {fileID: 227327495}
   - component: {fileID: 227327494}
   - component: {fileID: 227327493}
+  - component: {fileID: 227327499}
   m_Layer: 7
-  m_Name: Soldier2NPC (1)
+  m_Name: LoganNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2447,33 +2447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameObject: Pvt. Riley
+  nameObject: Pvt. Logan
   isNPC: 1
---- !u!114 &227327495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 227327492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 1212218520}
-  nearPoint: {fileID: 1753558955}
-  timeToHide: 3
-  texts:
-  - Keeping watch.
-  - The heat is killing me.
-  - Keeping watch.
-  - We should keep moving.
-  - "I\u2019m getting tired of this sand."
-  haveRifle: 0
-  rifleLayer: Rifle
-  textPos: {x: 0, y: 1.8, z: 0}
-  isAngry: 0
 --- !u!195 &227327496
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2537,6 +2512,27 @@ Transform:
   - {fileID: 1753558955}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &227327499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227327492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 0e2372fa81f6cf84aa1b7289831b5ffd, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 1753558955}
+  haveRifle: 0
+  rifleLayer: Rifle
+  hideExitBtn: 0
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1 &228366590
 GameObject:
   m_ObjectHideFlags: 0
