@@ -13,6 +13,21 @@ MonoBehaviour:
   m_Name: LoganNode
   m_EditorClassIdentifier: 
   options:
+  - optionText: I found Daniel's body at the radioactive waste dump. Here's his dog
+      tag.
+    replyText: Oh no. That's exactly what I was afraid of. I'm really going to miss
+      him. You must have been heavily irradiated searching for him. Here, take these
+      two bottles of Rad Killer from our supplies. They'll definitely help.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 48
+    objectID: 259
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: ad7a9691a6559e34aa50f00355d0ad39, type: 2}
+    - {fileID: 11400000, guid: 88c863aae59a12442b3cb99ecb3b4205, type: 2}
+    - {fileID: 11400000, guid: 8ed11e3ca6244984c834922cc5b25342, type: 2}
   - optionText: I'm looking for General Rowan.
     replyText: General Rowan is standing by the map near the last tent at the end
       of the camp. You'll recognize him for sure.
