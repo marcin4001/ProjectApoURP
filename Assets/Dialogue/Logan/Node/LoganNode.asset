@@ -35,6 +35,30 @@ MonoBehaviour:
     objectID: 0
     amountObject: 0
     actions: []
+  - optionText: You seem sad. Did something happen?
+    replyText: My friend Daniel set out a week ago to search for pre-war technology
+      on the western edge of Arkansas. I'm worried something happened to him. Unfortunately,
+      I can't go looking for him because I have to guard the supplies. If you find
+      him, bring him back here.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 48
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: cb670cbb06db2664495103dd2cbda9ab, type: 2}
+  - optionText: Do you know where Daniel might have gone?
+    replyText: He once mentioned an old radioactive waste dump. I hope he didn't
+      go there. It's a very dangerous place. It's located west of Evergreen City,
+      near the state border.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 3
+    questID: 48
+    objectID: 259
+    amountObject: 1
+    actions: []
   - optionText: Stay safe, soldier.
     replyText: 
     nextNode: 0
