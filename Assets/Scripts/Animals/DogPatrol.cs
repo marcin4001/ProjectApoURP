@@ -11,10 +11,12 @@ public class DogPatrol : MonoBehaviour
     [SerializeField] private float counter = 0f;
     [SerializeField] private float patrolTime = 5f;
     private NavMeshAgent agent;
+    private AudioSource source;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        source = GetComponent<AudioSource>();
         StartCoroutine(Patrol());
     }
 
@@ -62,6 +64,7 @@ public class DogPatrol : MonoBehaviour
             agent.isStopped = true;
             counter = 0;
             anim.SetWalk(false);
+            source.Play();
             yield return new WaitForSeconds(waitingTime);
             agent.isStopped = false;
             anim.SetWalk(true);
