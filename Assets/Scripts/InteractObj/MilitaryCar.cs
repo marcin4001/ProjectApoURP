@@ -14,6 +14,7 @@ public class MilitaryCar : MonoBehaviour, IUsableObj
     [SerializeField] private string nextScene;
     [SerializeField] private Vector2 posOnMap;
     [SerializeField] private ActionDialogue actionDialogue;
+    [SerializeField] private ActionDialogue actionCompleteQuest;
     private AudioSource source;
     private PlayerController playerController;
 
@@ -84,6 +85,7 @@ public class MilitaryCar : MonoBehaviour, IUsableObj
 
     private IEnumerator StartEngine()
     {
+        actionCompleteQuest?.Execute();
         CameraMovement.instance.SetBlock(true);
         FadeController.instance.SetFadeIn(true);
         playerController.SetBlock(true);

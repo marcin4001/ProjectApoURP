@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class QuestDestroyNPCGroup : MonoBehaviour
@@ -8,6 +9,7 @@ public class QuestDestroyNPCGroup : MonoBehaviour
     [SerializeField] private GameObject[] items;
     [SerializeField] private GameObject[] itemsToShow;
     [SerializeField] private GameObject carToDestroy;
+    [SerializeField] private ActionDialogue actionQuest;
     void Start()
     {
         if(!QuestController.instance.HaveQuest(questID))
@@ -30,6 +32,14 @@ public class QuestDestroyNPCGroup : MonoBehaviour
         {
             Destroy(carToDestroy);
         }
+        if (actionQuest != null)
+            StartCoroutine(AddQuest());
+    }
+
+    private IEnumerator AddQuest()
+    {
+        yield return new WaitForSeconds(0.1f);
+        actionQuest.Execute();
     }
 
 }
