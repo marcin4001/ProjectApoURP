@@ -31,7 +31,7 @@ public class AmericanRoulette : MonoBehaviour
     [SerializeField] private int money = 0;
     [SerializeField] private List<string> colorList = new List<string>();
     private int idMoney = 202;
-
+    private RouletteTable rouletteTable;
     void Awake()
     {
         instance = this;
@@ -48,6 +48,7 @@ public class AmericanRoulette : MonoBehaviour
                 colorList.Add(i % 2 == 0 ? "red" : "black");
         }
         colorList.Add("green");
+        rouletteTable = FindAnyObjectByType<RouletteTable>();
     }
 
     public void SetOption(BetType _type, ColorBet _colorBet, EvenOddBet _evenOddBet, LowHighBet _lowHighBet)
@@ -75,6 +76,8 @@ public class AmericanRoulette : MonoBehaviour
             SpinEvenOddBet();
         else if(type == BetType.lowHigh)
             SpinLowHighBet();
+        if (rouletteTable != null)
+            rouletteTable.Rotate();
     }
 
     public void SpinColorBet()
