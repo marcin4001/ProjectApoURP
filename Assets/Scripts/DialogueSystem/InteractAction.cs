@@ -18,6 +18,8 @@ public class InteractAction : ActionDialogue
                 ResetTrade(); break;
             case InteractActionType.Combat:
                 StartCombat(); break;
+            case InteractActionType.LoadScene:
+                LoadScene(); break;
             default:
                 break;
         }
@@ -66,11 +68,21 @@ public class InteractAction : ActionDialogue
             group.StartCombat();
         }
     }
+
+    public void LoadScene()
+    {
+        LoadSceneDialogue loadSceneDialogue = FindFirstObjectByType<LoadSceneDialogue>();
+        if(loadSceneDialogue != null)
+        {
+            DialogueUI.instance.Hide();
+            loadSceneDialogue.Load();
+        }
+    }
 }
 
 public enum InteractActionType
 {
-    OpenGrate, SwitchOnTV, ActiveStove, ResetTrade, Combat
+    OpenGrate, SwitchOnTV, ActiveStove, ResetTrade, Combat, LoadScene
 }
 
 
