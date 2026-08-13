@@ -5,8 +5,11 @@ public class Stove : MonoBehaviour, IUsableObj
 {
     [SerializeField] private Transform nearPoint;
     [SerializeField] private Item rawMeatItem;
+    [SerializeField] private Item rawFishItem;
     [SerializeField] private Item porkChop;
+    [SerializeField] private Item friedFish;
     [SerializeField] private GameObject pan;
+    [SerializeField] private GameObject panFish;
     [SerializeField] private float cookingTime = 2f;
     [SerializeField] private bool withoutbattery = false;
     [SerializeField] private GameObject batteryObj;
@@ -18,6 +21,7 @@ public class Stove : MonoBehaviour, IUsableObj
         player = FindFirstObjectByType<PlayerController>();
         source = GetComponent<AudioSource>();
         pan.SetActive(false);
+        panFish.SetActive(false);
         if (withoutbattery && QuestController.instance.Complete(questID))
         {
             withoutbattery = false;
@@ -53,8 +57,13 @@ public class Stove : MonoBehaviour, IUsableObj
         }
         if (!Inventory.instance.PlayerHaveItem(rawMeatItem.id))
         {
+            if(Inventory.instance.PlayerHaveItem(rawFishItem.id))
+            {
+                StartCoroutine(CookingFish());
+                return;
+            }
             HUDController.instance.AddConsolelog("You don't have any raw");
-            HUDController.instance.AddConsolelog("meat.");
+            HUDController.instance.AddConsolelog("meat or fish.");
             return;
         }
         StartCoroutine(Cooking());
@@ -79,6 +88,26 @@ public class Stove : MonoBehaviour, IUsableObj
         if(source != null)
             source.Stop();
         SteamAchievements.Add("NEW_ACHIEVEMENT_1_2");
+    }
+
+    private IEnumerator CookingFish()
+    {
+        yield return new WaitForEndOfFrame();
+        panFish.SetActive(true);
+        CameraMovement.instance.SetBlock(true);
+        player.SetBlock(true);
+        SlotItem fishSlot = new SlotItem(rawFishItem, 1);
+        Inventory.instance.RemoveItem(fishSlot);
+        if (source != null)
+            source.Play();
+        yield return new WaitForSeconds(cookingTime);
+        panFish.SetActive(false);
+        SlotItem friedFishSlot = new SlotItem(friedFish, 1);
+        Inventory.instance.AddItem(friedFishSlot);
+        CameraMovement.instance.SetBlock(false);
+        player.SetBlock(false);
+        if (source != null)
+            source.Stop();
     }
 
     public void InsertBattery()
