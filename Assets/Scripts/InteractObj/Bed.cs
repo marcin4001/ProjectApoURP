@@ -61,6 +61,8 @@ public class Bed : MonoBehaviour, IUsableObj
         TimeGame.instance.AddHours(6);
         FadeController.instance.SetFadeIn(false);
         PlayerStats.instance.AddHalfHP();
+        if(PlayerStats.instance.GetRadLevel() > 0)
+            PlayerStats.instance.RemoveOneRadLevel();
         yield return new WaitForSeconds(1.5f);
         CameraMovement.instance.SetBlock(false);
         player.SetBlock(false);
@@ -77,6 +79,8 @@ public class Bed : MonoBehaviour, IUsableObj
         TimeGame.instance.AddHours(12);
         FadeController.instance.SetFadeIn(false);
         PlayerStats.instance.AddHealthPoint(200);
+        if (PlayerStats.instance.GetRadLevel() > 0)
+            PlayerStats.instance.RemoveOneRadLevel();
         yield return new WaitForSeconds(1.5f);
         CameraMovement.instance.SetBlock(false);
         player.SetBlock(false);
