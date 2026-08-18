@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: FelixNode
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: How did you learn to repair weapons?
+    replyText: My father taught me when I was still a teenager. He was a gunsmith
+      in the U.S. Army before the nuclear war. After he died, I joined the newly
+      formed army. That's where I really learned the gunsmith's trade.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: What kind of weapons do you work on?
+    replyText: I mainly work on shotguns and machine guns. I rarely work on simple
+      handguns.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: Is there anything I can do to help you?
+    replyText: Yes. If you have any spare steel cans from food or water, you can
+      bring them to me. I'll take as many as you can find. Steel is hard to come
+      by in this region, and I need it to repair weapons. I'll pay you one dollar
+      more per can than you'd get elsewhere. It'll be worth it.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 50
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 13600ccee56ca384dbfc9760c1272411, type: 2}
+  - optionText: I brought you one can.
+    replyText: Excellent. Here's your money. If you find any more cans, bring them
+      to me.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 50
+    objectID: 249
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: e83b813900d82464bbd520de01466589, type: 2}
+    - {fileID: 11400000, guid: e431832f3a6bf544ab061b3983125aa1, type: 2}
+  - optionText: I brought you two cans.
+    replyText: Excellent. Here's your money. If you find any more cans, bring them
+      to me.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 50
+    objectID: 249
+    amountObject: 2
+    actions:
+    - {fileID: 11400000, guid: 6a956d49a65cc054e88bfca6c5530eab, type: 2}
+    - {fileID: 11400000, guid: 92ce8bd47fcba2d438c782632533a9c6, type: 2}
+  - optionText: I brought you five cans.
+    replyText: Excellent. Here's your money. If you find any more cans, bring them
+      to me.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 50
+    objectID: 249
+    amountObject: 5
+    actions:
+    - {fileID: 11400000, guid: 2946967265a95d34c8379ae07e4a801f, type: 2}
+    - {fileID: 11400000, guid: 89e42071b26721244805803539045f11, type: 2}
+  - optionText: Goodbye, Felix.
+    replyText: 
+    nextNode: 0
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []

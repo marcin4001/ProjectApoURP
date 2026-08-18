@@ -105,7 +105,7 @@ public class GameParam : MonoBehaviour
     public void SetStartParam()
     {
         startGame = true;
-        currentTime = 6;
+        currentTime = 8;
         day = 1;
         SetHealth();
         radLevel = 0;

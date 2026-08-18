@@ -14,6 +14,7 @@ public class Cabinet : MonoBehaviour, IUsableObj
     [SerializeField] private string cabinetID;
     [SerializeField] private AudioClip openClip;
     [SerializeField] private AudioClip closeClip;
+    [SerializeField] private float timeOpen = 0.5f;
     private AudioSource source;
     private int keyID = 243;
     private Animator animator;
@@ -54,7 +55,7 @@ public class Cabinet : MonoBehaviour, IUsableObj
                 source.clip = openClip;
                 source.Play();
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(timeOpen);
         }
         yield return null;
         CabinetUI.instance.Show(this);

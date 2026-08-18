@@ -12409,6 +12409,8 @@ MonoBehaviour:
     amount: 100
   - item: {fileID: 11400000, guid: 7514f3baa309a024994edc86d1be8e76, type: 2}
     amount: 1
+  - item: {fileID: 11400000, guid: cd2f2f33887386d448981bbe73c5d832, type: 2}
+    amount: 8
   slots:
   - item: {fileID: 0}
     amount: 0
@@ -17422,11 +17424,11 @@ GameObject:
   - component: {fileID: 1598321809}
   - component: {fileID: 1598321808}
   - component: {fileID: 1598321807}
-  - component: {fileID: 1598321806}
   - component: {fileID: 1598321805}
   - component: {fileID: 1598321804}
+  - component: {fileID: 1598321810}
   m_Layer: 7
-  m_Name: Soldier2NPC
+  m_Name: FelixNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17462,31 +17464,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: Pvt. Felix
   isNPC: 1
---- !u!114 &1598321806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598321803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 687050105}
-  nearPoint: {fileID: 273935654}
-  timeToHide: 3
-  texts:
-  - Keeping watch.
-  - The heat is killing me.
-  - Keeping watch.
-  - We should keep moving.
-  - "I\u2019m getting tired of this sand."
-  haveRifle: 0
-  rifleLayer: Rifle
-  textPos: {x: 0, y: 1.8, z: 0}
-  isAngry: 0
 --- !u!195 &1598321807
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -17550,6 +17527,27 @@ Transform:
   - {fileID: 273935654}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &1598321810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598321803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: a3b6827ee4307744badc560e97e41ea6, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 273935654}
+  haveRifle: 0
+  rifleLayer: Rifle
+  hideExitBtn: 0
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!4 &1603790063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 7b5457882e4910a4493229e69c047fff, type: 3}
