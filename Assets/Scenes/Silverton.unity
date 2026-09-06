@@ -31021,6 +31021,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: motel sign
   isNPC: 0
+--- !u!1 &1291119706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6818244833329294827, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+  m_PrefabInstance: {fileID: 9182565613197460518}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1291119707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291119706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: stop sign
+  isNPC: 0
 --- !u!1001 &1293402701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70263,6 +70282,66 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8926eda3ef399342a7236bc4e2be177, type: 3}
+--- !u!1001 &9182565613197460518
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2693792891978124770, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693792891978124770, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.361
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693792891978124770, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693792891978124770, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.48319232
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693792891978124770, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693792891978124770, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8755142
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693792891978124770, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693792891978124770, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693792891978124770, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -122.212
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693792891978124770, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818244833329294827, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      propertyPath: m_Name
+      value: Stop_SignPole
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6818244833329294827, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1291119707}
+  m_SourcePrefab: {fileID: 100100000, guid: a44653814ccb9124dab80cdd0795bbcc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -70379,3 +70458,4 @@ SceneRoots:
   - {fileID: 1596156920}
   - {fileID: 1004524365}
   - {fileID: 1463631508}
+  - {fileID: 9182565613197460518}
