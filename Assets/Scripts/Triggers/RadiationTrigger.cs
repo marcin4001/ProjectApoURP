@@ -43,6 +43,8 @@ public class RadiationTrigger : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(timeAddRadiation);
+            if(DrugsFX.instance.GetActive())
+                continue;
             if(PlayerStats.instance.RadLevelIsFull() && RadDeath.instance != null)
             {
                 RadDeath.instance.SetDeath();

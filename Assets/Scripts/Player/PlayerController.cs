@@ -224,8 +224,7 @@ public class PlayerController : MonoBehaviour
         }
         if(food.isDrugs)
         {
-            DrugsFX drugsFX = GetComponent<DrugsFX>();
-            drugsFX?.StartEffect();
+            DrugsFX.instance.StartEffect();
         }
         if (GameParam.instance.inCombat)
         {

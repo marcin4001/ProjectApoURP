@@ -5,10 +5,16 @@ using UnityEngine.Rendering.Universal;
 
 public class DrugsFX : MonoBehaviour
 {
+    public static DrugsFX instance;
     [SerializeField] private float duration = 20f;
     [SerializeField] private Volume volume;
     [SerializeField] private bool active = false;
     private ColorAdjustments colorAdjustments;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         volume = FindFirstObjectByType<Volume>();
@@ -20,6 +26,11 @@ public class DrugsFX : MonoBehaviour
         if(active)
             return;
         StartCoroutine(Effect());
+    }
+
+    public bool GetActive()
+    {
+        return active;
     }
 
     public IEnumerator Effect()
