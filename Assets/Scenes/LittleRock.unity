@@ -2124,9 +2124,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 587547122}
     m_Modifications:
+    - target: {fileID: 1484837322189886, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484837322189886, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 1493459287126698, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
       propertyPath: m_Name
       value: Desert_Modular_Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953245192232216, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953245192232216, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 4239234939754506, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
       propertyPath: m_LocalScale.x
@@ -2191,7 +2207,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1953245192232216, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1668289217}
+    - targetCorrespondingSourceObject: {fileID: 1484837322189886, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1588293701}
   m_SourcePrefab: {fileID: 100100000, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
 --- !u!4 &100162010 stripped
 Transform:
@@ -18994,6 +19016,8 @@ MonoBehaviour:
   items:
   - item: {fileID: 11400000, guid: 2aab4625236ec7d42adeaa8c17bc5b5f, type: 2}
     amount: 1
+  - item: {fileID: 11400000, guid: c4753aeeb16298f48a278837c3c587c8, type: 2}
+    amount: 1
   slots:
   - item: {fileID: 0}
     amount: 0
@@ -25870,6 +25894,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfb9d4eb8bf2ad34d90263b74f78624a, type: 3}
+--- !u!1 &1588293696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1484837322189886, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+  m_PrefabInstance: {fileID: 100162009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1588293701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588293696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: roof
+  isNPC: 0
 --- !u!1001 &1591429361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26875,6 +26918,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09dc91f8f92619d4aaa9e43cd78a2be9, type: 3}
+--- !u!1 &1668289212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1953245192232216, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+  m_PrefabInstance: {fileID: 100162009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1668289217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668289212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: roof
+  isNPC: 0
 --- !u!1001 &1668909879
 PrefabInstance:
   m_ObjectHideFlags: 0

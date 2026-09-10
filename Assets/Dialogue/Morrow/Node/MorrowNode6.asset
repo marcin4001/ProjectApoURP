@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: MorrowNode6
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: There were giant rats in FoodMart. I killed them already.
+    replyText: "Good job. I was afraid it was something more serious, but since it
+      was just rats, it\u2019s great you got rid of them. The whole village can sleep
+      easier. Here\u2019s your reward \u2013 250 dollars, you\u2019ve earned it"
+    nextNode: 0
+    exitOption: 0
+    conditionType: 11
+    questID: 28
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: e49e055ddcceffb4dbe19501d5cc4212, type: 2}
+    - {fileID: 11400000, guid: 8ee7aecc44d700449ab9d7ed59f3eeb4, type: 2}
+  - optionText: I found a man living in the basement of the FoodMart. He's making
+      drug-laced candy.
+    replyText: Hmm... that's interesting. We'll deal with this problem later. Here's
+      $250. You did a good job.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 11
+    questID: 28
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: e49e055ddcceffb4dbe19501d5cc4212, type: 2}
+    - {fileID: 11400000, guid: 8ee7aecc44d700449ab9d7ed59f3eeb4, type: 2}
+    - {fileID: 11400000, guid: f50ce650e86447f4a894ab5ebf643a65, type: 2}
