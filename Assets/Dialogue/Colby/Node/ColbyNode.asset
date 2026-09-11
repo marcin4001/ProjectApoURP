@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea01f052d33de843ba353d44b00a9ac, type: 3}
+  m_Name: ColbyNode
+  m_EditorClassIdentifier: 
+  options:
+  - optionText: Do you ever get tired of herding cattle?
+    replyText: Yeah, sometimes. I'd like to have an adventure someday, just like
+      my father did. I even wanted to join the Black Eagles, but my father wouldn't
+      let me. He says I can't risk my life because one day I'll be the Elder of Clearwater.
+      That's why I herd cattle. It's a safe job.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 751a9a9a45eb2ca4f84240c62067bbbd, type: 2}
+  - optionText: Black Eagles? What kind of gang are they?
+    replyText: You've never heard of them? The Black Eagles are awesome! Their leader
+      is Baxton himself. They protect the President in Evergreen City and take part
+      in dangerous convoys. And they wear these really cool black jackets. They're
+      cool.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 5
+    questID: 1015
+    objectID: 0
+    amountObject: 0
+    actions: []
+  - optionText: See you, Colby.
+    replyText: 
+    nextNode: 0
+    exitOption: 1
+    conditionType: 0
+    questID: 0
+    objectID: 0
+    amountObject: 0
+    actions: []

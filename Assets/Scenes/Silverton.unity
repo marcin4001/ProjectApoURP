@@ -17822,6 +17822,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 407199777}
   m_SourcePrefab: {fileID: 100100000, guid: 079cb6583bf5da64ea41c54be31a6eb1, type: 3}
+--- !u!1 &767699176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 767699177}
+  m_Layer: 0
+  m_Name: NPCEmpty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &767699177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767699176}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &770998010
 GameObject:
   m_ObjectHideFlags: 0
@@ -44398,6 +44429,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1120606433048467214, guid: 99ad44805c5c14045a2d243d1f45d196, type: 3}
   m_PrefabInstance: {fileID: 1028257057}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1826832622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1826832624}
+  - component: {fileID: 1826832623}
+  m_Layer: 0
+  m_Name: DeathNPCTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1826832623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826832622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fb0bd52e1e71a4589d7ae5dccdec09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questID: 1014
+  npc: {fileID: 777563940}
+  npcCorpse: {fileID: 767699176}
+--- !u!4 &1826832624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826832622}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1829371839 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4679ad32682f86647b346eff3d778d1b, type: 3}
@@ -70975,3 +71053,5 @@ SceneRoots:
   - {fileID: 1463631508}
   - {fileID: 9182565613197460518}
   - {fileID: 684967625}
+  - {fileID: 1826832624}
+  - {fileID: 767699177}

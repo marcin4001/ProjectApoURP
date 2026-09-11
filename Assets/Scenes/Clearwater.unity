@@ -7552,7 +7552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &379626238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26248,9 +26248,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1933200451}
     m_Modifications:
+    - target: {fileID: 1484837322189886, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1493459287126698, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
       propertyPath: m_Name
       value: Desert_Modular_Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953245192232216, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4239234939754506, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
       propertyPath: m_LocalScale.x
@@ -26311,8 +26319,52 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1953245192232216, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1343239022}
+    - targetCorrespondingSourceObject: {fileID: 1484837322189886, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1343239021}
   m_SourcePrefab: {fileID: 100100000, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+--- !u!1 &1343239019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1484837322189886, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+  m_PrefabInstance: {fileID: 1343239018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1343239020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1953245192232216, guid: 49d7f5d17c2e5f249bd2e1083313226f, type: 3}
+  m_PrefabInstance: {fileID: 1343239018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1343239021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343239019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: roof
+  isNPC: 0
+--- !u!114 &1343239022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343239020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: roof
+  isNPC: 0
 --- !u!4 &1347865822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4416666560069214, guid: 0b4e64b68be2d404f8d503ed5ca46526, type: 3}
@@ -41488,9 +41540,9 @@ GameObject:
   - component: {fileID: 2083106481}
   - component: {fileID: 2083106480}
   - component: {fileID: 2083106479}
-  - component: {fileID: 2083106478}
   - component: {fileID: 2083106482}
   - component: {fileID: 2083106483}
+  - component: {fileID: 2083106484}
   m_Layer: 7
   m_Name: Colby
   m_TagString: Untagged
@@ -41498,30 +41550,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2083106478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083106477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1eac25c67704a479701a41ac00a819, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueText: {fileID: 379626238}
-  nearPoint: {fileID: 1933711246}
-  timeToHide: 3
-  texts:
-  - Welcome to Clearwater.
-  - I'm Colby.
-  - You need help or what?
-  - "I\u2019m Barnabas\u2019s son."
-  haveRifle: 0
-  rifleLayer: Rifle
-  textPos: {x: 0, y: 1.8, z: 0}
-  isAngry: 0
 --- !u!195 &2083106479
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -41597,7 +41625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameObject: Florence
+  nameObject: Colby
   isNPC: 1
 --- !u!208 &2083106483
 NavMeshObstacle:
@@ -41615,6 +41643,27 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.79, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &2083106484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083106477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf65699c2139a2844831700bcac372b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 98d71708f61a3874bbcbc0d3a05a9a06, type: 2}
+  indexNode: 0
+  nearPoint: {fileID: 1933711246}
+  haveRifle: 0
+  rifleLayer: Rifle
+  hideExitBtn: 0
+  seller: 0
+  idOffer: 0
+  tradeSlots: []
 --- !u!1001 &2083782388
 PrefabInstance:
   m_ObjectHideFlags: 0
