@@ -20,6 +20,8 @@ public class InteractAction : ActionDialogue
                 StartCombat(); break;
             case InteractActionType.LoadScene:
                 LoadScene(); break;
+            case InteractActionType.ShowHat: 
+                ShowHat(); break;
             default:
                 break;
         }
@@ -78,11 +80,20 @@ public class InteractAction : ActionDialogue
             loadSceneDialogue.Load();
         }
     }
+
+    public void ShowHat()
+    {
+        NPCHatController nPCHatController = FindFirstObjectByType<NPCHatController>();
+        if(nPCHatController != null)
+        {
+            nPCHatController.ShowHat();
+        }
+    }
 }
 
 public enum InteractActionType
 {
-    OpenGrate, SwitchOnTV, ActiveStove, ResetTrade, Combat, LoadScene
+    OpenGrate, SwitchOnTV, ActiveStove, ResetTrade, Combat, LoadScene, ShowHat
 }
 
 

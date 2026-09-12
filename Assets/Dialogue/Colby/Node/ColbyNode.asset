@@ -13,6 +13,34 @@ MonoBehaviour:
   m_Name: ColbyNode
   m_EditorClassIdentifier: 
   options:
+  - optionText: Do you like this hat?
+    replyText: Oh yeah, very stylish! Unfortunately, I don't have much money to pay
+      you, so take my machete instead. It's a very good weapon on the wasteland.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 4
+    questID: 51
+    objectID: 305
+    amountObject: 1
+    actions:
+    - {fileID: 11400000, guid: 39762627a51bdd44eb547b7d1537863d, type: 2}
+    - {fileID: 11400000, guid: df94fffa155b11941a0bb5a22dca613b, type: 2}
+    - {fileID: 11400000, guid: 7a59e6ee87dc91943bf5c0c052515d5b, type: 2}
+    - {fileID: 11400000, guid: 8b2cabc82805f1744b57d39e1e9ad06b, type: 2}
+  - optionText: Don't take this the wrong way, but you don't really look like someone
+      who herds cattle.
+    replyText: Everyone tells me that. I guess it's because I don't have a cowboy
+      hat. I've been looking for one for a long time, but they're hard to find in
+      the wasteland. The only person I know who has one is Franklin. If you find
+      one, bring it to me. I'll reward you well.
+    nextNode: 0
+    exitOption: 0
+    conditionType: 1
+    questID: 51
+    objectID: 0
+    amountObject: 0
+    actions:
+    - {fileID: 11400000, guid: 0a80ffaa33531b843860168e1d38fc1e, type: 2}
   - optionText: Do you ever get tired of herding cattle?
     replyText: Yeah, sometimes. I'd like to have an adventure someday, just like
       my father did. I even wanted to join the Black Eagles, but my father wouldn't
