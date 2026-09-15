@@ -5002,6 +5002,7 @@ GameObject:
   - component: {fileID: 683776264}
   - component: {fileID: 683776263}
   - component: {fileID: 683776262}
+  - component: {fileID: 683776266}
   m_Layer: 5
   m_Name: CellGridMapButton (43)
   m_TagString: Untagged
@@ -5040,7 +5041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a857a208eb77a8e4da87a75c6186f502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: EmptyCanyonScene
+  sceneName: ClubScene
   location: 
   notAvailableInDemo: 1
 --- !u!114 &683776263
@@ -5125,6 +5126,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683776260}
   m_CullTransparentMesh: 1
+--- !u!114 &683776266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683776260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c4f20c7dc000147b01c754bde4617c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  isCombatTrigger: 1
+  mapButton: {fileID: 0}
 --- !u!1 &692127216
 GameObject:
   m_ObjectHideFlags: 0
