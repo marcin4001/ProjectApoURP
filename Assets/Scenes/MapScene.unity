@@ -6235,6 +6235,7 @@ GameObject:
   - component: {fileID: 914747957}
   - component: {fileID: 914747956}
   - component: {fileID: 914747955}
+  - component: {fileID: 914747959}
   m_Layer: 5
   m_Name: CellGridMapButton (33)
   m_TagString: Untagged
@@ -6273,7 +6274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a857a208eb77a8e4da87a75c6186f502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: EmptyCanyonScene
+  sceneName: OuachitaNTScene
   location: 
   notAvailableInDemo: 1
 --- !u!114 &914747956
@@ -6358,6 +6359,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914747953}
   m_CullTransparentMesh: 1
+--- !u!114 &914747959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914747953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c4f20c7dc000147b01c754bde4617c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {fileID: 0}
+  isCombatTrigger: 1
+  mapButton: {fileID: 0}
 --- !u!1 &933539727
 GameObject:
   m_ObjectHideFlags: 0
