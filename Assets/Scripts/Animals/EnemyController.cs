@@ -35,6 +35,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int exp = 30;
     [SerializeField] private bool isWolf = false;
     [SerializeField] private bool isScorpion = false;
+    [SerializeField] private bool multishot = false;
     private Vector3 target;
     private NavMeshAgent agent;
     private EnemyAnim anim;
@@ -164,6 +165,17 @@ public class EnemyController : MonoBehaviour
                 {
                     weapon.StartPlayMuzzle();
                     weapon.StartPlayAttack();
+                }
+                if(multishot)
+                {
+                    yield return new WaitForSeconds(0.1f);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        animHuman.Shot();
+                        weapon.StartPlayMuzzle();
+                        weapon.StartPlayAttack();
+                        yield return new WaitForSeconds(0.1f);
+                    }
                 }
             }
             else
