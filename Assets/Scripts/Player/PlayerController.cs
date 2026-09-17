@@ -346,6 +346,11 @@ public class PlayerController : MonoBehaviour
                     return;
                 }
             }
+
+            if (!CombatController.instance.PlayerHaveAp(2))
+            {
+                return;
+            }
             animationPlayer.Punch();
             transform.rotation = Quaternion.LookRotation(point - transform.position);
             enemy.GetDamage(PlayerStats.instance.GetHandDamage(), true, false);
