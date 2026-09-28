@@ -26,6 +26,7 @@ public class QuestListUI : MonoBehaviour
     private PlayerController player;
     private Coroutine coroutine;
     private MainInputSystem inputSystem;
+    private LocalizationCollector loc;
     private void Awake()
     {
         instance = this;
@@ -41,6 +42,7 @@ public class QuestListUI : MonoBehaviour
         completeButton.onClick.AddListener(CreateCompleteQuestList);
         if (oldImage != null)
             oldImage.gameObject.SetActive(false);
+        loc = new LocalizationCollector();
     }
 
     private void OnEnable()
@@ -143,17 +145,23 @@ public class QuestListUI : MonoBehaviour
 
     private void CreateCurrentQuestList()
     {
-        string questList = $"{separator}\nCurrent Quests\n{separator}\n";
+        string startText = "Current Quests";
+        loc.Collect(startText);
+        string questList = $"{separator}\n{startText}\n{separator}\n";
         List<Quest> quests = QuestController.instance.GetQuests();
         List<Quest> currentQuest = quests.FindAll(x => !x.complete && !x.hidden);
         if(currentQuest.Count == 0)
         {
-            questList += "You don't have current Quests!";
+            string message = "You don't have current Quests!";
+            loc.Collect(message);
+            questList += message;
             questListText.text = questList;
             return;
         }
         foreach (Quest quest in currentQuest)
         {
+            loc.Collect(quest.questTitle);
+            loc.Collect(quest.location);
             questList += $"{quest.questTitle}\nOwner: {quest.owner}\nLocation: {quest.location}\n{separator}\n";
         }
         questListText.text = questList;
@@ -161,17 +169,22 @@ public class QuestListUI : MonoBehaviour
 
     private void CreateCompleteQuestList()
     {
-        string questList = $"{separator}\nComplete Quests\n{separator}\n";
+        string startText = "Complete Quests";
+        string questList = $"{separator}\n{startText}\n{separator}\n";
         List<Quest> quests = QuestController.instance.GetQuests();
         List<Quest> completeQuest = quests.FindAll(x => x.complete && !x.hidden);
         if (completeQuest.Count == 0)
         {
-            questList += "You don't have current Quests!";
+            string message = "You don't have current Quests!";
+            loc.Collect(message);
+            questList += message;
             questListText.text = questList;
             return;
         }
         foreach (Quest quest in completeQuest)
         {
+            loc.Collect(quest.questTitle);
+            loc.Collect(quest.location);
             questList += $"{quest.questTitle}\nOwner: {quest.owner}\nLocation: {quest.location}\n{separator}\n";
         }
         questListText.text = questList;

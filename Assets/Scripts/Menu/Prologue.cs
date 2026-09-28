@@ -22,8 +22,10 @@ public class Prologue : MonoBehaviour
     private MainInputSystem inputSystem;
     private bool activeInput = false;
     private LoadingPanel loadingPanel;
+    private LocalizationCollector loc;
     void Start()
     {
+        loc = new LocalizationCollector();
         loadingPanel = GetComponent<LoadingPanel>();
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
         MusicManager.instance.SetTheme(indexTheme);
@@ -58,6 +60,7 @@ public class Prologue : MonoBehaviour
     {
         background.overrideSprite = backgrounds[0];
         textPrologue.text = texts[0];
+        loc.Collect(texts[0]);
         fadeAnim.SetBool(fadeIOutParam, true);
         yield return new WaitForSeconds(1.5f);
         activeInput = true;
@@ -69,6 +72,7 @@ public class Prologue : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         background.overrideSprite = backgrounds[currentIndex];
         textPrologue.text = texts[currentIndex];
+        loc.Collect(texts[currentIndex]);
         fadeAnim.SetBool(fadeIOutParam, true);
         yield return new WaitForSeconds(1.5f);
         activeInput = true;

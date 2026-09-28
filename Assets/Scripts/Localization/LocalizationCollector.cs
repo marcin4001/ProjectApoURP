@@ -51,6 +51,7 @@ public class LocalizationCollector
                 return;
         }
         string newLine = EscapeCsv(englishText) + ",";
+        Debug.Log("Added: " + englishText);
         using (StreamWriter writer = new StreamWriter(
             filePath,
             false,
