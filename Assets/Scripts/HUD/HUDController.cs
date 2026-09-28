@@ -57,6 +57,7 @@ public class HUDController : MonoBehaviour
     private PlayerController player;
     private Canvas canvas;
     private MainInputSystem inputSystem;
+    private LocalizationCollector loc;
 
     private void Awake()
     {
@@ -89,6 +90,7 @@ public class HUDController : MonoBehaviour
 
     void Start()
     {
+        loc = new LocalizationCollector();
         player = FindFirstObjectByType<PlayerController>();
         canvas = GetComponent<Canvas>();
         showButton.onClick.AddListener(Show);
@@ -562,6 +564,7 @@ public class HUDController : MonoBehaviour
         if (string.IsNullOrEmpty(log))
             return;
         consoleLogs.Add(log);
+        loc.Collect(log);
         List<string> displayedLogs;
         if (consoleLogs.Count > 7)
         {
@@ -583,7 +586,9 @@ public class HUDController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(log))
             return;
+        
         string logNew = $"<color=#FFB000>{log}</color>";
+        loc.Collect(logNew);
         consoleLogs.Add(logNew);
         List<string> displayedLogs;
         if (consoleLogs.Count > 7)

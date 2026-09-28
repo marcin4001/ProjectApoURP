@@ -17,6 +17,7 @@ public class DialogueUI : MonoBehaviour
     private Canvas canvas;
     private PlayerController player;
     private Coroutine coroutineTime;
+    private LocalizationCollector loc;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class DialogueUI : MonoBehaviour
     void Start()
     {
         exitButton.onClick.AddListener(Hide);
+        loc = new LocalizationCollector();
     }
 
     public void Show()
@@ -55,11 +57,14 @@ public class DialogueUI : MonoBehaviour
 
     public void SetReply(string reply)
     {
+        loc.Collect(reply);
         replyText.text = reply;
     }
 
     public void SetNPCLabel(string nameNPC, string job, string location)
     {
+        loc.Collect(job);
+        loc.Collect(location);
         npcLabelText.text = $"Name: {nameNPC}\nJob:  {job}\nLoc.: {location}";
     }
 

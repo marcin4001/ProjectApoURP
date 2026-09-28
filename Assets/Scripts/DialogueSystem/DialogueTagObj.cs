@@ -8,11 +8,14 @@ public class DialogueTagObj : MonoBehaviour
     [SerializeField] private float counterToDestroy = 0f;
     [SerializeField] private Transform headPos;
     private RectTransform textRect;
+    private LocalizationCollector loc;
 
     public void Init(Transform _headPos, string text, bool angry = false)
     {
+        loc = new LocalizationCollector();
         textRect = GetComponent<RectTransform>();
         headPos = _headPos;
+        loc.Collect(text);
         GetComponent<TextMeshProUGUI>().text = text;
         GetComponent<TextMeshProUGUI>().color = GameParam.instance.normalDialogueTag;
         if(angry)
