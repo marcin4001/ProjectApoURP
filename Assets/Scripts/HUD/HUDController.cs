@@ -563,8 +563,10 @@ public class HUDController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(log))
             return;
+
         consoleLogs.Add(log);
         loc.Collect(log);
+
         List<string> displayedLogs;
         if (consoleLogs.Count > 7)
         {
@@ -578,7 +580,8 @@ public class HUDController : MonoBehaviour
         consoleText.text = string.Empty;
         foreach(string newLog in displayedLogs)
         {
-            consoleText.text += $"{newLog}\n";
+            string logTrans = loc.LoadTranslate(newLog);
+            consoleText.text += $"{logTrans}\n";
         }
     }
 
@@ -603,7 +606,8 @@ public class HUDController : MonoBehaviour
         consoleText.text = string.Empty;
         foreach (string newLog in displayedLogs)
         {
-            consoleText.text += $"{newLog}\n";
+            string logTrans = loc.LoadTranslate(newLog);
+            consoleText.text += $"{logTrans}\n";
         }
     }
 
@@ -618,7 +622,8 @@ public class HUDController : MonoBehaviour
         consoleText.text = string.Empty;
         foreach (string newLog in displayedLogs)
         {
-            consoleText.text += $"{newLog}\n";
+            string logTrans = loc.LoadTranslate(newLog);
+            consoleText.text += $"{logTrans}\n";
         }
     }
 
@@ -633,7 +638,8 @@ public class HUDController : MonoBehaviour
         consoleText.text = string.Empty;
         foreach (string newLog in displayedLogs)
         {
-            consoleText.text += $"{newLog}\n";
+            string logTrans = loc.LoadTranslate(newLog);
+            consoleText.text += $"{logTrans}\n";
         }
     }
 

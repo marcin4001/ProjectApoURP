@@ -147,13 +147,13 @@ public class QuestListUI : MonoBehaviour
     {
         string startText = "Current Quests";
         loc.Collect(startText);
-        string questList = $"{separator}\n{startText}\n{separator}\n";
+        string questList = $"{separator}\n{loc.LoadTranslate(startText)}\n{separator}\n";
         List<Quest> quests = QuestController.instance.GetQuests();
         List<Quest> currentQuest = quests.FindAll(x => !x.complete && !x.hidden);
         if(currentQuest.Count == 0)
         {
             string message = "You don't have current Quests!";
-            loc.Collect(message);
+            loc.Collect(loc.LoadTranslate(message));
             questList += message;
             questListText.text = questList;
             return;
@@ -162,7 +162,7 @@ public class QuestListUI : MonoBehaviour
         {
             loc.Collect(quest.questTitle);
             loc.Collect(quest.location);
-            questList += $"{quest.questTitle}\nOwner: {quest.owner}\nLocation: {quest.location}\n{separator}\n";
+            questList += $"{loc.LoadTranslate(quest.questTitle)}\nOwner: {quest.owner}\nLocation: {loc.LoadTranslate(quest.location)}\n{separator}\n";
         }
         questListText.text = questList;
     }
@@ -170,13 +170,13 @@ public class QuestListUI : MonoBehaviour
     private void CreateCompleteQuestList()
     {
         string startText = "Complete Quests";
-        string questList = $"{separator}\n{startText}\n{separator}\n";
+        string questList = $"{separator}\n{loc.LoadTranslate(startText)}\n{separator}\n";
         List<Quest> quests = QuestController.instance.GetQuests();
         List<Quest> completeQuest = quests.FindAll(x => x.complete && !x.hidden);
         if (completeQuest.Count == 0)
         {
             string message = "You don't have current Quests!";
-            loc.Collect(message);
+            loc.Collect(loc.LoadTranslate(message));
             questList += message;
             questListText.text = questList;
             return;
@@ -185,7 +185,7 @@ public class QuestListUI : MonoBehaviour
         {
             loc.Collect(quest.questTitle);
             loc.Collect(quest.location);
-            questList += $"{quest.questTitle}\nOwner: {quest.owner}\nLocation: {quest.location}\n{separator}\n";
+            questList += $"{loc.LoadTranslate(quest.questTitle)}\nOwner: {quest.owner}\nLocation: {loc.LoadTranslate(quest.location)}\n{separator}\n";
         }
         questListText.text = questList;
     }

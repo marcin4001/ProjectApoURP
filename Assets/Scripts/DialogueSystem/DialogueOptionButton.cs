@@ -17,7 +17,7 @@ public class DialogueOptionButton : MonoBehaviour
         button.onClick.AddListener(OnClick);
         loc = new LocalizationCollector();
         loc.Collect(option.optionText);
-        textOption.text = $"■ {option.optionText}";
+        textOption.text = $"■ {loc.LoadTranslate(option.optionText)}";
     }
 
     private void OnClick()

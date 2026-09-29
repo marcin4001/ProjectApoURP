@@ -59,7 +59,7 @@ public class Prologue : MonoBehaviour
     private IEnumerator StartPrologue()
     {
         background.overrideSprite = backgrounds[0];
-        textPrologue.text = texts[0];
+        textPrologue.text = loc.LoadTranslate(texts[0]);
         loc.Collect(texts[0]);
         fadeAnim.SetBool(fadeIOutParam, true);
         yield return new WaitForSeconds(1.5f);
@@ -71,7 +71,7 @@ public class Prologue : MonoBehaviour
         fadeAnim.SetBool(fadeIOutParam, false);
         yield return new WaitForSeconds(1.5f);
         background.overrideSprite = backgrounds[currentIndex];
-        textPrologue.text = texts[currentIndex];
+        textPrologue.text = loc.LoadTranslate(texts[currentIndex]);
         loc.Collect(texts[currentIndex]);
         fadeAnim.SetBool(fadeIOutParam, true);
         yield return new WaitForSeconds(1.5f);

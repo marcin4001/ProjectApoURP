@@ -13,6 +13,7 @@ public class BookReader : MonoBehaviour
     [SerializeField] private TextMeshProUGUI screenText;
     [SerializeField] private TextMeshProUGUI pageText;
     [SerializeField] private BookProfile book;
+    private LocalizationCollector loc;
     private PlayerController player;
     private int pageIndex = 0;
 
@@ -27,6 +28,7 @@ public class BookReader : MonoBehaviour
         rightBtn.onClick.AddListener(RightBtn);
         leftBtn.onClick.AddListener(LeftBtn);
         player = FindFirstObjectByType<PlayerController>();
+        loc = new LocalizationCollector();
     }
 
     
@@ -42,6 +44,7 @@ public class BookReader : MonoBehaviour
             if(book.pages.Count ==  0)
                 return;
             screenText.text = book.pages[0].text;
+            loc.Collect(book.pages[0].text);
             pageText.text = $"1/{book.pages.Count}";
             pageIndex = 0;
         }
@@ -82,6 +85,7 @@ public class BookReader : MonoBehaviour
             return;
         }
         screenText.text = book.pages[pageIndex].text;
+        loc.Collect(book.pages[pageIndex].text);
         pageText.text = $"{pageIndex + 1}/{book.pages.Count}";
         if (pageIndex == book.pages.Count - 1)
         {

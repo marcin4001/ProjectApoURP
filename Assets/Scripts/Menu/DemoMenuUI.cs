@@ -76,6 +76,20 @@ public class DemoMenuUI : MonoBehaviour
         HideLoadOldSave();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            int language = PlayerPrefs.GetInt("Language", 0);
+
+            language = language == 0 ? 1 : 0;
+
+            PlayerPrefs.SetInt("Language", language);
+            PlayerPrefs.Save();
+
+            Debug.Log("Language: " + language);
+        }
+    }
     private void OnClickPlay()
     {
         statsPanelMenu.Open();
