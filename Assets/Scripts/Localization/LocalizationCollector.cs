@@ -10,10 +10,10 @@ public class LocalizationCollector
     public LocalizationCollector()
     {
         filePath = Path.Combine(
-            Application.persistentDataPath,
+            Application.streamingAssetsPath,
             "translations.csv"
         );
-
+        Debug.Log(filePath);
         CreateFileIfNeeded();
     }
 
