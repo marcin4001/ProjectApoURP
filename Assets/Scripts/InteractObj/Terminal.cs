@@ -36,7 +36,7 @@ public class Terminal : MonoBehaviour, IUsableObj
 
     public void Use()
     {
-        if(PlayerStats.instance.GetTechnical() != technicalReq)
+        if(PlayerStats.instance.GetTechnical() < technicalReq)
         {
             HUDController.instance.AddConsolelog("Failed to open the door");
             HUDController.instance.AddConsolelog("remotely");
@@ -44,7 +44,7 @@ public class Terminal : MonoBehaviour, IUsableObj
             return;
         }
         HUDController.instance.AddConsolelog("You opened the door");
-        HUDController.instance.AddConsolelog("remotely");
+        HUDController.instance.AddConsolelog("remotely!");
         if(metalDoor != null)
             metalDoor.OpenDoorTerminal();
         QuestController.instance.SetComplete(idQuest);
