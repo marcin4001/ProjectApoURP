@@ -87,15 +87,15 @@ public class AmericanRoulette : MonoBehaviour
         string numberName = (randomNum == 37) ? "00": randomNum.ToString();
         if(colorName == "green")
         {
-            DialogueUI.instance.SetReply($"Unfortunately, it's {numberName} ({colorName}) - you lose {money} dollars");
+            DialogueUI.instance.SetReply($"Unfortunately, it's {colorName} - you lose your money.");
             UpdateBalance(false);
             return;
         }
         ColorBet currentBet = (colorName == "red") ? ColorBet.red : ColorBet.black;
         if(currentBet == colorBet)
-            DialogueUI.instance.SetReply($"Congratulations! It's {numberName} ({colorName}) - you win {money} dollars!");
+            DialogueUI.instance.SetReply($"Congratulations! It's {colorName} — you win!");
         else
-            DialogueUI.instance.SetReply($"Unfortunately, it's {numberName} ({colorName}) - you lose {money} dollars");
+            DialogueUI.instance.SetReply($"Unfortunately, it's {colorName} - you lose your money.");
         UpdateBalance(currentBet == colorBet);
     }
 
@@ -105,15 +105,15 @@ public class AmericanRoulette : MonoBehaviour
         string numberName = (randomNum == 37) ? "00" : randomNum.ToString();
         if (randomNum == 0 || randomNum == 37)
         {
-            DialogueUI.instance.SetReply($"Unfortunately, it's {numberName} – you lose {money} dollars, zero is neither even nor odd.");
+            DialogueUI.instance.SetReply($"Unfortunately, it's zero — you lose your money. Zero is neither even nor odd.");
             UpdateBalance(false);
             return;
         }
         EvenOddBet currentBet = (randomNum % 2 == 0) ? EvenOddBet.even : EvenOddBet.odd;
         if(currentBet == evenOddBet)
-            DialogueUI.instance.SetReply($"Congratulations! It's {numberName} ({currentBet}) - you win {money} dollars!");
+            DialogueUI.instance.SetReply($"Congratulations! It's {currentBet} — you win!");
         else
-            DialogueUI.instance.SetReply($"Unfortunately, it's {numberName} ({currentBet}) - you lose {money} dollars");
+            DialogueUI.instance.SetReply($"Unfortunately, it's {currentBet} — you lose your money.");
         UpdateBalance(currentBet == evenOddBet);
     }
 
@@ -123,15 +123,15 @@ public class AmericanRoulette : MonoBehaviour
         string numberName = (randomNum == 37) ? "00" : randomNum.ToString();
         if (randomNum == 0 || randomNum == 37)
         {
-            DialogueUI.instance.SetReply($"Unfortunately, it's {numberName} (out of range) - you lose {money} dollars, zero is neither low nor high.");
+            DialogueUI.instance.SetReply($"Unfortunately, it's zero — you lose your money. Zero is neither low nor high.");
             UpdateBalance(false);
             return;
         }
         LowHighBet currentBet = (randomNum <= 18) ? LowHighBet.low : LowHighBet.high;
         if (currentBet == lowHighBet)
-            DialogueUI.instance.SetReply($"Congratulations! It's {numberName} ({currentBet}) - you win {money} dollars!");
+            DialogueUI.instance.SetReply($"Congratulations! It's {currentBet} — you win!");
         else
-            DialogueUI.instance.SetReply($"Unfortunately, it's {numberName} ({currentBet}) - you lose {money} dollars");
+            DialogueUI.instance.SetReply($"Unfortunately, it's {currentBet} — you lose your money.");
         UpdateBalance(currentBet == lowHighBet);
     }
 

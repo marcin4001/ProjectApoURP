@@ -26,7 +26,7 @@ public class TradeUI : MonoBehaviour
     private PlayerController player;
     private DialogueNPC nPC;
     private int moneyID = 202;
-
+    private LocalizationCollector loc;
     private void Awake()
     {
         instance = this;
@@ -34,6 +34,7 @@ public class TradeUI : MonoBehaviour
 
     void Start()
     {
+        loc = new LocalizationCollector();
         canvas = GetComponent<Canvas>();
         player = FindFirstObjectByType<PlayerController>();
         canvas.enabled = false;
@@ -175,10 +176,12 @@ public class TradeUI : MonoBehaviour
     public void ShowDescription(SlotItem slot)
     {
         Item item = slot.GetItem();
-        consoleText.text = $"{item.nameItem}\n{separator}\n{item.description}";
+        consoleText.text = $"{loc.LoadTranslate(item.nameItem)}\n{separator}\n{loc.LoadTranslate(item.description)}";
+        string amountText = "Amount";
+        string value = "Value";
         if (slot.GetAmount() > 1)
-            consoleText.text += $"\nAmount: {slot.GetAmount()}";
-        consoleText.text += $"\nValue: ${slot.GetItem().value}";
+            consoleText.text += $"\n{loc.LoadTranslate(amountText)}: {slot.GetAmount()}";
+        consoleText.text += $"\n{loc.LoadTranslate(value)}: ${slot.GetItem().value}";
     }
 
     public void ShowInfoPlayerHaveEnoughMoney()

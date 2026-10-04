@@ -59,6 +59,7 @@ public class DialogueUI : MonoBehaviour
     {
         loc.Collect(reply);
         replyText.text = loc.LoadTranslate(reply);
+        Debug.Log(reply);
     }
 
     public void SetNPCLabel(string nameNPC, string job, string location)

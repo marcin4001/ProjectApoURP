@@ -13,7 +13,6 @@ public class LocalizationCollector
             Application.streamingAssetsPath,
             "translations.csv"
         );
-        Debug.Log(filePath);
         CreateFileIfNeeded();
     }
 

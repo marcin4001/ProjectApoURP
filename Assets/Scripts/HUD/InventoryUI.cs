@@ -22,6 +22,7 @@ public class InventoryUI : MonoBehaviour
     private MainInputSystem inputSystem;
     private Canvas canvas;
     private PlayerController player;
+    private LocalizationCollector loc;
     private void Awake()
     {
         instance = this;
@@ -47,6 +48,7 @@ public class InventoryUI : MonoBehaviour
         canvas = GetComponent<Canvas>();
         player = FindFirstObjectByType<PlayerController>();
         closeButton.onClick.AddListener(Hide);
+        loc = new LocalizationCollector();
         for(int i = 0; i < slotsDrop.Length; i++)
         {
             SlotItem item = Inventory.instance.GetSlotItem(i);
@@ -145,9 +147,12 @@ public class InventoryUI : MonoBehaviour
     public void ShowDescription(SlotItem slot)
     {
         Item item = slot.GetItem();
-        consoleText.text = $"{item.nameItem}\n{separator}\n{item.description}";
+        consoleText.text = $"{loc.LoadTranslate(item.nameItem)}\n{separator}\n{loc.LoadTranslate(item.description)}";
+        string amountText = "Amount";
+        string value = "Value";
         if (slot.GetAmount() > 1)
-            consoleText.text += $"\nAmount: {slot.GetAmount()}";
-        consoleText.text += $"\nValue: ${slot.GetItem().value}";
+            consoleText.text += $"\n{loc.LoadTranslate(amountText)}: {slot.GetAmount()}";
+        consoleText.text += $"\n{loc.LoadTranslate(value)}: ${slot.GetItem().value}";
+
     }
 }

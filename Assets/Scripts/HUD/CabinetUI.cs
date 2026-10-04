@@ -24,6 +24,7 @@ public class CabinetUI : MonoBehaviour
     private Cabinet cabinet;
     private List<SlotItem> slotsEnemy = new List<SlotItem>();
     private MainInputSystem inputSystem;
+    private LocalizationCollector loc;
     private void Awake()
     {
         instance = this;
@@ -51,6 +52,7 @@ public class CabinetUI : MonoBehaviour
         canvas.enabled = false;
         closeButton.onClick.AddListener(Hide);
         takeAll.onClick.AddListener(TakeAll);
+        loc = new LocalizationCollector();
     }
 
     public bool GetActive()
@@ -254,9 +256,11 @@ public class CabinetUI : MonoBehaviour
     public void ShowDescription(SlotItem slot)
     {
         Item item = slot.GetItem();
-        consoleText.text = $"{item.nameItem}\n{separator}\n{item.description}";
+        consoleText.text = $"{loc.LoadTranslate(item.nameItem)}\n{separator}\n{loc.LoadTranslate(item.description)}";
+        string amountText = "Amount";
+        string value = "Value";
         if (slot.GetAmount() > 1)
-            consoleText.text += $"\nAmount: {slot.GetAmount()}";
-        consoleText.text += $"\nValue: ${slot.GetItem().value}";
+            consoleText.text += $"\n{loc.LoadTranslate(amountText)}: {slot.GetAmount()}";
+        consoleText.text += $"\n{loc.LoadTranslate(value)}: ${slot.GetItem().value}";
     }
 }

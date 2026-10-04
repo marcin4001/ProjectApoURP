@@ -27,4 +27,15 @@ public class ItemDB : MonoBehaviour
     {
         return items.FindAll(x => x is WeaponItem);
     }
+
+    public void AddAllItemToInventory()
+    {
+        List<Item> itemsR = new List<Item>(items);
+        itemsR.Reverse();
+        foreach(Item item in itemsR)
+        {
+            SlotItem slot = new SlotItem(item, 1);
+            Inventory.instance.AddItem(slot);
+        }
+    }
 }
