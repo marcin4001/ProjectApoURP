@@ -186,12 +186,14 @@ public class TradeUI : MonoBehaviour
 
     public void ShowInfoPlayerHaveEnoughMoney()
     {
-        consoleText.text = $"{separator}\nYou don't have enough money to buy this!\n{separator}";
+        string message = "You don't have enough money to buy this!";
+        consoleText.text = $"{separator}\n{loc.LoadTranslate(message)}\n{separator}";
     }
 
     public void ShowInfoNPCHaveEnoughMoney()
     {
-        consoleText.text = $"{separator}\n{nPC.GetNPCName()} doesn't have enough money to buy this!\n{separator}";
+        string message = "doesn't have enough money to buy this!";
+        consoleText.text = $"{separator}\n{nPC.GetNPCName()} {loc.LoadTranslate(message)}\n{separator}";
     }
 }
 

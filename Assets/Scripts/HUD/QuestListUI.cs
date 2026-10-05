@@ -153,8 +153,7 @@ public class QuestListUI : MonoBehaviour
         if(currentQuest.Count == 0)
         {
             string message = "You don't have current Quests!";
-            loc.Collect(loc.LoadTranslate(message));
-            questList += message;
+            questList += loc.LoadTranslate(message);
             questListText.text = questList;
             return;
         }
@@ -162,7 +161,8 @@ public class QuestListUI : MonoBehaviour
         {
             loc.Collect(quest.questTitle);
             loc.Collect(quest.location);
-            questList += $"{loc.LoadTranslate(quest.questTitle)}\nOwner: {quest.owner}\nLocation: {loc.LoadTranslate(quest.location)}\n{separator}\n";
+            string locText = "Location";
+            questList += $"{loc.LoadTranslate(quest.questTitle)}\nNPC: {quest.owner}\n{loc.LoadTranslate(locText)}: {loc.LoadTranslate(quest.location)}\n{separator}\n";
         }
         questListText.text = questList;
     }
@@ -170,14 +170,14 @@ public class QuestListUI : MonoBehaviour
     private void CreateCompleteQuestList()
     {
         string startText = "Complete Quests";
+        loc.Collect(startText);
         string questList = $"{separator}\n{loc.LoadTranslate(startText)}\n{separator}\n";
         List<Quest> quests = QuestController.instance.GetQuests();
         List<Quest> completeQuest = quests.FindAll(x => x.complete && !x.hidden);
         if (completeQuest.Count == 0)
         {
             string message = "You don't have current Quests!";
-            loc.Collect(loc.LoadTranslate(message));
-            questList += message;
+            questList += loc.LoadTranslate(message);
             questListText.text = questList;
             return;
         }
@@ -185,7 +185,8 @@ public class QuestListUI : MonoBehaviour
         {
             loc.Collect(quest.questTitle);
             loc.Collect(quest.location);
-            questList += $"{loc.LoadTranslate(quest.questTitle)}\nOwner: {quest.owner}\nLocation: {loc.LoadTranslate(quest.location)}\n{separator}\n";
+            string locText = "Location";
+            questList += $"{loc.LoadTranslate(quest.questTitle)}\nNPC: {quest.owner}\n{loc.LoadTranslate(locText)}: {loc.LoadTranslate(quest.location)}\n{separator}\n";
         }
         questListText.text = questList;
     }
