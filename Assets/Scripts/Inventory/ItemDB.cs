@@ -38,4 +38,17 @@ public class ItemDB : MonoBehaviour
             Inventory.instance.AddItem(slot);
         }
     }
+
+    public void AddMiscBookToInventory()
+    {
+        List<Item> itemsR = items.FindAll(x => x is MiscItem);
+        foreach (Item item in itemsR)
+        {
+            MiscItem miscItem = (MiscItem)item;
+            if(!miscItem.isBook)
+                continue;
+            SlotItem slot = new SlotItem(item, 1);
+            Inventory.instance.AddItem(slot);
+        }
+    }
 }

@@ -43,7 +43,7 @@ public class BookReader : MonoBehaviour
         {
             if(book.pages.Count ==  0)
                 return;
-            screenText.text = book.pages[0].text;
+            screenText.text = loc.LoadTranslate(book.pages[0].text);
             loc.Collect(book.pages[0].text);
             pageText.text = $"1/{book.pages.Count}";
             pageIndex = 0;
@@ -84,7 +84,7 @@ public class BookReader : MonoBehaviour
             pageIndex = book.pages.Count - 1;
             return;
         }
-        screenText.text = book.pages[pageIndex].text;
+        screenText.text = loc.LoadTranslate(book.pages[pageIndex].text);
         loc.Collect(book.pages[pageIndex].text);
         pageText.text = $"{pageIndex + 1}/{book.pages.Count}";
         if (pageIndex == book.pages.Count - 1)
@@ -102,7 +102,7 @@ public class BookReader : MonoBehaviour
         pageIndex -= 1;
         if (pageIndex <= 0)
             pageIndex = 0;
-        screenText.text = book.pages[pageIndex].text;
+        screenText.text = loc.LoadTranslate(book.pages[pageIndex].text);
         pageText.text = $"{pageIndex + 1}/{book.pages.Count}";
     }
 }

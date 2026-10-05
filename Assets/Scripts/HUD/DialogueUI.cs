@@ -12,6 +12,9 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI replyText;
     [SerializeField] private Transform parentOptions;
     [SerializeField] private TextMeshProUGUI npcLabelText;
+    [SerializeField] private TextMeshProUGUI npcLabelName;
+    [SerializeField] private TextMeshProUGUI npcLabelJob;
+    [SerializeField] private TextMeshProUGUI npcLabelLoc;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private bool active;
     private Canvas canvas;
@@ -66,7 +69,10 @@ public class DialogueUI : MonoBehaviour
     {
         loc.Collect(job);
         loc.Collect(location);
-        npcLabelText.text = $"Name: {nameNPC}\nJob:  {loc.LoadTranslate(job)}\nLoc.: {loc.LoadTranslate(location)}";
+        npcLabelText.text = "";//$"» {nameNPC}\n» {loc.LoadTranslate(job)}\n» {loc.LoadTranslate(location)}";
+        npcLabelName.text = $"  :{nameNPC}";
+        npcLabelJob.text = $"  :{loc.LoadTranslate(job)}";
+        npcLabelLoc.text = $"  :{loc.LoadTranslate(location)}";
     }
 
     public void CreateListOptions(List<DialogueOption> options)

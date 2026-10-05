@@ -8,5 +8,10 @@ public class AddAllItemsToInv : MonoBehaviour
         {
             ItemDB.instance.AddAllItemToInventory();
         }
+
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            ItemDB.instance.AddMiscBookToInventory();
+        }
     }
 }
