@@ -10,6 +10,7 @@ public class MessagePanelOk : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textMessage;
     [SerializeField] private Button okBtn;
     [SerializeField] private bool active = false;
+    private LocalizationCollector loc;
 
     private void Awake()
     {
@@ -20,12 +21,14 @@ public class MessagePanelOk : MonoBehaviour
     {
         okBtn.onClick.AddListener(ClickOk);
         panel.SetActive(false);
+        loc = new LocalizationCollector();
     }
 
     public void Open(string _message)
     {
+        loc.Collect(_message);
         panel.SetActive(true);
-        textMessage.text = _message;
+        textMessage.text = loc.LoadTranslate(_message);
         active = true;
     }
 

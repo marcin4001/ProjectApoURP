@@ -9,16 +9,19 @@ public class ToolTip : MonoBehaviour
     [SerializeField] private RectTransform textTransform;
     [SerializeField] private TextMeshProUGUI text;
     private Coroutine coroutine;
+    private LocalizationCollector loc;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
         instance = this;
         background.gameObject.SetActive(false);
+        loc = new LocalizationCollector();
     }
 
     public void SetText(string tooltipText)
     {
-        text.text = $" {tooltipText}";
+        //loc.Collect(tooltipText);
+        text.text = $" {loc.LoadTranslate(tooltipText)}";
         background.gameObject.SetActive(true);
         StartCoroutine(Resize());
         if(coroutine != null)

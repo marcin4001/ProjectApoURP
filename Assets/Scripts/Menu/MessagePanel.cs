@@ -12,6 +12,7 @@ public class MessagePanel : MonoBehaviour
     [SerializeField] private Button yesBtn;
     [SerializeField] private UnityAction action;
     [SerializeField] private bool active = false;
+    private LocalizationCollector loc;
 
     private void Awake()
     {
@@ -23,12 +24,14 @@ public class MessagePanel : MonoBehaviour
         yesBtn.onClick.AddListener(ClickYes);
         noBtn.onClick.AddListener(ClickNo);
         panel.SetActive(false);
+        loc = new LocalizationCollector();
     }
 
     public void Open(string _message, UnityAction _action)
     {
+        loc.Collect(_message);
         panel.SetActive(true);
-        textMessage.text = _message;
+        textMessage.text = loc.LoadTranslate(_message);
         action = _action;
         active = true;
     }

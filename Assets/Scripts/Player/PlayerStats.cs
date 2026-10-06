@@ -20,6 +20,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int baseCritChance = 5;
     [SerializeField] private int baseLockpickChance = 25;
     [SerializeField] private int baseRepairChance = 10;
+    [SerializeField] private LocalizationCollector loc;
     private Dictionary<int, float> radHPPercent = new Dictionary<int, float>
     {
         {0, 1f},
@@ -52,6 +53,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        loc = new LocalizationCollector();
         if(GameParam.instance != null)
         {
             healthPoint = GameParam.instance.healthPoint;
@@ -148,10 +150,16 @@ public class PlayerStats : MonoBehaviour
         {
             armorDef = armor.defense;
         }
-        return $"Name: Thomas\nHealth: {healthPoint}/{healthPointMax}\n" +
-            $"Radiation level: {radLevel}/{radLevelMax}\nDay: {GameParam.instance.day}\n" +
-            $"Level: {GameParam.instance.level}\nExp: {GameParam.instance.exp}/{GameParam.instance.expToNextLevel}\n" +
-            $"Armor defense: {armorDef}\n" +
+        string nameText = "Name";
+        string healthText = "Health";
+        string radLvl = "Radiation level";
+        string dayText = "Day";
+        string lvlText = "Level";
+        string armorDefText = "Armor defense";
+        return $"{loc.LoadTranslate(nameText)}: Thomas\n{loc.LoadTranslate(healthText)}: {healthPoint}/{healthPointMax}\n" +
+            $"{loc.LoadTranslate(radLvl)}: {radLevel}/{radLevelMax}\n{loc.LoadTranslate(dayText)}: {GameParam.instance.day}\n" +
+            $"{loc.LoadTranslate(lvlText)}: {GameParam.instance.level}\nEXP: {GameParam.instance.exp}/{GameParam.instance.expToNextLevel}\n" +
+            $"{loc.LoadTranslate(armorDefText)}: {armorDef}\n" +
             $"STR:{strength}\tDEX:{dexterity}\n" +
             $"TEC:{technical}\tPER:{perception}";
     }

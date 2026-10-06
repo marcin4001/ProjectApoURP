@@ -12,6 +12,7 @@ public class Prologue : MonoBehaviour
     [SerializeField, TextArea(3, 6)] private string[] texts;
     [SerializeField] private Sprite[] backgrounds;
     [SerializeField] private TextMeshProUGUI textPrologue;
+    [SerializeField] private TextMeshProUGUI textInfo;
     [SerializeField] private Image background;
     [SerializeField] private int currentIndex;
     [SerializeField] private string nextScene;
@@ -32,6 +33,11 @@ public class Prologue : MonoBehaviour
         StartCoroutine(StartPrologue());
         if (startAchievement)
             SteamAchievements.Add(idAchievement);
+        if(textInfo != null)
+        {
+            string textEnter = textInfo.text;
+            textInfo.text = loc.LoadTranslate(textEnter);
+        }
     }
 
     private void Awake()

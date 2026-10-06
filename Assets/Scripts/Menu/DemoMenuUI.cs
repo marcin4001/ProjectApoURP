@@ -18,6 +18,14 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private Button loadOldSave;
     [SerializeField] private Button discordBtn;
     [SerializeField] private Button XBtn;
+    [SerializeField] private Button englishBtn;
+    [SerializeField] private Button polishBtn;
+    [SerializeField] private Image englishImg;
+    [SerializeField] private Image polishImg;
+    [SerializeField] private Sprite englishActiveSprite;
+    [SerializeField] private Sprite polishActiveSprite;
+    [SerializeField] private Sprite englishDeactiveSprite;
+    [SerializeField] private Sprite polishDeactiveSprite;
     [SerializeField] private int indexTheme = 0;
     [SerializeField] private bool inDemo = false;
     [SerializeField] private string guideURL = "https://drive.google.com/file/d/1cEXWEQmxcKytIYpjPMdWPtfHDkKfMPUp/view?usp=sharing";
@@ -63,6 +71,8 @@ public class DemoMenuUI : MonoBehaviour
         loadOldSave.onClick.AddListener(OnClickLoadOld);
         discordBtn.onClick.AddListener(OnClickDiscord);
         XBtn.onClick.AddListener(OnClickX);
+        englishBtn.onClick.AddListener(OnClickEnglish);
+        polishBtn.onClick.AddListener(OnClickPolish);
         GameParam.instance.mainMusicVolume = PlayerPrefs.GetFloat("mainMusicVolume", 1f);
         GameParam.instance.sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
         steamButton.onClick.AddListener(OnClickSteam);
@@ -74,22 +84,13 @@ public class DemoMenuUI : MonoBehaviour
             //SteamUserStats.StoreStats();
         }
         HideLoadOldSave();
+        int language = PlayerPrefs.GetInt("Language", 0);
+        if(language == 0)
+            OnClickEnglish();
+        else if(language == 1)
+            OnClickPolish();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            int language = PlayerPrefs.GetInt("Language", 0);
-
-            language = language == 0 ? 1 : 0;
-
-            PlayerPrefs.SetInt("Language", language);
-            PlayerPrefs.Save();
-
-            Debug.Log("Language: " + language);
-        }
-    }
     private void OnClickPlay()
     {
         statsPanelMenu.Open();
@@ -177,6 +178,22 @@ public class DemoMenuUI : MonoBehaviour
     public void OnClickX()
     {
         Application.OpenURL(XURL);
+    }
+
+    public void OnClickEnglish()
+    {
+        englishImg.overrideSprite = englishActiveSprite;
+        polishImg.overrideSprite = polishDeactiveSprite;
+        PlayerPrefs.SetInt("Language", 0);
+        PlayerPrefs.Save();
+    }
+
+    public void OnClickPolish()
+    {
+        polishImg.overrideSprite = polishActiveSprite;
+        englishImg.overrideSprite = englishDeactiveSprite;
+        PlayerPrefs.SetInt("Language", 1);
+        PlayerPrefs.Save();
     }
 
     public void HideLoadOldSave()
