@@ -9355,7 +9355,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6940434856495466564, guid: d6826fcd9fd00934db6a439513520844, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 875667473}
   m_SourcePrefab: {fileID: 100100000, guid: d6826fcd9fd00934db6a439513520844, type: 3}
 --- !u!1 &477581159
 GameObject:
@@ -16310,6 +16313,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8129887792840961258, guid: c06db801f6304ad49a27f35101255c55, type: 3}
   m_PrefabInstance: {fileID: 1395470325}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &875667465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6940434856495466564, guid: d6826fcd9fd00934db6a439513520844, type: 3}
+  m_PrefabInstance: {fileID: 469946542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &875667473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875667465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: bread
+  isNPC: 0
 --- !u!1 &879074874
 GameObject:
   m_ObjectHideFlags: 0
@@ -29111,6 +29133,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1524225770474105169, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524225770474105169, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524225770474105169, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524225770474105169, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524225770474105169, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1716975105703452707, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -29130,6 +29172,46 @@ PrefabInstance:
     - target: {fileID: 1716975105703452707, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -19.345
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769161600020961432, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769161600020961432, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769161600020961432, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769161600020961432, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769161600020961432, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786789921901154822, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786789921901154822, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786789921901154822, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786789921901154822, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786789921901154822, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7247548103747471206, guid: 967757f2e22606344a0e4bec0fefb48f, type: 3}
       propertyPath: m_Name
@@ -33743,6 +33825,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameObject: mountain
   isNPC: 0
+--- !u!1 &1676491447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8408633456166908436, guid: 7c4cfe20afae5e749a873c13f7f52712, type: 3}
+  m_PrefabInstance: {fileID: 7319347236842065238}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1678417446 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8f752b7d082395c42acbc1d175651836, type: 3}
@@ -46616,13 +46703,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8408633456166908436, guid: 7c4cfe20afae5e749a873c13f7f52712, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7319347236842065246}
   m_SourcePrefab: {fileID: 100100000, guid: 7c4cfe20afae5e749a873c13f7f52712, type: 3}
 --- !u!4 &7319347236842065239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9221867077159839918, guid: 7c4cfe20afae5e749a873c13f7f52712, type: 3}
   m_PrefabInstance: {fileID: 7319347236842065238}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7319347236842065246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676491447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: watering can
+  isNPC: 0
 --- !u!1001 &7389408104895933578
 PrefabInstance:
   m_ObjectHideFlags: 0

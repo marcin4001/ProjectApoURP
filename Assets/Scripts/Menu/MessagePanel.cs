@@ -29,7 +29,7 @@ public class MessagePanel : MonoBehaviour
 
     public void Open(string _message, UnityAction _action)
     {
-        loc.Collect(_message);
+        //loc.Collect(_message);
         panel.SetActive(true);
         textMessage.text = loc.LoadTranslate(_message);
         action = _action;

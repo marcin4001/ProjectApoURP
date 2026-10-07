@@ -565,7 +565,7 @@ public class HUDController : MonoBehaviour
             return;
 
         consoleLogs.Add(log);
-        loc.Collect(log);
+        //loc.Collect(log);
 
         List<string> displayedLogs;
         if (consoleLogs.Count > 7)
@@ -591,7 +591,7 @@ public class HUDController : MonoBehaviour
             return;
         
         string logNew = $"<color=#FFB000>{log}</color>";
-        loc.Collect(logNew);
+        //loc.Collect(logNew);
         consoleLogs.Add(logNew);
         List<string> displayedLogs;
         if (consoleLogs.Count > 7)

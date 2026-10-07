@@ -60,15 +60,15 @@ public class DialogueUI : MonoBehaviour
 
     public void SetReply(string reply)
     {
-        loc.Collect(reply);
+        //loc.Collect(reply);
         replyText.text = loc.LoadTranslate(reply);
         Debug.Log(reply);
     }
 
     public void SetNPCLabel(string nameNPC, string job, string location)
     {
-        loc.Collect(job);
-        loc.Collect(location);
+        //loc.Collect(job);
+        //loc.Collect(location);
         npcLabelText.text = "";//$"» {nameNPC}\n» {loc.LoadTranslate(job)}\n» {loc.LoadTranslate(location)}";
         npcLabelName.text = $"  :{nameNPC}";
         npcLabelJob.text = $"  :{loc.LoadTranslate(job)}";

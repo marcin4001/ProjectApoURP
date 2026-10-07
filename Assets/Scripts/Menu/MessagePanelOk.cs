@@ -26,7 +26,7 @@ public class MessagePanelOk : MonoBehaviour
 
     public void Open(string _message)
     {
-        loc.Collect(_message);
+        //loc.Collect(_message);
         panel.SetActive(true);
         textMessage.text = loc.LoadTranslate(_message);
         active = true;

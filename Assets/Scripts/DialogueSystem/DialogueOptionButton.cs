@@ -16,7 +16,7 @@ public class DialogueOptionButton : MonoBehaviour
         textOption = GetComponent<TextMeshProUGUI>();
         button.onClick.AddListener(OnClick);
         loc = new LocalizationCollector();
-        loc.Collect(option.optionText);
+        //loc.Collect(option.optionText);
         textOption.text = $"■ {loc.LoadTranslate(option.optionText)}";
     }
 

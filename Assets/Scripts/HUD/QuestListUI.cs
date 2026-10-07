@@ -146,7 +146,7 @@ public class QuestListUI : MonoBehaviour
     private void CreateCurrentQuestList()
     {
         string startText = "Current Quests";
-        loc.Collect(startText);
+        //loc.Collect(startText);
         string questList = $"{separator}\n{loc.LoadTranslate(startText)}\n{separator}\n";
         List<Quest> quests = QuestController.instance.GetQuests();
         List<Quest> currentQuest = quests.FindAll(x => !x.complete && !x.hidden);
@@ -159,8 +159,8 @@ public class QuestListUI : MonoBehaviour
         }
         foreach (Quest quest in currentQuest)
         {
-            loc.Collect(quest.questTitle);
-            loc.Collect(quest.location);
+            //loc.Collect(quest.questTitle);
+            //loc.Collect(quest.location);
             string locText = "Location";
             questList += $"{loc.LoadTranslate(quest.questTitle)}\nNPC: {quest.owner}\n{loc.LoadTranslate(locText)}: {loc.LoadTranslate(quest.location)}\n{separator}\n";
         }
@@ -170,7 +170,7 @@ public class QuestListUI : MonoBehaviour
     private void CreateCompleteQuestList()
     {
         string startText = "Complete Quests";
-        loc.Collect(startText);
+        //loc.Collect(startText);
         string questList = $"{separator}\n{loc.LoadTranslate(startText)}\n{separator}\n";
         List<Quest> quests = QuestController.instance.GetQuests();
         List<Quest> completeQuest = quests.FindAll(x => x.complete && !x.hidden);
@@ -183,8 +183,8 @@ public class QuestListUI : MonoBehaviour
         }
         foreach (Quest quest in completeQuest)
         {
-            loc.Collect(quest.questTitle);
-            loc.Collect(quest.location);
+            //loc.Collect(quest.questTitle);
+            //loc.Collect(quest.location);
             string locText = "Location";
             questList += $"{loc.LoadTranslate(quest.questTitle)}\nNPC: {quest.owner}\n{loc.LoadTranslate(locText)}: {loc.LoadTranslate(quest.location)}\n{separator}\n";
         }
