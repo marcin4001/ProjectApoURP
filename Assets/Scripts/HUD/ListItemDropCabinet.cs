@@ -23,6 +23,8 @@ public class ListItemDropCabinet : MonoBehaviour, IDropHandler
             SlotItem slotItem = slotItemUI.GetSlot();
             if (slotItem == null || slotItem.IsEmpty())
                 return;
+            if (slotItem.GetItem().noStore)
+                return;
             if (slotItem.GetAmount() == 1)
             {
                 Cabinet cabinet = CabinetUI.instance.GetCabinet();

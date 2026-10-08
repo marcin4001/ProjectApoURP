@@ -702,8 +702,10 @@ public class HUDController : MonoBehaviour
     {
         if(questText == null) 
             return;
-        questText.text = "Quest Complete:\n";
-        questText.text += quest.questTitle;
+        string questCompleteText = "Quest Complete";
+        //loc.Collect(questCompleteText);
+        questText.text = $"{loc.LoadTranslate(questCompleteText)}:\n";
+        questText.text += loc.LoadTranslate(quest.questTitle);
         StartCoroutine(HideQuestText());
     }
 

@@ -2444,6 +2444,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5b860b34f5421443b54a917fb6e95e7, type: 3}
+--- !u!1 &104528085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2533261902594559635, guid: f8fa9012d3230cc4280725c7961dd508, type: 3}
+  m_PrefabInstance: {fileID: 833402948556358948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &106268440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4068732887779152, guid: ba577e1642715534585fb21ba6d0529a, type: 3}
@@ -34489,6 +34494,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2912743654120330281, guid: f8fa9012d3230cc4280725c7961dd508, type: 3}
   m_PrefabInstance: {fileID: 833402948556358948}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1720807952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104528085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0728313f411321b48ad74d8144db2dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameObject: bed
+  isNPC: 0
 --- !u!1 &1724326257
 GameObject:
   m_ObjectHideFlags: 0
@@ -44640,7 +44659,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2533261902594559635, guid: f8fa9012d3230cc4280725c7961dd508, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1720807952}
   m_SourcePrefab: {fileID: 100100000, guid: f8fa9012d3230cc4280725c7961dd508, type: 3}
 --- !u!1001 &884976074733725878
 PrefabInstance:
