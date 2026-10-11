@@ -1,5 +1,6 @@
 using System.IO;
 using Steamworks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -33,9 +34,16 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private string discordURL = "https://discord.gg/XESvTrz76q";
     [SerializeField] private string XURL = "https://x.com/Arkansas2125Fan";
     [SerializeField] private string messageQuit;
-    [SerializeField] public BookProfile book;
+    [SerializeField] private BookProfile book;
+    [SerializeField] private TextMeshProUGUI newGameText;
+    [SerializeField] private TextMeshProUGUI loadText;
+    [SerializeField] private TextMeshProUGUI settingsText;
+    [SerializeField] private TextMeshProUGUI creditsText;
+    [SerializeField] private TextMeshProUGUI quitText;
+    [SerializeField] private TextMeshProUGUI joinText;
     private MainInputSystem inputActions;
     private StatsPanelMenu statsPanelMenu;
+    private LocalizationCollector loc;
 
     private void Awake()
     {
@@ -59,6 +67,7 @@ public class DemoMenuUI : MonoBehaviour
 
     void Start()
     {
+        loc = new LocalizationCollector();
         statsPanelMenu = FindFirstObjectByType<StatsPanelMenu>();
         MusicManager.instance.SetMaxVolume(GameParam.instance.maxVolumeTheme);
         MusicManager.instance.SetTheme(indexTheme);
@@ -80,8 +89,6 @@ public class DemoMenuUI : MonoBehaviour
         {
             string name = SteamFriends.GetPersonaName();
             Debug.Log(name);
-            //SteamUserStats.ResetAllStats(true);
-            //SteamUserStats.StoreStats();
         }
         HideLoadOldSave();
         int language = PlayerPrefs.GetInt("Language", 0);
@@ -89,6 +96,22 @@ public class DemoMenuUI : MonoBehaviour
             OnClickEnglish();
         else if(language == 1)
             OnClickPolish();
+    }
+
+    public void SetLocText()
+    {
+        string newGameT = "NEW GAME";
+        string loadT = "LOAD";
+        string settingsT = "SETTINGS";
+        string creditsT = "CREDITS";
+        string quitT = "QUIT";
+        string joinT = "Join";
+        newGameText.text = loc.LoadTranslate(newGameT);
+        loadText.text = loc.LoadTranslate(loadT);
+        settingsText.text = loc.LoadTranslate(settingsT);
+        creditsText.text = loc.LoadTranslate(creditsT);
+        quitText.text = loc.LoadTranslate(quitT);
+        joinText.text = loc.LoadTranslate(joinT);
     }
 
     private void OnClickPlay()
@@ -186,6 +209,7 @@ public class DemoMenuUI : MonoBehaviour
         polishImg.overrideSprite = polishDeactiveSprite;
         PlayerPrefs.SetInt("Language", 0);
         PlayerPrefs.Save();
+        SetLocText();
     }
 
     public void OnClickPolish()
@@ -194,6 +218,7 @@ public class DemoMenuUI : MonoBehaviour
         englishImg.overrideSprite = englishDeactiveSprite;
         PlayerPrefs.SetInt("Language", 1);
         PlayerPrefs.Save();
+        SetLocText();
     }
 
     public void HideLoadOldSave()

@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 64848607}
   - component: {fileID: 64848606}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: SETTINGS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1778,7 +1778,7 @@ GameObject:
   - component: {fileID: 471110406}
   - component: {fileID: 471110405}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: QUIT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1990,6 +1990,13 @@ MonoBehaviour:
     be lost.\nAre you sure you want to continue?"
   helpBtn: {fileID: 1668012609}
   book: {fileID: 11400000, guid: 7048b29ec1d2d7546a5880aa8488a2e1, type: 2}
+  titleText: {fileID: 1664458012}
+  strengthText: {fileID: 846081622}
+  dexterityText: {fileID: 1312902017}
+  technicalText: {fileID: 1863044659}
+  perceptionText: {fileID: 554026260}
+  pointText: {fileID: 1555679303}
+  applyText: {fileID: 751409223}
 --- !u!1 &554026258
 GameObject:
   m_ObjectHideFlags: 0
@@ -4837,7 +4844,7 @@ GameObject:
   - component: {fileID: 1249975490}
   - component: {fileID: 1249975489}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: LOAD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4974,7 +4981,7 @@ GameObject:
   - component: {fileID: 1272636710}
   - component: {fileID: 1272636709}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: NEW GAME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5293,6 +5300,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e2f0c98908e16042af44ee39c8981a9, type: 3}
+--- !u!114 &1309776566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4727588831276127885, guid: 36a446e33ee3f754b98a9eafbad0cd0c, type: 3}
+  m_PrefabInstance: {fileID: 2928350636405699623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1312902015
 GameObject:
   m_ObjectHideFlags: 0
@@ -7213,7 +7231,7 @@ GameObject:
   - component: {fileID: 1821069004}
   - component: {fileID: 1821069003}
   m_Layer: 5
-  m_Name: Join
+  m_Name: JOIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7490,7 +7508,7 @@ GameObject:
   - component: {fileID: 2011875674}
   - component: {fileID: 2011875673}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: CREDITS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8088,6 +8106,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134963165}
   m_CullTransparentMesh: 1
+--- !u!114 &2145764539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8704941293488290843, guid: 36a446e33ee3f754b98a9eafbad0cd0c, type: 3}
+  m_PrefabInstance: {fileID: 2928350636405699623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &140933338810291881
 GameObject:
   m_ObjectHideFlags: 0
@@ -8447,6 +8476,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
+      propertyPath: joinText
+      value: 
+      objectReference: {fileID: 1821069003}
+    - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
+      propertyPath: loadText
+      value: 
+      objectReference: {fileID: 1249975489}
+    - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
+      propertyPath: quitText
+      value: 
+      objectReference: {fileID: 471110405}
+    - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
       propertyPath: polishBtn
       value: 
       objectReference: {fileID: 851953673}
@@ -8475,6 +8516,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1491375915}
     - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
+      propertyPath: creditsText
+      value: 
+      objectReference: {fileID: 2011875673}
+    - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
       propertyPath: guideButton
       value: 
       objectReference: {fileID: 1115750622}
@@ -8487,9 +8532,17 @@ PrefabInstance:
       value: Are you sure you want to quit the game?
       objectReference: {fileID: 0}
     - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
+      propertyPath: newGameText
+      value: 
+      objectReference: {fileID: 1272636709}
+    - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
       propertyPath: steamButton
       value: 
       objectReference: {fileID: 848479751}
+    - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
+      propertyPath: settingsText
+      value: 
+      objectReference: {fileID: 64848606}
     - target: {fileID: 4115881428751448525, guid: 8e70a49ad922fca4785427a7659eebcf, type: 3}
       propertyPath: creditsButton
       value: 
@@ -8990,6 +9043,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1240049040800036327, guid: 36a446e33ee3f754b98a9eafbad0cd0c, type: 3}
+      propertyPath: m_Name
+      value: YES
+      objectReference: {fileID: 0}
+    - target: {fileID: 2047365020811559837, guid: 36a446e33ee3f754b98a9eafbad0cd0c, type: 3}
+      propertyPath: noText
+      value: 
+      objectReference: {fileID: 2145764539}
+    - target: {fileID: 2047365020811559837, guid: 36a446e33ee3f754b98a9eafbad0cd0c, type: 3}
+      propertyPath: yesText
+      value: 
+      objectReference: {fileID: 1309776566}
     - target: {fileID: 4727588831276127885, guid: 36a446e33ee3f754b98a9eafbad0cd0c, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -9021,6 +9086,10 @@ PrefabInstance:
     - target: {fileID: 8704941293488290843, guid: 36a446e33ee3f754b98a9eafbad0cd0c, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805108245929623844, guid: 36a446e33ee3f754b98a9eafbad0cd0c, type: 3}
+      propertyPath: m_Name
+      value: NO
       objectReference: {fileID: 0}
     - target: {fileID: 8821591480679851216, guid: 36a446e33ee3f754b98a9eafbad0cd0c, type: 3}
       propertyPath: m_Pivot.x

@@ -18,13 +18,22 @@ public class StatsPanelMenu : MonoBehaviour
     [SerializeField] private int[] stats = new int[4];
     [SerializeField] private int points = 10;
     [SerializeField, TextArea(1, 3)] private string messageText;
-    [SerializeField] public Button helpBtn;
-    [SerializeField] public BookProfile book;
+    [SerializeField] private Button helpBtn;
+    [SerializeField] private BookProfile book;
+    [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI strengthText;
+    [SerializeField] private TextMeshProUGUI dexterityText;
+    [SerializeField] private TextMeshProUGUI technicalText;
+    [SerializeField] private TextMeshProUGUI perceptionText;
+    [SerializeField] private TextMeshProUGUI pointText;
+    [SerializeField] private TextMeshProUGUI applyText;
     private Coroutine coroutine;
     private DemoMenuUI demoMenu;
+    private LocalizationCollector loc;
 
     void Start()
     {
+        loc = new LocalizationCollector();
         demoMenu = FindFirstObjectByType<DemoMenuUI>();
         panel.SetActive(false);
         bg_panel.SetActive(false);
@@ -51,6 +60,7 @@ public class StatsPanelMenu : MonoBehaviour
         }
         points = 10;
         pointsValue.text = points.ToString();
+        SetLocText();
     }
 
     public void Close()
@@ -120,5 +130,23 @@ public class StatsPanelMenu : MonoBehaviour
                 indexImage = 0;
             viewPlayerImage.overrideSprite = viewPlayerSprites[indexImage];
         }
+    }
+
+    public void SetLocText()
+    {
+        string titleT = "SURVIVAL STATS:";
+        string strengthT = "STRENGTH";
+        string dexterityT = "DEXTERITY";
+        string technicalT = "TECHNICAL";
+        string perceptionT = "PERCEPTION";
+        string pointsT = "POINTS:";
+        string apply = "APPLY";
+        titleText.text = loc.LoadTranslate(titleT);
+        strengthText.text = loc.LoadTranslate(strengthT);
+        dexterityText.text = loc.LoadTranslate(dexterityT);
+        technicalText.text = loc.LoadTranslate(technicalT);
+        perceptionText.text = loc.LoadTranslate(perceptionT);
+        pointText.text = loc.LoadTranslate(pointsT);
+        applyText.text = loc.LoadTranslate(apply);
     }
 }

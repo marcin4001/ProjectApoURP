@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +14,14 @@ public class PauseMenuDemo : MonoBehaviour
     [SerializeField] private string messageQuit;
     [SerializeField] private string messageNoSaveCombat;
     [SerializeField] private string messageNoSaveArea;
+    [SerializeField] private TextMeshProUGUI resumeText;
+    [SerializeField] private TextMeshProUGUI saveText;
+    [SerializeField] private TextMeshProUGUI loadText;
+    [SerializeField] private TextMeshProUGUI settingsText;
+    [SerializeField] private TextMeshProUGUI quitText;
     private Canvas canvas;
     private PlayerController player;
+    private LocalizationCollector loc;
 
     private void Awake()
     {
@@ -22,6 +29,7 @@ public class PauseMenuDemo : MonoBehaviour
     }
     void Start()
     {
+        loc = new LocalizationCollector();
         player = FindFirstObjectByType<PlayerController>();
         canvas = GetComponent<Canvas>();
         canvas.enabled = false;
@@ -44,6 +52,7 @@ public class PauseMenuDemo : MonoBehaviour
         HUDController.instance.SetActiveCanvas(false);
         player.SetInMenu(true);
         active = true;
+        SetLocText();
     }
 
     public void Hide()
@@ -95,5 +104,19 @@ public class PauseMenuDemo : MonoBehaviour
     {
         Debug.Log("Exit");
         Application.Quit();
+    }
+
+    public void SetLocText()
+    {
+        string resumeT = "RESUME";
+        string saveT = "SAVE";
+        string loadT = "LOAD";
+        string settingsT = "SETTINGS";
+        string quitT = "QUIT";
+        resumeText.text = loc.LoadTranslate(resumeT);
+        saveText.text = loc.LoadTranslate(saveT);
+        loadText.text = loc.LoadTranslate(loadT);
+        settingsText.text = loc.LoadTranslate(settingsT);
+        quitText.text = loc.LoadTranslate(quitT);
     }
 }

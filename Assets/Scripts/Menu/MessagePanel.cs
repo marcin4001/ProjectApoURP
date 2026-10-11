@@ -12,6 +12,8 @@ public class MessagePanel : MonoBehaviour
     [SerializeField] private Button yesBtn;
     [SerializeField] private UnityAction action;
     [SerializeField] private bool active = false;
+    [SerializeField] private TextMeshProUGUI yesText;
+    [SerializeField] private TextMeshProUGUI noText;
     private LocalizationCollector loc;
 
     private void Awake()
@@ -30,6 +32,7 @@ public class MessagePanel : MonoBehaviour
     public void Open(string _message, UnityAction _action)
     {
         //loc.Collect(_message);
+        SetLocText();  
         panel.SetActive(true);
         textMessage.text = loc.LoadTranslate(_message);
         action = _action;
@@ -52,5 +55,13 @@ public class MessagePanel : MonoBehaviour
     public bool GetActive()
     {
         return active;
+    }
+
+    public void SetLocText()
+    {
+        string yesT = "YES";
+        string noT = "NO";
+        yesText.text = loc.LoadTranslate(yesT);
+        noText.text = loc.LoadTranslate(noT);
     }
 }

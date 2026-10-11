@@ -25,6 +25,12 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private bool fullscreen = true;
     [SerializeField] private bool vSync = true;
     [SerializeField] private bool active = false;
+    [SerializeField] private TextMeshProUGUI resolutionTitle;
+    [SerializeField] private TextMeshProUGUI fullscreenTitle;
+    [SerializeField] private TextMeshProUGUI musicVolTitle;
+    [SerializeField] private TextMeshProUGUI sfxVolTitle;
+    [SerializeField] private TextMeshProUGUI applyTitle;
+    private LocalizationCollector loc;
     private void Awake()
     {
         instance = this;
@@ -32,6 +38,7 @@ public class SettingsUI : MonoBehaviour
 
     void Start()
     {
+        loc = new LocalizationCollector();
         closeButton.onClick.AddListener(Close);
         leftArrowResolution.onClick.AddListener(OnClickLeftRes);
         rightArrowResolution.onClick.AddListener(OnClickRightRes);
@@ -73,6 +80,7 @@ public class SettingsUI : MonoBehaviour
         backgroud.SetActive(true);
         panel.SetActive(true);
         active = true;
+        SetLocText();
     }
 
     public void Close()
@@ -182,5 +190,19 @@ public class SettingsUI : MonoBehaviour
     public bool GetActive()
     {
         return active;
+    }
+
+    public void SetLocText()
+    {
+        string resT = "Resolution";
+        string fullscreenT = "Fullscreen";
+        string musicT = "MUSIC VOLUME";
+        string sfxT = "SFX VOLUME";
+        string apply = "APPLY";
+        resolutionTitle.text = loc.LoadTranslate(resT);
+        fullscreenTitle.text = loc.LoadTranslate(fullscreenT);
+        musicVolTitle.text = loc.LoadTranslate(musicT);
+        sfxVolTitle.text = loc.LoadTranslate(sfxT);
+        applyTitle.text = loc.LoadTranslate(apply);
     }
 }
