@@ -48,6 +48,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     [Header("Fight Panel")]
     [SerializeField] private GameObject fightPanel;
+    [SerializeField] private TextMeshProUGUI fightText;
     [Header("Quest")]
     [SerializeField] private TextMeshProUGUI questText;
     [Header("Level")]
@@ -104,6 +105,11 @@ public class HUDController : MonoBehaviour
         questPanelButton.onClick.AddListener(OpenQuestList);
         upConsoleButton.onClick.AddListener(OnClickButtonUpConsole);
         downConsoleButton.onClick.AddListener(OnClickButtonDownConsole);
+        if(fightText != null)
+        {
+            string fightT = "Fight";
+            fightText.text = loc.LoadTranslate(fightT);
+        }
         if(skipButton != null)
             skipButton.onClick.AddListener(OnClickSkip);
         if(fightPanel != null)
@@ -117,10 +123,11 @@ public class HUDController : MonoBehaviour
                 newLevelBtn.GetComponent<Image>().overrideSprite = newLevelNormal;
         }
         consoleText.text = string.Empty;
-        slotStateText.text = slotState.ToString();
+        slotStateText.text = loc.LoadTranslate(slotState.ToString());
         if(slotState == SlotState.None)
         {
-            slotStateText.text = "Unarmed";
+            string unarmed = "Unarmed";
+            slotStateText.text = loc.LoadTranslate(unarmed);
         }
         if(questText != null)
         {
@@ -247,10 +254,11 @@ public class HUDController : MonoBehaviour
                     slotState = SlotState.Use;
                     break;
             }
-            slotStateText.text = slotState.ToString();
+            slotStateText.text = loc.LoadTranslate(slotState.ToString());
             if (slotState == SlotState.None)
             {
-                slotStateText.text = "Unarmed";
+                string unarmed = "Unarmed";
+                slotStateText.text = loc.LoadTranslate(unarmed);
             }
         }
     }
@@ -511,10 +519,12 @@ public class HUDController : MonoBehaviour
             }
             
         }
-        slotStateText.text = slotState.ToString();
+        slotStateText.text = loc.LoadTranslate(slotState.ToString());
         if (slotState == SlotState.None)
         {
-            slotStateText.text = "Unarmed";
+            string unarmed = "Unarmed";
+            slotStateText.text = loc.LoadTranslate(unarmed);
+            
         }
     }
 

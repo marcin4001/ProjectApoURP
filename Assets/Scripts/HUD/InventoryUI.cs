@@ -12,6 +12,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private Button closeButton;
     [SerializeField] private TextMeshProUGUI consoleText;
     [SerializeField] private TextMeshProUGUI moneyText;
+    [SerializeField] private TextMeshProUGUI armorText;
     [SerializeField] private Transform content;
     [SerializeField] private GameObject slotPrefab;
     [SerializeField] private SlotDropUI[] slotsDrop;
@@ -93,6 +94,8 @@ public class InventoryUI : MonoBehaviour
 
     public void Show()
     {
+        string armorT = "ARMOR";
+        armorText.text = loc.LoadTranslate(armorT);
         canvas.enabled = true;
         player.SetInMenu(true);
         CreateListItem();
