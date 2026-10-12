@@ -12,6 +12,7 @@ public class CabinetUI : MonoBehaviour
     [SerializeField] private Button takeAll;
     [SerializeField] private TextMeshProUGUI consoleText;
     [SerializeField] private TextMeshProUGUI cabinetNameText;
+    [SerializeField] private TextMeshProUGUI takeAllText;
     [SerializeField] private Transform contentCabinet;
     [SerializeField] private Transform contentPlayer;
     [SerializeField] private GameObject slotPrefab;
@@ -73,8 +74,11 @@ public class CabinetUI : MonoBehaviour
             scrollListItemsPlayer.ResetPositionList();
         consoleText.text = string.Empty;
         active = true;
-        cabinetNameText.text = cabinet.GetCabinetName();
+        //loc.Collect(cabinet.GetCabinetName());
+        cabinetNameText.text = loc.LoadTranslate(cabinet.GetCabinetName());
         CameraMovement.instance.SetBlock(true);
+        string takeAllT = "TAKE ALL";
+        takeAllText.text = loc.LoadTranslate(takeAllT);
     }
 
     public void Show(List<SlotItem> items, string nameEnemy)
@@ -89,16 +93,18 @@ public class CabinetUI : MonoBehaviour
             scrollListItemsPlayer.ResetPositionList();
         consoleText.text = string.Empty;
         active = true;
-        cabinetNameText.text = nameEnemy;
+        //loc.Collect(nameEnemy);
+        cabinetNameText.text = loc.LoadTranslate(nameEnemy);
         CameraMovement.instance.SetBlock(true);
         slotsEnemy = items;
+        string takeAllT = "TAKE ALL";
+        takeAllText.text = loc.LoadTranslate(takeAllT);
     }
 
     private void TakeAllByKey(InputAction.CallbackContext ctx)
     {
         if(!active) return;
         TakeAll();
-        Debug.Log("TakeAll");
     }
 
     public void CreateListCabinet()

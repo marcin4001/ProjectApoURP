@@ -13,6 +13,8 @@ public class QuestListUI : MonoBehaviour
     [SerializeField] private Button completeButton;
     [SerializeField] private TextMeshProUGUI statsText;
     [SerializeField] private TextMeshProUGUI questListText;
+    [SerializeField] private TextMeshProUGUI currentText;
+    [SerializeField] private TextMeshProUGUI completeText;
     [SerializeField] private Transform playerStats;
     [SerializeField] private GameObject cameraPlayerStats;
     [SerializeField] private Image viewPlayerImage;
@@ -91,6 +93,10 @@ public class QuestListUI : MonoBehaviour
         coroutine = StartCoroutine(ChangePlayerView());
         CreateCurrentQuestList();
         player.StopMove();
+        string currentT = "Current";
+        string completeT = "Complete";
+        currentText.text = loc.LoadTranslate(currentT);
+        completeText.text = loc.LoadTranslate(completeT);
     }
 
     public void Hide()

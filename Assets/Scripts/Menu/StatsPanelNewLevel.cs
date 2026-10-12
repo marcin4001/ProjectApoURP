@@ -18,11 +18,19 @@ public class StatsPanelNewLevel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] values = new TextMeshProUGUI[4];
     [SerializeField] private Button[] rightButtons;
     [SerializeField] private TextMeshProUGUI pointsValue;
+    [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI strengthText;
+    [SerializeField] private TextMeshProUGUI dexterityText;
+    [SerializeField] private TextMeshProUGUI technicalText;
+    [SerializeField] private TextMeshProUGUI perceptionText;
+    [SerializeField] private TextMeshProUGUI pointText;
+    [SerializeField] private TextMeshProUGUI applyText;
     [SerializeField] private int[] stats = new int[4];
     [SerializeField] private int points;
     private Coroutine coroutine;
     private PlayerController player;
     private bool active = false;
+    private LocalizationCollector loc;
 
     private void Awake()
     {
@@ -32,6 +40,7 @@ public class StatsPanelNewLevel : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        loc = new LocalizationCollector();
         player = FindFirstObjectByType<PlayerController>();
         panel.SetActive(false);
         bg_panel.SetActive(false);
@@ -69,6 +78,7 @@ public class StatsPanelNewLevel : MonoBehaviour
             values[i].text = stats[i].ToString();
         }
         player.StopMove();
+        SetLocText();
     }
 
     private IEnumerator ChangePlayerView()
@@ -145,5 +155,23 @@ public class StatsPanelNewLevel : MonoBehaviour
     public void ClearArmorItem()
     {
         armorItem = null;
+    }
+
+    public void SetLocText()
+    {
+        string titleT = "SURVIVAL STATS:";
+        string strengthT = "STRENGTH";
+        string dexterityT = "DEXTERITY";
+        string technicalT = "TECHNICAL";
+        string perceptionT = "PERCEPTION";
+        string pointsT = "POINTS:";
+        string apply = "APPLY";
+        titleText.text = loc.LoadTranslate(titleT);
+        strengthText.text = loc.LoadTranslate(strengthT);
+        dexterityText.text = loc.LoadTranslate(dexterityT);
+        technicalText.text = loc.LoadTranslate(technicalT);
+        perceptionText.text = loc.LoadTranslate(perceptionT);
+        pointText.text = loc.LoadTranslate(pointsT);
+        applyText.text = loc.LoadTranslate(apply);
     }
 }

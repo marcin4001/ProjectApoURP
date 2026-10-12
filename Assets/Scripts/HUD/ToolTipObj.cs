@@ -42,7 +42,7 @@ public class ToolTipObj : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private IEnumerator ShowAfterTime()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         ToolTip.instance.SetText(tooltipText);
     }
 }

@@ -20,7 +20,7 @@ public class ToolTip : MonoBehaviour
 
     public void SetText(string tooltipText)
     {
-        //loc.Collect(tooltipText);
+        loc.Collect(tooltipText);
         text.text = $" {loc.LoadTranslate(tooltipText)}";
         background.gameObject.SetActive(true);
         StartCoroutine(Resize());
@@ -39,7 +39,7 @@ public class ToolTip : MonoBehaviour
 
     private IEnumerator Hide()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSecondsRealtime(2);
         background.gameObject.SetActive(false);
     }
 

@@ -15,7 +15,9 @@ public class CounterUI : MonoBehaviour
     [SerializeField] private Button button50;
     [SerializeField] private Button button100;
     [SerializeField] private Button applyButton;
+    [SerializeField] private TextMeshProUGUI applyText;
     private Canvas canvas;
+    private LocalizationCollector loc;
 
     private void Awake()
     {
@@ -23,6 +25,7 @@ public class CounterUI : MonoBehaviour
     }
     void Start()
     {
+        loc = new LocalizationCollector();
         canvas = GetComponent<Canvas>();
         leftButton.onClick.AddListener(OnLeftButtonClick);
         rightButton.onClick.AddListener(OnRightButtonClick);
@@ -41,6 +44,8 @@ public class CounterUI : MonoBehaviour
         counterText.text = number.ToString("D5");
         canvas.enabled = true;
         EscController.instance.SetBlock(true);
+        string applyT = "APPLY";
+        applyText.text = loc.LoadTranslate(applyT);
     }
 
     private void OnRightButtonClick()

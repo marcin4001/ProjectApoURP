@@ -16,6 +16,8 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI npcLabelJob;
     [SerializeField] private TextMeshProUGUI npcLabelLoc;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI exitText;
+    [SerializeField] private TextMeshProUGUI tradeText;
     [SerializeField] private bool active;
     private Canvas canvas;
     private PlayerController player;
@@ -44,6 +46,13 @@ public class DialogueUI : MonoBehaviour
         CameraMovement.instance.CenterCameraToPlayer();
         CameraMovement.instance.SetBlock(true);
         coroutineTime = StartCoroutine(UpdateTimer());
+        string exitT = "EXIT";
+        string tradeT = "TRADE";
+        tradeText.text = loc.LoadTranslate(tradeT);
+        if(exitButton.isActiveAndEnabled)
+        {
+            exitText.text = loc.LoadTranslate(exitT);
+        }
     }
 
     public void Hide()
