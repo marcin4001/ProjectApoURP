@@ -20,7 +20,7 @@ public class ToolTip : MonoBehaviour
 
     public void SetText(string tooltipText)
     {
-        loc.Collect(tooltipText);
+        //loc.Collect(tooltipText);
         text.text = $" {loc.LoadTranslate(tooltipText)}";
         background.gameObject.SetActive(true);
         StartCoroutine(Resize());
