@@ -5,15 +5,31 @@ using UnityEngine;
 
 public class LocalizationCollector
 {
-    private readonly string filePath;
+    private string filePath;
 
     public LocalizationCollector()
+    {
+        //filePath = Path.Combine(
+        //    Application.streamingAssetsPath,
+        //    "translations.csv"
+        //);
+        //CreateFileIfNeeded();
+    }
+
+    public void LoadFilePL()
     {
         filePath = Path.Combine(
             Application.streamingAssetsPath,
             "translations.csv"
         );
-        CreateFileIfNeeded();
+    }
+
+    public void LoadFileRUS()
+    {
+        filePath = Path.Combine(
+            Application.streamingAssetsPath,
+            "translationsRUS.csv"
+        );
     }
 
     private void CreateFileIfNeeded()
@@ -32,7 +48,9 @@ public class LocalizationCollector
     {
         if (string.IsNullOrEmpty(englishText))
             return;
-
+        LoadFilePL();
+        if (!File.Exists(filePath))
+            return;
         List<string> lines = ReadCsvRecords();
 
         foreach (string line in lines)
@@ -71,7 +89,12 @@ public class LocalizationCollector
             return englishText;
         if (string.IsNullOrEmpty(englishText))
             return englishText;
-
+        if (language == 1)
+            LoadFilePL();
+        if (language == 2)
+            LoadFileRUS();
+        if (!File.Exists(filePath))
+            return englishText;
         List<string> records = ReadCsvRecords();
 
         foreach (string record in records)

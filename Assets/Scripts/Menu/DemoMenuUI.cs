@@ -221,6 +221,13 @@ public class DemoMenuUI : MonoBehaviour
         SetLocText();
     }
 
+    public void OnClickRussian()
+    {
+        PlayerPrefs.SetInt("Language", 2);
+        PlayerPrefs.Save();
+        SetLocText();
+    }
+
     public void HideLoadOldSave()
     {
         string folderPath = Application.persistentDataPath + "/Save";
@@ -228,5 +235,11 @@ public class DemoMenuUI : MonoBehaviour
         {
             Destroy(loadOldSave.gameObject);
         }
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.B))
+            OnClickRussian();
     }
 }
