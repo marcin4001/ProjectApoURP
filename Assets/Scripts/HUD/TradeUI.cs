@@ -11,6 +11,7 @@ public class TradeUI : MonoBehaviour
     [SerializeField] private Button tradeButton;
     [SerializeField] private TextMeshProUGUI consoleText;
     [SerializeField] private TextMeshProUGUI npcNameText;
+    [SerializeField] private TextMeshProUGUI thomasNameText;
     [SerializeField] private TextMeshProUGUI moneyPlayerText;
     [SerializeField] private TextMeshProUGUI moneyNPCText;
     [SerializeField] private Transform contentNPC;
@@ -65,7 +66,8 @@ public class TradeUI : MonoBehaviour
             scrollListItemsPlayer.ResetPositionList();
         consoleText.text = string.Empty;
         active = true;
-        npcNameText.text = nPC.GetNPCName();
+        npcNameText.text = loc.LoadTranslate(nPC.GetNPCName());
+        thomasNameText.text = loc.LoadTranslate("Thomas");
     }
 
     public void CreateListNPC()

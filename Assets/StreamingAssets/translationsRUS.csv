@@ -45,7 +45,7 @@
 "I’ll go check it out. Will you come with me?","Я схожу и проверю. Ты пойдёшь со мной?"
 "Maybe… but without extra food, we won’t last long here. We can hunt, but it’s only enough for a short time. It’s worth trying to look for this device – it could be our only chance.","Может быть… но без дополнительных запасов еды мы здесь долго не протянем. Мы можем охотиться, но этого хватит ненадолго. Стоит поискать устройство — возможно, это наш единственный шанс."
 "Try going to Clearwater, a village to the east. I heard about it from wandering traders… maybe someone there knows something about it.","Попробуй отправиться в Клируотер, деревню к востоку отсюда. Я слышал о ней от странствующих торговцев… может, там кто-нибудь что-то знает."
-"New quest added to journal","Новое задание в журнале"
+"New quest added to journal","Новый квест добавлен"
 "I can’t. Someone has to stay and watch over the home. You’re stronger, you’ll handle the journey better. I’ll wait for you here.","Я не могу. Кто-то должен остаться и присматривать за домом. Ты сильнее и лучше справишься с путешествием. Я буду ждать тебя здесь."
 "I'm setting off","Я отправляюсь в путь"
 "You earn 100 EXP.","Вы получаете 100 EXP."
@@ -107,7 +107,7 @@
 "I’m not sure where to find chips around here. Maybe try checking with some of the traders or see if anyone has them stored away. I hope you can find some!","Не знаю, где здесь найти чипсы. Попробуй спросить торговцев или узнать, не завалялась ли у кого-нибудь пачка. Надеюсь, тебе повезёт!"
 "You can find supplies by asking around the village. Each villager usually has something to trade or sell, so it’s a good idea to speak to everyone.","Припасы можно найти, расспросив жителей деревни. У каждого обычно есть что-нибудь на обмен или продажу, так что лучше поговорить со всеми."
 "This is a water tank","Это резервуар для воды"
-"This is a cattle","Это крупный рогатый скот"
+"This is a cattle","Это корова."
 "Hey there! Haven't seen you around before. I'm Remsua. What brings you to this place?","Привет! Раньше тебя здесь не видел. Я Ремсуа. Что привело тебя сюда?"
 "What do you do around here?","Чем ты здесь занимаешься?"
 "Do you need help with anything?","Тебе чем-нибудь помочь?"
@@ -414,7 +414,7 @@
 "This is dog named Lucy","Это собака по кличке Люси"
 "This is a wheelbarrow","Это тачка"
 "This is a corn plant","Это кукуруза"
-"This is Caleb","Это Калеб"
+"This is Caleb","Это Кейлеб"
 "This is Mabel","Это Мейбл"
 "Farmer","Фермер"
 "Hello. Not many people stop by here. What do you need?","Здравствуйте. Сюда редко кто заглядывает. Что вам нужно?"
@@ -2188,22 +2188,24 @@ Dexterity represents reflexes and physical agility. It affects the chance to dod
 
 Характеристики описывают основные способности героя и напрямую влияют на бой, исследование мира и решение различных задач.
 
-Сила отражает физическую выносливость и навыки ближнего боя. Она влияет на максимальное количество очков здоровья, урон кулаками и оружием ближнего боя, а также на способность переносить тяжёлые предметы. Высокая сила повышает выживаемость и эффективность в ближнем бою.
+Сила (STR) отражает физическую выносливость и навыки ближнего боя. Она влияет на максимальное количество очков здоровья, урон кулаками и оружием ближнего боя, а также на способность переносить тяжёлые предметы. Высокая сила повышает выживаемость и эффективность в ближнем бою.
 
-Ловкость отражает рефлексы и физическую подвижность. Она влияет на шанс уклониться от атак, способность вскрывать механические замки отмычками и количество очков действия (ОД), доступных в бою. Высокая ловкость помогает эффективнее избегать урона, выполнять больше действий за ход и быстрее реагировать в бою."
+Ловкость (DEX) отражает рефлексы и физическую подвижность. Она влияет на шанс уклониться от атак, способность вскрывать механические замки отмычками и количество очков действия (ОД), доступных в бою. Высокая ловкость помогает эффективнее избегать урона,"
 "Characters with Dexterity 1–3 have 3 AP, Dexterity 4–7 have 4 AP, and Dexterity 8–10 have 5 AP.
 
 Perception represents awareness and precision. It affects the chance to hit with firearms as well as the chance to land critical hits that deal increased damage. High Perception allows the character to strike targets more accurately and deal powerful, precise attacks more often.
 
-Technical represents technical knowledge and the ability to operate devices. It affects the chance to successfully repair equipment, recover parts from damaged machines, open electronic and code-locked doors, and access special technical dialogue options.","Персонажи с ловкостью 1–3 получают 3 ОД, с ловкостью 4–7 — 4 ОД, а с ловкостью 8–10 — 5 ОД.
+Technical represents technical knowledge and the ability to operate devices. It affects the chance to successfully repair equipment, recover parts from damaged machines, open electronic and code-locked doors, and access special technical dialogue options.","выполнять больше действий за ход и быстрее реагировать в бою.
 
-Восприятие отражает внимательность и точность. Оно влияет на шанс попадания из огнестрельного оружия, а также на вероятность критического удара, наносящего повышенный урон. Высокое восприятие позволяет точнее поражать цели и чаще наносить мощные, точные удары.
+Персонажи с ловкостью 1–3 получают 3 ОД, с ловкостью 4–7 — 4 ОД, а с ловкостью 8–10 — 5 ОД.
 
-Техника отражает технические знания и умение работать с устройствами. Она влияет на шанс успешно ремонтировать оборудование, извлекать детали из повреждённых механизмов, открывать электронные двери и двери с кодовыми замками, а также выбирать специальные технические варианты в диалогах."
+Восприятие (PER) отражает внимательность и точность. Оно влияет на шанс попадания из огнестрельного оружия, а также на вероятность критического удара, наносящего повышенный урон. Высокое восприятие позволяет точнее поражать цели и чаще наносить мощные, точные удары.
+
+Техника (TEC) отражает технические знания и умение работать с устройствами. Она влияет на шанс успешно ремонтировать оборудование, извлекать детали из повреждённых механизмов, открывать электронные двери и двери с кодовыми замками, а также выбирать специальные технические варианты в диалогах."
 "You don't have enough money to buy this!","У тебя недостаточно денег, чтобы купить это!"
 "doesn't have enough money to buy this!","Недостаточно денег, чтобы купить это!"
 "Location","Местоположение"
-"Complete Quests","Завершённые задания"
+"Complete Quests","Выполненные задания"
 "Name","Имя"
 "Health","Здоровье"
 "Radiation level","Уровень радиации"
@@ -2295,7 +2297,7 @@ Are you sure you want to continue?","Ты распределил не все о�
 "Fullscreen","Полный экран"
 "MUSIC VOLUME","ГРОМКОСТЬ МУЗЫКИ"
 "SFX VOLUME","ГРОМКОСТЬ ЭФФЕКТОВ"
-"RESUME","ПРОДОЛЖИТЬ"
+"RESUME","ВЕРНУТЬСЯ"
 "SAVE","СОХРАНИТЬ"
 "MultiShot","Мультишот"
 "Reload","Перезарядить"
@@ -2317,7 +2319,7 @@ Are you sure you want to continue?","Ты распределил не все о�
 "EXIT","ВЫХОД"
 "TRADE","ТОРГОВЛЯ"
 "Current","Текущие"
-"Complete","Завершённые"
+"Complete","Выполнено"
 "Help","Помощь"
 "Close","Закрыть"
 "Next page","Следующая страница"
@@ -2346,3 +2348,51 @@ Are you sure you want to continue?","Ты распределил не все о�
 "loses 18 point(s).","теряет 18 очк."
 "loses 22 point(s).","теряет 22 очк."
 "11 point(s).","Теряет 11 очк."
+"Patricia","Патриша"
+"Ethan","Итан"
+"Remsua","Ремсуа"
+"Kate","Кейт"
+"Dylan","Дилан"
+"Marcus","Маркус"
+"Colby","Колби"
+"Barnabas","Барнабас"
+"Franklin","Франклин"
+"Henry","Генри"
+"Duke","Дюк"
+"Roy","Рой"
+"Caleb","Кейлеб"
+"Mabel","Мейбл"
+"Nixon","Никсон"
+"Baxton","Бакстон"
+"Hank","Хэнк"
+"Ryder","Райдер"
+"Kane","Кейн"
+"Witold","Витольд"
+"Jerry","Джерри"
+"Levi","Леви"
+"Travis","Трэвис"
+"Jonas","Джонас"
+"Mark","Марк"
+"Troy","Трой"
+"Gen. Rowan","Ген. Роуэн"
+"Felix","Феликс"
+"Logan","Логан"
+"Buzz","Базз"
+"Lyndon","Линдон"
+"Trevor","Тревор"
+"Archi","Арчи"
+"Francis","Фрэнсис"
+"Chuck","Чак"
+"Ryan","Райан"
+"Morrow","Морроу"
+"Theodore","Теодор"
+"Donald","Дональд"
+"Benny","Бенни"
+"Velma","Велма"
+"Elvis","Элвис"
+"Frank","Фрэнк"
+"Jed","Джед"
+"Harlan","Харлан"
+"Adam","Адам"
+"Martin","Мартин"
+"SLOT","СЛОТ"

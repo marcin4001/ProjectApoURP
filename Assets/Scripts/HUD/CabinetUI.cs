@@ -12,6 +12,7 @@ public class CabinetUI : MonoBehaviour
     [SerializeField] private Button takeAll;
     [SerializeField] private TextMeshProUGUI consoleText;
     [SerializeField] private TextMeshProUGUI cabinetNameText;
+    [SerializeField] private TextMeshProUGUI thomasNameText;
     [SerializeField] private TextMeshProUGUI takeAllText;
     [SerializeField] private Transform contentCabinet;
     [SerializeField] private Transform contentPlayer;
@@ -79,6 +80,7 @@ public class CabinetUI : MonoBehaviour
         CameraMovement.instance.SetBlock(true);
         string takeAllT = "TAKE ALL";
         takeAllText.text = loc.LoadTranslate(takeAllT);
+        thomasNameText.text = loc.LoadTranslate("Thomas");
     }
 
     public void Show(List<SlotItem> items, string nameEnemy)

@@ -156,7 +156,8 @@ public class PlayerStats : MonoBehaviour
         string dayText = "Day";
         string lvlText = "Level";
         string armorDefText = "Armor defense";
-        return $"{loc.LoadTranslate(nameText)}: Thomas\n{loc.LoadTranslate(healthText)}: {healthPoint}/{healthPointMax}\n" +
+        string thomas = "Thomas";
+        return $"{loc.LoadTranslate(nameText)}: {loc.LoadTranslate(thomas)}\n{loc.LoadTranslate(healthText)}: {healthPoint}/{healthPointMax}\n" +
             $"{loc.LoadTranslate(radLvl)}: {radLevel}/{radLevelMax}\n{loc.LoadTranslate(dayText)}: {GameParam.instance.day}\n" +
             $"{loc.LoadTranslate(lvlText)}: {GameParam.instance.level}\nEXP: {GameParam.instance.exp}/{GameParam.instance.expToNextLevel}\n" +
             $"{loc.LoadTranslate(armorDefText)}: {armorDef}\n" +

@@ -78,8 +78,9 @@ public class DialogueUI : MonoBehaviour
     {
         //loc.Collect(job);
         //loc.Collect(location);
+        //loc.Collect(nameNPC);
         npcLabelText.text = "";//$"» {nameNPC}\n» {loc.LoadTranslate(job)}\n» {loc.LoadTranslate(location)}";
-        npcLabelName.text = $"  :{nameNPC}";
+        npcLabelName.text = $"  :{loc.LoadTranslate(nameNPC)}";
         npcLabelJob.text = $"  :{loc.LoadTranslate(job)}";
         npcLabelLoc.text = $"  :{loc.LoadTranslate(location)}";
     }
