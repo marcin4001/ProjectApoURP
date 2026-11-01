@@ -69,7 +69,7 @@ public class DialogueUI : MonoBehaviour
 
     public void SetReply(string reply)
     {
-        //loc.Collect(reply);
+        loc.Collect(reply);
         replyText.text = loc.LoadTranslate(reply);
         Debug.Log(reply);
     }

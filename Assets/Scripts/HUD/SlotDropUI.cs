@@ -98,9 +98,7 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
                             int strength = PlayerStats.instance.GetStrength();
                             if (weaponItem.strengthRequired > strength)
                             {
-                                HUDController.instance.AddConsolelog("You don’t have enough");
-                                HUDController.instance.AddConsolelog("Strength to use this");
-                                HUDController.instance.AddConsolelog("weapon!");
+                                InventoryUI.instance.ShowWarning();
                                 return;
                             }
                         }
@@ -137,9 +135,7 @@ public class SlotDropUI : MonoBehaviour, IDropHandler
                     if(weaponItem.strengthRequired >  strength)
                     {
                         slotItemUI = null;
-                        HUDController.instance.AddConsolelog("You don’t have enough");
-                        HUDController.instance.AddConsolelog("Strength to use this");
-                        HUDController.instance.AddConsolelog("weapon!");
+                        InventoryUI.instance.ShowWarning();
                         return;
                     }
                 }

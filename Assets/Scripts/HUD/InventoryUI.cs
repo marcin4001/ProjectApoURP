@@ -147,6 +147,14 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    public void ShowWarning()
+    {
+        consoleText.text = "";
+        string warningText = "You don’t have enough Strength to use this weapon!";
+        consoleText.text += separator + "\n";
+        consoleText.text += loc.LoadTranslate(warningText) + "\n";
+        consoleText.text += separator;
+    }
 
     public void UpdateAmountTextSlotsDrop()
     {

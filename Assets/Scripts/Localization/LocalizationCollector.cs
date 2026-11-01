@@ -48,7 +48,7 @@ public class LocalizationCollector
     {
         if (string.IsNullOrEmpty(englishText))
             return;
-        LoadFileRUS();
+        LoadFilePL();
         if (!File.Exists(filePath))
             return;
         List<string> lines = ReadCsvRecords();
