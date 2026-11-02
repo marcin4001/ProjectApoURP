@@ -21,12 +21,16 @@ public class DemoMenuUI : MonoBehaviour
     [SerializeField] private Button XBtn;
     [SerializeField] private Button englishBtn;
     [SerializeField] private Button polishBtn;
+    [SerializeField] private Button russianBtn;
     [SerializeField] private Image englishImg;
     [SerializeField] private Image polishImg;
+    [SerializeField] private Image russianImg;
     [SerializeField] private Sprite englishActiveSprite;
     [SerializeField] private Sprite polishActiveSprite;
+    [SerializeField] private Sprite russianActiveSprite;
     [SerializeField] private Sprite englishDeactiveSprite;
     [SerializeField] private Sprite polishDeactiveSprite;
+    [SerializeField] private Sprite russianDeactiveSprite;
     [SerializeField] private int indexTheme = 0;
     [SerializeField] private bool inDemo = false;
     [SerializeField] private string guideURL = "https://drive.google.com/file/d/1cEXWEQmxcKytIYpjPMdWPtfHDkKfMPUp/view?usp=sharing";
@@ -82,6 +86,7 @@ public class DemoMenuUI : MonoBehaviour
         XBtn.onClick.AddListener(OnClickX);
         englishBtn.onClick.AddListener(OnClickEnglish);
         polishBtn.onClick.AddListener(OnClickPolish);
+        russianBtn.onClick.AddListener(OnClickRussian);
         GameParam.instance.mainMusicVolume = PlayerPrefs.GetFloat("mainMusicVolume", 1f);
         GameParam.instance.sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
         steamButton.onClick.AddListener(OnClickSteam);
@@ -96,6 +101,8 @@ public class DemoMenuUI : MonoBehaviour
             OnClickEnglish();
         else if(language == 1)
             OnClickPolish();
+        else if(language == 2)
+            OnClickRussian();
     }
 
     public void SetLocText()
@@ -207,6 +214,7 @@ public class DemoMenuUI : MonoBehaviour
     {
         englishImg.overrideSprite = englishActiveSprite;
         polishImg.overrideSprite = polishDeactiveSprite;
+        russianImg.overrideSprite = russianDeactiveSprite;
         PlayerPrefs.SetInt("Language", 0);
         PlayerPrefs.Save();
         SetLocText();
@@ -216,6 +224,7 @@ public class DemoMenuUI : MonoBehaviour
     {
         polishImg.overrideSprite = polishActiveSprite;
         englishImg.overrideSprite = englishDeactiveSprite;
+        russianImg.overrideSprite = russianDeactiveSprite;
         PlayerPrefs.SetInt("Language", 1);
         PlayerPrefs.Save();
         SetLocText();
@@ -223,6 +232,9 @@ public class DemoMenuUI : MonoBehaviour
 
     public void OnClickRussian()
     {
+        russianImg.overrideSprite = russianActiveSprite;
+        englishImg.overrideSprite = englishDeactiveSprite;
+        polishImg.overrideSprite = polishDeactiveSprite;
         PlayerPrefs.SetInt("Language", 2);
         PlayerPrefs.Save();
         SetLocText();
@@ -237,9 +249,4 @@ public class DemoMenuUI : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.B))
-            OnClickRussian();
-    }
 }
