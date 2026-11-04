@@ -38,6 +38,7 @@ public class GameParam : MonoBehaviour
     public float maxVolumeTheme = 1f;
     [Range(0f, 1f)] public float mainMusicVolume = 1f;
     [Range(0f, 1f)] public float sfxVolume = 1f;
+    public bool retro  = false;
     public Vector2Int[] resolutions;
     public int currentResolution;
     public Color normalDialogueTag;
@@ -66,6 +67,11 @@ public class GameParam : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         mainMusicVolume = PlayerPrefs.GetFloat("mainMusicVolume", 1f);
         sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 1f);
+        int _retro = PlayerPrefs.GetInt("retro", 0);
+        if (_retro == 0)
+            retro = false;
+        else
+            retro = true;
     }
 
     public void UpdateParam()

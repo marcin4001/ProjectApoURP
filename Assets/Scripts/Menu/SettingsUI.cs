@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.Rendering;
 
 public class SettingsUI : MonoBehaviour
 {
@@ -18,18 +19,23 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private Button leftArrowVsync;
     [SerializeField] private Button rightArrowVsync;
     [SerializeField] private TextMeshProUGUI vSyncText;
+    [SerializeField] private Button leftArrowRetro;
+    [SerializeField] private Button rightArrowRetro;
+    [SerializeField] private TextMeshProUGUI RetroText;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Button applyButton;
     [SerializeField] private int currentResolutionIndex;
     [SerializeField] private bool fullscreen = true;
     [SerializeField] private bool vSync = true;
+    [SerializeField] private bool retro = true;
     [SerializeField] private bool active = false;
     [SerializeField] private TextMeshProUGUI resolutionTitle;
     [SerializeField] private TextMeshProUGUI fullscreenTitle;
     [SerializeField] private TextMeshProUGUI musicVolTitle;
     [SerializeField] private TextMeshProUGUI sfxVolTitle;
     [SerializeField] private TextMeshProUGUI applyTitle;
+    private Volume volume;
     private LocalizationCollector loc;
     private void Awake()
     {
@@ -46,10 +52,14 @@ public class SettingsUI : MonoBehaviour
         rightArrowFullscreen.onClick.AddListener(ChangeFullscreen);
         leftArrowVsync.onClick.AddListener(ChangeVSync);
         rightArrowVsync.onClick.AddListener(ChangeVSync);
+        leftArrowRetro.onClick.AddListener(ChangeRetro);
+        rightArrowRetro.onClick.AddListener(ChangeRetro);
         applyButton.onClick.AddListener(Apply);
         ValidResolution();
         backgroud.SetActive(false);
         panel.SetActive(false);
+        retro = GameParam.instance.retro;
+        SetRetroFX();
     }
 
     public void Show()
@@ -76,7 +86,15 @@ public class SettingsUI : MonoBehaviour
         }
         musicSlider.value = GameParam.instance.mainMusicVolume;
         sfxSlider.value = GameParam.instance.sfxVolume;
-        
+        retro = GameParam.instance.retro;
+        if (retro)
+        {
+            RetroText.text = "ON";
+        }
+        else
+        {
+            RetroText.text = "OFF";
+        }
         backgroud.SetActive(true);
         panel.SetActive(true);
         active = true;
@@ -139,6 +157,19 @@ public class SettingsUI : MonoBehaviour
         }
     }
 
+    public void ChangeRetro()
+    {
+        retro = !retro;
+        if(retro)
+        {
+            RetroText.text = "ON";
+        }
+        else
+        {
+            RetroText.text = "OFF";
+        }
+    }
+
     public void Apply()
     {
         Vector2Int currentResolution = GameParam.instance.resolutions[currentResolutionIndex];
@@ -159,6 +190,16 @@ public class SettingsUI : MonoBehaviour
 
         PlayerPrefs.SetFloat("mainMusicVolume", GameParam.instance.mainMusicVolume);
         PlayerPrefs.SetFloat("sfxVolume", GameParam.instance.sfxVolume);
+        if(retro)
+        {
+            PlayerPrefs.SetInt("retro", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("retro", 0);
+        }
+        GameParam.instance.retro = retro;
+        SetRetroFX();
     }
 
     public void ValidResolution()
@@ -204,5 +245,17 @@ public class SettingsUI : MonoBehaviour
         musicVolTitle.text = loc.LoadTranslate(musicT);
         sfxVolTitle.text = loc.LoadTranslate(sfxT);
         applyTitle.text = loc.LoadTranslate(apply);
+    }
+
+    private void SetRetroFX()
+    {
+        volume = FindFirstObjectByType<Volume>();
+        if (volume != null)
+        {
+            volume.profile.TryGet(out PSXPixelizationVolume psx);
+            psx.enabled.value = retro;
+            if(CameraMovement.instance != null)
+                CameraMovement.instance.SetAntialiasing(!retro);
+        }
     }
 }

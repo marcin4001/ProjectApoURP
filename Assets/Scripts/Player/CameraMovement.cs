@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class CameraMovement : MonoBehaviour
@@ -217,5 +218,14 @@ public class CameraMovement : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void SetAntialiasing(bool value)
+    {
+        UniversalAdditionalCameraData data = m_Camera.GetComponent<UniversalAdditionalCameraData>();
+        if (data != null)
+        {
+            data.antialiasing = value ? AntialiasingMode.TemporalAntiAliasing : AntialiasingMode.None;
+        }
     }
 }
