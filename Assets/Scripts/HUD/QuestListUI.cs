@@ -168,7 +168,7 @@ public class QuestListUI : MonoBehaviour
             //loc.Collect(quest.questTitle);
             //loc.Collect(quest.location);
             string locText = "Location";
-            questList += $"{loc.LoadTranslate(quest.questTitle)}\nNPC: {quest.owner}\n{loc.LoadTranslate(locText)}: {loc.LoadTranslate(quest.location)}\n{separator}\n";
+            questList += $"{loc.LoadTranslate(quest.questTitle)}\nNPC: {loc.LoadTranslate(quest.owner)}\n{loc.LoadTranslate(locText)}: {loc.LoadTranslate(quest.location)}\n{separator}\n";
         }
         questListText.text = questList;
     }
@@ -192,7 +192,7 @@ public class QuestListUI : MonoBehaviour
             //loc.Collect(quest.questTitle);
             //loc.Collect(quest.location);
             string locText = "Location";
-            questList += $"{loc.LoadTranslate(quest.questTitle)}\nNPC: {quest.owner}\n{loc.LoadTranslate(locText)}: {loc.LoadTranslate(quest.location)}\n{separator}\n";
+            questList += $"{loc.LoadTranslate(quest.questTitle)}\nNPC: {loc.LoadTranslate(quest.owner)}\n{loc.LoadTranslate(locText)}: {loc.LoadTranslate(quest.location)}\n{separator}\n";
         }
         questListText.text = questList;
     }

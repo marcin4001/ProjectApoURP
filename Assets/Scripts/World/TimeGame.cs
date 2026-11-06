@@ -82,4 +82,11 @@ public class TimeGame : MonoBehaviour
     {
         return currentTime;
     }
+
+    public bool IsNight()
+    {
+        if (GameParam.instance != null)
+            currentTime = GameParam.instance.currentTime;
+        return currentTime < (sunriseTime + 0.5f) || currentTime >= (sunsetTime - 0.5f);
+    }
 }
