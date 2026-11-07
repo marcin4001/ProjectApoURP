@@ -34,6 +34,8 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fullscreenTitle;
     [SerializeField] private TextMeshProUGUI musicVolTitle;
     [SerializeField] private TextMeshProUGUI sfxVolTitle;
+    [SerializeField] private TextMeshProUGUI vsyncTitle;
+    [SerializeField] private TextMeshProUGUI retroTitle;
     [SerializeField] private TextMeshProUGUI applyTitle;
     private Volume volume;
     private LocalizationCollector loc;
@@ -240,11 +242,15 @@ public class SettingsUI : MonoBehaviour
         string musicT = "MUSIC VOLUME";
         string sfxT = "SFX VOLUME";
         string apply = "APPLY";
+        string vsyncT = "VSync";
+        string retroT = "Retro filter";
         resolutionTitle.text = loc.LoadTranslate(resT);
         fullscreenTitle.text = loc.LoadTranslate(fullscreenT);
         musicVolTitle.text = loc.LoadTranslate(musicT);
         sfxVolTitle.text = loc.LoadTranslate(sfxT);
         applyTitle.text = loc.LoadTranslate(apply);
+        retroTitle.text = loc.LoadTranslate(retroT);
+        vsyncTitle.text = loc.LoadTranslate(vsyncT);
     }
 
     private void SetRetroFX()

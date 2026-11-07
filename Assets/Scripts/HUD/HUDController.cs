@@ -575,7 +575,7 @@ public class HUDController : MonoBehaviour
             return;
 
         consoleLogs.Add(log);
-        loc.Collect(log);
+        //loc.Collect(log);
 
         List<string> displayedLogs;
         if (consoleLogs.Count > 7)

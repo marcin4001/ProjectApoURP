@@ -101,6 +101,7 @@ public class CabinetUI : MonoBehaviour
         slotsEnemy = items;
         string takeAllT = "TAKE ALL";
         takeAllText.text = loc.LoadTranslate(takeAllT);
+        thomasNameText.text = loc.LoadTranslate("Thomas");
     }
 
     private void TakeAllByKey(InputAction.CallbackContext ctx)

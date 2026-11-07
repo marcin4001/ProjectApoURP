@@ -15,7 +15,7 @@ public class DialogueTagObj : MonoBehaviour
         loc = new LocalizationCollector();
         textRect = GetComponent<RectTransform>();
         headPos = _headPos;
-        loc.Collect(text);
+        //loc.Collect(text);
         GetComponent<TextMeshProUGUI>().text = loc.LoadTranslate(text);
         GetComponent<TextMeshProUGUI>().color = GameParam.instance.normalDialogueTag;
         if(angry)
